@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "WWProject",
+			"path": "."
+		},
+		{
+			"name": "frontend",
+			"path": "../../../Desktop/wwproject/frontend/frontend"
+		},
+		{
+			"name": "backend",
+			"path": "../../../Desktop/wwproject/frontend/backend"
+		}
+	],
+    "settings": {}
+}
