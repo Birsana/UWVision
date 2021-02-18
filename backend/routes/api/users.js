@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
-var router = require('express').Router();
+var express = require('express')
 var passport = require('passport');
 var User = mongoose.model('User');
 var auth = require('../auth');
 
+
+var router = express.Router();
 
 router.post('/users/login', function(req, res, next){
     if(!req.body.user.email){
@@ -45,6 +47,7 @@ router.post('/users', function(req, res, next){
       return res.json({user: user.toAuthJSON()});
     }).catch(next);
   });
+
 
 
 module.exports = router;
