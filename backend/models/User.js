@@ -32,10 +32,10 @@ UserSchema.methods.generateJWT = function() {
     exp.setDate(today.getDate() + 120);
 
     return jwt.sign({
-        id = this._id,
-        username = this._username,
+        id: this._id,
+        username: this.username,
         exp: parseInt(exp.getTime() / 1000),
-    }, secret);
+      }, secret);
 };
 
 UserSchema.methods.toAuthJSON = function() {

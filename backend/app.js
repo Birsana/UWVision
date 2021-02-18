@@ -21,8 +21,14 @@ require('./config/passport');
 app.use(require('./routes'));
 
 function testMongoose(){
-   
+   //ADD STUFF HERE
 }
+
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
 
 
@@ -31,10 +37,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', testMongoose);
 
-
-app.get('/', (req, res) => {
-    res.send('hello');
-})
 
 
 app.listen(5000);
