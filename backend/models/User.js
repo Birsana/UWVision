@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var secret = require('config').secret; //might need to change when paths change
+var secret = require('../config').secret; //might need to change when paths change
 
 var UserSchema = new mongoose.Schema({
     username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]$/, 'is invalid'], index: true},
