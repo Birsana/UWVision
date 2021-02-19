@@ -28,13 +28,14 @@ router.post('/users/login', function(req, res, next){
     })(req, res, next);
   });
 
-router.get('/user', auth.required, function(req, res, next){
+  router.get('/user', auth.required, function(req, res, next){
+      console.log(req.payload.id);
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
   
       return res.json({user: user.toAuthJSON()});
     }).catch(next);
-});
+  });
 
 router.post('/users', function(req, res, next){
     var user = new User();

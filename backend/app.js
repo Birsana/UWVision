@@ -26,6 +26,7 @@ function testMongoose(){
    //ADD STUFF HERE
 }
 
+//this error stuff wasnt working, not needed now, but fix later
 // app.use(function(req, res, next) {
 //     var err = new Error('Not Found');
 //     err.status = 404;
