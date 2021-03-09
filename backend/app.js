@@ -15,6 +15,7 @@ require('./config/passport');
 const app = express();
 
 var userRoutes = require('./routes/api/users');
+var companyRoutes = require('./routes/api/companies');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -35,6 +36,7 @@ function testMongoose(){
 // });
 
 app.use('/auth', userRoutes);
+app.use('/data', companyRoutes);
 
 
 
@@ -52,9 +54,9 @@ const facebook = new Company({company_name: "Facebook"});
 
 //     console.log(companies);
 // });
-Company.find().lean().exec(function (err, companies) {
-    console.log(JSON.stringify(companies));
-});
+// Company.find().lean().exec(function (err, companies) {
+//     console.log(JSON.stringify(companies));
+// });
 
 var server = app.listen(5000, function(){
     console.log('Listening on port ' + server.address().port);

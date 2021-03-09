@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var CompanySchema = new mongoose.Schema({
-  company_name: String
+  company_name: String,
+  added_by: String
 });
 
 

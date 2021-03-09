@@ -6,6 +6,18 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import companyData from './junkSearch.json';
 
+
+//GET COMPANY DATA FOR SEARCH BAR
+// async function getData(){
+//     try {
+//       const responseData = await axios.get('http://localhost:5000/data/companyData');
+//       console.log(responseData);  
+//     }
+//     catch (error) {
+//       console.log('error: ' + error);
+//     }
+//   }
+
 // Maps placeholder data for companies currently
 const companyMap = companyData.map(
     ({company_name}) => {
