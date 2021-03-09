@@ -1,13 +1,39 @@
 var mongoose = require('mongoose');
 var express = require('express')
 var passport = require('passport');
+var jwt = require('jsonwebtoken');
 var User = mongoose.model('User');
 var auth = require('../auth');
+const nodemailer = require('nodemailer')
+
+
+var secret = require('../../config').secret; 
 
 
 var router = express.Router();
 
-router.post('/users/login', function(req, res, next){
+const transport = nodemailer.createTransport({ //for emailer
+    service: "Gmail",
+    auth: {
+      user: "testwwaterloovision@gmail.com",
+      pass: "Andre_Cyrus123"
+    },
+  });
+
+sendConfirmationEmail = (username, email, confirmationCode) => { //sending the email
+    console.log("Sending email");
+    transport.sendMail({
+    to: email,
+    subject: "Please confirm your account",
+    html: `<h1>Email Confirmation</h1>
+        <h2>Hello ${username}</h2>
+        <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
+        <a href=http://localhost:5000/auth/confirm/${confirmationCode}> Click here</a>
+        </div>`,
+  }).catch(err => console.log(err));
+};
+
+router.post('/users/login', function(req, res, next){ //login
     if(!req.body.user.email){
       return res.status(422).json({errors: {email: "can't be blank"}});
     }
@@ -20,6 +46,9 @@ router.post('/users/login', function(req, res, next){
       if(err){ return next(err); }
   
       if(user){
+        if(!user.confirmed){ //check if they confirmed email
+            return res.status(422).json({errors: {email: "you must confirm your email"}});
+        }
         user.token = user.generateJWT();
         return res.json({user: user.toAuthJSON()});
       } else {
@@ -28,7 +57,7 @@ router.post('/users/login', function(req, res, next){
     })(req, res, next);
   });
 
-  router.get('/user', auth.required, function(req, res, next){
+  router.get('/user', auth.required, function(req, res, next){ //gets token methinks
       console.log(req.payload.id);
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
@@ -37,17 +66,44 @@ router.post('/users/login', function(req, res, next){
     }).catch(next);
   });
 
-router.post('/users', function(req, res, next){
+router.post('/users', function(req, res, next){ //signup
     var user = new User();
   
     user.username = req.body.user.username;
     user.email = req.body.user.email;
     user.setPassword(req.body.user.password);
+    user.confirmationCode = jwt.sign({email: req.body.user.email}, secret);
   
     user.save().then(function(){
+    sendConfirmationEmail(
+            user.username,
+            user.email,
+            user.confirmationCode
+    );
       return res.json({user: user.toAuthJSON()});
     }).catch(next);
   });
+
+router.get('/confirm/:confirmationCode', async (req, res) => { //confirmed their email
+    User.findOne({
+        confirmationCode: req.params.confirmationCode,
+      })
+        .then((user) => {
+          if (!user) {
+            return res.status(404).send({ message: "User Not found." });
+          }
+    
+          user.confirmed = true;
+          console.log("Confirmed!")
+          user.save((err) => {
+            if (err) {
+              res.status(500).send({ message: err });
+              return;
+            }
+          });
+        })
+        .catch((e) => console.log("error", e));
+});
 
 
 

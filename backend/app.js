@@ -9,6 +9,7 @@ const passport = require('passport');
 const errorhandler = require('errorhandler');
 
 require('./models/User');
+require('./models/Company');
 require('./config/passport');
 
 const app = express();
@@ -37,12 +38,23 @@ app.use('/auth', userRoutes);
 
 
 
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', testMongoose);
 
+var Company = mongoose.model('Company');
+const apple = new Company({company_name: "Apple"});
+const facebook = new Company({company_name: "Facebook"});
 
+// Company.find({}, function(err, companies) {
+//     if (err) throw err;
+
+//     console.log(companies);
+// });
+Company.find().lean().exec(function (err, companies) {
+    console.log(JSON.stringify(companies));
+});
 
 var server = app.listen(5000, function(){
     console.log('Listening on port ' + server.address().port);
