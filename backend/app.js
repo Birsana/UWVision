@@ -24,9 +24,6 @@ app.use(cors())
 
 app.use(require('./routes'));
 
-function testMongoose(){
-   //ADD STUFF HERE
-}
 
 //this error stuff wasnt working, not needed now, but fix later
 // app.use(function(req, res, next) {
@@ -43,7 +40,7 @@ app.use('/data', companyRoutes);
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', testMongoose);
+// db.once('open', testMongoose);
 
 var Company = mongoose.model('Company');
 const apple = new Company({company_name: "Apple"});

@@ -12,5 +12,14 @@ router.get('/companyData', function(req, res){
     });
 });
 
+router.post('/addCompany', function(req, res){
+    Company.create({ company_name: req.body.company_name, added_by: req.body.user}, function (err, small) {
+        if (err) return handleError(err);
+        console.log("saved");
+      });
+      
+});
+
+
 
 module.exports = router;

@@ -6,9 +6,15 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var secret = require('../config').secret; //might need to change when paths change
 
+function validator (val) {
+    return val.includes("@uwaterloo.ca");
+  }
+
+const emailValidator = [validator, 'Your email must be a @uwaterloo.ca email']
+
 var UserSchema = new mongoose.Schema({
-    username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
-    email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
+    username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], $regex:'@uwaterloo.edu', index: true},
+    email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true, validate: emailValidator},
     image: String,
     hash: String,
     salt: String,
