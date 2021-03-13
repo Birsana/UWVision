@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var express = require('express')
+var express = require('express');
+var axios = require('axios');
 
 
 var router = express.Router();
@@ -13,10 +14,17 @@ router.get('/companyData', function(req, res){
 });
 
 router.post('/addCompany', function(req, res){
-    Company.create({ company_name: req.body.company_name, added_by: req.body.user}, function (err, small) {
-        if (err) return handleError(err);
-        console.log("saved");
-      });
+    // Company.create({ company_name: req.body.company_name, added_by: req.body.user}, function (err, small) {
+    //     if (err) return handleError(err);
+    //     console.log("saved");
+    //   });
+        try {
+      const responseData = await axios.get('http://localhost:5000/data/companyData');
+      console.log(responseData);  
+    }
+    catch (error) {
+      console.log('error: ' + error);
+    }
       
 });
 

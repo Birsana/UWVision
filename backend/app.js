@@ -17,9 +17,9 @@ const app = express();
 var userRoutes = require('./routes/api/users');
 var companyRoutes = require('./routes/api/companies');
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 
 app.use(require('./routes'));

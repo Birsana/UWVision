@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
-var express = require('express')
+var express = require('express');
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
 var User = mongoose.model('User');
 var auth = require('../auth');
 const nodemailer = require('nodemailer')
+
 
 
 var secret = require('../../config').secret; 
@@ -57,11 +58,10 @@ router.post('/users/login', function(req, res, next){ //login
     })(req, res, next);
   });
 
-  router.get('/user', auth.required, function(req, res, next){ //gets token methinks
+  router.get('/user', auth.required, function(req, res, next){ //pass token get user
       console.log(req.payload.id);
     User.findById(req.payload.id).then(function(user){
-      if(!user){ return res.sendStatus(401); }
-  
+      if(!user){ return res.sendStatus(401); } 
       return res.json({user: user.toAuthJSON()});
     }).catch(next);
   });
@@ -104,7 +104,5 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //confirmed their
         })
         .catch((e) => console.log("error", e));
 });
-
-
 
 module.exports = router;
