@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import Select, { components } from 'react-select';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+//import axios from 'axios';
 import companyData from './junkSearch.json';
 
 
@@ -120,7 +121,12 @@ class SearchBar extends Component {
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
 
-    // TODO: Add code to handle what happens when user selects the search option
+    // Redirects the router to the selected company's page
+    const company = selectedOption.label;
+    this.props.history.push("/company/" + company);
+
+    //TODO: (Will need the search bar present even on company pages in case users want to search for another company)
+    // Most likely going to have to do a history.replace on the router to ensure it goes to the correct URL
   };
 
   render() {
@@ -143,4 +149,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;  
+export default withRouter(SearchBar);  
