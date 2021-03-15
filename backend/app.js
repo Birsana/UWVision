@@ -20,6 +20,10 @@ var companyRoutes = require('./routes/api/companies');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+// app.use((req, res, next) => {
+//     const authToken = req.cookies['AuthToken']; //add to header
+//     next();
+// })
 
 
 app.use(require('./routes'));
