@@ -51,6 +51,7 @@ router.post('/users/login', function(req, res, next){ //login
             return res.status(422).json({errors: {email: "you must confirm your email"}});
         }
         user.token = user.generateJWT();
+        res.cookie('AuthToken', user.token);
         return res.json({user: user.toAuthJSON()});
       } else {
         return res.status(422).json(info);
