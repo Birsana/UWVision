@@ -10,6 +10,7 @@ const errorhandler = require('errorhandler');
 
 require('./models/User');
 require('./models/Company');
+require('./models/Job');
 require('./config/passport');
 
 const app = express();

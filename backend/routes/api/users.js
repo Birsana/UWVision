@@ -60,7 +60,6 @@ router.post('/users/login', function(req, res, next){ //login
   });
 
   router.get('/user', auth.required, function(req, res, next){ //pass token get user
-      console.log(req.payload.id);
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); } 
       return res.json({user: user.toAuthJSON()});
