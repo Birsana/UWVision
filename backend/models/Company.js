@@ -19,5 +19,9 @@ CompanySchema.methods.removeJob = function(id){
     return this.save();
 };
 
+// Static Method - isn't tied to any instance of CompanySchema
+CompanySchema.statics.findCompanyByName = function(name) {
+  return this.find({company_name: name});
+}
 
 mongoose.model('Company', CompanySchema);

@@ -29,6 +29,17 @@ router.post('/addCompany', auth.required, function(req, res, next){
     }).catch(next);
 });
 
+router.get('/findCompanyData/:companyname', async function(req, res) {
+  var companyName = req.params.companyname
+  var data = await Company.findCompanyByName(companyName)
+  
+  if(!data.length) {
+    return res.sendStatus(404); // Error Code 404 to mark that the company has not been found
+  } 
+
+  return res.json(data);
+});
+
 router.post('/:companyname/addjob', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
