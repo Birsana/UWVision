@@ -1,17 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
-const companyPage = (props) => {
+import AddCompanyButton from 'components/AddCompanyButton/AddCompanyButton';
+
+
+const CompanyPage = (props) => {
   const company = props.match.params.id;
+  const [companyData, setCompanyData] = useState({})
+  const [isCompanyValid, setIsCompanyValid] = useState(null);
 
-  //TODO: Need some verification with backend here 
-  // If the given company does not exist in the database, we give the user a prompt
-  // that the company does not currently exist: would they like to add it to our database
-  
-  return (
-    <div>
-      <h1> {company} </h1> 
-    </div>
-  );
+  useEffect(() => {
+    const request = `http://localhost:5000/data/findCompanyData/${company}`;
+    axios.get(request)
+      .then((response) => {
+        setCompanyData(response.data)
+        setIsCompanyValid(true);
+      })
+      .catch((error) => {
+        setIsCompanyValid(false);
+      })
+  }, [company]);
+ 
+  const renderView = (doesCompanyExist) => {
+    //TODO: Refactor all the returns to use sub-components
+    switch (doesCompanyExist) {
+      case true:
+        return (
+          <div>
+            <h1>{company}</h1>
+          </div>
+        );
+
+      case false:
+        return (
+          <div>
+            <h1>The requested company "{company}" does not exist</h1>
+            <p>Would you like to add it to the database?</p>
+            <AddCompanyButton />
+          </div>
+        );
+
+      default:
+        return (
+          <div>
+            <p> Loading... </p>
+          </div>
+        );
+    }
+  };
+
+  return renderView(isCompanyValid);
 };
 
-export default companyPage;
+export default CompanyPage;
