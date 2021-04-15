@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var express = require('express');
-var axios = require('axios');
 var auth = require('../auth');
 
 
@@ -50,8 +49,6 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       job.company = companyName;
   
       return job.save().then(function(){
-        console.log("the company is");
-        console.log(companyName);
         Company.find( {company_name: companyName} ).then(function(company){
             company[0].addJob(job).then(function(){
                 return res.send("job added");

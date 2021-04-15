@@ -57,5 +57,6 @@ UserSchema.methods.toAuthJSON = function() {
         image: this.image
     };
 };
+
   
 mongoose.model('User', UserSchema);

@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const errorhandler = require('errorhandler');
@@ -11,20 +12,24 @@ const errorhandler = require('errorhandler');
 require('./models/User');
 require('./models/Company');
 require('./models/Job');
+require('./models/Thread');
 require('./config/passport');
 
 const app = express();
 
+// To parse cookies from the HTTP Request
+app.use(cookieParser());
 var userRoutes = require('./routes/api/users');
 var companyRoutes = require('./routes/api/companies');
+var threadRoutes = require('./routes/api/threads');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-// app.use((req, res, next) => {
-//     const authToken = req.cookies['AuthToken']; //add to header
-//     next();
-// })
+app.use((req, res, next) => {
+    const authToken = req.cookies['AuthToken']; //add to header
+    next();
+})
 
 
 app.use(require('./routes'));
@@ -39,6 +44,7 @@ app.use(require('./routes'));
 
 app.use('/auth', userRoutes);
 app.use('/data', companyRoutes);
+app.use('/thread', threadRoutes);
 
 
 

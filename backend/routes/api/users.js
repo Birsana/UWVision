@@ -27,7 +27,7 @@ sendConfirmationEmail = (username, email, confirmationCode) => { //sending the e
     to: email,
     subject: "Please confirm your account",
     html: `<h1>Email Confirmation</h1>
-        <h2>Hello ${username}</h2>
+        <h2>Hello ${username},</h2>
         <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
         <a href=http://localhost:5000/auth/confirm/${confirmationCode}> Click here</a>
         </div>`,
@@ -51,7 +51,7 @@ router.post('/users/login', function(req, res, next){ //login
             return res.status(422).json({errors: {email: "you must confirm your email"}});
         }
         user.token = user.generateJWT();
-        res.cookie('AuthToken', user.token);
+        // res.cookie('AuthToken', user.token); prob not needed
         return res.json({user: user.toAuthJSON()});
       } else {
         return res.status(422).json(info);
