@@ -17,8 +17,10 @@ router.post('/:companyname/:job/threads', auth.required, function(req, res, next
       var thread = new Thread(req.body.thread);
       thread.job = req.job;
       thread.company = req.params.companyname;
-      thread.author = user;
+      thread.author = user.username;
      
+      console.log("username is ");
+      console.log(thread.author);
   
       return thread.save().then(function(){
         Job.find( {job_name: req.params.job} ).then(function(job){
@@ -33,31 +35,19 @@ router.post('/:companyname/:job/threads', auth.required, function(req, res, next
     }).catch(next);
 });
 
-  router.get('/:companyname/:job/threads', auth.optional, function(req, res, next){
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then(function(job){
-        console.log(job);
-        console.log(job[0].threads);
-        res.send("threads");
+  router.get('/:companyname/:job/threads', auth.optional, async function(req, res, next){
+    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+        console.log(job[0]);
+        
+        var retArr = [];
+        for(var i = 0; i < job[0].threads.length; ++i){
+            await Thread.findById(job[0].threads[i]).then(function(thread){
+            retArr.push(thread.toJSONFor());
+        }).catch(next);
+        }
+        console.log(retArr);
+        res.send(retArr);
     }).catch(next);
-
-
-    // Promise.resolve(req.payload ? User.findById(req.payload.id) : null).then(function(user){
-    //   return req.job.populate({
-    //     path: 'threads',
-    //     populate: {
-    //       path: 'author'
-    //     },
-    //     options: {
-    //       sort: {
-    //         createdAt: 'desc'
-    //       }
-    //     }
-    //   }).execPopulate().then(function(job) {
-    //     return res.json({comments: req.job.threads.map(function(thread){
-    //       return thread.toJSONFor(user);
-    //     })});
-    //   });
-    // }).catch(next);
   });
 
 module.exports = router;
