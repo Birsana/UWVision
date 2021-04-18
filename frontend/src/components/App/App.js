@@ -6,6 +6,7 @@ import HomePage from 'pages/home';
 import CompanyPage from 'pages/company';
 import InvalidPage from 'pages/invalid';
 import AddCompanyPage from 'pages/addCompany';
+import LogInPage from 'pages/login';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
 
           {/* Add Company Page */}
           <Route path="/addCompany" component={AddCompanyPage} />
+
+          {/* Log-In Page */}
+          <Route path="/login" component={LogInPage} />
 
           {/* 404 Page (if provided an unknown URL */}     
           <Route component={InvalidPage} />
