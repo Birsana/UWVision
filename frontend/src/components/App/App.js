@@ -1,5 +1,7 @@
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
+import Header from 'components/Header/Header';
 
 // Page Imports:
 import HomePage from 'pages/home';
@@ -11,9 +13,10 @@ import LogInPage from 'pages/login';
 function App() {
   return (
     <BrowserRouter>
+    <CssBaseline />
+    <Header />
       <div className="WaterlooVision">
         <Switch>
-
           {/* Route to home page*/}
           <Route exact path="/" component ={HomePage} />
 
@@ -31,7 +34,6 @@ function App() {
 
           {/* 404 Page (if provided an unknown URL */}     
           <Route component={InvalidPage} />
-          
         </Switch>
       </div>
     </BrowserRouter>

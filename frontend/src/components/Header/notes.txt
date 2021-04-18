@@ -1,3 +1,0 @@
-The header should persist throughtout the website, however should have 2 states:
-    - If on homepage, no search bar should be in the header
-    - Otherwise the search bar should appear in the header

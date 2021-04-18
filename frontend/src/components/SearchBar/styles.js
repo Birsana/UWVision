@@ -6,9 +6,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // Search Bar Component Styles:
 // TODO: Responsive Designs for Mobile and Tablet
 export const StyledSearch = styled(Select)`
-  margin: 50px;
-  width: 700px;
-
   .select__menu-list::-webkit-scrollbar {
     width: 5px;
     height: 0px;
@@ -35,19 +32,19 @@ export const SearchBarStyles = {
     control: (base, state) => ({
       ...base,
       fontFamily: 'Roboto Slab',
-      fontSize: 18,
+      fontSize: 14,
       //border: state.isFocused ? 'solid 1px' : 0,
       //boxShadow: state.isFocused ? 1 : 0,
       cursor: 'text',
-      borderRadius: 10,
-      border: 'solid 1px',
+      borderRadius: 4,
+      border: 'solid 1px'
     }),
   
     option: (styles, { isFocused }) => {
       return {
         ...styles,
         fontFamily: 'Roboto Slab',
-        fontSize: 16,
+        fontSize: 14,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
@@ -63,7 +60,7 @@ export const SearchBarStyles = {
   
     menu: styles => ({
       ...styles,
-      marginTop: 10,
+      marginTop: 5,
       boxShadow: 'none',
       borderRadius: 0,
     }),

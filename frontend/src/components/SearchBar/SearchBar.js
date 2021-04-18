@@ -51,7 +51,7 @@ const SearchBar = (props) => {
         value={selectedCompany} // Allows for selected option to appear in search bar, after clicking it
         options={companyData} // Uses the map to display the given options
         onChange={handleChange}
-        placeholder="Search for a company..."
+        placeholder="Search for a company"
         openMenuOnClick={false} // Prevents option to reveal all options when user clicks the search bar
         classNamePrefix="select" // Since it is part of the "Select" component
         styles={SearchBarStyles} // Utilizes custom style given above
