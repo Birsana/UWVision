@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from 'components/Header/Header';
 
 // Page Imports:
-import HomePage from 'pages/home';
+import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company';
 import InvalidPage from 'pages/invalid';
 import AddCompanyPage from 'pages/addCompany';
@@ -18,7 +18,7 @@ function App() {
       <div className="WaterlooVision">
         <Switch>
           {/* Route to home page*/}
-          <Route exact path="/" component ={HomePage} />
+          <Route exact path="/" component={LandingPage} />
 
           {/* If user enters company URL with no given company, redirect to home page*/}
           <Redirect from="/company" to="/" exact />

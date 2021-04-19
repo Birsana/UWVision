@@ -56,6 +56,7 @@ const SearchBar = (props) => {
         classNamePrefix="select" // Since it is part of the "Select" component
         styles={SearchBarStyles} // Utilizes custom style given above
         components={{ DropdownIndicator }}
+        //TODO: noOptionsMessage={() => "This company does not currently exist in the database"}
       />
     </div>
   );
