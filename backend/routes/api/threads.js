@@ -9,6 +9,7 @@ var Company = mongoose.model('Company');
 var User = mongoose.model('User');
 var Job = mongoose.model('Job');
 var Thread = mongoose.model('Thread');
+var Reply = mongoose.model('Reply')
 
 router.post('/:companyname/:job/threads', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
@@ -49,5 +50,38 @@ router.post('/:companyname/:job/threads', auth.required, function(req, res, next
         res.send(retArr);
     }).catch(next);
   });
+
+router.post('/:thread/replies', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+      if(!user){ return res.sendStatus(401); }
+  
+      var reply = new Reply(req.body.reply);
+      reply.author = user;
+      Thread.find( {slug: req.params.thread} ).then(function(thread){
+          console.log(thread);
+        reply.thread = thread[0];
+        console.log(thread[0]);
+        thread[0].replies.push(reply);
+        return reply.save().then(function() {
+            console.log("saved");
+            res.send("reply added")
+          });
+        }).catch(next);
+    }).catch(next);
+});
+
+router.get('/:thread/replies', auth.required, function(req, res, next) {
+    Thread.find( {slug: req.params.thread} ).then( async function(thread){
+        var retArr = [];
+        console.log(thread);
+        for(var i = 0; i < thread[0].replies.length; ++i){
+            await Reply.findById(thread[0].threads[i]).then(function(reply){
+            retArr.push(reply.toJSONFor());
+        }).catch(next);
+        }
+        console.log(retArr);
+        res.send(retArr);
+    }).catch(next);
+});
 
 module.exports = router;

@@ -13,6 +13,7 @@ require('./models/User');
 require('./models/Company');
 require('./models/Job');
 require('./models/Thread');
+require('./models/Reply');
 require('./config/passport');
 
 const app = express();
@@ -26,10 +27,6 @@ var threadRoutes = require('./routes/api/threads');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use((req, res, next) => {
-    const authToken = req.cookies['AuthToken']; //add to header
-    next();
-})
 
 
 app.use(require('./routes'));

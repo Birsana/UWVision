@@ -7,6 +7,7 @@ var ThreadSchema = new mongoose.Schema({
   author: String,
   job: String,
   company: String,
+  replies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reply' }],
   slug: {type: String, lowercase: true, unique: true}
 }, {timestamps: true});
 
