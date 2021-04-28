@@ -9,12 +9,12 @@ import './styles.css';
 
 const Home = () => {
   return (
-    <div class="landing">
+    <div className="landing">
       <h1>{landingPageCopy.h1Text}</h1>
       <h2>{landingPageCopy.h2Text}</h2>
       
       <div style={{display: "flex"}}>
-        <div class="searchbar">
+        <div className="searchbar">
         <SearchBar />
         </div>
       <AddCompanyButton />
