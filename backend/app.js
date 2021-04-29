@@ -14,6 +14,7 @@ require('./models/Company');
 require('./models/Job');
 require('./models/Thread');
 require('./models/Reply');
+require('./models/Question');
 require('./config/passport');
 
 const app = express();

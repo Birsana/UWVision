@@ -5,6 +5,7 @@ var JobSchema = new mongoose.Schema({
     company: String,
     added_by: String,
     threads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
+    questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
 });
 
 mongoose.model('Job', JobSchema);

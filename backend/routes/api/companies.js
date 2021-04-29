@@ -8,6 +8,7 @@ var Company = mongoose.model('Company');
 var User = mongoose.model('User');
 var Job = mongoose.model('Job');
 
+//get all the companies
 router.get('/companyData', function(req, res){
     Company.find({}, function(err, companies) {
     if (err) throw err;
@@ -15,6 +16,7 @@ router.get('/companyData', function(req, res){
     });
 });
 
+//add company
 router.post('/addCompany', auth.required, function(req, res, next){
     User.findById(req.payload.id).then(function(user){
         if(!user){
@@ -28,6 +30,7 @@ router.post('/addCompany', auth.required, function(req, res, next){
     }).catch(next);
 });
 
+//get specific company data
 router.get('/findCompanyData/:companyname', async function(req, res) {
   var companyName = req.params.companyname
   var data = await Company.findCompanyByName(companyName)
@@ -39,6 +42,7 @@ router.get('/findCompanyData/:companyname', async function(req, res) {
   return res.json(data);
 });
 
+//add job
 router.post('/:companyname/addjob', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
