@@ -7,7 +7,6 @@ import Header from 'components/Header/Header';
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company';
 import InvalidPage from 'pages/invalid';
-import AddCompanyPage from 'pages/addCompany';
 import LogInPage from 'pages/login';
 
 function App() {
@@ -25,9 +24,6 @@ function App() {
 
           {/* Route to generic company page template - will populate data based on company*/}
           <Route path="/company/:id" component={CompanyPage} />
-
-          {/* Add Company Page */}
-          <Route path="/addCompany" component={AddCompanyPage} />
 
           {/* Log-In Page */}
           <Route path="/login" component={LogInPage} />
