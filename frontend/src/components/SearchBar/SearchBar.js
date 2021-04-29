@@ -23,26 +23,26 @@ const SearchBar = (props) => {
     // TODO: Error handling for get request
     const response = (await axios.get(companyDataURL)).data;
 
-    const listOfCompanies = response.map(
-      ({company_name}) => {
-        return {
-          label: company_name,
-          value: company_name
-        }
-      }
-    );
+    const sortedCompanies = [];
+    response.forEach(element => {
+      sortedCompanies.push(element.company_name);
+    });
+    sortedCompanies.sort();
+
+    const listOfCompanies = [];
+    sortedCompanies.forEach(company => {
+      listOfCompanies.push({label: company, value: company});
+    })
 
     setCompanyData(listOfCompanies);
   };
 
   const handleChange = (selection) => {
-    setSelectedCompany(selection.label);
+    setSelectedCompany(selection.value);
 
     // Redirects the router to the selected company's page
-    const company = selection.label;
+    const company = selection.value;
     props.history.push("/company/" + company);
-
-    //TODO: Will need the search bar present even on company pages in case users want to search for another company
   };
 
   return (
