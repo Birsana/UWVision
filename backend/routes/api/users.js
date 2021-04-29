@@ -43,20 +43,28 @@ router.post('/users/login', function(req, res, next){ //login
       return res.status(422).json({errors: {password: "can't be blank"}});
     }
 
-    passport.authenticate('local', {session: false}, function(err, user, info){
-      if(err){ return next(err); }
-  
-      if(user){
-        if(!user.confirmed){ //check if they confirmed email
-            return res.status(422).json({errors: {email: "you must confirm your email"}});
+    User.find( {email: req.body.user.email}, function (err, results) {
+        if (err) { return res.status(422).json({errors: {password: "can't be blank"}});
         }
-        user.token = user.generateJWT();
-        // res.cookie('AuthToken', user.token); prob not needed
-        return res.json({user: user.toAuthJSON()});
-      } else {
-        return res.status(422).json(info);
-      }
-    })(req, res, next);
+        if (!results.length) {
+            return res.status(422).json({errors: {email: "invalid email"}});
+        } else {
+            passport.authenticate('local', {session: false}, function(err, user, info){
+                if(err){ return next(err); }
+            
+                if(user){
+                  if(!user.confirmed){ //check if they confirmed email
+                      return res.status(422).json({errors: {email: "you must confirm your email"}});
+                  }
+                  user.token = user.generateJWT();
+                  // res.cookie('AuthToken', user.token); prob not needed
+                  return res.json({user: user.toAuthJSON()});
+                } else {
+                  return res.status(422).json({errors: {password: "invalid password"}});
+                }
+              })(req, res, next);
+        }
+    })
   });
 
   router.get('/user', auth.required, function(req, res, next){ //pass token get user
