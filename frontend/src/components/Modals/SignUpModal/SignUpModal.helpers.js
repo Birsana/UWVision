@@ -20,3 +20,9 @@ export const signUp = (username, email, password) => {
     },
   })
 };
+
+// GET Request to check if user has confirmed email
+export const isUserConfirmed = (username) => {
+  let isConfirmedURL = `http://localhost:5000/auth/isConfirmed/${username}`;
+  return axios.get(isConfirmedURL);
+}

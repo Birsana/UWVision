@@ -75,6 +75,7 @@ export const ModalText = styled.p`
 `;
 
 export const ModalButton = styled.button`
+  cursor: pointer;
   margin-left: 10px;
   margin-top: 15px;
   height: 35px;
@@ -96,7 +97,7 @@ export const ModalSignUpButton = ({ onClick }) => {
   return (
     <>
     <Divider />
-    <ModalText onClick={onClick}>New to WaterlooVision? <u>Sign Up!</u></ModalText>
+    <ModalText onClick={onClick}>New to WaterlooVision? <u style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
     </>
   )
 }
@@ -105,7 +106,7 @@ export const ModalLogInButton = ({ onClick }) => {
   return (
     <>
     <Divider />
-    <ModalText onClick={onClick}>Already have an account? <u>Log In!</u></ModalText>
+    <ModalText onClick={onClick}>Already have an account? <u style={{cursor: "pointer"}}>Log In!</u></ModalText>
     </>
   )
 }
@@ -146,6 +147,7 @@ export const FormErrorMessage = styled.div`
 export const FormSubmitButton = styled.input.attrs({
   type: "submit",
 })`
+  cursor: pointer;
   margin-left: 10px;
   margin-top: 15px;
   margin-bottom: 10px;
