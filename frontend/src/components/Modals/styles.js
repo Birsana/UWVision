@@ -92,6 +92,24 @@ export const ModalButton = styled.button`
   }
 `;
 
+export const ModalSignUpButton = ({ onClick }) => {
+  return (
+    <>
+    <Divider />
+    <ModalText onClick={onClick}>New to WaterlooVision? <u>Sign Up!</u></ModalText>
+    </>
+  )
+}
+
+export const ModalLogInButton = ({ onClick }) => {
+  return (
+    <>
+    <Divider />
+    <ModalText onClick={onClick}>Already have an account? <u>Log In!</u></ModalText>
+    </>
+  )
+}
+
 export const FormInput = styled.input`
   margin-left: 10px;
   margin-top: 10px;
@@ -130,6 +148,7 @@ export const FormSubmitButton = styled.input.attrs({
 })`
   margin-left: 10px;
   margin-top: 15px;
+  margin-bottom: 10px;
   height: 35px;
   width: 90%;
   border: none;

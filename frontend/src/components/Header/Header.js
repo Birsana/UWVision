@@ -10,17 +10,22 @@ import SearchBar from "components/SearchBar/SearchBar";
 import { useStyles } from "./styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+import Modal from 'components/Modals/Modal';
+
 const Header = (props) => {
   //TODO: Connect to redux to pull logged-in state
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [showLogInModal, setShowLogInModal] = useState(false);
+
   const logInAction = () => {
     //TODO: Log-in modal (with signup)
+    setShowLogInModal(true);
     setLoggedIn(true);
   };
 
   const logOutAction = () => {
-    //TODO: Log-out action
+    //TODO: Handle log-out action + send to Redux
     setLoggedIn(false);
   };
 
@@ -29,6 +34,7 @@ const Header = (props) => {
   const displayTypography = useMediaQuery("(min-width: 523px)");
 
   return (
+    <>
     <div className={styles.root}>
       <AppBar position="static" className={styles.header}>
         <Toolbar>
@@ -71,6 +77,9 @@ const Header = (props) => {
         </Toolbar>
       </AppBar>
     </div>
+
+    {showLogInModal && <Modal initialModal={"Log In"} onClose={() => setShowLogInModal(false)} /> }
+    </>
   );
 };
 
