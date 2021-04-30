@@ -113,4 +113,10 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //confirmed their
         .catch((e) => console.log("error", e));
 });
 
+router.get("/isConfirmed/:username", function (req, res) {
+  User.findOne({ username: req.params.username }).then((user) => {
+    return res.send({status: user.confirmed})
+  });
+});
+
 module.exports = router;
