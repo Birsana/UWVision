@@ -6,6 +6,8 @@ import {
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
+import {signIn} from './LogInModal.helpers';
+
 
 const LogInModal = ({ changeModalState }) => {
   const [email, setEmail] = useState("");
@@ -54,7 +56,32 @@ const LogInModal = ({ changeModalState }) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-      console.log([email, password])
+      signIn(email, password).then(response => {
+          let userInfo = response.data.user;
+
+          /* TODO: Pass in the credentials into a Redux action that will:
+              1) Assign credentials to local storage
+              2) Populate redux states */
+
+          localStorage.setItem('username', userInfo.username)
+          localStorage.setItem('email', userInfo.email)
+          localStorage.setItem('token', userInfo.token)
+
+      }).catch((error) => {
+          let errorMessage = error.response.data.errors
+
+          if ('email' in errorMessage) {
+            let message = errorMessage.email;
+
+            if (message.includes("invalid email")) {
+              setEmailError("You have entered an invalid email.")
+            } else {
+              setEmailError("Please confirm your email first.")
+            }
+          } else if ('password' in errorMessage) {
+            setPasswordError("You have entered an invalid password.")
+          }
+      })      
     }
   };
 
