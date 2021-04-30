@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const errorhandler = require('errorhandler');
+
 
 require('./models/User');
 require('./models/Company');
@@ -16,6 +16,7 @@ require('./models/Thread');
 require('./models/Reply');
 require('./models/Question');
 require('./config/passport');
+
 
 const app = express();
 
@@ -27,13 +28,18 @@ var threadRoutes = require('./routes/api/threads');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const jsonErrorHandler = async (err, req, res, next) => {
+    res.status(500).send({ error: err });
+  }
+
 app.use(cors());
+
 
 
 app.use(require('./routes'));
 
 
-//this error stuff wasnt working, not needed now, but fix later
+// this error stuff wasnt working, not needed now, but fix later
 // app.use(function(req, res, next) {
 //     var err = new Error('Not Found');
 //     err.status = 404;
@@ -43,7 +49,7 @@ app.use(require('./routes'));
 app.use('/auth', userRoutes);
 app.use('/data', companyRoutes);
 app.use('/thread', threadRoutes);
-
+app.use(jsonErrorHandler);
 
 
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
