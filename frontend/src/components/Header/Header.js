@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -12,22 +12,17 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Modal from 'components/Modals/Modal';
 
-const Header = (props) => {
-  //TODO: Connect to redux to pull logged-in state
-  const [loggedIn, setLoggedIn] = useState(false);
+import {connect} from 'react-redux';
 
+const Header = (props) => {
+  const [loggedIn, setLoggedIn] = useState(props.isLoggedIn);
   const [showLogInModal, setShowLogInModal] = useState(false);
 
-  const logInAction = () => {
-    //TODO: Log-in modal (with signup)
-    setShowLogInModal(true);
-    setLoggedIn(true);
-  };
-
-  const logOutAction = () => {
-    //TODO: Handle log-out action + send to Redux
-    setLoggedIn(false);
-  };
+  // Sets logged in state of header component
+  useEffect(() => {
+    setLoggedIn(props.isLoggedIn);
+    setShowLogInModal(false);
+  }, [props.isLoggedIn])
 
   const styles = useStyles();
   const location = useLocation();
@@ -61,7 +56,7 @@ const Header = (props) => {
             <Button
               className={styles.buttons}
               color="inherit"
-              onClick={logOutAction}
+              onClick={() => props.dispatch({type: "LOGOUT"})}
             >
               Logout
             </Button>
@@ -69,7 +64,7 @@ const Header = (props) => {
             <Button
               className={styles.buttons}
               color="inherit"
-              onClick={logInAction}
+              onClick={() => setShowLogInModal(true)}
             >
               Login
             </Button>
@@ -78,9 +73,13 @@ const Header = (props) => {
       </AppBar>
     </div>
 
-    {showLogInModal && <Modal initialModal={"Log In"} onClose={() => setShowLogInModal(false)} /> }
+    {showLogInModal && !loggedIn && <Modal initialModal={"Log In"} onClose={() => setShowLogInModal(false)} /> }
     </>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+export default connect(mapStateToProps)(Header);

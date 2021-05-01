@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { NavLink } from "react-router-dom";
 import {
   ModalTitle,
@@ -9,10 +9,13 @@ import {
   FormErrorMessage,
 } from "../styles";
 import { doesCompanyAlreadyExist, addCompany } from "./AddCompanyModal.helpers";
+import {connect} from 'react-redux';
 
-//TODO: Need some verification with backend if user has been logged in
 
-const AddCompanyModal = ({ changeModalState }) => {
+const AddCompanyModal = (props) => {
+  const [isLoggedIn] = useState(props.isLoggedIn);
+  const [authToken] = useState(props.token);
+
   const [companyToAdd, setCompanyToAdd] = useState("");
   const [companyError, setCompanyError] = useState("");
   const [didSubmit, setDidSubmit] = useState(false);
@@ -36,11 +39,11 @@ const AddCompanyModal = ({ changeModalState }) => {
         // If the company being added already exists in the database - set an error explaining the situation
         if (result) {
           setCompanyError("This company already exists!");
-        } 
-        
+        }
+
         // Otherwise, we proceed to submit a new entry to the database
         else {
-          addCompany(companyToAdd);
+          addCompany(companyToAdd, authToken);
           setDidSubmit(true);
         }
       });
@@ -60,39 +63,54 @@ const AddCompanyModal = ({ changeModalState }) => {
   return (
     <>
       <ModalTitle title={"Add Company"} />
-      {!didSubmit ? (
-        <form onSubmit={handleSubmit}>
-          <FormInput
-            type="text"
-            name="companyName"
-            placeholder="Company Name"
-            onChange={onInputChange}
-            autoComplete="off"
-            value={companyToAdd}
-          />
-          {companyError && (
-            <FormErrorMessage>
-              <p>{companyError}</p>
-            </FormErrorMessage>
+
+      {isLoggedIn ? (
+        <>
+          {!didSubmit ? (
+            <form onSubmit={handleSubmit}>
+              <FormInput
+                type="text"
+                name="companyName"
+                placeholder="Company Name"
+                onChange={onInputChange}
+                autoComplete="off"
+                value={companyToAdd}
+              />
+              {companyError && (
+                <FormErrorMessage>
+                  <p>{companyError}</p>
+                </FormErrorMessage>
+              )}
+              <FormSubmitButton value="Add Company" />
+            </form>
+          ) : (
+            <>
+              <ModalText>
+                The company "<b>{companyToAdd}</b>" has been successfully added
+                to the database!
+              </ModalText>
+              <ModalText>
+                Would you like to start adding information for this company?
+              </ModalText>
+              <NavLink to={"/company/" + companyToAdd}>
+                <ModalButton>Get Started!</ModalButton>
+              </NavLink>
+            </>
           )}
-          <FormSubmitButton value="Add Company" />
-        </form>
+        </>
       ) : (
         <>
-          <ModalText>
-            The company "<b>{companyToAdd}</b>" has been successfully added to
-            the database!
-          </ModalText>
-          <ModalText>
-            Would you like to start adding information for this company?
-          </ModalText>
-          <NavLink to={"/company/" + companyToAdd}>
-            <ModalButton>Get Started!</ModalButton>
-          </NavLink>
+        <ModalText>In order to add a company, you must first be logged-in.</ModalText>
+        <ModalText>Please log-in and then try again!</ModalText>
         </>
       )}
     </>
   );
 };
 
-export default AddCompanyModal;
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn,
+  token: state.token
+});
+
+export default connect(mapStateToProps)(AddCompanyModal);

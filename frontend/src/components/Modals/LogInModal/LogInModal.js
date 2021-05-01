@@ -7,9 +7,10 @@ import {
   FormErrorMessage,
 } from "../styles";
 import {signIn} from './LogInModal.helpers';
+import {connect} from 'react-redux';
 
 
-const LogInModal = ({ changeModalState }) => {
+const LogInModal = (props) => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
@@ -57,16 +58,7 @@ const LogInModal = ({ changeModalState }) => {
 
     if (basicInputValidation()) {
       signIn(email, password).then(response => {
-          let userInfo = response.data.user;
-
-          /* TODO: Pass in the credentials into a Redux action that will:
-              1) Assign credentials to local storage
-              2) Populate redux states */
-
-          localStorage.setItem('username', userInfo.username)
-          localStorage.setItem('email', userInfo.email)
-          localStorage.setItem('token', userInfo.token)
-
+          props.dispatch({type: "LOGIN", userInfo: response.data.user})
       }).catch((error) => {
           let errorMessage = error.response.data.errors
 
@@ -115,9 +107,9 @@ const LogInModal = ({ changeModalState }) => {
         )}
         <FormSubmitButton value="Log In" />
       </form>
-      <ModalSignUpButton onClick={() => changeModalState("Sign Up")}/>
+      <ModalSignUpButton onClick={() => props.changeModalState("Sign Up")}/>
       </>
   )
 };
 
-export default LogInModal;
+export default connect()(LogInModal);

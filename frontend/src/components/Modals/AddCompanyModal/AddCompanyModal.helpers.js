@@ -15,10 +15,9 @@ export const doesCompanyAlreadyExist = (companyToAdd) => {
 }
 
 // POST Request to add new company
-export const addCompany = (companyToAdd) => {
+export const addCompany = (companyToAdd, token) => {
   let addURL = "http://localhost:5000/data/addCompany";
 
-  //TODO: Replace authorization token with user credentials
   axios({
     method: "post",
     url: addURL,
@@ -26,7 +25,7 @@ export const addCompany = (companyToAdd) => {
       company_name: companyToAdd,
     },
     headers: {
-      "Authorization": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODlmMGI4ZTZlZTdmNTdmMDE4Y2NiMSIsInVzZXJuYW1lIjoiY3lydXNnYW5kZXZpYSIsImV4cCI6MTYzMDAyMDc5MiwiaWF0IjoxNjE5NjUyNzkyfQ.4qOOLM8g6XZdRrekxua2wG4khFlwgw4spAEXFdbtKRo",
+      "Authorization": `Token ${token}`,
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
