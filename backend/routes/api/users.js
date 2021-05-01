@@ -35,16 +35,8 @@ sendConfirmationEmail = (username, email, confirmationCode) => { //sending the e
 };
 
 router.post('/users/login', function(req, res, next){ //login
-    if(!req.body.user.email){
-      return res.status(422).json({errors: {email: "can't be blank"}});
-    }
-  
-    if(!req.body.user.password){
-      return res.status(422).json({errors: {password: "can't be blank"}});
-    }
-
     User.find( {email: req.body.user.email}, function (err, results) {
-        if (err) { return res.status(422).json({errors: {password: "can't be blank"}});
+        if (err) { return res.status(422).json({errors: {error: "an error occured"}});
         }
         if (!results.length) {
             return res.status(422).json({errors: {email: "invalid email"}});
@@ -67,7 +59,7 @@ router.post('/users/login', function(req, res, next){ //login
     })
   });
 
-  router.get('/user', auth.required, function(req, res, next){ //pass token get user
+  router.get('/user', auth.required, function(req, res, next){ //pass token to get corresponding user
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); } 
       return res.json({user: user.toAuthJSON()});
@@ -92,7 +84,7 @@ router.post('/users', function(req, res, next){ //signup
     }).catch(next);
   });
 
-router.get('/confirm/:confirmationCode', async (req, res) => { //confirmed their email
+router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm email
     User.findOne({
         confirmationCode: req.params.confirmationCode,
       })

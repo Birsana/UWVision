@@ -45,7 +45,9 @@ router.get('/findCompanyData/:companyname', async function(req, res) {
 //add job
 router.post('/:companyname/addjob', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
-      if(!user){ return res.sendStatus(401); }
+      if(!user){ 
+          return res.sendStatus(401); 
+        }
   
       var companyName = req.params.companyname;
       var job = new Job(req.body.job);

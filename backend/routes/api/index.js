@@ -2,6 +2,7 @@ var router = require('express').Router();
 
 router.use('/', require('./users'));
 
+//handling of validation errors
 router.use(function(err, req, res, next){
     if(err.name === 'ValidationError'){
       return res.status(422).json({

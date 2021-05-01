@@ -11,7 +11,7 @@ var ThreadSchema = new mongoose.Schema({
   slug: {type: String, lowercase: true, unique: true}
 }, {timestamps: true});
 
-// Requires population of author
+// to get json for a specific thread
 ThreadSchema.methods.toJSONFor = function(){
   return {
     id: this._id,
@@ -22,6 +22,7 @@ ThreadSchema.methods.toJSONFor = function(){
   };
 };
 
+//will add a slug when a thread is created
 ThreadSchema.pre('validate', function(next){
     if(!this.slug)  {
       this.slugify();
@@ -30,6 +31,7 @@ ThreadSchema.pre('validate', function(next){
     next();
 });
 
+//create the slug
 ThreadSchema.methods.slugify = function(){
     this.slug = slug(this.title) + '-' + (Math.random() * Math.pow(36, 6) | 0).toString(36);
 }

@@ -5,7 +5,7 @@ var CommentSchema = new mongoose.Schema({
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 }, {timestamps: true});
 
-// Requires population of author
+// to get json for a specific comment
 CommentSchema.methods.toJSONFor = function(user){
   return {
     id: this._id,

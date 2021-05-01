@@ -6,6 +6,8 @@ var ReplySchema = new mongoose.Schema({
     thread: { type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }
   }, {timestamps: true});
 
+
+// to get json for a specific reply
 ReplySchema.methods.toJSONFor = function(){
     return {
       id: this._id,

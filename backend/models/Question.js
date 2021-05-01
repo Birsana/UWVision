@@ -7,6 +7,7 @@ var InterviewQuestionSchema = new mongoose.Schema({
     job: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' }
   }, {timestamps: true});
 
+// to get json for a specific interview question
 InterviewQuestionSchema.methods.toJSONFor = function(){
     return {
       id: this._id,

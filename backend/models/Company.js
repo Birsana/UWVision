@@ -6,6 +6,7 @@ var CompanySchema = new mongoose.Schema({
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
 });
 
+
 CompanySchema.methods.addJob = function(id){
     if(this.jobs.indexOf(id) === -1){
       this.jobs.push(id);

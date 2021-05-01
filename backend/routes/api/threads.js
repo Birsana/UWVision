@@ -57,7 +57,6 @@ router.post('/:thread/replies', auth.required, function(req, res, next) {
       var reply = new Reply(req.body.reply);
       reply.author = user.email;
       Thread.find( {slug: req.params.thread} ).then(function(thread){
-          console.log(thread);
         reply.thread = thread[0];
         console.log(thread[0]);
         return reply.save().then(function() {
