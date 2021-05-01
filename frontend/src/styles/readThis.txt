@@ -1,3 +1,0 @@
-Only put GLOBAL styles in here (ones that are shared amongst many components)
-
-Ideally, all the other CSS should be grouped with their respective components/views

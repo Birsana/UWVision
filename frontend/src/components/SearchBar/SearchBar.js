@@ -1,42 +1,35 @@
 import React, {useEffect, useState} from 'react';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
-
 import {
   StyledSearch,
   SearchBarStyles,
   DropdownIndicator
 } from './styles';
 
+// Backend Imports:
+import { getListOfCompanies } from 'backendActions';
+
+// ==============================================================================================================
+
+// Search Bar Component
 const SearchBar = (props) => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [companyData, setCompanyData] = useState({});
 
+  // Populate search bar options when component mounts
   useEffect(() => {
-    getCompanyData();
+    getListOfCompanies().then(companyList => {
+      const listOfCompanies = [];
+      
+      companyList.forEach(company => {
+        listOfCompanies.push({label: company, value: company});
+      });
+
+      setCompanyData(listOfCompanies);
+    });
   }, []);
 
-  const getCompanyData = async () => {
-    //TODO: Export backend route variables into a standalone constants file and call from there
-    const companyDataURL = "http://localhost:5000/data/companyData";
-
-    // TODO: Error handling for get request
-    const response = (await axios.get(companyDataURL)).data;
-
-    const sortedCompanies = [];
-    response.forEach(element => {
-      sortedCompanies.push(element.company_name);
-    });
-    sortedCompanies.sort();
-
-    const listOfCompanies = [];
-    sortedCompanies.forEach(company => {
-      listOfCompanies.push({label: company, value: company});
-    })
-
-    setCompanyData(listOfCompanies);
-  };
-
+  // Handles user's selection of specific company
   const handleChange = (selection) => {
     setSelectedCompany(selection.value);
 
@@ -46,7 +39,6 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div>
       <StyledSearch
         value={selectedCompany} // Allows for selected option to appear in search bar, after clicking it
         options={companyData} // Uses the map to display the given options
@@ -58,7 +50,6 @@ const SearchBar = (props) => {
         components={{ DropdownIndicator }}
         //TODO: noOptionsMessage={() => "This company does not currently exist in the database"}
       />
-    </div>
   );
 };
 

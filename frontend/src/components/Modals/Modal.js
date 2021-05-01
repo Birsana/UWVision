@@ -1,15 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDom from "react-dom";
-// TODO: Animations  (import { useSpring, animated } from 'react-spring';)
 
+// Generic Modal Component Imports:
 import { Background, ModalWrapper, CloseModalButton } from "./styles";
+
+// Specific Modal Imports:
 import AddCompanyModal from "./AddCompanyModal/AddCompanyModal";
 import LogInModal from "./LogInModal/LogInModal";
 import SignUpModal from "./SignUpModal/SignUpModal";
 
+// ==============================================================================================================
+
+// Generic Modal Handler:
 const Modal = ({ initialModal, onClose }) => {
   const [modalType, setModalType] = useState(initialModal);
     
+  // Determines which modal to render depending on state
   const ModalToRender = () => {
     if (modalType === "Add Company") {
       return <AddCompanyModal changeModalState={setModalType} />;
@@ -20,22 +26,34 @@ const Modal = ({ initialModal, onClose }) => {
     }
   };
 
-  /* Any clicks outside the modal (or rather on the background) will result in the modal being closed */
+  // Any clicks outside the modal (in the greyed out background area) will result in the modal being closed
   const modalRef = useRef();
-  const closeModal = (event) => {
+  const closeModalClick = (event) => {
     if (modalRef.current === event.target) {
       onClose();
     }
   };
 
-  // TODO: Escape key will also trigger the closing of modal
+  // Escape key will also trigger the closing of the modal
+  useEffect(() => {
+    const closeModalKey = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+
+    window.addEventListener('keydown', closeModalKey);
+    return () => window.removeEventListener('keydown', closeModalKey);
+  })
+
+  //TODO: Brief fade-in animation for Modal
 
   return ReactDom.createPortal(
-    <Background onClick={closeModal} ref={modalRef}>
-      <ModalWrapper>
-        <CloseModalButton onClick={onClose} />
-        <ModalToRender />
-      </ModalWrapper>
+    <Background onMouseDown={closeModalClick} ref={modalRef}>
+        <ModalWrapper>
+          <CloseModalButton onClick={onClose} />
+          <ModalToRender />
+        </ModalWrapper>
     </Background>,
     document.getElementById("portal")
   );

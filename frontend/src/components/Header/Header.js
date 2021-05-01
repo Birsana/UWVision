@@ -1,40 +1,51 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, NavLink } from "react-router-dom";
+
+// Material-UI Imports:
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-
-import { useLocation, NavLink } from "react-router-dom";
-import SearchBar from "components/SearchBar/SearchBar";
-
-import { useStyles } from "./styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useStyles } from "./styles";
 
-import Modal from 'components/Modals/Modal';
+// Component Imports:
+import SearchBar from "components/SearchBar/SearchBar";
+import Modal from "components/Modals/Modal";
 
-import {connect} from 'react-redux';
+// Redux Imports:
+import { connect } from "react-redux";
 
+// ==============================================================================================================
+
+// Header Component:
 const Header = (props) => {
+  // States controlled by redux:
   const [loggedIn, setLoggedIn] = useState(props.isLoggedIn);
+
+  // Header States:
   const [showLogInModal, setShowLogInModal] = useState(false);
 
-  // Sets logged in state of header component
+  // Sets logged in state of header component (will update automatically based on Redux state)
   useEffect(() => {
     setLoggedIn(props.isLoggedIn);
     setShowLogInModal(false);
-  }, [props.isLoggedIn])
+  }, [props.isLoggedIn]);
 
+  // Material-UI Specific Styling Stuff:
   const styles = useStyles();
-  const location = useLocation();
   const displayTypography = useMediaQuery("(min-width: 523px)");
+
+  // Used to determine whether searchbar should be in header or not:
+  const location = useLocation();
 
   return (
     <>
-    <div className={styles.root}>
-      <AppBar position="static" className={styles.header}>
-        <Toolbar>
-          {/* Render the WaterlooVision typography if viewport size is greater than 650px or if on homepage*/}
-          {(displayTypography || location.pathname === "/") && (
+      <div className={styles.root}>
+        <AppBar position="static" className={styles.header}>
+          <Toolbar>
+            {/* Render the WaterlooVision typography if viewport size is greater than 650px or if on homepage*/}
+            {(displayTypography || location.pathname === "/") && (
               <Typography variant="h5" className={styles.title}>
                 <NavLink
                   to="/"
@@ -45,41 +56,47 @@ const Header = (props) => {
               </Typography>
             )}
 
-          {/* Render the search bar if not on the home page */}
-          {location.pathname !== "/" && (
-            <div className={styles.searchBar}>
-              <SearchBar />
-            </div>
-          )}
+            {/* Render the search bar if not on the home page */}
+            {location.pathname !== "/" && (
+              <div className={styles.searchBar}>
+                <SearchBar />
+              </div>
+            )}
 
-          {loggedIn ? (
-            <Button
-              className={styles.buttons}
-              color="inherit"
-              onClick={() => props.dispatch({type: "LOGOUT"})}
-            >
-              Logout
-            </Button>
-          ) : (
-            <Button
-              className={styles.buttons}
-              color="inherit"
-              onClick={() => setShowLogInModal(true)}
-            >
-              Login
-            </Button>
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
+            {loggedIn ? (
+              <Button
+                className={styles.buttons}
+                color="inherit"
+                onClick={() => props.dispatch({ type: "LOGOUT" })}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Button
+                className={styles.buttons}
+                color="inherit"
+                onClick={() => setShowLogInModal(true)}
+              >
+                Login
+              </Button>
+            )}
+          </Toolbar>
+        </AppBar>
+      </div>
 
-    {showLogInModal && !loggedIn && <Modal initialModal={"Log In"} onClose={() => setShowLogInModal(false)} /> }
+      {showLogInModal && !loggedIn && (
+        <Modal
+          initialModal={"Log In"}
+          onClose={() => setShowLogInModal(false)}
+        />
+      )}
     </>
   );
 };
 
+// Injecting redux logged-in states into props for header
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn
+  isLoggedIn: state.isLoggedIn,
 });
 
 export default connect(mapStateToProps)(Header);

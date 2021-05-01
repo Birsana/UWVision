@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ModalTitle,
@@ -8,14 +8,20 @@ import {
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
-import { doesCompanyAlreadyExist, addCompany } from "./AddCompanyModal.helpers";
-import {connect} from 'react-redux';
 
+// Backend + Redux Imports:
+import { doesCompanyExist, addCompany } from "backendActions";
+import { connect } from "react-redux";
 
+// ==============================================================================================================
+
+// Add Company Modal:
 const AddCompanyModal = (props) => {
+  // States controlled by Redux:
   const [isLoggedIn] = useState(props.isLoggedIn);
   const [authToken] = useState(props.token);
 
+  // Modal States:
   const [companyToAdd, setCompanyToAdd] = useState("");
   const [companyError, setCompanyError] = useState("");
   const [didSubmit, setDidSubmit] = useState(false);
@@ -26,7 +32,6 @@ const AddCompanyModal = (props) => {
       setCompanyError("The company name cannot be blank.");
       return false;
     }
-
     return true;
   };
 
@@ -35,12 +40,11 @@ const AddCompanyModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-      doesCompanyAlreadyExist(companyToAdd).then((result) => {
+      doesCompanyExist(companyToAdd).then((result) => {
         // If the company being added already exists in the database - set an error explaining the situation
         if (result) {
           setCompanyError("This company already exists!");
         }
-
         // Otherwise, we proceed to submit a new entry to the database
         else {
           addCompany(companyToAdd, authToken);
@@ -63,7 +67,6 @@ const AddCompanyModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Company"} />
-
       {isLoggedIn ? (
         <>
           {!didSubmit ? (
@@ -100,17 +103,20 @@ const AddCompanyModal = (props) => {
         </>
       ) : (
         <>
-        <ModalText>In order to add a company, you must first be logged-in.</ModalText>
-        <ModalText>Please log-in and then try again!</ModalText>
+          <ModalText>
+            In order to add a company, you must first be logged-in.
+          </ModalText>
+          <ModalText>Please log-in and then try again!</ModalText>
         </>
       )}
     </>
   );
 };
 
+// Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
-  token: state.token
+  token: state.token,
 });
 
 export default connect(mapStateToProps)(AddCompanyModal);

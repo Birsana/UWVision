@@ -1,24 +1,31 @@
 import React, { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+
+// Material-UI Imports:
+import { makeStyles } from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 
+// Component Imports:
 import Modal from "components/Modals/Modal";
 
+// Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
-      background: 'rgb(193, 193, 193)',
-      fontFamily: 'Roboto Slab',
-      textTransform: 'none',
-      //boxShadow: "0px 0px 0px 0px",
-      color: 'black'
+    background: "rgb(193, 193, 193)",
+    fontFamily: "Roboto Slab",
+    textTransform: "none",
+    //boxShadow: "0px 0px 0px 0px",
+    color: "black",
   },
-  
+
   extendedIcon: {
     marginRight: theme.spacing(1),
   },
 }));
 
+// ==============================================================================================================
+
+// Add Company Button Component
 const AddCompanyButton = () => {
   const [showAddCompanyModal, setShowAddCompanyModal] = useState(false);
 
@@ -43,7 +50,10 @@ const AddCompanyButton = () => {
       </div>
 
       {showAddCompanyModal && (
-        <Modal initialModal={"Add Company"} onClose={() => setShowAddCompanyModal(false)} />
+        <Modal
+          initialModal={"Add Company"}
+          onClose={() => setShowAddCompanyModal(false)}
+        />
       )}
     </>
   );

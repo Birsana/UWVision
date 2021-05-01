@@ -8,9 +8,15 @@ import {
   FormErrorMessage,
   ModalText,
 } from "../styles";
-import {signUp, isUserConfirmed} from './SignUpModal.helpers'
 
+// Backend Imports:
+import { signUp, isUserConfirmed } from "backendActions";
+
+// ==============================================================================================================
+
+// Sign Up Modal:
 const SignUpModal = ({ changeModalState }) => {
+  // Sign-up Form States:
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [email, setEmail] = useState("");
@@ -20,9 +26,11 @@ const SignUpModal = ({ changeModalState }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
+  // Post-creation of user states:
   const [accountCreated, setAccountCreated] = useState(false);
   const [confirmationError, setConfirmationError] = useState("");
 
+  // Deals with the username field's inputs
   const usernameInputChange = (event) => {
     setUsername(event.target.value);
 
@@ -32,6 +40,7 @@ const SignUpModal = ({ changeModalState }) => {
     }
   };
 
+  // Deals with the email field's inputs
   const emailInputChange = (event) => {
     setEmail(event.target.value);
 
@@ -41,6 +50,7 @@ const SignUpModal = ({ changeModalState }) => {
     }
   };
 
+  // Deals with the password field's inputs
   const passwordInputChange = (event) => {
     setPassword(event.target.value);
 
@@ -50,6 +60,7 @@ const SignUpModal = ({ changeModalState }) => {
     }
   };
 
+  // Deals with the confirm password field's inputs
   const confirmPasswordInputChange = (event) => {
     setConfirmPassword(event.target.value);
 
@@ -59,31 +70,40 @@ const SignUpModal = ({ changeModalState }) => {
     }
   };
 
+  // Basic Form Input Validation
   const basicInputValidation = () => {
     let isValid = true;
 
+    // User cannot submit an empty username
     if (!username) {
       setUsernameError("Please enter a username.");
       isValid = false;
     }
 
+    // User cannot submit an empty email
     if (!email) {
       setEmailError("Please enter an email.");
       isValid = false;
-    } else if (!email.includes("@uwaterloo.ca")) {
+    }
+    // User cannot use a non-uwaterloo email
+    else if (!email.includes("@uwaterloo.ca")) {
       setEmailError('Please enter a "@uwaterloo.ca" email.');
       isValid = false;
     }
 
+    // User cannot submit an empty password
     if (!password) {
       setPasswordError("Please enter a password.");
       isValid = false;
     }
 
+    // User cannot submit an empty confirm password
     if (!confirmPassword) {
       setConfirmPasswordError("Please confirm the password.");
       isValid = false;
-    } else if (confirmPassword !== password) {
+    }
+    // User cannot submit a confirm password that doesn't match the previous password
+    else if (confirmPassword !== password) {
       setConfirmPasswordError("Passwords do not match.");
       isValid = false;
     }
@@ -102,6 +122,7 @@ const SignUpModal = ({ changeModalState }) => {
         .catch((error) => {
           let message = error.response.data.error.message;
 
+          // Error Interpretation based on backend's response
           if (message.includes("username: is already taken.")) {
             setUsernameError("This username is already taken.");
           }
@@ -113,9 +134,10 @@ const SignUpModal = ({ changeModalState }) => {
     }
   };
 
+  // Handles switching back the modal to the log-in state once the user has successfully been created
   const signInAfterConfirm = () => {
-    isUserConfirmed(username).then(response => {
-      let isConfirmed = response.data.status
+    isUserConfirmed(username).then((response) => {
+      let isConfirmed = response.data.status;
 
       if (isConfirmed) {
         changeModalState("Log In");
@@ -185,11 +207,22 @@ const SignUpModal = ({ changeModalState }) => {
         </>
       ) : (
         <>
-        <ModalText>Welcome <b>{username}</b>!</ModalText>
-        <ModalText>You will receive an email to confirm your newly created account shortly.</ModalText>
-        <ModalText>Once you have confirmed your account, go ahead and log in!</ModalText>
-        <ModalButton onClick={signInAfterConfirm}>Log In!</ModalButton>
-        {confirmationError && <FormErrorMessage><p>{confirmationError}</p></FormErrorMessage>}
+          <ModalText>
+            Welcome <b>{username}</b>!
+          </ModalText>
+          <ModalText>
+            You will receive an email to confirm your newly created account
+            shortly.
+          </ModalText>
+          <ModalText>
+            Once you have confirmed your account, go ahead and log in!
+          </ModalText>
+          <ModalButton onClick={signInAfterConfirm}>Log In!</ModalButton>
+          {confirmationError && (
+            <FormErrorMessage>
+              <p>{confirmationError}</p>
+            </FormErrorMessage>
+          )}
         </>
       )}
     </>
