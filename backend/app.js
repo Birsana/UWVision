@@ -11,12 +11,14 @@ require('./models/Job');
 require('./models/Thread');
 require('./models/Reply');
 require('./models/Question');
+require('./models/Salary');
+
 require('./config/passport');
 
 //api routes
 var userRoutes = require('./routes/api/users');
 var companyRoutes = require('./routes/api/companies');
-var threadRoutes = require('./routes/api/threads');
+var jobRoutes = require('./routes/api/jobs');
 
 
 const app = express();
@@ -26,7 +28,7 @@ app.use(cors());
 app.use(require('./routes'));
 app.use('/auth', userRoutes);
 app.use('/data', companyRoutes);
-app.use('/thread', threadRoutes);
+app.use('/job', jobRoutes);
 
 const jsonErrorHandler = async (err, req, res, next) => { //to send errors as json
     res.status(500).send({ error: err });

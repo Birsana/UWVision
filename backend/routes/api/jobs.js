@@ -11,6 +11,7 @@ var Job = mongoose.model('Job');
 var Thread = mongoose.model('Thread');
 var Reply = mongoose.model('Reply');
 var Question = mongoose.model('InterviewQuestion');
+var Salary = mongoose.model('Salary');
 
 //create thread
 router.post('/:companyname/:job/threads', auth.required, function(req, res, next) {
@@ -69,7 +70,7 @@ router.post('/:thread/replies', auth.required, function(req, res, next) {
 });
 
 //get replies to thread
-router.get('/:thread/replies', auth.required, function(req, res, next) {
+router.get('/:thread/replies', auth.optional, function(req, res, next) {
     Thread.find( {slug: req.params.thread} ).then( async function(thread){
         var retArr = [];
         console.log(thread);
@@ -103,15 +104,50 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
     }).catch(next);
 });
 
-//fetch all interview questions for a job
+//get all interview questions for a job
 
-router.get('/:companyname/:job/questions', auth.required, function(req, res, next) {
+router.get('/:companyname/:job/questions', auth.optional, function(req, res, next) {
     Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
         console.log(job[0]);
         var retArr = [];
         for(var i = 0; i < job[0].questions.length; ++i){
             await Question.findById(job[0].questions[i]).then(function(question){
             retArr.push(question.toJSONFor());
+        }).catch(next);
+        }
+        console.log(retArr);
+        res.send(retArr);
+    }).catch(next);
+});
+
+//add salary for a job
+router.post('/:companyname/:job/salary', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+      if(!user){ return res.sendStatus(401); }
+  
+      var salary = new Salary(req.body.salary);
+      salary.added_by = user.email;
+      Job.find( {job_name: req.params.job, company: req.params.companyname} ).then(function(job){
+        return salary.save().then(function() {
+            job[0].salaries.push(salary);
+            return job[0].save().then(function(job) {
+                console.log("saved");
+                res.send("salary added");
+              });
+          });
+        }).catch(next);
+    }).catch(next);
+});
+
+//get all salaries for a job
+
+router.get('/:companyname/:job/salaries', auth.optional, function(req, res, next) {
+    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+        var retArr = [];
+        console.log(job[0])
+        for(var i = 0; i < job[0].salaries.length; ++i){
+            await Salary.findById(job[0].salaries[i]).then(function(salary){
+            retArr.push(salary.toJSONFor());
         }).catch(next);
         }
         console.log(retArr);
