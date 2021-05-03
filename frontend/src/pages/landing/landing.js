@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
+import BarGraph from "components/JobComponents/BarGraph";
 
 import landingPageCopy from './copy';
 import './styles.css';
@@ -24,5 +25,6 @@ const Home = () => {
     </div>
   );
 };
+
 
 export default Home;

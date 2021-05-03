@@ -144,7 +144,6 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
 router.get('/:companyname/:job/salaries', auth.optional, function(req, res, next) {
     Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];
-        console.log(job[0])
         for(var i = 0; i < job[0].salaries.length; ++i){
             await Salary.findById(job[0].salaries[i]).then(function(salary){
             retArr.push(salary.toJSONFor());

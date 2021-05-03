@@ -2,6 +2,7 @@ const server = `http://localhost:5000`;
 
 const companyRoutes = `${server}/data`;
 const userRoutes = `${server}/auth`;
+const jobRoutes = `${server}/job`;
 
 const routes = {
   // Company Routes:
@@ -12,6 +13,10 @@ const routes = {
   LOGIN: `${userRoutes}/users/login`,
   SIGNUP: `${userRoutes}/users`,
   ISEMAILCONFIRMED: `${userRoutes}/isConfirmed`,
+
+  //Job Routes:
+  
+
 };
 
 export default routes;
