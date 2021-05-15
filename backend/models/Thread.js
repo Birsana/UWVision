@@ -15,6 +15,7 @@ var ThreadSchema = new mongoose.Schema({
 ThreadSchema.methods.toJSONFor = function(){
   return {
     id: this._id,
+    title: this.title,
     body: this.body,
     slug: this.slug,
     createdAt: this.createdAt,

@@ -19,6 +19,7 @@ router.post('/:companyname/:job/threads', auth.required, function(req, res, next
       if(!user){ return res.sendStatus(401); }
   
       var thread = new Thread(req.body.thread);
+      console.log(thread)
       thread.job = req.job;
       thread.company = req.params.companyname;
       thread.author = user.username;
