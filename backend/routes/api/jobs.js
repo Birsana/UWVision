@@ -21,7 +21,7 @@ router.post('/:companyname/:job/threads', auth.required, function(req, res, next
       var thread = new Thread(req.body.thread);
       thread.job = req.job;
       thread.company = req.params.companyname;
-      thread.author = user.email;
+      thread.author = user.username;
   
       return thread.save().then(function(){
         Job.find( {job_name: req.params.job} ).then(function(job){
@@ -56,7 +56,7 @@ router.post('/:thread/replies', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
       var reply = new Reply(req.body.reply);
-      reply.author = user.email;
+      reply.author = user.username;
       Thread.find( {slug: req.params.thread} ).then(function(thread){
         reply.thread = thread[0];
         console.log(thread[0]);
@@ -104,6 +104,21 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
     }).catch(next);
 });
 
+//upvote interview question
+router.post('/:companyname/:job/:question', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+        Question.findById(req.params.question).then(function(question){
+            if(!user){ return res.sendStatus(401); }
+            question.upvoters.push(user)
+            console.log(question)
+            return question.save().then(function() {
+                res.send("upvoted")
+              });
+            
+          }).catch(next);
+    }).catch(next);
+});
+
 //get all interview questions for a job
 
 router.get('/:companyname/:job/questions', auth.optional, function(req, res, next) {
@@ -115,7 +130,8 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
             retArr.push(question.toJSONFor());
         }).catch(next);
         }
-        console.log(retArr);
+        retArr.sort((a, b) => (a.upvoters.length < b.upvoters.length) ? 1 : -1)
+        console.log(retArr)
         res.send(retArr);
     }).catch(next);
 });

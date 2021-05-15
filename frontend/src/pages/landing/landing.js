@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
-import BarGraph from "components/JobComponents/BarGraph";
+import QuestionBox from "components/JobComponents/InterviewQuestionComponents/QuestionsBox";
 
 import landingPageCopy from './copy';
 import './styles.css';
@@ -16,7 +16,7 @@ const Home = () => {
       
       <div style={{display: "flex"}}>
         <div className="searchbar">
-        <SearchBar />
+        <BarGraph />
         </div>
       <AddCompanyButton />
       </div>
@@ -25,6 +25,8 @@ const Home = () => {
     </div>
   );
 };
+
+  
 
 
 export default Home;
