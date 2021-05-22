@@ -210,7 +210,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
     }).catch(next);
 });
 
-//get overall rating for a job
+//get overall rating for a job and number of reviews
 router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) {
     Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
         var totalRating = 0;
@@ -220,9 +220,28 @@ router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) 
         }).catch(next);
         }
         var averageRating = Math.round(totalRating/job[0].reviews.length * 10)/10;
-        res.send(averageRating);
+        var ratingArr = [];
+        ratingArr.push(averageRating, job.reviews.length);
+        res.send(ratingArr);
     }).catch(next);
 });
 
+
+
+//get average salary for a job and number of entries
+router.get('/:companyname/:job/salaryoverall', auth.optional, function(req, res, next) {
+    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+        var totalSalary = 0;
+        for(var i = 0; i < job[0].salaries.length; ++i){
+            await Salary.findById(job[0].salaries[i]).then(function(salary){
+                totalSalary += salary.wage;
+        }).catch(next);
+        }
+        var averageSalary = Math.round(totalSalary/job[0].salaries.length);
+        var salaryArr = [];
+        salaryArr.push(averageSalary, job[0].salaries.length);
+        res.send(salaryArr);
+    }).catch(next);
+});
 
 module.exports = router;
