@@ -35,7 +35,7 @@ const Home = () => {
         
         <div style={{display: "flex"}}>
           <div className="searchbar">
-          <GenericBox box="thread" />
+          <GenericBox box = "job"/>
           </div>
         <AddCompanyButton />
         </div>
@@ -43,7 +43,8 @@ const Home = () => {
         <h3>{landingPageCopy.keywordsText}</h3>
       </div>
     );
-};
+  };
+  
   
 
   

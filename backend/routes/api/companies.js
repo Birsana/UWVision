@@ -9,7 +9,7 @@ var User = mongoose.model('User');
 var Job = mongoose.model('Job');
 
 //get all the companies
-router.get('/companyData', function(req, res){
+router.get('/companydata', function(req, res){
     Company.find({}, function(err, companies) {
     if (err) throw err;
     return res.json(companies);
@@ -17,7 +17,7 @@ router.get('/companyData', function(req, res){
 });
 
 //add company
-router.post('/addCompany', auth.required, function(req, res, next){
+router.post('/addcompany', auth.required, function(req, res, next){
     User.findById(req.payload.id).then(function(user){
         if(!user){
             return res.sendStatus(401);
@@ -31,15 +31,17 @@ router.post('/addCompany', auth.required, function(req, res, next){
 });
 
 //get specific company data
-router.get('/findCompanyData/:companyname', async function(req, res) {
-  var companyName = req.params.companyname
-  var data = await Company.findCompanyByName(companyName)
-  
-  if(!data.length) {
-    return res.sendStatus(404); // Error Code 404 to mark that the company has not been found
-  } 
-
-  return res.json(data);
+router.get('/findcompanydata/:companyname', async function(req, res, next) {
+    var companyName = req.params.companyname
+    var data = await Company.findCompanyByName(companyName)
+    var retArr = [];
+    for(var i = 0; i < data[0].jobs.length; ++i){
+        console.log(data[0].jobs[i]);
+        await Job.findById(data[0].jobs[i]).then(function(job){
+            retArr.push(job.toJSONFor());
+        }).catch(next);
+    }
+    res.send(retArr);
 });
 
 //add job

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import {Button, Tooltip } from '@material-ui/core'
 
 function InterviewQuestion(props){
@@ -18,4 +17,4 @@ function InterviewQuestion(props){
 
 }
 
-export default InterviewQuestion
+export default InterviewQuestion;

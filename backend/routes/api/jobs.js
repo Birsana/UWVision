@@ -54,7 +54,7 @@ router.get('/:companyname/:job/threads', auth.optional, async function(req, res,
   });
 
   //create reply to thread
-router.post('/:thread/replies', auth.required, function(req, res, next) {
+router.post('/:thread/reply', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
       var reply = new Reply(req.body.reply);

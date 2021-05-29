@@ -15,7 +15,7 @@ function GenericBox(props){
     var dataArr = []
 
     var urls = ["http://localhost:5000/job/Apple/Friend/threads", "http://localhost:5000/job/Apple/Friend/questions",
-    "http://localhost:5000/job/Apple/Friend/salary-b69fwx/replies"]
+    "http://localhost:5000/job/Apple/Friend/salary-b69fwx/replies", "http://localhost:5000/data/findCompanyData/Nvidia"]
     
     const fetchData = async () => {
         var url;
@@ -23,6 +23,10 @@ function GenericBox(props){
             url = urls[0];
         } else if(props.box == "question"){
             url = urls[1];
+        } else if(props.box == "reply"){
+            url = urls[2];
+        } else if(props.box == "job"){
+            url = urls[3];
         }
         await axios.get(url, {
             headers: {
@@ -50,18 +54,33 @@ function GenericBox(props){
     const BoxToRender = () => {
         if(props.box == "thread"){
             return(
-                <div classname = "threadsBox">
+                <div classname = "ThreadsBox">
                     <h1> Threads </h1>
                     <GenericList data = {data}/>
                     <ThreadForm/>
                 </div>
             );
-        } else {
+        } else if(props.box == "question") {
             return(
                 <div classname = "QuestionsBox">
                     <h1> Interview Questions </h1>
                     <GenericList data = {data}/>
                     <QuestionForm/>
+                </div>
+            );
+        } else if(props.box == "reply"){
+            return(
+                <div classname = "RepliesBox">
+                    <h1> Replies </h1>
+                    <GenericList data = {data}/>
+                    <ReplyForm/>
+                </div>
+            );
+        } else if(props.box == "job"){
+            return(
+                <div classname = "JobBox">
+                    <h1> Replies </h1>
+                    <GenericList data = {data}/>
                 </div>
             );
         }

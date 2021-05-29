@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Thread from "components/JobComponents/ThreadsComponents/Thread";
 import InterviewQuestion from "components/JobComponents/InterviewQuestionComponents/InterviewQuestion";
-import Reply from "components/JobComponents/ThreadsComponents/Replies/Reply"
+import Reply from "components/JobComponents/ThreadsComponents/Replies/Reply";
+import Job from "components/CompanyPageComponents/Job";
 
 function GenericList(props){
 
@@ -13,6 +14,12 @@ function GenericList(props){
                     <Thread author={element.author} date = {element.date}>
                       {element.title}
                     </Thread>
+                  );
+            } else if(props.data.type == "job"){
+                return (
+                    <Job>
+                      {element.jobName}
+                    </Job>
                   );
             } else {
                 return (

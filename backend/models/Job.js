@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var JobSchema = new mongoose.Schema({
-    job_name: {type: String},
+    jobName: {type: String},
     company: String,
     added_by: String,
     threads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
@@ -9,5 +9,13 @@ var JobSchema = new mongoose.Schema({
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
     salaries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Salary' }]
 });
+
+JobSchema.methods.toJSONFor = function(){
+    return {
+      id: this._id,
+      jobName: this.jobName,
+      added_by: this.added_by
+    };
+};
 
 mongoose.model('Job', JobSchema);
