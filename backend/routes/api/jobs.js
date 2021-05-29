@@ -26,7 +26,7 @@ router.post('/:companyname/:job/thread', auth.required, function(req, res, next)
       thread.author = user.username;
   
       return thread.save().then(function(){
-        Job.find( {job_name: req.params.job} ).then(function(job){
+        Job.find( {jobName: req.params.job} ).then(function(job){
             job[0].threads.push(thread);
             return job[0].save().then(function(job) {
                 console.log("saved");
@@ -39,7 +39,7 @@ router.post('/:companyname/:job/thread', auth.required, function(req, res, next)
 
 //get threads for job
 router.get('/:companyname/:job/threads', auth.optional, async function(req, res, next){
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         console.log(job[0]);
         
         var retArr = [];
@@ -93,7 +93,7 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
   
       var question = new Question(req.body.question);
       question.author = user.email;
-      Job.find( {job_name: req.params.job, company: req.params.companyname} ).then(function(job){
+      Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         question.job = job[0];
         return question.save().then(function() {
             job[0].questions.push(question);
@@ -124,7 +124,7 @@ router.post('/:companyname/:job/question/:question', auth.required, function(req
 //get all interview questions for a job
 
 router.get('/:companyname/:job/questions', auth.optional, function(req, res, next) {
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         console.log(job[0]);
         var retArr = [];
         for(var i = 0; i < job[0].questions.length; ++i){
@@ -145,8 +145,10 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
   
       var salary = new Salary(req.body.salary);
       salary.added_by = user.email;
-      Job.find( {job_name: req.params.job, company: req.params.companyname} ).then(function(job){
+      Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return salary.save().then(function() {
+            var averageSalary = (job[0].averageSalary * job[0].salaries.length + salary.wage)/(job[0].salaries.length+1);
+            job[0].averageSalary = Math.round(averageSalary * 10)/10;
             job[0].salaries.push(salary);
             return job[0].save().then(function() {
                 console.log("saved");
@@ -160,7 +162,7 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
 //get all salaries for a job
 
 router.get('/:companyname/:job/salaries', auth.optional, function(req, res, next) {
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];
         for(var i = 0; i < job[0].salaries.length; ++i){
             await Salary.findById(job[0].salaries[i]).then(function(salary){
@@ -184,8 +186,10 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
       var overallRating = Math.round(totalRating/3 * 10)/10;
       console.log(overallRating);
       review.overallRating = overallRating;
-      Job.find( {job_name: req.params.job, company: req.params.companyname} ).then(function(job){
+      Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return review.save().then(function() {
+            var rating = (job[0].averageRating * job[0].reviews.length + review.overallRating)/(job[0].reviews.length+1);
+            job[0].averageRating = Math.round(rating * 10)/10;
             job[0].reviews.push(review);
             return job[0].save().then(function() {
                 console.log("saved");
@@ -198,7 +202,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
 
 //get all reviews for a job
 router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next) {
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];
         for(var i = 0; i < job[0].reviews.length; ++i){
             await Review.findById(job[0].reviews[i]).then(function(review){
@@ -212,7 +216,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
 
 //get overall rating for a job and number of reviews
 router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) {
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var totalRating = 0;
         for(var i = 0; i < job[0].reviews.length; ++i){
             await Review.findById(job[0].reviews[i]).then(function(review){
@@ -226,22 +230,5 @@ router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) 
     }).catch(next);
 });
 
-
-
-//get average salary for a job and number of entries
-router.get('/:companyname/:job/salaryoverall', auth.optional, function(req, res, next) {
-    Job.find( {job_name: req.params.job, company: req.params.companyname} ).then( async function(job){
-        var totalSalary = 0;
-        for(var i = 0; i < job[0].salaries.length; ++i){
-            await Salary.findById(job[0].salaries[i]).then(function(salary){
-                totalSalary += salary.wage;
-        }).catch(next);
-        }
-        var averageSalary = Math.round(totalSalary/job[0].salaries.length);
-        var salaryArr = [];
-        salaryArr.push(averageSalary, job[0].salaries.length);
-        res.send(salaryArr);
-    }).catch(next);
-});
 
 module.exports = router;
