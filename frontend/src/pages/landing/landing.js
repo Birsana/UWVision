@@ -6,6 +6,7 @@ import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
 import landingPageCopy from './copy';
 import './styles.css';
 import GenericBox from "components/GenericComponents/GenericBox";
+import BarGraph from "components/JobComponents/BarGraph";
 
 //TODO: Responsive design
 
@@ -35,7 +36,7 @@ const Home = () => {
         
         <div style={{display: "flex"}}>
           <div className="searchbar">
-          <GenericBox box = "job"/>
+          <BarGraph/>
           </div>
         <AddCompanyButton />
         </div>
