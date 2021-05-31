@@ -9,6 +9,7 @@ import Header from 'components/Header/Header';
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company';
 import InvalidPage from 'pages/invalid';
+import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
 import { createStore } from 'redux';
@@ -55,6 +56,8 @@ const App = () => {
 
             {/* Route to generic company page template - will populate data based on company*/}
             <Route path="/company/:id" component={CompanyPage} />
+
+            <Route path="/test" component={TestingPage} />
 
             {/* 404 Page (if provided an unknown URL */}
             <Route component={InvalidPage} />
