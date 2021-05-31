@@ -11,10 +11,12 @@ import Modal from "components/Modals/Modal";
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
-    background: "rgb(193, 193, 193)",
-    fontFamily: "Roboto Slab",
+    background: 'rgba(229, 229, 229)',
+    fontFamily: "Roboto Mono",
+    fontWeight: 400,
+    fontSize: 14,
     textTransform: "none",
-    //boxShadow: "0px 0px 0px 0px",
+    boxShadow: "0px 0px 0px 0px",
     color: "black",
   },
 

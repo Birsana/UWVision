@@ -1,33 +1,41 @@
 h1 {
-    font-family: Roboto Slab;
-    font-weight: bold;
-    font-size: 36px;
-    margin-bottom: -13px;
+    font-family: Roboto Mono;
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: -40px;
 }
 
 h2 {
-    font-family: Roboto Slab;
-    font-weight: normal;
-    font-size: 16px;
+    font-family: Roboto Mono;
+    font-weight: 200;
+    font-size: 36px;
     margin-left: 2px;
     margin-bottom: 30px;
 }
 
 h3 {
-    font-family: Roboto Slab;
+    font-family: Roboto Mono;
     font-weight: normal;
     font-style: italic;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .landing{
-    display: flex;
-    flex-direction: column;
-    margin-left: 24px;
+    position: absolute;
+    margin-left: 100px;
+    top: 40%;
+    transform: translate(0,-50%);
+    z-index: 1;
 }
 
 .searchbar{
-    width: 450px;
+    width: 640px;
     margin-bottom: -5px;
     margin-right: 15px;
+}
+
+.landingImage{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }

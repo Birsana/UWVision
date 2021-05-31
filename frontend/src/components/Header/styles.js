@@ -13,11 +13,17 @@ export const useStyles = makeStyles((theme) => ({
 
   title: {
     flexGrow: 1,
-    fontFamily: "Roboto Slab",
+    fontFamily: "Roboto Mono",
+    fontSize: "30px",
+    marginLeft: "75px"
   },
 
   buttons: {
-    fontFamily: "Roboto Slab",
+    fontFamily: "Roboto Mono",
+    fontSize: "16px",
+    fontWeight: 400,
+    textTransform: 'none',
+    marginRight: "75px"
   },
 
   searchBar: {

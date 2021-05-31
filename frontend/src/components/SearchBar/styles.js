@@ -31,20 +31,20 @@ export const StyledSearch = styled(Select)`
 export const SearchBarStyles = {
     control: (base, state) => ({
       ...base,
-      fontFamily: 'Roboto Slab',
-      fontSize: 14,
-      //border: state.isFocused ? 'solid 1px' : 0,
-      //boxShadow: state.isFocused ? 1 : 0,
+      fontFamily: 'Roboto Mono',
+      fontSize: 18,
+      fontWeight: '400',
+      backgroundColor: 'rgba(229, 229, 229)',
       cursor: 'text',
-      borderRadius: 4,
-      border: 'solid 1px'
+      borderRadius: 0,
+      border: 0,
     }),
   
     option: (styles, { isFocused }) => {
       return {
         ...styles,
-        fontFamily: 'Roboto Slab',
-        fontSize: 14,
+        fontFamily: 'Roboto Mono',
+        fontSize: 16,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
@@ -54,7 +54,7 @@ export const SearchBarStyles = {
   
     input: styles => ({
       ...styles,
-      fontFamily: 'Times New Roman, Times, Serif',
+      fontFamily: 'Roboto Mono',
       color: 'black',
     }),
   
@@ -69,6 +69,11 @@ export const SearchBarStyles = {
       ...styles,
       color: 'black',
     }),
+
+    placeholder: styles => ({
+      ...styles,
+      color: 'black',
+    })
   }
   
 
@@ -77,7 +82,7 @@ export const DropdownIndicator = props => {
     return (
       components.DropdownIndicator && (
         <components.DropdownIndicator {...props}>
-           <FontAwesomeIcon icon={faSearch}/>
+           <FontAwesomeIcon icon={faSearch} style={{color: 'rgba(79, 78, 67)'}}/>
         </components.DropdownIndicator>
       )
     )
