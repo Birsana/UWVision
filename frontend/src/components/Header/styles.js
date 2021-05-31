@@ -29,6 +29,6 @@ export const useStyles = makeStyles((theme) => ({
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "300px",
+    width: "400px",
   },
 }));

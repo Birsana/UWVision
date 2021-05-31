@@ -45,7 +45,7 @@ const SearchBar = (props) => {
         onChange={handleChange}
         placeholder="Search for a company..."
         openMenuOnClick={false} // Prevents option to reveal all options when user clicks the search bar
-        classNamePrefix="select" // Since it is part of the "Select" component
+        className="select" // Since it is part of the "Select" component
         styles={SearchBarStyles} // Utilizes custom style given above
         components={{ DropdownIndicator }}
         //TODO: noOptionsMessage={() => "This company does not currently exist in the database"}
