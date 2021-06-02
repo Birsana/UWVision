@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import AddCompanyButton from 'components/AddCompanyButton/AddCompanyButton';
-
+import './styles.css';
 
 const CompanyPage = (props) => {
   const company = props.match.params.id;

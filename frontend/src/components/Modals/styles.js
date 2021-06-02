@@ -15,7 +15,7 @@ export const ModalWrapper = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 400px;
   transform: translate(-50%, -50%);
   background: #fff;
   padding: 10px;
@@ -45,15 +45,15 @@ export const CloseModalButton = styled(MdClose)`
 export const Title = styled.div`
   margin-top: 15px;
   margin-left: 10px;
-  font-family: Roboto Slab;
-  font-size: 23px;
+  font-family: Roboto Mono;
+  font-size: 30px;
   font-weight: bold;
 `;
 
 export const Divider = styled.hr`
   border: none;
   height: 1px;
-  width: 107%;
+  width: 105%;
   margin-left: -10px;
   margin-bottom: 5px;
   background-color: #d0d0d0;
@@ -69,8 +69,8 @@ export const ModalTitle = ({ title }) => {
 };
 
 export const ModalText = styled.p`
-  margin-left: 11px;
-  font-family: Roboto Slab; 
+  margin-left: 12px;
+  font-family: Roboto Mono; 
   width: 90%;
 `;
 
@@ -82,11 +82,11 @@ export const ModalButton = styled.button`
   width: 90%;
   border: none;
   border-radius: 5px;
-  font-family: Roboto Slab;
+  font-family: Roboto Mono;
+  font-size: 16px;
 
   background: #07C45F;
   color: black;
-  font-weight: bold;
 
   &:hover {
     background: #0A9C4E;
@@ -97,7 +97,7 @@ export const ModalSignUpButton = ({ onClick }) => {
   return (
     <>
     <Divider />
-    <ModalText onClick={onClick}>New to WaterlooVision? <u style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
+    <ModalText>New to WaterlooVision? <u onClick={onClick} style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
     </>
   )
 }
@@ -106,7 +106,7 @@ export const ModalLogInButton = ({ onClick }) => {
   return (
     <>
     <Divider />
-    <ModalText onClick={onClick}>Already have an account? <u style={{cursor: "pointer"}}>Log In!</u></ModalText>
+    <ModalText>Already have an account? <u onClick={onClick} style={{cursor: "pointer"}}>Login!</u></ModalText>
     </>
   )
 }
@@ -119,7 +119,8 @@ export const FormInput = styled.input`
   background-color: rgba(239, 239, 239);
   border: none;
   border-radius: 3px;
-  font-family: Roboto Slab;
+  font-family: Roboto Mono;
+  font-size: 16px;
   padding-left: 10px;
 
   &:focus {
@@ -130,7 +131,7 @@ export const FormInput = styled.input`
 export const FormErrorMessage = styled.div`
   margin-left: 10px;  
   margin-top: 5px;
-  height: 18px;
+  height: 20px;
   width: 90%;
   border-radius: 3px;
   background-color: rgb(255, 86, 48);
@@ -138,9 +139,10 @@ export const FormErrorMessage = styled.div`
   p {
     margin-top: 0;
     margin-left: 4px;
-    font-family: Roboto Slab;
-    font-size: 12px;
-    color: #FFF;
+    font-family: Roboto Mono;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
   }
 `;
 
@@ -155,7 +157,8 @@ export const FormSubmitButton = styled.input.attrs({
   width: 90%;
   border: none;
   border-radius: 5px;
-  font-family: Roboto Slab;
+  font-family: Roboto Mono;
+  font-size: 16px;
 
   background: #ffc333;
   color: black;

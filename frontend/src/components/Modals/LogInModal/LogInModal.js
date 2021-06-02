@@ -96,7 +96,7 @@ const LogInModal = (props) => {
 
   return (
     <>
-      <ModalTitle title={"Log In"} />
+      <ModalTitle title={"Login"} />
       <form onSubmit={handleSubmit}>
         <FormInput
           type="text"
@@ -122,7 +122,7 @@ const LogInModal = (props) => {
             <p>{passwordError}</p>
           </FormErrorMessage>
         )}
-        <FormSubmitButton value="Log In" />
+        <FormSubmitButton value="Login" />
       </form>
       <ModalSignUpButton onClick={() => props.changeModalState("Sign Up")} />
     </>

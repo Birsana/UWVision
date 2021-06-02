@@ -7,7 +7,7 @@ import Header from 'components/Header/Header';
 
 // Page Imports:
 import LandingPage from 'pages/landing/landing';
-import CompanyPage from 'pages/company';
+import CompanyPage from 'pages/company/company';
 import InvalidPage from 'pages/invalid';
 import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 

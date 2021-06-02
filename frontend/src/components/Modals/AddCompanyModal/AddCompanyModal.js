@@ -106,7 +106,7 @@ const AddCompanyModal = (props) => {
           <ModalText>
             In order to add a company, you must first be logged-in.
           </ModalText>
-          <ModalText>Please log-in and then try again!</ModalText>
+          <ModalText>Please log in and then try again!</ModalText>
         </>
       )}
     </>
