@@ -31,10 +31,10 @@ app.use('/auth', userRoutes);
 app.use('/data', companyRoutes);
 app.use('/job', jobRoutes);
 
-// const jsonErrorHandler = async (err, req, res, next) => { //to send errors as json
-//     res.status(500).send({ error: err });
-//   }
-// app.use(jsonErrorHandler);
+const jsonErrorHandler = async (err, req, res, next) => { //to send errors as json
+    res.status(500).send({ error: err });
+  }
+app.use(jsonErrorHandler);
 
 
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose

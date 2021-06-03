@@ -48,8 +48,7 @@ router.post('/users/login', function(req, res, next){ //login
                   if(!user.confirmed){ //check if they confirmed email
                       return res.status(422).json({errors: {email: "you must confirm your email"}});
                   }
-                  user.token = user.generateJWT();
-                  // res.cookie('AuthToken', user.token); prob not needed
+                  console.log(user.generateJWT());
                   return res.json({user: user.toAuthJSON()});
                 } else {
                   return res.status(422).json({errors: {password: "invalid password"}});
@@ -100,13 +99,14 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm emai
               res.status(500).send({ message: err });
               return;
             }
+            return res.redirect("http://localhost:3000/"); 
           });
         })
         .catch((e) => console.log("error", e));
 });
 
 router.get("/isConfirmed/:username", function (req, res) {
-  User.findOne({ username: req.params.username }).then((user) => {
+  User.findOne({ username: req.params.username }).then((user) => { 
     return res.send({status: user.confirmed})
   });
 });

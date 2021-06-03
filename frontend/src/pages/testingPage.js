@@ -1,9 +1,10 @@
 import React from "react";
+import GenericBox from "components/GenericComponents/GenericBox"
 
 const TestingPage = () => {
     return (
       <div>
-        <h2>Test your components on this page: </h2>
+       <GenericBox box={"job"}/>
       </div>
     );
 };
