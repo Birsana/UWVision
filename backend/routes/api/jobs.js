@@ -206,7 +206,9 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
         var retArr = [];
         for(var i = 0; i < job[0].reviews.length; ++i){
             await Review.findById(job[0].reviews[i]).then(function(review){
-            retArr.push(review.toJSONFor());
+            if(review.body.length > 0){
+                retArr.push(review.toJSONFor());
+            }
         }).catch(next);
         }
         console.log(retArr);
