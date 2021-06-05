@@ -8,6 +8,7 @@ import { Background, ModalWrapper, CloseModalButton } from "./styles";
 import AddCompanyModal from "./AddCompanyModal/AddCompanyModal";
 import LogInModal from "./LogInModal/LogInModal";
 import SignUpModal from "./SignUpModal/SignUpModal";
+import ReviewModal from "./ReviewModal/ReviewModal";
 
 // ==============================================================================================================
 
@@ -23,7 +24,9 @@ const Modal = ({ initialModal, onClose }) => {
       return <LogInModal changeModalState={setModalType}/>;
     } else if (modalType === "Sign Up") {
       return <SignUpModal changeModalState={setModalType}/>;
-    }
+    } else if (modalType === "Add Review") {
+        return <ReviewModal changeModalState={setModalType}/>;
+      }
   };
 
   // Any clicks outside the modal (in the greyed out background area) will result in the modal being closed

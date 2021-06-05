@@ -48,7 +48,6 @@ router.post('/users/login', function(req, res, next){ //login
                   if(!user.confirmed){ //check if they confirmed email
                       return res.status(422).json({errors: {email: "you must confirm your email"}});
                   }
-                  console.log(user.generateJWT());
                   return res.json({user: user.toAuthJSON()});
                 } else {
                   return res.status(422).json({errors: {password: "invalid password"}});

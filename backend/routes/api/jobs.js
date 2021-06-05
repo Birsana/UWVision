@@ -184,13 +184,13 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
       review.author = user.email;
       var totalRating = review.culture + review.interestingWork + review.workLifeBalance;
       var overallRating = Math.round(totalRating/3 * 10)/10;
-      console.log(overallRating);
       review.overallRating = overallRating;
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return review.save().then(function() {
             var rating = (job[0].averageRating * job[0].reviews.length + review.overallRating)/(job[0].reviews.length+1);
             job[0].averageRating = Math.round(rating * 10)/10;
             job[0].reviews.push(review);
+            console.log(job[0].averageRating);
             return job[0].save().then(function() {
                 console.log("saved");
                 res.send("rating added");
@@ -200,7 +200,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
     }).catch(next);
 });
 
-//get all reviews for a job
+//get all reviews for a job, MAYBE JUST ONES WITH BODY
 router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];

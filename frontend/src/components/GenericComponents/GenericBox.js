@@ -29,7 +29,7 @@ function GenericBox(props){
                 url = urls[2];
             } else if(props.box === "job"){
                 url = urls[3];
-            }
+            }   
             await axios.get(url, {
                 headers: {
                         "Content-Type": "application/json",
