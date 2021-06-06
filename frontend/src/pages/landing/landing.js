@@ -26,7 +26,7 @@ const Home = () => {
           <h3>{landingPageCopy.keywordsText}</h3>
         </div>
       </div>
-      <img src={landingPageImage} className="landingImage" />
+      <img src={landingPageImage} className="landingImage" alt=""/>
     </>
   );
 };
