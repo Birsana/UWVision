@@ -8,6 +8,7 @@ import Header from 'components/Header/Header';
 // Page Imports:
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company/company';
+import JobPage from 'pages/job/job';
 import InvalidPage from 'pages/invalid';
 import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
@@ -53,6 +54,9 @@ const App = () => {
 
             {/* Route to landing (home) page*/}
             <Route exact path="/" component={LandingPage} />
+
+            {/* Route to generic job page template - will populate data based on job*/}
+            <Route path="/company/:id/job/:jobId" component={JobPage} />
 
             {/* Route to generic company page template - will populate data based on company*/}
             <Route path="/company/:id" component={CompanyPage} />

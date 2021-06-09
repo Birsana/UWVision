@@ -13,11 +13,14 @@ var JobSchema = new mongoose.Schema({
 });
 
 JobSchema.methods.toJSONFor = function(){
-    return {
-      id: this._id,
-      jobName: this.jobName,
-      added_by: this.added_by
-    };
+  return {
+    id: this._id,
+    jobName: this.jobName,
+    averageRating: this.averageRating,
+    numOfReviews: this.reviews.length,
+    averageSalary: this.averageSalary,
+    numOfSalaryEntries: this.salaries.length
+  };
 };
 
 mongoose.model('Job', JobSchema);

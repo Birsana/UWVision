@@ -27,7 +27,7 @@ function ThreadForm(props){
     }
 
     return(
-        <div classname = "ThreadForm">
+        <div className = "ThreadForm">
             <TextField
                     placeholder = "Add a reply" inputProps = {{maxLength: 100}}
                     value = {text}

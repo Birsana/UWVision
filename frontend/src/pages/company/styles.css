@@ -1,0 +1,47 @@
+.invalidCompany {
+    margin-left: 100px;
+}
+
+h4 {
+    font-family: Roboto Mono;
+    font-weight: 300;
+    font-size: 18px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.companyInfo {
+    margin-left: 100px;
+    width: -webkit-calc(100% - 210px);
+}
+
+.companyDivider {
+    border: none;
+    height: 5px;
+    background-color: #d0d0d0;
+    margin-top: -20px;
+}
+
+.companyRating {
+    font-weight: bold;
+    font-size: 24px;
+    color: #00C2FF;
+}
+
+.numberOfReviews {
+    font-size: 20px;
+}
+
+.jobRating {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.numberOfReviewsJob {
+    font-size: 18px;
+}
+
+.textDivider {
+    font-size: 24px;
+    font-weight: 200;
+}

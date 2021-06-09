@@ -27,7 +27,7 @@ function QuestionForm(props){
     }
 
     return(
-        <div classname = "QuestionForm">
+        <div className = "QuestionForm">
             <TextField
                     placeholder = "Add an Interview Question" inputProps = {{maxLength: 100}}
                     value = {text}
