@@ -22,18 +22,21 @@ router.post('/addcompany', auth.required, function(req, res, next){
         if(!user){
             return res.sendStatus(401);
         }
-        return Company.create({ company_name: req.body.company_name, added_by: user.email}, function (err) {
+        return Company.create({ company_name: req.body.company_name, added_by: user.email, averageSalary: 0,
+        averageRating: 0, numSalaries: 0, numReviews: 0}, function (err) {
             if (err) return handleError(err);
-            console.log(req.body);
-            return res.send("saved");
+            return res.send("company added");
           })
     }).catch(next);
 });
 
-//get specific company data
+//get data for each job in a company
 router.get('/findcompanydata/:companyname', async function(req, res, next) {
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
+    if(data.length == 0){
+        return res.send("the company does not exist")
+    }
     var retArr = [];
     for(var i = 0; i < data[0].jobs.length; ++i){
         console.log(data[0].jobs[i]);
@@ -65,6 +68,17 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       });
     }).catch(next);
   });
+
+//get data about the company
+router.get('/company/:companyname', async function(req, res, next) {
+    var companyName = req.params.companyname
+    var data = await Company.findCompanyByName(companyName)
+    if(data.length == 0){
+        return res.send("the company does not exist")
+    } else {
+        return res.send(data[0].toJSONFor());
+    }
+});
 
 
 

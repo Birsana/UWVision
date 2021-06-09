@@ -6,8 +6,7 @@ var ReviewSchema = new mongoose.Schema({
     workLifeBalance: Number,
     culture: Number,
     interestingWork: Number,
-    overallRating: Number,
-    job: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' }
+    overallRating: Number
   }, {timestamps: true});
 
 

@@ -7,6 +7,7 @@ var auth = require('../auth');
 var router = express.Router();
 
 var User = mongoose.model('User');
+var Company = mongoose.model('Company');
 var Job = mongoose.model('Job');
 var Thread = mongoose.model('Thread');
 var Reply = mongoose.model('Reply');
@@ -142,7 +143,6 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
 router.post('/:companyname/:job/salary', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
-  
       var salary = new Salary(req.body.salary);
       salary.added_by = user.email;
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
@@ -151,8 +151,15 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
             job[0].averageSalary = Math.round(averageSalary * 10)/10;
             job[0].salaries.push(salary);
             return job[0].save().then(function() {
-                console.log("saved");
-                res.send("salary added");
+                Company.find( {company_name: req.params.companyname} ).then(function(company){
+                    var companySalary = (company[0].averageSalary * company[0].numSalaries + salary.wage)/(company[0].numSalaries + 1);
+                    company[0].averageSalary = Math.round(companySalary * 10)/10;
+                    console.log(companySalary);
+                    company[0].numSalaries += 1;
+                    return company[0].save().then(function() {
+                        res.send("salary added");
+                    })
+                });
               });
           });
         }).catch(next);
@@ -169,7 +176,6 @@ router.get('/:companyname/:job/salaries', auth.optional, function(req, res, next
             retArr.push(salary.toJSONFor());
         }).catch(next);
         }
-        console.log(retArr);
         res.send(retArr);
     }).catch(next);
 });
@@ -182,25 +188,33 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
   
       var review = new Review(req.body.review);
       review.author = user.email;
+
+      //get total rating
       var totalRating = review.culture + review.interestingWork + review.workLifeBalance;
       var overallRating = Math.round(totalRating/3 * 10)/10;
       review.overallRating = overallRating;
+
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return review.save().then(function() {
             var rating = (job[0].averageRating * job[0].reviews.length + review.overallRating)/(job[0].reviews.length+1);
             job[0].averageRating = Math.round(rating * 10)/10;
             job[0].reviews.push(review);
-            console.log(job[0].averageRating);
-            return job[0].save().then(function() {
-                console.log("saved");
-                res.send("rating added");
+            job[0].save().then(function() {
+                Company.find( {company_name: req.params.companyname} ).then(function(company){
+                    var companyRating = (company[0].averageRating * company[0].numReviews + overallRating)/(company[0].numReviews + 1);
+                    company[0].averageRating = Math.round(companyRating * 10)/10;
+                    company[0].numReviews += 1;
+                    return company[0].save().then(function() {
+                        res.send("rating added");
+                    })
+                });
               });
           });
         }).catch(next);
     }).catch(next);
 });
 
-//get all reviews for a job, MAYBE JUST ONES WITH BODY
+//get all reviews for a job
 router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];

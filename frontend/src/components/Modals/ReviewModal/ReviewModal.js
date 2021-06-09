@@ -19,26 +19,25 @@ const ReviewModal = ({ changeModalState }) => {
 
     const handleClick = async () => {
         
-        // var data = {
-        //     "review": {
-        //         "body": text,
-        //         "workLifeBalance": worklife,
-        //         "culture": culture,
-        //         "interestingWork": interesting
-        //     }
-        // }
-        // await axios.post("http://localhost:5000/job/Discord/CTO/review", data, {
-        //     headers: {
-        //            Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjk3NzdjYjJlYjcxZThiNmZiZTc2NCIsInVzZXJuYW1lIjoiYW5kcmUiLCJleHAiOjE2MzMyODM2MDQsImlhdCI6MTYyMjkxNTYwNH0.VfwMV9vwp54S_g-H_HsnVDzZ-i8gEtuCzfVJijidgmM`,
-        //           "Content-Type": "application/json",
-        //           "X-Requested-With": "XMLHttpRequest",
-        //         },
-        //     data
+        var data = {
+            "review": {
+                "body": text,
+                "workLifeBalance": worklife,
+                "culture": culture,
+                "interestingWork": interesting
+            }
+        }
+        await axios.post("http://localhost:5000/job/Discord/CTO/review", data, {
+            headers: {
+                   Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjk3NzdjYjJlYjcxZThiNmZiZTc2NCIsInVzZXJuYW1lIjoiYW5kcmUiLCJleHAiOjE2MzMyODM2MDQsImlhdCI6MTYyMjkxNTYwNH0.VfwMV9vwp54S_g-H_HsnVDzZ-i8gEtuCzfVJijidgmM`,
+                  "Content-Type": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                },
+            data
 
-        // }).then({
-        //     //CLOSE MODAL HERE
-        // });
-        console.log(culture)
+        }).then({
+            //CLOSE MODAL HERE
+        });
     }
 
     const handleChangeCulture = (event, newValue) => {

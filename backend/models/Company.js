@@ -4,7 +4,11 @@ var CompanySchema = new mongoose.Schema({
   company_name: {type: String, unique: true},
   added_by: String,
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
-  jobNames: [String]
+  jobNames: [String],
+  averageSalary: Number,
+  averageRating: Number,
+  numSalaries: Number,
+  numReviews: Number
 });
 
 
@@ -22,9 +26,20 @@ CompanySchema.methods.removeJob = function(id){
     return this.save();
 };
 
-// Static Method - isn't tied to any instance of CompanySchema
 CompanySchema.statics.findCompanyByName = function(name) {
   return this.find({company_name: name});
 }
+
+CompanySchema.methods.toJSONFor = function(){
+    return {
+      id: this._id,
+      companyName: this.company_name,
+      added_by: this.added_by,
+      averageSalary: this.averageSalary,
+      averageRating: this.averageRating,
+      numSalaries: this.numSalaries,
+      numReviews: this.numReviews
+    };
+};
 
 mongoose.model('Company', CompanySchema);
