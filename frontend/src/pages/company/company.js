@@ -14,7 +14,7 @@ const CompanyPage = (props) => {
 
   //! Duplicating GET Requests
   useEffect(() => {
-    const request = `http://localhost:5000/data/findCompanyData/${company}`;
+    const request = `http://localhost:5000/data/company/${company}`;
     axios.get(request)
       .then((response) => {
         setCompanyData(response.data)
@@ -34,9 +34,9 @@ const CompanyPage = (props) => {
           <div className="companyInfo">
             <h1>{company}</h1>
             <h2>
-              <span className="companyRating">Rating</span>
+              <span className="companyRating">{companyData.averageRating} out of 10</span>
               <span className="textDivider"> | </span>
-              <span className="numberOfReviews"># of reviews </span>
+              <span className="numberOfReviews">{companyData.numReviews} reviews </span>
             </h2>
             <hr className="companyDivider"></hr>
           </div>

@@ -6,11 +6,7 @@ export const addCompany = (companyToAdd, token) => {
     method: "post",
     url: routes.ADDCOMPANY,
     data: {
-      company_name: companyToAdd,
-      numReview: 0,
-      numSalary: 0,
-      averageSalary: 0,
-      averageRating: 0
+      company_name: companyToAdd
     },
     headers: {
       Authorization: `Token ${token}`,

@@ -31,6 +31,15 @@ const JobListDiv = styled.div`
   margin-bottom: -25px;
 `;
 
+const NoJobDataDiv = styled.div`
+  margin-left: 100px;
+  margin-top: 40px;
+
+  h2 {
+    margin-bottom: -10px;
+  }
+`;
+
 //TODO: modify data that is being called based on which box it is
 
 function GenericBox(props) {
@@ -105,6 +114,15 @@ function GenericBox(props) {
         </div>
       );
     } else if (props.box === "job") {
+        if (!data || data.dataArr.length === 0) {
+          return (
+            <NoJobDataDiv>
+              <h2>There are currently no jobs listed for this company :(</h2>
+              <h2>You can be the first to add one!</h2>
+            </NoJobDataDiv>
+          );
+        }
+
       return (
         <JobScrollableDiv>
           <JobListDiv>
