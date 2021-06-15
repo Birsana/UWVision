@@ -35,10 +35,6 @@ router.get('/findcompanydata/:companyname', async function(req, res, next) {
     
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
-    if(data.length == 0){
-        return res.send("the company does not exist")
-    }
-
     var retArr = [];
     for(var i = 0; i < data[0].jobs.length; ++i){
         console.log(data[0].jobs[i]);
@@ -76,7 +72,7 @@ router.get('/company/:companyname', async function(req, res, next) {
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
     if(data.length == 0){
-        return res.send("the company does not exist")
+        return res.sendStatus(404); 
     } else {
         return res.send(data[0].toJSONFor());
     }
