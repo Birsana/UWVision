@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path')
 
 
 //mongo models
@@ -37,13 +38,11 @@ const jsonErrorHandler = async (err, req, res, next) => { //to send errors as js
 app.use(jsonErrorHandler);
 
 
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
+mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', testMongoose);
 
-
-
-var server = app.listen(5000, function(){
+const port = process.env.PORT || 5000
+var server = app.listen(port, function(){
     console.log('Listening on port ' + server.address().port);
   });
