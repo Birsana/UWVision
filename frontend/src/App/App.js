@@ -1,6 +1,7 @@
 // Miscellaneous Imports:
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import 'index.css';
 
 // Component Imports:
 import Header from 'components/Header/Header';
@@ -48,8 +49,8 @@ const App = () => {
     <Provider store={reduxStore}>
       <BrowserRouter>
         <CssBaseline />
+        <div className="UWVision">
         <Header />
-        <div className="WaterlooVision">
           <Switch>
 
             {/* Route to landing (home) page*/}

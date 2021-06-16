@@ -15,6 +15,7 @@ import Modal from "components/Modals/Modal";
 
 // Redux Imports:
 import { connect } from "react-redux";
+import { signUp } from "backendActions";
 
 // ==============================================================================================================
 
@@ -25,11 +26,13 @@ const Header = (props) => {
 
   // Header States:
   const [showLogInModal, setShowLogInModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
   // Sets logged in state of header component (will update automatically based on Redux state)
   useEffect(() => {
     setLoggedIn(props.isLoggedIn);
     setShowLogInModal(false);
+    setShowSignUpModal(false);
   }, [props.isLoggedIn]);
 
   // Material-UI Specific Styling Stuff:
@@ -41,7 +44,7 @@ const Header = (props) => {
 
   return (
     <>
-      <div className={styles.root}>
+      <div className={styles.headerRoot}>
         <AppBar position="static" className={styles.header}>
           <Toolbar>
             {/* Render the WaterlooVision typography if viewport size is greater than 650px or if on homepage*/}
@@ -51,7 +54,7 @@ const Header = (props) => {
                   to="/"
                   style={{ textDecoration: "none", color: "unset" }}
                 >
-                  WaterlooVision
+                  UW<b>Vision</b>
                 </NavLink>
               </Typography>
             )}
@@ -65,20 +68,29 @@ const Header = (props) => {
 
             {loggedIn ? (
               <Button
-                className={styles.buttons}
+                className={styles.logInButton}
                 color="inherit"
                 onClick={() => props.dispatch({ type: "LOGOUT" })}
               >
                 Logout
               </Button>
             ) : (
+              <>
               <Button
-                className={styles.buttons}
+                className={styles.logInButton}
                 color="inherit"
                 onClick={() => setShowLogInModal(true)}
               >
                 Login
               </Button>
+              <Button
+                className={styles.signUpButton}
+                color="inherit"
+                onClick={() => setShowSignUpModal(true)}
+              >
+                Sign Up
+              </Button>
+              </>
             )}
           </Toolbar>
         </AppBar>
@@ -87,8 +99,15 @@ const Header = (props) => {
       {showLogInModal && !loggedIn && (
         <Modal
           initialModal={"Log In"}
-          onClose={() => setShowLogInModal(false)}
+          onClose={() => {setShowLogInModal(false)}}
         />
+      )}
+
+      {showSignUpModal && !loggedIn && (
+        <Modal
+        initialModal={"Sign Up"}
+        onClose={() => setShowSignUpModal(false)}
+      />
       )}
     </>
   );

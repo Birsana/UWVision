@@ -31,8 +31,8 @@ export const StyledSearch = styled(Select)`
 export const SearchBarStyles = {
     control: (base, state) => ({
       ...base,
-      fontFamily: 'Roboto Mono',
-      fontSize: 18,
+      fontFamily: 'Roboto',
+      fontSize: 20,
       fontWeight: '400',
       backgroundColor: 'rgba(229, 229, 229)',
       cursor: 'text',
@@ -43,7 +43,7 @@ export const SearchBarStyles = {
     option: (styles, { isFocused }) => {
       return {
         ...styles,
-        fontFamily: 'Roboto Mono',
+        fontFamily: 'Roboto',
         fontSize: 16,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
@@ -54,7 +54,7 @@ export const SearchBarStyles = {
   
     input: styles => ({
       ...styles,
-      fontFamily: 'Roboto Mono',
+      fontFamily: 'Roboto',
       color: 'black',
     }),
   

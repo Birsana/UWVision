@@ -12,12 +12,13 @@ import Modal from "components/Modals/Modal";
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
     background: 'rgba(229, 229, 229)',
-    fontFamily: "Roboto Mono",
+    fontFamily: "Roboto",
     fontWeight: 400,
-    fontSize: 14,
+    fontSize: 16,
     textTransform: "none",
     boxShadow: "0px 0px 0px 0px",
     color: "black",
+    marginTop: "3px"
   },
 
   extendedIcon: {

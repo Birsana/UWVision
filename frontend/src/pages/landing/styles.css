@@ -1,23 +1,23 @@
 h1 {
-    font-family: Roboto Mono;
+    font-family: Roboto;
     font-weight: 600;
-    font-size: 48px;
+    font-size: 60px;
     margin-bottom: -40px;
 }
 
 h2 {
-    font-family: Roboto Mono;
-    font-weight: 200;
-    font-size: 36px;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 28px;
     margin-left: 2px;
     margin-bottom: 30px;
 }
 
 h3 {
-    font-family: Roboto Mono;
+    font-family: Roboto;
     font-weight: normal;
     font-style: italic;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .landing{
@@ -46,5 +46,5 @@ h3 {
 }
 
 .select input {
-    font-family: Roboto Mono;
+    font-family: Roboto;
 }
