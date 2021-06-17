@@ -246,5 +246,52 @@ router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) 
     }).catch(next);
 });
 
+//save job
+router.post('/:companyname/:job/save', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+        Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
+            user.savedJobs.push(job[0])
+            return user.save().then(function() {
+                res.send("job saved")
+            })
+        }).catch(next);
+        
+    }).catch(next);
+});
+
+
+//unsave job
+router.post('/:companyname/:job/unsave', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+        Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
+            var index = user.savedJobs.indexOf(job[0].id)
+            if (index !== -1) {
+                user.savedJobs.splice(index, 1);
+            }
+            return user.save().then(function() {
+                res.send("job unsaved")
+            })
+        }).catch(next);
+        
+    }).catch(next);
+});
+
+
+//view saved jobs
+
+router.get('/savedjobs', auth.required, async function(req, res, next) {
+    User.findById(req.payload.id).then(async function(user){
+        if(!user){ return res.sendStatus(401); } 
+        var retArr = [];
+        for(var i = 0; i < user.savedJobs.length; ++i){
+            await Job.findById(user.savedJobs[i]).then(function(job){
+                retArr.push(job.toJSONFor());
+            }).catch(next);
+        }
+        res.send(retArr);
+      }).catch(next);
+});
+
+
 
 module.exports = router;

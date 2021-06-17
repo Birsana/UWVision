@@ -9,6 +9,7 @@ var secret = require('../config').secret;
 
 
 var UserSchema = new mongoose.Schema({
+    savedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
     username: {type: String, lowercase: true, unique: true, match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
     email: {type: String, lowercase: true, unique: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
     image: String,
