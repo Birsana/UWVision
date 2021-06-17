@@ -5,12 +5,14 @@ import 'index.css';
 
 // Component Imports:
 import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 // Page Imports:
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company/company';
 import JobPage from 'pages/job/job';
 import InvalidPage from 'pages/invalid';
+import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
 import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
@@ -49,25 +51,30 @@ const App = () => {
     <Provider store={reduxStore}>
       <BrowserRouter>
         <CssBaseline />
-        <div className="UWVision">
-        <Header />
-          <Switch>
+        <div>
+          <div className="UWVision">
+          <Header />
+            <Switch>
 
-            {/* Route to landing (home) page*/}
-            <Route exact path="/" component={LandingPage} />
+              {/* Route to landing (home) page*/}
+              <Route exact path="/" component={LandingPage} />
 
-            {/* Route to generic job page template - will populate data based on job*/}
-            <Route path="/company/:id/job/:jobId" component={JobPage} />
+              {/* Route to generic job page template - will populate data based on job*/}
+              <Route path="/company/:id/job/:jobId" component={JobPage} />
 
-            {/* Route to generic company page template - will populate data based on company*/}
-            <Route path="/company/:id" component={CompanyPage} />
+              {/* Route to generic company page template - will populate data based on company*/}
+              <Route path="/company/:id" component={CompanyPage} />
 
-            <Route path="/test" component={TestingPage} />
+              <Route path="/test" component={TestingPage} />
 
-            {/* 404 Page (if provided an unknown URL */}
-            <Route component={InvalidPage} />
+              <Route path="/privacy" component={PrivacyPolicyPage} />
 
-          </Switch>
+              {/* 404 Page (if provided an unknown URL */}
+              <Route component={InvalidPage} />
+
+            </Switch>
+          </div>
+          <Footer />
         </div>
       </BrowserRouter>
     </Provider>
