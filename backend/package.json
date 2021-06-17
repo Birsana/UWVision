@@ -1,33 +1,35 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "heroku-postbuild": "npm run install-client && npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
-    "express-jwt": "^6.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^3.6.3",
-    "mongoose": "^5.11.18",
-    "mongoose-unique-validator": "^2.0.3",
-    "nodemailer": "^6.5.0",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "slug": "^4.0.4"
-  },
-  "engines": {
-    "node": "v14.13.1"
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "heroku-postbuild": "npm run install-client && npm install",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start" : "node app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^0.21.1",
+      "body-parser": "^1.19.0",
+      "cookie-parser": "^1.4.5",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "errorhandler": "^1.5.1",
+      "express": "^4.17.1",
+      "express-jwt": "^6.0.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongodb": "^3.6.3",
+      "mongoose": "^5.11.18",
+      "mongoose-unique-validator": "^2.0.3",
+      "nodemailer": "^6.5.0",
+      "passport": "^0.4.1",
+      "passport-local": "^1.0.0",
+      "slug": "^4.0.4"
+    },
+    "engines": {
+      "node": "v14.13.1"
+    }
   }
-}
+  
