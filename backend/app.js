@@ -37,8 +37,13 @@ const jsonErrorHandler = async (err, req, res, next) => { //to send errors as js
   }
 app.use(jsonErrorHandler);
 
-
-mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}); //connecting to mongoose
+mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+{ 
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true 
+  }); //connecting to mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
