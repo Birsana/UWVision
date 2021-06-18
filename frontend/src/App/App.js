@@ -13,6 +13,7 @@ import CompanyPage from 'pages/company/company';
 import JobPage from 'pages/job/job';
 import InvalidPage from 'pages/invalid';
 import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
+import AccountPage from 'pages/account/accountPage';
 import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
@@ -67,7 +68,9 @@ const App = () => {
 
               <Route path="/test" component={TestingPage} />
 
-              <Route path="/privacy" component={PrivacyPolicyPage} />
+              <Route exact path="/privacy" component={PrivacyPolicyPage} />
+
+              <Route exact path="/account" component={AccountPage} />
 
               {/* 404 Page (if provided an unknown URL */}
               <Route component={InvalidPage} />

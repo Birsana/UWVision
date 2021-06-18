@@ -8,6 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./styles";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
 // Component Imports:
 import SearchBar from "components/SearchBar/SearchBar";
@@ -26,6 +30,16 @@ const Header = (props) => {
   // Header States:
   const [showLogInModal, setShowLogInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+  // Account Menu States
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   // Sets logged in state of header component (will update automatically based on Redux state)
   useEffect(() => {
@@ -66,29 +80,71 @@ const Header = (props) => {
             )}
 
             {loggedIn ? (
-              <Button
-                className={styles.logInButton}
-                color="inherit"
-                onClick={() => props.dispatch({ type: "LOGOUT" })}
-              >
-                Logout
-              </Button>
+              <div style={{ marginRight: "40px" }}>
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  getContentAnchorEl={null}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={open}
+                  disableScrollLock={true}
+                  onClose={handleMenuClose}
+                >
+                  <MenuItem
+                    className={styles.menuItem}
+                    onClick={handleMenuClose}
+                  >
+                    <NavLink
+                      to="/account"
+                      style={{ textDecoration: "none", color: "unset" }}
+                    >
+                      My Account
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem
+                    className={styles.menuItem}
+                    onClick={() => {
+                      props.dispatch({ type: "LOGOUT" });
+                      handleMenuClose();
+                    }}
+                  >
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </div>
             ) : (
               <>
-              <Button
-                className={styles.logInButton}
-                color="inherit"
-                onClick={() => setShowLogInModal(true)}
-              >
-                Login
-              </Button>
-              <Button
-                className={styles.signUpButton}
-                color="inherit"
-                onClick={() => setShowSignUpModal(true)}
-              >
-                Sign Up
-              </Button>
+                <Button
+                  className={styles.logInButton}
+                  color="inherit"
+                  onClick={() => setShowLogInModal(true)}
+                >
+                  Login
+                </Button>
+                <Button
+                  className={styles.signUpButton}
+                  color="inherit"
+                  onClick={() => setShowSignUpModal(true)}
+                >
+                  Sign Up
+                </Button>
               </>
             )}
           </Toolbar>
@@ -98,15 +154,17 @@ const Header = (props) => {
       {showLogInModal && !loggedIn && (
         <Modal
           initialModal={"Log In"}
-          onClose={() => {setShowLogInModal(false)}}
+          onClose={() => {
+            setShowLogInModal(false);
+          }}
         />
       )}
 
       {showSignUpModal && !loggedIn && (
         <Modal
-        initialModal={"Sign Up"}
-        onClose={() => setShowSignUpModal(false)}
-      />
+          initialModal={"Sign Up"}
+          onClose={() => setShowSignUpModal(false)}
+        />
       )}
     </>
   );

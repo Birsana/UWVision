@@ -51,4 +51,8 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: "25px",
     width: "500px"
   },
+
+  menuItem: {
+    fontFamily: "Roboto"
+  }
 }));

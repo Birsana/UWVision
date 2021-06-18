@@ -21,14 +21,13 @@ export const StyledSearch = styled(Select)`
   }
 `;
 
-
 // Search Bar Behaviour Styles:
 // control - styling the search box itself
 // option - stying the dropdown menu options
 // menu - styling the dropdown menu box
 // input - styling what the user types into the search box
 // singleValue - applies to the selected option that the user chooses
-export const SearchBarStyles = {
+export const SearchBarStylesHome = {
     control: (base, state) => ({
       ...base,
       fontFamily: 'Roboto',
@@ -44,7 +43,7 @@ export const SearchBarStyles = {
       return {
         ...styles,
         fontFamily: 'Roboto',
-        fontSize: 16,
+        fontSize: 18,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
@@ -75,6 +74,60 @@ export const SearchBarStyles = {
       color: 'black',
     })
   }
+
+// Search Bar Behaviour Styles:
+// control - styling the search box itself
+// option - stying the dropdown menu options
+// menu - styling the dropdown menu box
+// input - styling what the user types into the search box
+// singleValue - applies to the selected option that the user chooses
+export const SearchBarStylesNotHome = {
+  control: (base, state) => ({
+    ...base,
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    fontWeight: '400',
+    backgroundColor: 'rgba(229, 229, 229)',
+    cursor: 'text',
+    borderRadius: 10,
+    border: 0,
+  }),
+
+  option: (styles, { isFocused }) => {
+    return {
+      ...styles,
+      fontFamily: 'Roboto',
+      fontSize: 16,
+      cursor: 'pointer',
+      backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
+      color: isFocused ? 'black' : 'grey',
+      lineHeight: 2,
+    }
+  },
+
+  input: styles => ({
+    ...styles,
+    fontFamily: 'Roboto',
+    color: 'black',
+  }),
+
+  menu: styles => ({
+    ...styles,
+    marginTop: 5,
+    boxShadow: 'none',
+    borderRadius: 0,
+  }),
+
+  singleValue: styles => ({
+    ...styles,
+    color: 'black',
+  }),
+
+  placeholder: styles => ({
+    ...styles,
+    color: 'black',
+  })
+}
   
 
 // Add search icon to search bar

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useLocation } from 'react-router-dom';
 import {
   StyledSearch,
-  SearchBarStyles,
+  SearchBarStylesHome,
+  SearchBarStylesNotHome,
   DropdownIndicator
 } from './styles';
 
@@ -15,6 +16,7 @@ import { getListOfCompanies } from 'backendActions';
 const SearchBar = (props) => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [companyData, setCompanyData] = useState({});
+  const location = useLocation();
 
   // Populate search bar options when component mounts
   useEffect(() => {
@@ -46,7 +48,7 @@ const SearchBar = (props) => {
         placeholder="Search for a company..."
         openMenuOnClick={false} // Prevents option to reveal all options when user clicks the search bar
         className="select" // Since it is part of the "Select" component
-        styles={SearchBarStyles} // Utilizes custom style given above
+        styles={(location.pathname === "/") ? SearchBarStylesHome : SearchBarStylesNotHome} // Utilizes custom style given above
         components={{ DropdownIndicator }}
         //TODO: noOptionsMessage={() => "This company does not currently exist in the database"}
       />
