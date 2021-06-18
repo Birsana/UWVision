@@ -112,11 +112,18 @@ router.post('/:companyname/:job/question/:question', auth.required, function(req
     User.findById(req.payload.id).then(function(user){
         Question.findById(req.params.question).then(function(question){
             if(!user){ return res.sendStatus(401); }
-            question.upvoters.push(user)
-            console.log(question)
-            return question.save().then(function() {
-                res.send("upvoted")
-              });
+            var index = question.upvoters.indexOf(user.id)
+            if(index !== -1){
+                question.upvoters.splice(index, 1);
+                return question.save().then(function() {
+                    res.send("removed upvote")
+                })
+            } else {
+                question.upvoters.push(user)
+                    return question.save().then(function() {
+                        res.send("upvoted")
+                    });
+            }
             
           }).catch(next);
     }).catch(next);
@@ -214,6 +221,28 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
     }).catch(next);
 });
 
+// upvote review
+router.post('/:companyname/:job/review/:review', auth.required, function(req, res, next) {
+    User.findById(req.payload.id).then(function(user){
+        Review.findById(req.params.review).then(function(review){
+            if(!user){ return res.sendStatus(401); }
+            var index = review.upvoters.indexOf(user.id)
+            if(index !== -1){
+                review.upvoters.splice(index, 1);
+                return review.save().then(function() {
+                    res.send("removed upvote")
+                })
+            } else {
+                review.upvoters.push(user)
+                    return review.save().then(function() {
+                        res.send("upvoted")
+                    });
+            }
+            
+          }).catch(next);
+    }).catch(next);
+});
+
 //get all reviews for a job
 router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
@@ -250,32 +279,22 @@ router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) 
 router.post('/:companyname/:job/save', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
         Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
-            user.savedJobs.push(job[0])
-            return user.save().then(function() {
-                res.send("job saved")
-            })
-        }).catch(next);
-        
-    }).catch(next);
-});
-
-
-//unsave job
-router.post('/:companyname/:job/unsave', auth.required, function(req, res, next) {
-    User.findById(req.payload.id).then(function(user){
-        Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
             var index = user.savedJobs.indexOf(job[0].id)
             if (index !== -1) {
                 user.savedJobs.splice(index, 1);
+                return user.save().then(function() {
+                    res.send("job unsaved")
+                })
+            } else {
+                user.savedJobs.push(job[0])
+                return user.save().then(function() {
+                    res.send("job saved")
+                })
             }
-            return user.save().then(function() {
-                res.send("job unsaved")
-            })
         }).catch(next);
         
     }).catch(next);
 });
-
 
 //view saved jobs
 
