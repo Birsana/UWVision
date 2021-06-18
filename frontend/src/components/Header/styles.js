@@ -1,46 +1,34 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  headerRoot: {
-    flexGrow: 1
-  },
-
   header: {
     backgroundColor: "white",
     color: "black",
     boxShadow: "0px 0px 0px 0px",
-    paddingTop: "20px"
+    padding: "10px 20px",
+    marginBottom: "40px"
   },
 
   title: {
-    flexGrow: 1,
-    fontFamily: "Roboto Mono",
-    fontSize: "28px",
-    marginLeft: "40px"
+    flex: 1,
+    fontSize: "20px"
   },
 
   logInButton: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: 400,
     textTransform: 'none',
-    marginRight: "20px"
+    marginRight: "10px"
   },
 
   signUpButton: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: "bold",
-    textTransform: 'none',
-    marginRight: "40px",
-
+    textTransform: "none",
     backgroundColor: "black",
     color: "white",
     borderRadius: 10,
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    paddingTop: "3px",
-    paddingBottom: "3px",
+    padding: "6px 16px",
     '&:hover': {
       backgroundColor: '#535353'
     }
@@ -49,10 +37,9 @@ export const useStyles = makeStyles((theme) => ({
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "500px"
+    width: "400px"
   },
 
   menuItem: {
-    fontFamily: "Roboto"
   }
 }));

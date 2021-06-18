@@ -18,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     boxShadow: "0px 0px 0px 0px",
     color: "black",
-    marginTop: "3px"
+    // marginTop: "3px"
   },
 
   extendedIcon: {
-    marginRight: theme.spacing(1),
+    // marginRight: theme.spacing(1),
   },
 }));
 
@@ -42,13 +42,13 @@ const AddCompanyButton = () => {
     <>
       <div>
         <Fab
-          variant="extended"
+          // variant="extended"
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}
         >
           <AddIcon className={styles.extendedIcon} />
-          Add Company
+          {/* Add Company */}
         </Fab>
       </div>
 

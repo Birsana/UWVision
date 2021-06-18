@@ -14,7 +14,7 @@ const Home = () => {
       <div className="landing">
         <div>
           <h1>{landingPageCopy.h1Text}</h1>
-          <h2>{landingPageCopy.h2Text}</h2>
+          <h2>{landingPageCopy.keywordsText}</h2>
 
           <div style={{ display: "flex" }}>
             <div className="searchbar">
@@ -23,7 +23,6 @@ const Home = () => {
             <AddCompanyButton />
           </div>
 
-          <h3>{landingPageCopy.keywordsText}</h3>
         </div>
       </div>
       <img src={landingPageImage} className="landingImage" alt=""/>

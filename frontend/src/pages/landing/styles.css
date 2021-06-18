@@ -1,50 +1,49 @@
 h1 {
-    font-family: Roboto;
-    font-weight: 600;
-    font-size: 60px;
-    margin-bottom: -40px;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 54px;
+  margin: 0;
 }
 
 h2 {
-    font-family: Roboto;
-    font-weight: 300;
-    font-size: 28px;
-    margin-left: 2px;
-    margin-bottom: 30px;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0 0 48px 2px;
 }
 
 h3 {
-    font-family: Roboto;
-    font-weight: normal;
-    font-style: italic;
-    font-size: 14px;
+  font-family: Roboto;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 14px;
 }
 
-.landing{
-    position: absolute;
-    margin-left: 100px;
-    top: 40%;
-    transform: translate(0,-50%);
-    z-index: 1;
+.landing {
+  position: absolute;
+  margin-left: 100px;
+  top: 40%;
+  transform: translate(0, -50%);
+  z-index: 1;
 }
 
-.searchbar{
-    width: 640px;
-    margin-bottom: -5px;
-    margin-right: 15px;
+.searchbar {
+  width: 540px;
+  margin-right: 15px;
 }
 
-.landingImage{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+.landingImage {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .select input {
-    font-family: Roboto;
+  font-family: Roboto;
 }

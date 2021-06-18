@@ -31,7 +31,7 @@ export const SearchBarStylesHome = {
     control: (base, state) => ({
       ...base,
       fontFamily: 'Roboto',
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: '400',
       backgroundColor: 'rgba(229, 229, 229)',
       cursor: 'text',
@@ -43,7 +43,7 @@ export const SearchBarStylesHome = {
       return {
         ...styles,
         fontFamily: 'Roboto',
-        fontSize: 18,
+        fontSize: 16,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
@@ -59,9 +59,8 @@ export const SearchBarStylesHome = {
   
     menu: styles => ({
       ...styles,
-      marginTop: 5,
-      boxShadow: 'none',
-      borderRadius: 0,
+      marginTop: 2,
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
     }),
   
     singleValue: styles => ({
@@ -85,7 +84,7 @@ export const SearchBarStylesNotHome = {
   control: (base, state) => ({
     ...base,
     fontFamily: 'Roboto',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '400',
     backgroundColor: 'rgba(229, 229, 229)',
     cursor: 'text',

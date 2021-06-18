@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.company {
+  color: #00c2ff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.job {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.body {
+  display: flex;
+}
+
+.graph {
+  height: 400px;
+  width: 760px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin-right: 40px;
+}
+
+.info {
+  height: 400px;
+  width: 400px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}

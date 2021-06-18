@@ -80,7 +80,7 @@ const Header = (props) => {
             )}
 
             {loggedIn ? (
-              <div style={{ marginRight: "40px" }}>
+              <div>
                 <IconButton
                   aria-label="account of current user"
                   aria-controls="menu-appbar"

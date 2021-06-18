@@ -12,12 +12,12 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   customizeToolbar: {
-    minHeight: 50
+    height: 50
   },
 
   buttons: {
     fontFamily: "Roboto",
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: 400,
     textTransform: 'none',
   }
