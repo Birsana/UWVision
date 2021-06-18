@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   headerRoot: {
-    flexGrow: 1,
+    flexGrow: 1
   },
 
   header: {
@@ -32,7 +32,7 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
     fontWeight: "bold",
     textTransform: 'none',
-    marginRight: "75px",
+    marginRight: "40px",
 
     backgroundColor: "black",
     color: "white",
@@ -49,6 +49,6 @@ export const useStyles = makeStyles((theme) => ({
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "400px",
+    width: "500px"
   },
 }));

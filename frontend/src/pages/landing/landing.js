@@ -3,7 +3,7 @@ import SearchBar from "components/SearchBar/SearchBar";
 import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
 
 import landingPageCopy from './copy';
-import landingPageImage from 'assets/landingPage.png';
+import landingPageImage from 'assets/landingPageImageDark.png';
 import './styles.css';
 
 //TODO: Responsive design
