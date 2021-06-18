@@ -53,7 +53,7 @@ const LogInModal = (props) => {
 
     // User cannot sign in with a non-uwaterloo email
     else if (!email.includes("@uwaterloo.ca")) {
-      setEmailError('Please enter a "@uwaterloo.ca" email.');
+      setEmailError('Please enter an @uwaterloo.ca email.');
       isValid = false;
     }
 

@@ -53,9 +53,7 @@ const CompanyPage = (props) => {
 
       default:
         return (
-          <div>
-            <p> Loading... </p>
-          </div>
+          <div></div>
         );
     }
   };

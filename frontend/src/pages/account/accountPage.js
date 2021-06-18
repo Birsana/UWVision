@@ -3,17 +3,15 @@ import { connect } from "react-redux";
 
 const AccountPage = (props) => {
     const [accountName, setAccountName] = useState(props.username);
-    const [loggedIn, setLoggedIn] = useState(props.isLoggedIn);
 
     useEffect(() => {
       setAccountName(props.username);
-      setLoggedIn(props.isLoggedIn);
-    }, [props.isLoggedIn]);
+    }, [props.username]);
 
 
     return (
       <div style={{ marginLeft: "60px" }}>
-        {loggedIn ? (
+        {(accountName !== null) ? (
           <h2>
             Welcome <b>{accountName}</b>
           </h2>
@@ -26,7 +24,6 @@ const AccountPage = (props) => {
 
 // Injecting redux logged-in states into props for header
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn,
   username: state.username
 });
 

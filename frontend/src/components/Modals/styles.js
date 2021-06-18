@@ -45,7 +45,7 @@ export const CloseModalButton = styled(MdClose)`
 export const Title = styled.div`
   margin-top: 15px;
   margin-left: 10px;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
 `;
@@ -69,8 +69,8 @@ export const ModalTitle = ({ title }) => {
 };
 
 export const ModalText = styled.p`
-  margin-left: 12px;
-  font-family: Roboto Mono; 
+  margin-left: 13px;
+  font-family: Roboto; 
   width: 90%;
 `;
 
@@ -82,7 +82,7 @@ export const ModalButton = styled.button`
   width: 90%;
   border: none;
   border-radius: 5px;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 16px;
 
   background: #07C45F;
@@ -97,7 +97,7 @@ export const ModalSignUpButton = ({ onClick }) => {
   return (
     <>
     <Divider />
-    <ModalText>New to WaterlooVision? <u onClick={onClick} style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
+    <ModalText>New to UWVision? <u onClick={onClick} style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
     </>
   )
 }
@@ -119,7 +119,7 @@ export const FormInput = styled.input`
   background-color: rgba(239, 239, 239);
   border: none;
   border-radius: 3px;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 16px;
   padding-left: 10px;
 
@@ -133,16 +133,14 @@ export const FormErrorMessage = styled.div`
   margin-top: 5px;
   height: 20px;
   width: 90%;
-  border-radius: 3px;
-  background-color: rgb(255, 86, 48);
 
   p {
     margin-top: 0;
     margin-left: 4px;
-    font-family: Roboto Mono;
+    font-family: Roboto;
     font-size: 13px;
     font-weight: bold;
-    color: #fff;
+    color: rgb(255, 86, 48);
   }
 `;
 
@@ -157,7 +155,7 @@ export const FormSubmitButton = styled.input.attrs({
   width: 90%;
   border: none;
   border-radius: 5px;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 16px;
 
   background: #ffc333;

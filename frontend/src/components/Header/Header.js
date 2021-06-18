@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink, withRouter } from "react-router-dom";
 
 // Material-UI Imports:
 import AppBar from "@material-ui/core/AppBar";
@@ -60,7 +60,7 @@ const Header = (props) => {
       <div className={styles.headerRoot}>
         <AppBar position="static" className={styles.header}>
           <Toolbar>
-            {/* Render the WaterlooVision typography if viewport size is greater than 650px or if on homepage*/}
+            {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
             {(displayTypography || location.pathname === "/") && (
               <Typography variant="h5" className={styles.title}>
                 <NavLink
@@ -109,14 +109,12 @@ const Header = (props) => {
                 >
                   <MenuItem
                     className={styles.menuItem}
-                    onClick={handleMenuClose}
+                    onClick={() => {
+                      props.history.push("/account");
+                      handleMenuClose();
+                    }}
                   >
-                    <NavLink
-                      to="/account"
-                      style={{ textDecoration: "none", color: "unset" }}
-                    >
-                      My Account
-                    </NavLink>
+                    My Account
                   </MenuItem>
                   <MenuItem
                     className={styles.menuItem}
@@ -175,4 +173,4 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(withRouter(Header));

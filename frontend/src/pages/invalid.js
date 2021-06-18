@@ -12,7 +12,7 @@ const invalidPage = () => {
     <div>
       <h1>404</h1> 
       <p> The page you are requesting for does not exist. </p>
-      <p> Do you wish to redirect to the WaterlooVision homepage?</p>
+      <p> Do you wish to redirect to the UWVision homepage?</p>
       <button onClick={redirectButton}>
         Redirect to Homepage
       </button>
