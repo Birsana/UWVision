@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import Select, { components } from 'react-select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom';
 
 // Search Bar Component Styles:
 // TODO: Responsive Designs for Mobile and Tablet
@@ -81,15 +82,15 @@ export const SearchBarStylesHome = {
 // input - styling what the user types into the search box
 // singleValue - applies to the selected option that the user chooses
 export const SearchBarStylesNotHome = {
-  control: (base, state) => ({
+  control: (base) => ({
     ...base,
     fontFamily: 'Roboto',
     fontSize: 16,
     fontWeight: '400',
-    backgroundColor: 'rgba(229, 229, 229)',
+    backgroundColor: '#efefef',
     cursor: 'text',
-    borderRadius: 10,
-    border: 0,
+    borderRadius: 0,
+    border: 0
   }),
 
   option: (styles, { isFocused }) => {
@@ -112,9 +113,8 @@ export const SearchBarStylesNotHome = {
 
   menu: styles => ({
     ...styles,
-    marginTop: 5,
-    boxShadow: 'none',
-    borderRadius: 0,
+    marginTop: 2,
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
   }),
 
   singleValue: styles => ({
@@ -124,17 +124,19 @@ export const SearchBarStylesNotHome = {
 
   placeholder: styles => ({
     ...styles,
-    color: 'black',
+    color: '#9e9ea7',
   })
 }
   
 
 // Add search icon to search bar
 export const DropdownIndicator = props => {
+    const location = useLocation();
+
     return (
       components.DropdownIndicator && (
         <components.DropdownIndicator {...props}>
-           <FontAwesomeIcon icon={faSearch} style={{color: 'rgba(79, 78, 67)'}}/>
+           <FontAwesomeIcon icon={faSearch} style={ (location.pathname === "/") ? { color: 'rgba(79, 78, 67)' } : { color: '#9e9ea7' } }/>
         </components.DropdownIndicator>
       )
     )

@@ -11,7 +11,7 @@ import { useStyles } from "./styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+// import AccountCircle from "@material-ui/icons/AccountCircle";
 
 // Component Imports:
 import SearchBar from "components/SearchBar/SearchBar";
@@ -87,8 +87,12 @@ const Header = (props) => {
                   aria-haspopup="true"
                   onClick={handleMenuOpen}
                   color="inherit"
+                  style={{ padding: 0 }}
                 >
-                  <AccountCircle />
+                  {/* <AccountCircle /> */}
+                  <div className={styles.profile}>
+                    {localStorage.getItem('username').substr(0, 1)}
+                  </div>
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -106,6 +110,7 @@ const Header = (props) => {
                   open={open}
                   disableScrollLock={true}
                   onClose={handleMenuClose}
+                  style={{ marginTop: 10 }}
                 >
                   <MenuItem
                     className={styles.menuItem}

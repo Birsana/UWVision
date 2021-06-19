@@ -9,6 +9,20 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "40px"
   },
 
+  profile: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: "black",
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    height: 34,
+    width: 34,
+    borderRadius: "50%"
+  },
+
   title: {
     flex: 1,
     fontSize: "20px"
