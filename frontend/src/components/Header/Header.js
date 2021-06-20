@@ -91,7 +91,7 @@ const Header = (props) => {
                 >
                   {/* <AccountCircle /> */}
                   <div className={styles.profile}>
-                    {localStorage.getItem('username').substr(0, 1)}
+                    {localStorage.getItem('username') ? localStorage.getItem('username').substr(0, 1) : ''}
                   </div>
                 </IconButton>
                 <Menu
@@ -110,11 +110,13 @@ const Header = (props) => {
                   open={open}
                   disableScrollLock={true}
                   onClose={handleMenuClose}
-                  style={{ marginTop: 10 }}
+                  style={{ marginTop: 14, boxShadow: "0px 0px 0px 0px" }}
+                  elevation={3}
                 >
                   <MenuItem
                     className={styles.menuItem}
                     onClick={() => {
+                      setLoggedIn(false);
                       props.history.push("/account");
                       handleMenuClose();
                     }}

@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     backgroundColor: "black",
     color: "white",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
     height: 34,
     width: 34,
