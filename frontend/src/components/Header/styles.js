@@ -32,7 +32,10 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     fontWeight: 400,
     textTransform: 'none',
-    marginRight: "10px"
+    marginRight: 8,
+    marginLeft: -6,
+    padding: "6px 16px",
+    borderRadius: 10
   },
 
   signUpButton: {

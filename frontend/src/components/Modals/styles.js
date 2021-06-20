@@ -30,8 +30,8 @@ export const ModalWrapper = styled.div`
 export const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 14px;
+  right: 14px;
   width: 20px;
   height: 20px;
   z-index: 1;
@@ -44,7 +44,7 @@ export const CloseModalButton = styled(MdClose)`
 
 export const Title = styled.div`
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 18px;
   font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
@@ -69,7 +69,7 @@ export const ModalTitle = ({ title }) => {
 };
 
 export const ModalText = styled.p`
-  margin-left: 13px;
+  margin-left: 20px;
   font-family: Roboto; 
   width: 90%;
 `;
@@ -112,7 +112,7 @@ export const ModalLogInButton = ({ onClick }) => {
 }
 
 export const FormInput = styled.input`
-  margin-left: 10px;
+  margin-left: 18px;
   margin-top: 10px;
   height: 35px;
   width: 90%;
@@ -129,7 +129,7 @@ export const FormInput = styled.input`
 `;
 
 export const FormErrorMessage = styled.div`
-  margin-left: 10px;  
+  margin-left: 18px;  
   margin-top: 5px;
   height: 20px;
   width: 90%;
@@ -148,7 +148,7 @@ export const FormSubmitButton = styled.input.attrs({
   type: "submit",
 })`
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 18px;
   margin-top: 15px;
   margin-bottom: 10px;
   height: 35px;
@@ -160,6 +160,7 @@ export const FormSubmitButton = styled.input.attrs({
 
   background: #ffc333;
   color: black;
+  font-weight: bold;
 
   &:hover {
     background: #f1ac15;
