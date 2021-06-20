@@ -15,16 +15,13 @@ h4 {
     width: -webkit-calc(100% - 210px);
 }
 
-.companyDivider {
-    border: none;
-    height: 5px;
-    background-color: #d0d0d0;
-    margin-top: -20px;
+.companyInfo h1 {
+    font-size: 48px;
 }
 
 .companyRating {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     color: #00C2FF;
 }
 
@@ -34,7 +31,8 @@ h4 {
 
 .jobRating {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 18px;
+    color: #00C2FF;
 }
 
 .numberOfReviewsJob {
@@ -42,6 +40,25 @@ h4 {
 }
 
 .textDivider {
-    font-size: 24px;
-    font-weight: 200;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.textDivider2 {
+    font-size: 18px;
+    font-weight: 300;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.companyTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.companyTitle:last-child {
+    margin-left: 0;
+    vertical-align: center;
 }

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { withRouter, } from "react-router-dom";
 
 // Material-UI Imports:
 import AppBar from "@material-ui/core/AppBar";
@@ -7,8 +7,20 @@ import Button from "@material-ui/core/Button";
 import { useStyles } from "./styles";
 
 // Footer Component
-const Footer = () => {
+const Footer = (props) => {
   const styles = useStyles();
+
+  const handleClick = (clickLocation) => {
+    let destination = "";
+    if (clickLocation === "privacy") {
+      destination = "/privacy";
+    } else if (clickLocation === "home") {
+      destination = "/";
+    }
+
+    props.history.push(destination);
+    window.scrollTo(0, 0);
+  }
 
   return (
     <div className={styles.footerRoot}>
@@ -17,24 +29,17 @@ const Footer = () => {
           <Button
             className={styles.buttons}
             color="inherit"
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => handleClick("home")}
           >
-            <NavLink to="/" style={{ textDecoration: "none", color: "unset" }}>
-              Home
-            </NavLink>
+            Home
           </Button>
 
           <Button
             className={styles.buttons}
             color="inherit"
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => handleClick("privacy")}
           >
-            <NavLink
-              to="/privacy"
-              style={{ textDecoration: "none", color: "unset" }}
-            >
-              Privacy Policy
-            </NavLink>
+            Privacy Policy
           </Button>
         </Toolbar>
       </AppBar>
@@ -42,4 +47,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default withRouter(Footer);

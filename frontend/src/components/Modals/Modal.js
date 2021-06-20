@@ -9,6 +9,7 @@ import AddCompanyModal from "./AddCompanyModal/AddCompanyModal";
 import LogInModal from "./LogInModal/LogInModal";
 import SignUpModal from "./SignUpModal/SignUpModal";
 import ReviewModal from "./ReviewModal/ReviewModal";
+import AddJobModal from "./AddJobModal/AddJobModal";
 
 // ==============================================================================================================
 
@@ -19,14 +20,16 @@ const Modal = ({ initialModal, onClose }) => {
   // Determines which modal to render depending on state
   const ModalToRender = () => {
     if (modalType === "Add Company") {
-      return <AddCompanyModal changeModalState={setModalType}/>;
+      return <AddCompanyModal />;
     } else if (modalType === "Log In") {
       return <LogInModal changeModalState={setModalType}/>;
     } else if (modalType === "Sign Up") {
       return <SignUpModal changeModalState={setModalType}/>;
     } else if (modalType === "Add Review") {
-        return <ReviewModal changeModalState={setModalType}/>;
-      }
+        return <ReviewModal />;
+    } else if (modalType === "Add Job") {
+        return <AddJobModal />
+    }
   };
 
   // Any clicks outside the modal (in the greyed out background area) will result in the modal being closed

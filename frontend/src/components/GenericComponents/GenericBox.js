@@ -27,7 +27,6 @@ const JobScrollableDiv = styled.div`
 `;
 
 const JobListDiv = styled.div`
-  margin-top: -13px;
   margin-bottom: -25px;
 `;
 

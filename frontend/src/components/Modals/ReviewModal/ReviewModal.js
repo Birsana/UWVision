@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-const ReviewModal = ({ changeModalState }) => {
+const ReviewModal = () => {
  
     //store user responses
     const [text, setText] = useState("")

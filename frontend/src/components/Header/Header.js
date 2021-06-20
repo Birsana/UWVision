@@ -26,6 +26,7 @@ import { connect } from "react-redux";
 const Header = (props) => {
   // States controlled by redux:
   const [loggedIn, setLoggedIn] = useState(props.isLoggedIn);
+  const [usernameIcon, setUsernameIcon] = useState(props.username);
 
   // Header States:
   const [showLogInModal, setShowLogInModal] = useState(false);
@@ -44,6 +45,7 @@ const Header = (props) => {
   // Sets logged in state of header component (will update automatically based on Redux state)
   useEffect(() => {
     setLoggedIn(props.isLoggedIn);
+    setUsernameIcon(props.username);
     setShowLogInModal(false);
     setShowSignUpModal(false);
   }, [props.isLoggedIn]);
@@ -91,7 +93,7 @@ const Header = (props) => {
                 >
                   {/* <AccountCircle /> */}
                   <div className={styles.profile}>
-                    {localStorage.getItem('username') ? localStorage.getItem('username').substr(0, 1) : ''}
+                    {usernameIcon.substr(0, 1)}
                   </div>
                 </IconButton>
                 <Menu
@@ -116,7 +118,6 @@ const Header = (props) => {
                   <MenuItem
                     className={styles.menuItem}
                     onClick={() => {
-                      setLoggedIn(false);
                       props.history.push("/account");
                       handleMenuClose();
                     }}
@@ -178,6 +179,7 @@ const Header = (props) => {
 // Injecting redux logged-in states into props for header
 const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
+  username: state.username
 });
 
 export default connect(mapStateToProps)(withRouter(Header));

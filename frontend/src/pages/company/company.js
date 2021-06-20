@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import AddCompanyButton from 'components/AddCompanyButton/AddCompanyButton';
+import AddJobButton from "components/AddJobButton/AddJobButton";
 import './styles.css';
 
 import GenericBox from 'components/GenericComponents/GenericBox';
@@ -11,8 +12,6 @@ const CompanyPage = (props) => {
   const [companyData, setCompanyData] = useState({})
   const [isCompanyValid, setIsCompanyValid] = useState(null);
 
-
-  //! Duplicating GET Requests
   useEffect(() => {
     const request = `http://localhost:5000/data/company/${company}`;
     axios.get(request)
@@ -32,13 +31,15 @@ const CompanyPage = (props) => {
       case true:
         return (
           <div className="companyInfo">
-            <h1>{company}</h1>
+            <div className="companyTitle">
+              <h1>{company}</h1>
+              <AddJobButton />
+            </div>
             <h2>
               <span className="companyRating">{companyData.averageRating} out of 10</span>
               <span className="textDivider"> | </span>
               <span className="numberOfReviews">{companyData.numReviews} reviews </span>
             </h2>
-            <hr className="companyDivider"></hr>
           </div>
         );
 

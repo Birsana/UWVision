@@ -5,6 +5,8 @@ const userRoutes = `${server}/auth`;
 const jobRoutes = `${server}/job`;
 
 const routes = {
+  SERVER: server,
+
   // Company Routes:
   ADDCOMPANY: `${companyRoutes}/addCompany`,
   COMPANYDATA: `${companyRoutes}/companyData`,
