@@ -11,7 +11,6 @@ import { useStyles } from "./styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
-// import AccountCircle from "@material-ui/icons/AccountCircle";
 
 // Component Imports:
 import SearchBar from "components/SearchBar/SearchBar";
@@ -91,7 +90,6 @@ const Header = (props) => {
                   color="inherit"
                   style={{ padding: 0 }}
                 >
-                  {/* <AccountCircle /> */}
                   <div className={styles.profile}>
                     {usernameIcon.substr(0, 1)}
                   </div>

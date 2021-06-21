@@ -56,7 +56,11 @@ const JobPage = (props) => {
             </div>
           </div>
           <div>
-            <InterviewQuestion upvoters={[]}>asdasdas</InterviewQuestion>
+            {
+              data.questions.map((question) => {
+                return <InterviewQuestion upvoters={question.upvoters} body={question.body} author={question.author} />
+              })
+            }
           </div>
         </div>
       </div>

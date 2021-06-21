@@ -1,7 +1,6 @@
 import {Button, Tooltip } from '@material-ui/core'
 
 function InterviewQuestion(props){
-
     return (
         <div className="comment">
           <h2 className="commentAuthor">
@@ -11,10 +10,9 @@ function InterviewQuestion(props){
             {props.upvoters.length}
             </Button>
             </Tooltip>
-          {props.children}
+          {props.body}
         </div>
       );
-
 }
 
 export default InterviewQuestion;
