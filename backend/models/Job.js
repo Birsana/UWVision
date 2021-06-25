@@ -4,12 +4,14 @@ var JobSchema = new mongoose.Schema({
     jobName: {type: String},
     company: String,
     added_by: String,
-    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
     questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
     salaries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Salary' }],
     averageSalary: Number,
-    averageRating: Number
+    averageRating: Number,
+    averageCulture: Number,
+    averageWorklife: Number,
+    averageInteresting: Number
 });
 
 JobSchema.methods.toJSONFor = function(){

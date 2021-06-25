@@ -1,91 +1,16 @@
 var mongoose = require('mongoose');
 var express = require('express');
-var jwt = require('jsonwebtoken');
 var auth = require('../auth');
-
 
 var router = express.Router();
 
 var User = mongoose.model('User');
 var Company = mongoose.model('Company');
 var Job = mongoose.model('Job');
-var Thread = mongoose.model('Thread');
-var Reply = mongoose.model('Reply');
 var Question = mongoose.model('InterviewQuestion');
 var Salary = mongoose.model('Salary');
 var Review = mongoose.model('Review');
 
-//create thread
-router.post('/:companyname/:job/thread', auth.required, function(req, res, next) {
-    User.findById(req.payload.id).then(function(user){
-      if(!user){ return res.sendStatus(401); }
-  
-      var thread = new Thread(req.body.thread);
-      console.log(thread)
-      thread.job = req.job;
-      thread.company = req.params.companyname;
-      thread.author = user.username;
-  
-      return thread.save().then(function(){
-        Job.find( {jobName: req.params.job} ).then(function(job){
-            job[0].threads.push(thread);
-            return job[0].save().then(function(job) {
-                console.log("saved");
-                res.send("thread added");
-              });
-        }).catch(next);
-      });
-    }).catch(next);
-});
-
-//get threads for job
-router.get('/:companyname/:job/threads', auth.optional, async function(req, res, next){
-    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
-        console.log(job[0]);
-        
-        var retArr = [];
-        for(var i = 0; i < job[0].threads.length; ++i){
-            await Thread.findById(job[0].threads[i]).then(function(thread){
-            retArr.push(thread.toJSONFor());
-        }).catch(next);
-        }
-        console.log(retArr);
-        res.send(retArr);
-    }).catch(next);
-  });
-
-  //create reply to thread
-router.post('/:thread/reply', auth.required, function(req, res, next) {
-    User.findById(req.payload.id).then(function(user){
-      if(!user){ return res.sendStatus(401); }
-      var reply = new Reply(req.body.reply);
-      reply.author = user.username;
-      Thread.find( {slug: req.params.thread} ).then(function(thread){
-        reply.thread = thread[0];
-        console.log(thread[0]);
-        return reply.save().then(function() {
-            thread[0].replies.push(reply);
-            console.log("saved");
-            res.send("reply added")
-          });
-        }).catch(next);
-    }).catch(next);
-});
-
-//get replies to thread
-router.get('/:thread/replies', auth.optional, function(req, res, next) {
-    Thread.find( {slug: req.params.thread} ).then( async function(thread){
-        var retArr = [];
-        console.log(thread);
-        for(var i = 0; i < thread[0].replies.length; ++i){
-            await Reply.findById(thread[0].threads[i]).then(function(reply){
-            retArr.push(reply.toJSONFor());
-        }).catch(next);
-        }
-        console.log(retArr);
-        res.send(retArr);
-    }).catch(next);
-});
 
 //post interview question
 router.post('/:companyname/:job/question', auth.required, function(req, res, next) {
@@ -94,12 +19,12 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
   
       var question = new Question(req.body.question);
       question.author = user.email;
+
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         question.job = job[0];
         return question.save().then(function() {
             job[0].questions.push(question);
             return job[0].save().then(function(job) {
-                console.log("saved");
                 res.send("question added");
               });
           });
@@ -107,7 +32,7 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
     }).catch(next);
 });
 
-// upvote interview question
+// upvote/downvote interview question
 router.post('/:companyname/:job/question/:question', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
         Question.findById(req.params.question).then(function(question){
@@ -187,6 +112,11 @@ router.get('/:companyname/:job/salaries', auth.optional, function(req, res, next
     }).catch(next);
 });
 
+function calculateAverageRatingFields(currAverage, numEntries, newEntry){
+    var totalRating = (currAverage * numEntries + newEntry)/(numEntries + 1);
+    return Math.round(totalRating * 10)/10;
+}
+
 //add review for a job
 
 router.post('/:companyname/:job/review', auth.required, function(req, res, next) {
@@ -203,10 +133,16 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
 
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return review.save().then(function() {
-            var rating = (job[0].averageRating * job[0].reviews.length + review.overallRating)/(job[0].reviews.length+1);
-            job[0].averageRating = Math.round(rating * 10)/10;
+
+            job[0].averageRating = calculateAverageRatingFields(job[0].averageRating, job[0].reviews.length, review.overallRating);
+            job[0].averageCulture = calculateAverageRatingFields(job[0].averageCulture, job[0].reviews.length, review.culture);
+            job[0].averageWorklife = calculateAverageRatingFields(job[0].averageWorklife, job[0].reviews.length, review.workLifeBalance);
+            job[0].averageInteresting = calculateAverageRatingFields(job[0].averageInteresting, job[0].reviews.length, review.interestingWork);
+
             job[0].reviews.push(review);
+
             job[0].save().then(function() {
+
                 Company.find( {company_name: req.params.companyname} ).then(function(company){
                     var companyRating = (company[0].averageRating * company[0].numReviews + overallRating)/(company[0].numReviews + 1);
                     company[0].averageRating = Math.round(companyRating * 10)/10;
@@ -249,7 +185,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
         var retArr = [];
         for(var i = 0; i < job[0].reviews.length; ++i){
             await Review.findById(job[0].reviews[i]).then(function(review){
-            if(review.body.length > 0){
+            if(review.body.length > 0){ //only fetch reviews that have a body
                 retArr.push(review.toJSONFor());
             }
         }).catch(next);
@@ -259,18 +195,12 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
     }).catch(next);
 });
 
-//get overall rating for a job and number of reviews
+//get overall ratings for a job and number of reviews
 router.get('/:companyname/:job/rating', auth.optional, function(req, res, next) {
-    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
-        var totalRating = 0;
-        for(var i = 0; i < job[0].reviews.length; ++i){
-            await Review.findById(job[0].reviews[i]).then(function(review){
-                totalRating += review.overallRating;
-        }).catch(next);
-        }
-        var averageRating = Math.round(totalRating/job[0].reviews.length * 10)/10;
+    Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(jobs){
         var ratingArr = [];
-        ratingArr.push(averageRating, job.reviews.length);
+        var job = jobs[0];
+        ratingArr.push(job.averageRating, job.averageCulture, job.averageWorklife, job.averageInteresting, job.reviews.length);
         res.send(ratingArr);
     }).catch(next);
 });

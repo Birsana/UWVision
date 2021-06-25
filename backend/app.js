@@ -9,8 +9,6 @@ const path = require('path')
 require('./models/User');
 require('./models/Company');
 require('./models/Job');
-require('./models/Thread');
-require('./models/Reply');
 require('./models/Question');
 require('./models/Salary');
 require('./models/Review');

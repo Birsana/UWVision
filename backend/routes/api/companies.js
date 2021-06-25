@@ -56,6 +56,11 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       var job = new Job(req.body.job);
       job.added_by = user.email;
       job.company = companyName;
+      job.averageRating = 0;
+      job.averageSalary = 0;
+      job.averageCulture = 0;
+      job.averageWorklife = 0;
+      job.averageInteresting = 0;
   
       return job.save().then(function(){
         Company.find( {company_name: companyName} ).then(function(company){
