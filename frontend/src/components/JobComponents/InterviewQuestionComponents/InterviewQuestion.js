@@ -1,18 +1,16 @@
 import {Button, Tooltip } from '@material-ui/core'
 
 function InterviewQuestion(props){
-    return (
-        <div className="comment">
-          <h2 className="commentAuthor">
-          </h2>
-          <Tooltip title="I also had this">
-          <Button variant="contained">
-            {props.upvoters.length}
-            </Button>
-            </Tooltip>
-          {props.body}
-        </div>
-      );
+  return (
+    <div className="question-container">
+      <p className="question-body">{props.body}</p>
+      <Tooltip title="This interview question was helpful">
+        <Button style={{ margin: "10px 0 -12px -6px", width: "max-content" }}>
+          Helpful ({props.upvoters.length})
+        </Button>
+      </Tooltip>
+    </div>
+  );
 }
 
 export default InterviewQuestion;

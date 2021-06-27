@@ -1,0 +1,12 @@
+.question-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.question-body {
+  font-size: 16px;
+  margin: 0;
+}

@@ -9,6 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(34, 30, 29)",
     color: "white",
     boxShadow: "0px 0px 0px 0px",
+    marginTop: 80
   },
 
   customizeToolbar: {

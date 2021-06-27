@@ -89,7 +89,7 @@ export const SearchBarStylesNotHome = {
     fontWeight: '400',
     backgroundColor: '#efefef',
     cursor: 'text',
-    borderRadius: 10,
+    borderRadius: 0,
     border: 0
   }),
 
