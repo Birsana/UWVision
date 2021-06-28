@@ -55,30 +55,28 @@ const App = () => {
         <div>
           <div className="UWVision">
             <Header />
-            {/* <div style={{ display: "flex" }}> */}
-              <Switch>
+            <Switch>
 
-                {/* Route to landing (home) page*/}
-                <Route exact path="/" component={LandingPage} />
+              {/* Route to landing (home) page*/}
+              <Route exact path="/" component={LandingPage} />
 
-                {/* Route to generic job page template - will populate data based on job*/}
-                <Route path="/company/:id/job/:jobId" component={JobPage} />
+              {/* Route to generic job page template - will populate data based on job*/}
+              <Route path="/company/:id/job/:jobId" component={JobPage} />
 
-                {/* Route to generic company page template - will populate data based on company*/}
-                <Route path="/company/:id" component={CompanyPage} />
+              {/* Route to generic company page template - will populate data based on company*/}
+              <Route path="/company/:id" component={CompanyPage} />
 
-                <Route path="/test" component={TestingPage} />
+              <Route path="/test" component={TestingPage} />
 
-                <Route exact path="/privacy" component={PrivacyPolicyPage} />
+              <Route exact path="/privacy" component={PrivacyPolicyPage} />
 
-                <Route exact path="/account" component={AccountPage} />
+              <Route exact path="/account" component={AccountPage} />
 
-                {/* 404 Page (if provided an unknown URL */}
-                <Route component={InvalidPage} />
+              {/* 404 Page (if provided an unknown URL */}
+              <Route component={InvalidPage} />
 
-              </Switch>
-            </div>
-          {/* </div> */}
+            </Switch>
+          </div>
           <Footer />
         </div>
       </BrowserRouter>
