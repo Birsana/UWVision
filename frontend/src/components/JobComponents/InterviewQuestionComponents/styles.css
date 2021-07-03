@@ -4,6 +4,7 @@
   padding: 30px;
   max-width: 760px;
   margin-bottom: 20px;
+  white-space: normal;
 }
 
 .question-body {

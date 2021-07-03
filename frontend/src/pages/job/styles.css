@@ -152,6 +152,7 @@
 
 @media only screen and (max-width: 940px) {
   .salary-reviews-container {
+    order: 2;
     width: 600px;
   }
 
@@ -160,7 +161,28 @@
   }
 
   .interview-container {
+    order: 1;
     width: 600px;
+  }
+
+  .questions-container {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .questions-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .question {
+    display: inline-block;
+    width: 400px;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .question:last-of-type {
+    margin-right: 0;
   }
 
   .body {
@@ -194,6 +216,10 @@
     width: 500px;
   }
 
+  .question {
+    width: 300px;
+  }
+
   .body {
     width: 500px;
   }
@@ -213,6 +239,10 @@
   }
 
   .interview-container {
+    width: 400px;
+  }
+
+  .question {
     width: 400px;
   }
 
@@ -251,6 +281,10 @@
   }
 
   .interview-container {
+    width: 300px;
+  }
+
+  .question {
     width: 300px;
   }
 
@@ -301,6 +335,10 @@
   }
 
   .interview-container {
+    width: 260px;
+  }
+
+  .question {
     width: 260px;
   }
 
