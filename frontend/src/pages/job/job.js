@@ -5,12 +5,12 @@ import Review from '../../components/JobComponents/Review/Review'
 import { MdMonetizationOn, MdQuestionAnswer } from "react-icons/md"
 import { BsQuestionSquareFill } from "react-icons/bs"
 import { Button } from '@material-ui/core'
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    color: theme.palette.getContrastText(blue[500]),
+    color: "white",
     backgroundColor: blue[500],
     '&:hover': {
       backgroundColor: blue[700],
@@ -136,16 +136,19 @@ const JobPage = (props) => {
     return (
       <div className="container job-container">
         <div className="header">
-          <div>
-            <p className="company">{data.company}</p>
-            <p className="job">{data.jobName}</p>
-          </div>
+          <p className="company">{data.company}</p>
+          <p className="job">{data.jobName}</p>
         </div>
         <div className="body">
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <h2 className="sub-header">
-              Salary distribution
-              <MdMonetizationOn size={24} style={{ marginLeft: 10 }} />
+          <div className="salary-reviews-container">
+            <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
+              <span style={{ display: "flex", alignItems: "center" }}>
+                Salary distribution
+                <MdMonetizationOn size={24} style={{ marginLeft: 10 }} />
+              </span>
+              <div className="add-button">
+                Add
+              </div>
             </h2>
             <div className="graph">
               <BarGraph />
@@ -174,10 +177,10 @@ const JobPage = (props) => {
                 </div>
               </div>
               <div className="write-container">
-                How was your experience at {data.company}?
-                <ColorButton variant="outlined" style={{ color: "white" }}>Write a review</ColorButton>
+                <div className="write-text">How was your experience at {data.company}?</div>
+                <ColorButton>Write a review</ColorButton>
               </div>
-              {data.reviews.map((review) => {
+              {data.reviews.map((review, index) => {
                 return (
                   <Review 
                     body={review.body}
@@ -187,23 +190,30 @@ const JobPage = (props) => {
                     interestingWork={review.interestingWork}
                     overallRating={review.overallRating}
                     upvoters={review.upvoters}
+                    key={index}
                   />
                 )
               })}
             </div>
           </div>
           <div className="interview-container">
-            <h2 className="sub-header">
-              Interview questions
-              <BsQuestionSquareFill size={20} style={{ marginLeft: 10 }} />
+            <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
+              <span style={{ display: "flex", alignItems: "center" }}>
+                Interview questions
+                <BsQuestionSquareFill size={20} style={{ marginLeft: 10, marginTop: "auto", marginBottom: "auto" }} />
+              </span>
+              <div className="add-button">
+                Add
+              </div>
             </h2>
             <div>
-              {data.questions.map((question) => {
+              {data.questions.map((question, index) => {
                 return (
                   <InterviewQuestion 
                     upvoters={question.upvoters}
                     body={question.body}
                     author={question.author}
+                    key={index}
                   />
                 )
               })}
