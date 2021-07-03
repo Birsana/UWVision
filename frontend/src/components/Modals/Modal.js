@@ -10,11 +10,13 @@ import LogInModal from "./LogInModal/LogInModal";
 import SignUpModal from "./SignUpModal/SignUpModal";
 import ReviewModal from "./ReviewModal/ReviewModal";
 import AddJobModal from "./AddJobModal/AddJobModal";
+import InterviewModal from "./InterviewModal/InterviewModal";
+import SalaryModal from "./SalaryModal/SalaryModal";
 
 // ==============================================================================================================
 
 // Generic Modal Handler:
-const Modal = ({ initialModal, onClose }) => {
+const Modal = ({job, company, initialModal, onClose }) => {
   const [modalType, setModalType] = useState(initialModal);
     
   // Determines which modal to render depending on state
@@ -26,7 +28,11 @@ const Modal = ({ initialModal, onClose }) => {
     } else if (modalType === "Sign Up") {
       return <SignUpModal changeModalState={setModalType}/>;
     } else if (modalType === "Add Review") {
-        return <ReviewModal />;
+        return <ReviewModal job={job} company={company} />;
+    } else if (modalType === "Add Interview") {
+        return <InterviewModal job={job} company={company} />;
+    } else if (modalType === "Add Salary") {
+        return <SalaryModal job={job} company={company} />;
     } else if (modalType === "Add Job") {
         return <AddJobModal />
     }

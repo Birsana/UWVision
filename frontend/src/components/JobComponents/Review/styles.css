@@ -60,13 +60,31 @@
 }
 
 .helpful-button {
-  margin: 10px 0 -12px 5%;
+  margin: 10px 0 -12px 22px;
   width: max-content;
+}
+
+@media only screen and (max-width: 1300px) {
+  .helpful-button {
+    margin-left: 16px;
+  }
 }
 
 @media only screen and (max-width: 1055px) {
   .helpful-button {
-    margin-left: 16px;
+    margin-left: 12px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .helpful-button {
+    margin-left: 18px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .helpful-button {
+    margin-left: 12px;
   }
 }
 

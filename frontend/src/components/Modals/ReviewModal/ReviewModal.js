@@ -99,28 +99,28 @@ const ReviewModal = () => {
 
     return (
       <div>
-          <Typography>
-              Culture/Environment
-          </Typography>
-          <ThemeProvider theme = {ReviewSlider}>
-          <Slider value = {culture} onChange={handleChangeCulture}
-           step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
-          <Typography>
-              Meaningful/Interesting Work
-          </Typography>
-          <Slider value = {interesting} onChange={handleChangeInteresting}
-           step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
-          <Typography>
-              Work-Life Balance
-          </Typography>
-          <Slider value = {worklife} onChange={handleChangeWorkLife}
-           step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
-           </ThemeProvider>
-          <TextField
+            <Typography>
+                Culture/Environment
+            </Typography>
+            <ThemeProvider theme = {ReviewSlider}>
+            <Slider value = {culture} onChange={handleChangeCulture}
+            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
+            <Typography>
+                Meaningful/Interesting Work
+            </Typography>
+            <Slider value = {interesting} onChange={handleChangeInteresting}
+            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
+            <Typography>
+                Work-Life Balance
+            </Typography>
+            <Slider value = {worklife} onChange={handleChangeWorkLife}
+            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
+            </ThemeProvider>
+            <TextField
                     placeholder = "Add additional comments" inputProps = {{maxLength: 100}}
                     value = {text}
                     onChange={(event) => {setText(event.target.value)}}/>
-            <Button variant= "contained" size="small" onClick = {handleClick}/>
+            <Button variant= "contained" size="small" onClick = {handleClick}>Submit</Button>
       </div>
     );
   };

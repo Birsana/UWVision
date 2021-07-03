@@ -9,59 +9,46 @@ function BarGraph(props){
         var graphLabels = [];
         var graphValues = [];
 
-        const fetchSalaries = async () => {
+        const data = props.salaries;
+        data.forEach(salary => {
+            graphLabels.push(salary.wage);
+          });
+          graphLabels.sort();
 
-            await axios.get("http://localhost:5000/job/Nvidia/Director/salaries", {
-                headers: {
-                    //   Authorization: `Token ${token}`,
-                      "Content-Type": "application/json",
-                      "X-Requested-With": "XMLHttpRequest",
-                    }
-            }).then(response => {
-                let data = response.data;
-                data.forEach(salary => {
-                    graphLabels.push(salary.wage);
-                  });
-                  graphLabels.sort();
-    
-                  //converting wages to form "x$/hr"
-                  for(var i = 0; i < graphLabels.length; ++i){
-                      graphLabels[i] = graphLabels[i].toString() + "$/hr";
+          //converting wages to form "x$/hr"
+          for(var i = 0; i < graphLabels.length; ++i){
+              graphLabels[i] = graphLabels[i].toString() + "$/hr";
+          }
+
+          //populate the graph values array
+          var currCounter = 1;
+          for(var j = 1; j < graphLabels.length; ++j){
+            if(graphLabels[j] !== graphLabels[j-1]){
+                graphValues.push(currCounter);
+                currCounter = 1;
+            } else {
+                currCounter += 1;
+            }
+          }
+          graphValues.push(currCounter);
+
+          //removing duplicates for labels
+          graphLabels = [...new Set(graphLabels)];
+          console.log("hi");
+          setGraphData(
+            {
+                labels: graphLabels,
+                datasets: [
+                  {
+                    label: '# of people',
+                    backgroundColor: 'rgba(75,192,192,1)',
+                    borderColor: 'rgba(0,0,0,1)',
+                    borderWidth: 1,
+                    data: graphValues
                   }
-    
-                  //populate the graph values array
-                  var currCounter = 1;
-                  for(var j = 1; j < graphLabels.length; ++j){
-                    if(graphLabels[j] !== graphLabels[j-1]){
-                        graphValues.push(currCounter);
-                        currCounter = 1;
-                    } else {
-                        currCounter += 1;
-                    }
-                  }
-                  graphValues.push(currCounter);
-    
-                  //removing duplicates for labels
-                  graphLabels = [...new Set(graphLabels)];
-                  console.log("hi");
-                  setGraphData(
-                    {
-                        labels: graphLabels,
-                        datasets: [
-                          {
-                            label: '# of people',
-                            backgroundColor: 'rgba(75,192,192,1)',
-                            borderColor: 'rgba(0,0,0,1)',
-                            borderWidth: 1,
-                            data: graphValues
-                          }
-                        ]
-                }
-                );
-            });
-        };
-        fetchSalaries();
-    
+                ]
+        }
+        );
       }, []);
 
     return (
