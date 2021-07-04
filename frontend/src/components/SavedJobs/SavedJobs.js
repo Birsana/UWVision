@@ -23,7 +23,6 @@ const SavedJobsList = styled.div`
 
 const SavedJobs = (props) => {
     const [savedJobs, setSavedJobs] = useState({});
-    //const [sortedCompanies, setSortedCompanies] = useState([]);
     
     useEffect(() => {
         getSavedJobs(props.token).then(response => {
@@ -37,13 +36,12 @@ const SavedJobs = (props) => {
             });
     
             setSavedJobs(finalData)
-            //setSortedCompanies(Object.keys(savedJobs).sort())
         });
     }, [savedJobs]); //! Empty dependency array is important as we only want to call this useEffect once
 
     return (
       <SavedJobsList>
-        <h1>Here are your saved jobs:</h1>
+        {Object.keys(savedJobs).length !== 0 ? <h1>Here are your saved jobs:</h1> : <h1>You have no saved jobs currently.</h1>}
         <br></br>
         <br></br>
         {Object.keys(savedJobs).map((companyName) => {
