@@ -32,19 +32,27 @@ router.post('/addcompany', auth.required, function(req, res, next){
     }).catch(next);
 });
 
-//get data for each job in a company
-router.get('/findcompanydata/:companyname', async function(req, res, next) {
-    
-    var companyName = req.params.companyname
-    var data = await Company.findCompanyByName(companyName)
-    var retArr = [];
-    for(var i = 0; i < data[0].jobs.length; ++i){
-        console.log(data[0].jobs[i]);
-        await Job.findById(data[0].jobs[i]).then(function(job){
-            retArr.push(job.toJSONFor());
-        }).catch(next);
-    }
-    res.send(retArr);
+//get data for each job in a company (fetching jobs)
+router.get('/findcompanydata/:companyname', auth.optional, async function(req, res, next) {
+
+    User.findById(req.payload.id).then(async function(user){
+        // if(user){
+
+        // }
+        var companyName = req.params.companyname
+        var data = await Company.findCompanyByName(companyName)
+        var retArr = [];
+
+        for(var i = 0; i < data[0].jobs.length; ++i){
+            console.log(data[0].jobs[i]);
+            await Job.findById(data[0].jobs[i]).then(function(job){
+                console.log("YOO");
+                console.log(job.id);
+                retArr.push(job.toJSONFor(false));
+            }).catch(next);
+        }
+        res.send(retArr);
+    }).catch(next);
 });
 
 //add job
