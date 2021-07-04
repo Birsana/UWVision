@@ -31,8 +31,6 @@ app.use('/data', companyRoutes);
 app.use('/job', jobRoutes);
 
 
-console.log("HI");
-
 const jsonErrorHandler = async (err, req, res, next) => { //to send errors as json
     res.status(500).send({ error: err });
   }

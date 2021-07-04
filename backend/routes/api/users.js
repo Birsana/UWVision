@@ -29,7 +29,7 @@ sendConfirmationEmail = (username, email, confirmationCode) => { //sending the e
     html: `<h1>Email Confirmation</h1>
         <h2>Hello ${username},</h2>
         <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
-        <a href=http://localhost:5000/auth/confirm/${confirmationCode}> Click here</a>
+        <a href=https://www.uwvision.com/auth/confirm/${confirmationCode}> Click here</a>
         </div>`,
   }).catch(err => console.log(err));
 };
@@ -109,5 +109,9 @@ router.get("/isConfirmed/:username", function (req, res) {
     return res.send({status: user.confirmed})
   });
 });
+
+//set setPassword(req.body.password)
+//delete resetPasswordToken
+//has resetPasswordToken = false
 
 module.exports = router;

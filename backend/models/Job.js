@@ -15,7 +15,7 @@ var JobSchema = new mongoose.Schema({
     averageInteresting: Number
 });
 
-JobSchema.methods.toJSONFor = function(){
+JobSchema.methods.toJSONFor = function(isSaved){
   return {
     id: this._id,
     company: this.company,
@@ -23,7 +23,8 @@ JobSchema.methods.toJSONFor = function(){
     averageRating: this.averageRating,
     numOfReviews: this.reviews.length,
     averageSalary: this.averageSalary,
-    numOfSalaryEntries: this.salaries.length
+    numOfSalaryEntries: this.salaries.length,
+    isSaved: isSaved
   };
 };
 
