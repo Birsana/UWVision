@@ -38,10 +38,10 @@ router.get('/findcompanydata/:companyname',  async function(req, res, next) {
 
     if(req.payload != null){
         User.findById(req.payload.id).then(async function(user){
+            var savedSet = new Set(user.savedJobs)
             for(var i = 0; i < data[0].jobs.length; ++i){
                 await Job.findById(data[0].jobs[i]).then(function(job){
-                    console.log(job.id);
-                    retArr.push(job.toJSONFor(user.savedJobs.includes(job.id)));
+                    retArr.push(job.toJSONFor(savedSet.has(job.id);
                 }).catch(next);
             }
             res.send(retArr);
