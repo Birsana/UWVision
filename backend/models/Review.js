@@ -12,7 +12,7 @@ var ReviewSchema = new mongoose.Schema({
 
 
 // to get json for a specific reply
-ReviewSchema.methods.toJSONFor = function(){
+ReviewSchema.methods.toJSONFor = function(isUpvoted){
     return {
       id: this._id,
       body: this.body,
@@ -20,7 +20,8 @@ ReviewSchema.methods.toJSONFor = function(){
       author: this.author,
       workLife: this.workLifeBalance,
       interestingWork: this.interestingWork,
-      Culture: this.culture
+      Culture: this.culture,
+      upvoted: isUpvoted
     };
 };
 

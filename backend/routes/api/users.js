@@ -90,9 +90,8 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm emai
           if (!user) {
             return res.status(404).send({ message: "User Not found." });
           }
-    
           user.confirmed = true;
-          console.log("Confirmed!")
+          
           user.save((err) => {
             if (err) {
               res.status(500).send({ message: err });

@@ -8,13 +8,14 @@ var InterviewQuestionSchema = new mongoose.Schema({
   }, {timestamps: true});
 
 // to get json for a specific interview question
-InterviewQuestionSchema.methods.toJSONFor = function(){
+InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
     return {
       id: this._id,
       body: this.body,
       createdAt: this.createdAt,
       author: this.author,
-      upvoters: this.upvoters
+      upvoters: this.upvoters,
+      upvoted: upvoted
     };
 };
 

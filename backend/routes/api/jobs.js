@@ -58,7 +58,33 @@ router.post('/:companyname/:job/question/:question', auth.required, function(req
 
 router.get('/:companyname/:job/questions', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
+
         var retArr = [];
+        if(req.payload != null){
+            User.findById(req.payload.id).then(async function(user){
+                // Populate saved job IDs into a set of strings
+                const savedSet = new Set();
+                for (let i = 0; i < user.savedJobs.length; i++) {
+                    savedSet.add(user.savedJobs[i].toString())
+                }
+    
+                for(var i = 0; i < data[0].jobs.length; ++i){
+                    await Job.findById(data[0].jobs[i]).then(function(job){
+                        retArr.push(job.toJSONFor(savedSet.has(job.id)));
+                    }).catch(next);
+                }
+                res.send(retArr);
+            }).catch(next);
+        } else {
+            for(var i = 0; i < data[0].jobs.length; ++i){
+                await Job.findById(data[0].jobs[i]).then(function(job){
+                    retArr.push(job.toJSONFor(false));
+                }).catch(next);
+            }
+            res.send(retArr);
+        }
+
+        
         for(var i = 0; i < job[0].questions.length; ++i){
             await Question.findById(job[0].questions[i]).then(function(question){
             retArr.push(question.toJSONFor());
@@ -187,7 +213,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
             }
         }).catch(next);
         }
-        
+
         res.send(retArr);
     }).catch(next);
 });
