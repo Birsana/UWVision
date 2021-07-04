@@ -2,23 +2,26 @@ import React, { useState} from "react";
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button } from '@material-ui/core'
 import axios from "axios";
-
+import { connect } from "react-redux";
 
 const SalaryModal = (props) => {
     const [salary, setSalary] = useState("")
 
     const handleClick = async () => {
-        await axios.post(`http://localhost:5000/job/${props.company}/${props.job}/salary`, salary, {
+        await axios({
+            method: "POST",
+            url: `http://localhost:5000/job/${props.company}/${props.job}/salary`,
+            data: {
+              salary: {
+                  wage: salary
+              }
+            },
             headers: {
-                   Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjk3NzdjYjJlYjcxZThiNmZiZTc2NCIsInVzZXJuYW1lIjoiYW5kcmUiLCJleHAiOjE2MzMyODM2MDQsImlhdCI6MTYyMjkxNTYwNH0.VfwMV9vwp54S_g-H_HsnVDzZ-i8gEtuCzfVJijidgmM`,
-                  "Content-Type": "application/json",
-                  "X-Requested-With": "XMLHttpRequest",
-                },
-            salary
-
-        }).then({
-            //CLOSE MODAL HERE
-        });
+              Authorization: `Token ${props.token}`,
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+          });
     }
     
     return (
@@ -38,5 +41,11 @@ const SalaryModal = (props) => {
       </div>
     );
   };
+
+  // Injecting redux states into props for modal
+  const mapStateToProps = (state) => ({
+    isLoggedIn: state.isLoggedIn,
+    token: state.token,
+  });
   
-  export default SalaryModal;
+  export default connect(mapStateToProps)(SalaryModal);
