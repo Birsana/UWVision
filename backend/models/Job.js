@@ -18,6 +18,7 @@ var JobSchema = new mongoose.Schema({
 JobSchema.methods.toJSONFor = function(){
   return {
     id: this._id,
+    company: this.company,
     jobName: this.jobName,
     averageRating: this.averageRating,
     numOfReviews: this.reviews.length,

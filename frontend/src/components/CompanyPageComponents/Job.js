@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { withRouter } from 'react-router-dom';
-import { useState } from "react";
+
+import SaveJobButton from './SaveJobButton';
 
 const JobElement = styled.div`
   height: 115px;
@@ -17,7 +18,7 @@ const JobElement = styled.div`
 
 const JobTitle = styled.div`
   padding-top: 27px;
-  margin-bottom: -50px;
+  margin-bottom: -70px;
 
   h2 {
     font-family: Roboto;
@@ -38,15 +39,22 @@ const JobMetrics = styled.div`
 `;
 
 const Job = (props) => {
-  const handleSelection = (jobName) => {
-    props.history.push(props.location.pathname + "/job/" + jobName);
+  const companyName = props.jobData.company;
+  const jobName = props.jobData.jobName;
+
+  const handleSelection = (event) => {
+    props.history.push(`/company/${companyName}/job/${jobName}`);
+    //props.history.push(props.location.pathname + "/job/" + jobName);
   }
 
   return (
-    <JobElement onClick={() => handleSelection(props.jobData.jobName)}>
-      <JobTitle>
-        <h2>{props.jobData.jobName}</h2>
-      </JobTitle>
+    <JobElement onClick={handleSelection}>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+        <JobTitle>
+          <h2>{props.jobData.jobName}</h2>
+        </JobTitle>
+        <SaveJobButton companyName={companyName} jobName={jobName} accountPage={props.accountPage}/>
+      </div>
       <JobMetrics>
         <h3>
           <span className="jobRating">
