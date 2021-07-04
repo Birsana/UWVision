@@ -1,11 +1,10 @@
 import React, { useState} from "react";
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
 import axios from "axios";
-
+import { ModalTitle } from "../styles";
 
 
 const ReviewModal = () => {
@@ -99,6 +98,7 @@ const ReviewModal = () => {
 
     return (
       <div>
+            <ModalTitle title={"Leave a review"} />
             <Typography>
                 Culture/Environment
             </Typography>

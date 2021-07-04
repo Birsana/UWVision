@@ -38,7 +38,7 @@ function Review(props){
         <div className="helpful-button">
           <Tooltip title="This review was helpful">
             <Button style={{ width: "max-content" }}>
-              Helpful ({props.upvoters.length})
+              Helpful ({props.upvoters?.length})
             </Button>
           </Tooltip>
         </div>
