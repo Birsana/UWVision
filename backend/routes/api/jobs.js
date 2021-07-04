@@ -58,7 +58,6 @@ router.post('/:companyname/:job/question/:question', auth.required, function(req
 
 router.get('/:companyname/:job/questions', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
-        console.log(job[0]);
         var retArr = [];
         for(var i = 0; i < job[0].questions.length; ++i){
             await Question.findById(job[0].questions[i]).then(function(question){
@@ -66,7 +65,6 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
         }).catch(next);
         }
         retArr.sort((a, b) => (a.upvoters.length < b.upvoters.length) ? 1 : -1)
-        console.log(retArr)
         res.send(retArr);
     }).catch(next);
 });
@@ -86,7 +84,6 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
                 Company.find( {company_name: req.params.companyname} ).then(function(company){
                     var companySalary = (company[0].averageSalary * company[0].numSalaries + salary.wage)/(company[0].numSalaries + 1);
                     company[0].averageSalary = Math.round(companySalary * 10)/10;
-                    console.log(companySalary);
                     company[0].numSalaries += 1;
                     return company[0].save().then(function() {
                         res.send("salary added");
@@ -190,7 +187,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
             }
         }).catch(next);
         }
-        console.log(retArr);
+        
         res.send(retArr);
     }).catch(next);
 });
