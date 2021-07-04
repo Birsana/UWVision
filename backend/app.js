@@ -30,10 +30,19 @@ app.use('/auth', userRoutes);
 app.use('/data', companyRoutes);
 app.use('/job', jobRoutes);
 
+
+console.log("HI");
+
 const jsonErrorHandler = async (err, req, res, next) => { //to send errors as json
     res.status(500).send({ error: err });
   }
 app.use(jsonErrorHandler);
+
+app.use(express.static(path.join(__dirname, '/build')));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build', 'index.html'));
+});
 
 mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
 { 
@@ -42,6 +51,7 @@ mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb
     useUnifiedTopology: true,
     useCreateIndex: true 
   }); //connecting to mongoose
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 

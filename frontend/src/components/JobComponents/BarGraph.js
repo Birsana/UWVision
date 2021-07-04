@@ -34,7 +34,6 @@ function BarGraph(props){
 
           //removing duplicates for labels
           graphLabels = [...new Set(graphLabels)];
-          console.log("hi");
           setGraphData(
             {
                 labels: graphLabels,

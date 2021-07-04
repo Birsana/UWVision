@@ -62,7 +62,7 @@ const Modal = ({job, company, initialModal, onClose }) => {
 
   return ReactDom.createPortal(
     <Background onMouseDown={closeModalClick} ref={modalRef}>
-        <ModalWrapper>
+        <ModalWrapper onClick={(e) => e.stopPropagation()}>
           <CloseModalButton onClick={onClose} />
           <ModalToRender />
         </ModalWrapper>

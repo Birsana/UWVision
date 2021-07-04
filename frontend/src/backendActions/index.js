@@ -8,3 +8,5 @@ export * from './company/job/addJob';
 export * from './user/logIn';
 export * from './user/signUp';
 export * from './user/isUserConfirmed';
+export * from './user/saveJobToUser';
+export * from './user/getSavedJobs';

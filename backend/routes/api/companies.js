@@ -10,7 +10,9 @@ var Job = mongoose.model('Job');
 
 //get all the companies
 router.get('/companydata', function(req, res){
+    console.log("here")
     Company.find({}, function(err, companies) {
+    console.log(companies);
     if (err) throw err;
     return res.json(companies);
     });
@@ -61,6 +63,8 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       job.averageCulture = 0;
       job.averageWorklife = 0;
       job.averageInteresting = 0;
+
+      job.jobCompanyKey = job.jobName + job.company
   
       return job.save().then(function(){
         Company.find( {company_name: companyName} ).then(function(company){
