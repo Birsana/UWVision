@@ -10,9 +10,7 @@ var Job = mongoose.model('Job');
 
 //get all the companies
 router.get('/companydata', function(req, res){
-    console.log("here")
     Company.find({}, function(err, companies) {
-    console.log(companies);
     if (err) throw err;
     return res.json(companies);
     });
@@ -33,26 +31,33 @@ router.post('/addcompany', auth.required, function(req, res, next){
 });
 
 //get data for each job in a company (fetching jobs)
-router.get('/findcompanydata/:companyname', auth.optional, async function(req, res, next) {
+router.get('/findcompanydata/:companyname',  async function(req, res, next) {
+    var companyName = req.params.companyname
+    var data = await Company.findCompanyByName(companyName)
+    var retArr = [];
 
-    User.findById(req.payload.id).then(async function(user){
-        // if(user){
-
-        // }
-        var companyName = req.params.companyname
-        var data = await Company.findCompanyByName(companyName)
-        var retArr = [];
-
+    if(req.payload != null){
+        User.findById(req.payload.id).then(async function(user){
+            for(var i = 0; i < data[0].jobs.length; ++i){
+                console.log(data[0].jobs[i]);
+                await Job.findById(data[0].jobs[i]).then(function(job){
+                    console.log(job.id);
+                    retArr.push(job.toJSONFor(false));
+                }).catch(next);
+            }
+            res.send(retArr);
+        }).catch(next);
+    } else {
         for(var i = 0; i < data[0].jobs.length; ++i){
             console.log(data[0].jobs[i]);
+            console.log("b");
             await Job.findById(data[0].jobs[i]).then(function(job){
-                console.log("YOO");
-                console.log(job.id);
-                retArr.push(job.toJSONFor(false));
+                retArr.push(job.toJSONFor(user.savedJobs.includes(job.id)));
             }).catch(next);
         }
         res.send(retArr);
-    }).catch(next);
+    }
+
 });
 
 //add job
