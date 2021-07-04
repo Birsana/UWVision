@@ -124,13 +124,15 @@ const JobPage = (props) => {
                 {reviews.map((review, index) => {
                   return (
                     <Review 
+                      job={job}
+                      company={company}
                       body={review.body}
                       author={review.author}
-                      workLifeBalance={review.workLifeBalance}
-                      culture={review.culture}
+                      workLifeBalance={review.workLife}
+                      culture={review.Culture}
                       interestingWork={review.interestingWork}
-                      overallRating={review.overallRating}
                       upvoters={review.upvoters}
+                      id={review.id}
                       key={index}
                     />
                   )
@@ -152,9 +154,12 @@ const JobPage = (props) => {
                   return (
                     <div className="question">
                       <InterviewQuestion
+                        job={job}
+                        company={company}
                         upvoters={question.upvoters}
                         body={question.body}
                         author={question.author}
+                        id={question.id}
                         key={index}
                       />
                     </div>

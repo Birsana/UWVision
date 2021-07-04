@@ -120,6 +120,8 @@ function calculateAverageRatingFields(currAverage, numEntries, newEntry){
 //add review for a job
 
 router.post('/:companyname/:job/review', auth.required, function(req, res, next) {
+    console.log('------------------------------------------------------------------------------------------')
+    console.log(req.body.review)
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
   

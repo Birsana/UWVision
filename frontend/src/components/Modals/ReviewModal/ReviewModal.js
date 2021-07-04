@@ -5,9 +5,9 @@ import { TextField, Button, createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
 import axios from "axios";
 import { ModalTitle } from "../styles";
+import { connect } from "react-redux";
 
-
-const ReviewModal = () => {
+const ReviewModal = (props) => {
  
     //store user responses
     const [text, setText] = useState("")
@@ -15,28 +15,24 @@ const ReviewModal = () => {
     const [interesting, setInteresting] = useState(5)
     const [worklife, setWorkLife] = useState(5)
 
-
     const handleClick = async () => {
-        
-        var data = {
-            "review": {
-                "body": text,
-                "workLifeBalance": worklife,
-                "culture": culture,
-                "interestingWork": interesting
-            }
-        }
-        await axios.post("http://localhost:5000/job/Discord/CTO/review", data, {
+        await axios({
+            method: "POST",
+            url: `http://localhost:5000/job/${props.company}/${props.job}/review`,
+            data: {
+                review: {
+                    body: text,
+                    workLifeBalance: worklife,
+                    culture: culture,
+                    interestingWork: interesting
+                }
+            },
             headers: {
-                   Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjk3NzdjYjJlYjcxZThiNmZiZTc2NCIsInVzZXJuYW1lIjoiYW5kcmUiLCJleHAiOjE2MzMyODM2MDQsImlhdCI6MTYyMjkxNTYwNH0.VfwMV9vwp54S_g-H_HsnVDzZ-i8gEtuCzfVJijidgmM`,
-                  "Content-Type": "application/json",
-                  "X-Requested-With": "XMLHttpRequest",
-                },
-            data
-
-        }).then({
-            //CLOSE MODAL HERE
-        });
+              Authorization: `Token ${props.token}`,
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+          });
     }
 
     const handleChangeCulture = (event, newValue) => {
@@ -125,4 +121,10 @@ const ReviewModal = () => {
     );
   };
   
-  export default ReviewModal;
+  // Injecting redux states into props for modal
+  const mapStateToProps = (state) => ({
+    isLoggedIn: state.isLoggedIn,
+    token: state.token,
+  });
+  
+  export default connect(mapStateToProps)(ReviewModal);
