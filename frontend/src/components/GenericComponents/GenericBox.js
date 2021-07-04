@@ -5,6 +5,7 @@ import QuestionForm from "components/JobComponents/InterviewQuestionComponents/Q
 import GenericList from "components/GenericComponents/GenericList";
 import ReplyForm from "components/JobComponents/ThreadsComponents/Replies/ReplyForm";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 //TODO: Fix weird scaling behaviour for width + max-height (responsive)
 const JobScrollableDiv = styled.div`
@@ -71,6 +72,7 @@ function GenericBox(props) {
           headers: {
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
+            "Authorization": (props.isLoggedIn ? `Token ${props.token}` : "")
           },
         })
         .then((response) => {
@@ -139,4 +141,9 @@ function GenericBox(props) {
   );
 }
 
-export default GenericBox;
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn,
+  token: state.token,
+});
+
+export default connect(mapStateToProps)(GenericBox);

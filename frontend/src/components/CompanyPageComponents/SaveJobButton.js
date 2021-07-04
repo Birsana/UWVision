@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SaveJobButton = (props) => {
-    const [isSaved, setIsSaved] = useState(props.accountPage);  //! How can we determine this based on their list of already saved jobs
+    const [isSaved, setIsSaved] = useState(props.accountPage || props.isSaved);
     const [showLogInModal, setShowLogInModal] = useState(false);
 
     useEffect(() => {

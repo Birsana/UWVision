@@ -49,7 +49,7 @@ const SavedJobs = (props) => {
             <>
               <h2 key={companyName}>{companyName}</h2>
               {savedJobs[companyName].map((job) => {
-                return <Job key={job.id} jobData={job} accountPage={true}/>;
+                return <Job key={`${companyName}-${job.id}`} jobData={job} accountPage={true}/>;
               })}
               <br></br>
             </>

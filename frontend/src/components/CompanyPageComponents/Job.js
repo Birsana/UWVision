@@ -44,7 +44,6 @@ const Job = (props) => {
 
   const handleSelection = (event) => {
     props.history.push(`/company/${companyName}/job/${jobName}`);
-    //props.history.push(props.location.pathname + "/job/" + jobName);
   }
 
   return (
@@ -53,7 +52,7 @@ const Job = (props) => {
         <JobTitle>
           <h2>{props.jobData.jobName}</h2>
         </JobTitle>
-        <SaveJobButton companyName={companyName} jobName={jobName} accountPage={props.accountPage}/>
+        <SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/>
       </div>
       <JobMetrics>
         <h3>
