@@ -41,7 +41,7 @@ router.get('/findcompanydata/:companyname',  async function(req, res, next) {
             var savedSet = new Set(user.savedJobs)
             for(var i = 0; i < data[0].jobs.length; ++i){
                 await Job.findById(data[0].jobs[i]).then(function(job){
-                    retArr.push(job.toJSONFor(savedSet.has(job.id));
+                    retArr.push(job.toJSONFor(savedSet.has(job.id)));
                 }).catch(next);
             }
             res.send(retArr);
