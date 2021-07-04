@@ -32,13 +32,15 @@ router.post('/addcompany', auth.required, function(req, res, next){
 
 //get data for each job in a company (fetching jobs)
 router.get('/findcompanydata/:companyname', auth.optional, async function(req, res, next) {
+    
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
     var retArr = [];
 
     if(req.payload != null){
         User.findById(req.payload.id).then(async function(user){
-            var savedSet = new Set(user.savedJobs)
+            var savedSet = new Set(user.savedJobs);
+            HTMLFormControlsCollection.log(savedSet);
             for(var i = 0; i < data[0].jobs.length; ++i){
                 await Job.findById(data[0].jobs[i]).then(function(job){
                     retArr.push(job.toJSONFor(savedSet.has(job.id)));

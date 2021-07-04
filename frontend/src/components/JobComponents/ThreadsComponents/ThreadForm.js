@@ -13,7 +13,7 @@ function ThreadForm(props){
                 "body": text
             }
         }
-        console.log(data)
+    
         await axios.post("http://localhost:5000/job/Apple/Friend/thread", data, {
             headers: {
                    Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmVmNzU1YzI2M2NlMmU5ODA3MTczYiIsInVzZXJuYW1lIjoic2Vjb25kIiwiZXhwIjoxNjI0MDU1MTA5LCJpYXQiOjE2MTM2OTA3MDl9.R622UH4VjyF-bR_Has3ajC5fp0S4gIKG9u4OsuKxX5w`,
