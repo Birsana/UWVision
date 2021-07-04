@@ -11,7 +11,7 @@ function BarGraph(props){
 
         const fetchSalaries = async () => {
 
-            await axios.get("http://localhost:5000/job/Nvidia/Director/salaries", {
+            await axios.get("http://localhost:5000/job/Tesla/Mechanical%20Engineer%20Intern/salaries", {
                 headers: {
                     //   Authorization: `Token ${token}`,
                       "Content-Type": "application/json",

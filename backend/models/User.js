@@ -6,8 +6,6 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var secret = require('../config').secret;
 
-
-
 var UserSchema = new mongoose.Schema({
     savedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
     username: {type: String, lowercase: true, unique: true, match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
@@ -52,6 +50,11 @@ UserSchema.methods.toAuthJSON = function() {
         token: this.generateJWT(),
         image: this.image
     };
+};
+
+UserSchema.methods.setPassword = function(password){
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
   
