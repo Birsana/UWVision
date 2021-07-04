@@ -110,4 +110,8 @@ router.get("/isConfirmed/:username", function (req, res) {
   });
 });
 
+//set setPassword(req.body.password)
+//delete resetPasswordToken
+//has resetPasswordToken = false
+
 module.exports = router;

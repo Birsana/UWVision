@@ -39,20 +39,17 @@ router.get('/findcompanydata/:companyname',  async function(req, res, next) {
     if(req.payload != null){
         User.findById(req.payload.id).then(async function(user){
             for(var i = 0; i < data[0].jobs.length; ++i){
-                console.log(data[0].jobs[i]);
                 await Job.findById(data[0].jobs[i]).then(function(job){
                     console.log(job.id);
-                    retArr.push(job.toJSONFor(false));
+                    retArr.push(job.toJSONFor(user.savedJobs.includes(job.id)));
                 }).catch(next);
             }
             res.send(retArr);
         }).catch(next);
     } else {
         for(var i = 0; i < data[0].jobs.length; ++i){
-            console.log(data[0].jobs[i]);
-            console.log("b");
             await Job.findById(data[0].jobs[i]).then(function(job){
-                retArr.push(job.toJSONFor(user.savedJobs.includes(job.id)));
+                retArr.push(job.toJSONFor(false));
             }).catch(next);
         }
         res.send(retArr);
