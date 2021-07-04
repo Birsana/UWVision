@@ -31,7 +31,7 @@ router.post('/addcompany', auth.required, function(req, res, next){
 });
 
 //get data for each job in a company (fetching jobs)
-router.get('/findcompanydata/:companyname',  async function(req, res, next) {
+router.get('/findcompanydata/:companyname', auth.optional, async function(req, res, next) {
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
     var retArr = [];
