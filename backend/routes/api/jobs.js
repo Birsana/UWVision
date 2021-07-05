@@ -98,8 +98,16 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
 router.post('/:companyname/:job/salary', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
+
+      var postedReviewSet = new Set(user.jobsPostedReview);
+      if (postedReviewSet.has(req.params.job)){
+          return res.send("already posted");
+      }
+  
+
       var salary = new Salary(req.body.salary);
       salary.added_by = user.email;
+
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return salary.save().then(function() {
             var averageSalary = (job[0].averageSalary * job[0].salaries.length + salary.wage)/(job[0].salaries.length+1);
@@ -111,7 +119,12 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
                     company[0].averageSalary = Math.round(companySalary * 10)/10;
                     company[0].numSalaries += 1;
                     return company[0].save().then(function() {
-                        res.send("salary added");
+                        
+                        user.jobsPostedSalary.push(req.params.job);
+                        return user.save().then(function() {
+                            res.send("salary added");
+                        });
+
                     })
                 });
               });
@@ -144,6 +157,11 @@ function calculateAverageRatingFields(currAverage, numEntries, newEntry){
 router.post('/:companyname/:job/review', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
+
+      var postedReviewSet = new Set(user.jobsPostedReview);
+      if (postedReviewSet.has(req.params.job)){
+          return res.send("already posted");
+      }
   
       var review = new Review(req.body.review);
       review.author = user.email;
@@ -170,7 +188,10 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
                     company[0].averageRating = Math.round(companyRating * 10)/10;
                     company[0].numReviews += 1;
                     return company[0].save().then(function() {
-                        res.send("review added");
+                        user.jobsPostedReview.push(req.params.job);
+                        return user.save().then(function() {
+                            res.send("review added");
+                        });
                     })
                 });
               });

@@ -7,6 +7,8 @@ var jwt = require('jsonwebtoken');
 var secret = require('../config').secret;
 
 var UserSchema = new mongoose.Schema({
+    jobsPostedSalary: [{type: String}],
+    jobsPostedReview: [{type: String}],
     savedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
     upvotedQuestions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InterviewQuestion'}],
     upvotedReviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review'}],
