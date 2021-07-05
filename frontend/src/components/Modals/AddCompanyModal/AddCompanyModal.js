@@ -32,6 +32,17 @@ const AddCompanyModal = (props) => {
       setCompanyError("The company name cannot be blank.");
       return false;
     }
+
+    // NOTE: Permissible characters for the URL are the following:
+    // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
+    // These are unreserved characters
+    let validChars = /[a-zA-Z0-9-_.!~*'()]\*/;
+    console.log(validChars.test(companyToAdd))
+    if (!validChars.test(companyToAdd)) {
+      setCompanyError("The company name cannot contain special characters.");
+      return false;
+    }
+
     return true;
   };
 

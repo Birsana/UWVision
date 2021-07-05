@@ -32,8 +32,14 @@ const AddJobModal = (props) => {
       return false;
     }
 
-    if (jobToAdd.includes("/")) {
-      setJobError("The job title cannot contain slashes.");
+
+    // NOTE: Permissible characters for the URL are the following:
+    // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
+    // These are unreserved characters
+    let validChars = /[a-zA-Z0-9-_.!~*'()]\*/;
+    console.log(validChars.test(jobToAdd))
+    if (!validChars.test(jobToAdd)) {
+      setJobError("The job name cannot contain special characters.");
       return false;
     }
 
