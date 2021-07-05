@@ -15,7 +15,7 @@ InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
       createdAt: this.createdAt,
       author: this.author,
       upvoters: this.upvoters,
-      upvoted: upvoted
+      upvoted: isUpvoted
     };
 };
 

@@ -41,12 +41,19 @@ router.post('/:companyname/:job/question/:question', auth.required, function(req
             if(index !== -1){
                 question.upvoters.splice(index, 1);
                 return question.save().then(function() {
-                    res.send("removed upvote")
+                    var questionIndex = user.upvotedQuestions.indexOf(question.id);
+                    user.upvotedQuestions.splice(questionIndex, 1);
+                    return user.save().then(function() {
+                        res.send("removed upvote");
+                    })
                 })
             } else {
                 question.upvoters.push(user)
                     return question.save().then(function() {
-                        res.send("upvoted")
+                        user.upvotedQuestions.push(question);
+                        return user.save().then(function() {
+                            res.send("upvoted");
+                        })
                     });
             }
             
@@ -62,36 +69,28 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
         var retArr = [];
         if(req.payload != null){
             User.findById(req.payload.id).then(async function(user){
-                // Populate saved job IDs into a set of strings
-                const savedSet = new Set();
-                for (let i = 0; i < user.savedJobs.length; i++) {
-                    savedSet.add(user.savedJobs[i].toString())
+                
+                const upvotedSet = new Set();
+                for (let i = 0; i < user.upvotedQuestions.length; i++) {
+                    upvotedSet.add(user.upvotedQuestions[i].toString())
                 }
     
-                for(var i = 0; i < data[0].jobs.length; ++i){
-                    await Job.findById(data[0].jobs[i]).then(function(job){
-                        retArr.push(job.toJSONFor(savedSet.has(job.id)));
+                for(var i = 0; i < job[0].questions.length; ++i){
+                    await Question.findById(job[0].questions[i]).then(function(question){
+                        retArr.push(question.toJSONFor(upvotedSet.has(question.id)));
+                        console.log(retArr);
                     }).catch(next);
                 }
                 res.send(retArr);
             }).catch(next);
         } else {
-            for(var i = 0; i < data[0].jobs.length; ++i){
-                await Job.findById(data[0].jobs[i]).then(function(job){
-                    retArr.push(job.toJSONFor(false));
+            for(var i = 0; i < job[0].questions.length; ++i){
+                await Question.findById(job[0].questions[i]).then(function(question){
+                retArr.push(question.toJSONFor(false));
                 }).catch(next);
             }
             res.send(retArr);
         }
-
-        
-        for(var i = 0; i < job[0].questions.length; ++i){
-            await Question.findById(job[0].questions[i]).then(function(question){
-            retArr.push(question.toJSONFor());
-        }).catch(next);
-        }
-        retArr.sort((a, b) => (a.upvoters.length < b.upvoters.length) ? 1 : -1)
-        res.send(retArr);
     }).catch(next);
 });
 
@@ -143,8 +142,6 @@ function calculateAverageRatingFields(currAverage, numEntries, newEntry){
 //add review for a job
 
 router.post('/:companyname/:job/review', auth.required, function(req, res, next) {
-    console.log('------------------------------------------------------------------------------------------')
-    console.log(req.body.review)
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
   
@@ -173,7 +170,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
                     company[0].averageRating = Math.round(companyRating * 10)/10;
                     company[0].numReviews += 1;
                     return company[0].save().then(function() {
-                        res.send("rating added");
+                        res.send("review added");
                     })
                 });
               });
@@ -191,12 +188,19 @@ router.post('/:companyname/:job/review/:review', auth.required, function(req, re
             if(index !== -1){
                 review.upvoters.splice(index, 1);
                 return review.save().then(function() {
-                    res.send("removed upvote")
+                    var reviewIndex = user.upvotedReviews.indexOf(review.id);
+                    user.upvotedReviews.splice(reviewIndex, 1);
+                    return user.save().then(function() {
+                        res.send("removed upvote");
+                    })
                 })
             } else {
                 review.upvoters.push(user)
                     return review.save().then(function() {
-                        res.send("upvoted")
+                        user.upvotedReviews.push(review);
+                        return user.save().then(function() {
+                            res.send("upvoted");
+                        })
                     });
             }
             
@@ -208,15 +212,35 @@ router.post('/:companyname/:job/review/:review', auth.required, function(req, re
 router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next) {
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];
-        for(var i = 0; i < job[0].reviews.length; ++i){
-            await Review.findById(job[0].reviews[i]).then(function(review){
-            if(review.body.length > 0){ //only fetch reviews that have a body
-                retArr.push(review.toJSONFor());
-            }
-        }).catch(next);
-        }
 
-        res.send(retArr);
+        if(req.payload != null){
+            User.findById(req.payload.id).then(async function(user){
+                
+                const upvotedSet = new Set();
+                for (let i = 0; i < user.upvotedReviews.length; i++) {
+                    upvotedSet.add(user.upvotedReviews[i].toString())
+                }
+    
+                for(var i = 0; i < job[0].reviews.length; ++i){
+                    await Review.findById(job[0].reviews[i]).then(function(review){
+                    if(review.body.length > 0){ //only fetch reviews that have a body
+                        retArr.push(review.toJSONFor(upvotedSet.has(review.id)));
+                    }
+                    }).catch(next);
+                }
+
+                res.send(retArr);
+            }).catch(next);
+        } else {
+            for(var i = 0; i < job[0].reviews.length; ++i){
+                await Review.findById(job[0].reviews[i]).then(function(review){
+                    if(review.body.length > 0){ //only fetch reviews that have a body
+                        retArr.push(review.toJSONFor(false));
+                    }
+                }).catch(next);
+            }
+            res.send(retArr);
+        }
     }).catch(next);
 });
 
