@@ -17,6 +17,8 @@ var UserSchema = new mongoose.Schema({
     image: String,
     hash: String,
     salt: String,
+    hasResetPasswordToken: Boolean,
+    resetPasswordToken: String,
     confirmationCode: { 
         type: String, 
         unique: true },

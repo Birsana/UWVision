@@ -22,17 +22,28 @@ const transport = nodemailer.createTransport({ //for emailer
   });
 
 sendConfirmationEmail = (username, email, confirmationCode) => { //sending the email
-    console.log("Sending email");
     transport.sendMail({
-    to: email,
-    subject: "Please confirm your account",
-    html: `<h1>Email Confirmation</h1>
-        <h2>Hello ${username},</h2>
-        <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
-        <a href=https://www.uwvision.com/auth/confirm/${confirmationCode}> Click here</a>
-        </div>`,
+        to: email,
+        subject: "Please confirm your account",
+        html: `<h1>Email Confirmation</h1>
+            <h2>Hello ${username},</h2>
+            <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
+            <a href=https://www.uwvision.com/auth/confirm/${confirmationCode}> Click here</a>
+            </div>`,
   }).catch(err => console.log(err));
 };
+
+sendForgotPasswordEmail = (username, email, passwordToken) => {
+    transport.sendMail({
+            to: email,
+            subject: "UWVision Password Reset",
+            html: `<h1>Password Reset</h1>
+                <h2>Hello ${username},</h2>
+                <p>Please reset your password by clicking on the following link</p>
+                <a href=https://www.uwvision.com/auth/password/${passwordToken}> Click here</a>
+                </div>`,
+      }).catch(err => console.log(err));
+}
 
 router.post('/users/login', function(req, res, next){ //login
     User.find( {email: req.body.user.email}, function (err, results) {
@@ -70,6 +81,8 @@ router.post('/users', function(req, res, next){ //signup
     user.username = req.body.user.username;
     user.email = req.body.user.email;
     user.setPassword(req.body.user.password);
+    user.hasResetPasswordToken = false;
+    user.resetPasswordToken = "";
     user.confirmationCode = jwt.sign({email: req.body.user.email}, secret);
   
     user.save().then(function(){
@@ -103,14 +116,47 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm emai
         .catch((e) => console.log("error", e));
 });
 
+router.post('/confirm/:passwordCode', async (req, res) => { //to reset password email
+    User.findOne({
+        resetPasswordToken: req.params.passwordCode,
+      })
+        .then((user) => {
+          if (!user) {
+            return res.status(404).send({ message: "User Not found." });
+          }
+          if(!user.hasResetPasswordToken){
+              return res.send("error");
+          }
+
+          user.setPassword(req.body.password);
+          user.hasResetPasswordToken = false;
+          return user.save().then(function() {
+            return res.redirect("https://www.uwvision.com/");  
+          })
+        })
+        .catch((e) => console.log("error", e));
+});
+
 router.get("/isConfirmed/:username", function (req, res) {
   User.findOne({ username: req.params.username }).then((user) => { 
     return res.send({status: user.confirmed})
   });
 });
 
-//set setPassword(req.body.password)
-//delete resetPasswordToken
-//has resetPasswordToken = false
+router.post('/users/forgotpassword', function(req, res){ //forgot password
+
+    User.findOne({email: req.body.email}).then(function(user) {
+        user.hasResetPasswordToken = true;
+        user.resetPasswordToken = jwt.sign({email: req.body.email}, secret);
+        user.save().then(function() {
+            sendForgotPasswordEmail(
+                user.username,
+                user.email,
+                user.resetPasswordToken
+            )
+            res.send("email sent");
+        })
+    });
+  });
 
 module.exports = router;
