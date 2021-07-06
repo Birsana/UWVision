@@ -21,6 +21,10 @@ const InterviewModal = (props) => {
               "Content-Type": "application/json",
               "X-Requested-With": "XMLHttpRequest",
             },
+          }).then((res) => {
+              res.data.upvoted = false;
+              props.onSubmit(res.data);
+              props.onClose();
           });
     }
     

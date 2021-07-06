@@ -32,7 +32,15 @@ const ReviewModal = (props) => {
               "Content-Type": "application/json",
               "X-Requested-With": "XMLHttpRequest",
             },
-          });
+          }).then((res) => {
+            if (res.data === 'already posted') {
+              alert('You can only review a job once!')
+            } else {
+              res.data.upvoted = false;
+              props.onSubmit(res.data);
+              props.onClose();
+            }
+        });
     }
 
     const handleChangeCulture = (event, newValue) => {

@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import { useState } from "react";
 
 function Review(props){
-  const [num, setNum] = useState(props.upvoters ? props.upvoters.length : 0)
+  const [num, setNum] = useState(props.numUpvotes ? props.numUpvotes : 0)
+  const [upvoted, setUpvoted] = useState(props.upvoted ? props.upvoted : false)
 
   const upvote = async () => {
     axios({
@@ -22,8 +23,10 @@ function Review(props){
     .then((res) => {
       if (res.data === "upvoted") {
         setNum(num + 1);
+        setUpvoted(true);
       } else {
         setNum(num - 1);
+        setUpvoted(false);
       }
     });
   }
@@ -58,7 +61,7 @@ function Review(props){
         <p className="review-body">{props.body}</p>
         <div className="helpful-button">
           <Tooltip title="This review was helpful">
-            <Button style={{ width: "max-content" }} onClick={() => upvote()}>
+            <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ width: "max-content" }} onClick={() => upvote()}>
               Helpful ({num})
             </Button>
           </Tooltip>

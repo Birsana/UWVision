@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
 import axios from "axios";
+import { connect } from "react-redux";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -37,6 +38,13 @@ const JobPage = (props) => {
   
     useEffect(() => {
       const request = `http://localhost:5000/job/${company}/${job}/`;
+      let headers = {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      }
+      if (props.token) {
+        headers.Authorization = `Token ${props.token}`;
+      }
       axios.get(request + 'salaries')
         .then((response) => {
           setSalaries(response.data)
@@ -44,20 +52,30 @@ const JobPage = (props) => {
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios.get(request + 'questions')
+      axios({
+        method: "get",
+        url: request + 'questions',
+        data: {},
+        headers
+      })
         .then((response) => {
           setQuestions(response.data)
         })
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios.get(request + 'reviews')
-        .then((response) => {
-          setReviews(response.data)
-        })
-        .catch((error) => {
-          setIsJobValid(false);
-        })
+      axios({
+        method: "get",
+        url: request + 'reviews',
+        data: {},
+        headers
+      })
+      .then((response) => {
+        setReviews(response.data)
+      })
+      .catch((error) => {
+        setIsJobValid(false);
+      })
       axios.get(request + 'rating')
         .then((response) => {
           setAverageArray(response.data)
@@ -128,11 +146,13 @@ const JobPage = (props) => {
                       company={company}
                       body={review.body}
                       author={review.author}
-                      workLifeBalance={review.workLife}
-                      culture={review.Culture}
+                      workLifeBalance={review.workLife || review.workLifeBalance}
+                      culture={review.Culture || review.culture}
                       interestingWork={review.interestingWork}
-                      upvoters={review.upvoters}
-                      id={review.id}
+                      numUpvotes={review.numUpvotes}
+                      upvoted={review.upvoted}
+                      id={review.id || review._id}
+                      loggedIn={props.token !== null}
                       key={index}
                     />
                   )
@@ -156,10 +176,12 @@ const JobPage = (props) => {
                       <InterviewQuestion
                         job={job}
                         company={company}
-                        upvoters={question.upvoters}
+                        numUpvotes={question.numUpvotes}
+                        upvoted={question.upvoted}
                         body={question.body}
                         author={question.author}
-                        id={question.id}
+                        id={question.id || question._id}
+                        loggedIn={props.token !== null}
                         key={index}
                       />
                     </div>
@@ -171,29 +193,29 @@ const JobPage = (props) => {
         </div>
         {showSalaryModal && (
           <Modal
-            initialModal={"Add Salary"}
+            initialModal={props.token ? "Add Salary" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
               setShowSalaryModal(false);
             }}
-            onSubmit={(salary) => setReviews(salaries => [...salaries, salary])}
+            onSubmit={(salary) => setSalaries(salaries => [...salaries, salary])}
           />
         )}
         {showInterviewModal && (
           <Modal
-            initialModal={"Add Interview"}
+            initialModal={props.token ? "Add Interview" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
               setShowInterviewModal(false);
             }}
-            onSubmit={(question) => setReviews(questions => [...questions, question])}
+            onSubmit={(question) => setQuestions(questions => [...questions, question])}
           />
         )}
         {showReviewModal && (
           <Modal
-            initialModal={"Add Review"}
+            initialModal={props.token ? "Add Review" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
@@ -205,5 +227,11 @@ const JobPage = (props) => {
       </>
     );
   };
+
+// Injecting redux states into props for modal
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn,
+  token: state.token,
+});
   
-export default JobPage;
+export default connect(mapStateToProps)(JobPage);

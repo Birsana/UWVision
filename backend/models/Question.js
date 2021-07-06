@@ -14,7 +14,7 @@ InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
       body: this.body,
       createdAt: this.createdAt,
       author: this.author,
-      numUpvoters: this.upvoters.length,
+      numUpvotes: this.upvoters.length,
       upvoted: isUpvoted
     };
 };
