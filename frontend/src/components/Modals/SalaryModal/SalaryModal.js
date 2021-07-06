@@ -21,7 +21,14 @@ const SalaryModal = (props) => {
               "Content-Type": "application/json",
               "X-Requested-With": "XMLHttpRequest",
             },
-          });
+          }).then((res) => {
+            if (res.data === 'already posted') {
+              alert('You can only report the salary of a job once!')
+            } else {
+              props.onSubmit(res.data);
+              props.onClose();
+            }
+        });
     }
     
     return (

@@ -36,7 +36,7 @@ const AddJobModal = (props) => {
     // NOTE: Permissible characters for the URL are the following:
     // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
     // These are unreserved characters
-    let validChars = /[a-zA-Z0-9-_.!~*'()]\*/;
+    let validChars = /^[a-zA-Z ]+$/;
     console.log(validChars.test(jobToAdd))
     if (!validChars.test(jobToAdd)) {
       setJobError("The job name cannot contain special characters.");

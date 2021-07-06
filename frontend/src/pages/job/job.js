@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
 import axios from "axios";
+import { connect } from "react-redux";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -44,20 +45,38 @@ const JobPage = (props) => {
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios.get(request + 'questions')
+      axios({
+        method: "get",
+        url: request + 'questions',
+        data: {},
+        headers: {
+          Authorization: `Token ${props.token}`,
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      })
         .then((response) => {
           setQuestions(response.data)
         })
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios.get(request + 'reviews')
-        .then((response) => {
-          setReviews(response.data)
-        })
-        .catch((error) => {
-          setIsJobValid(false);
-        })
+      axios({
+        method: "get",
+        url: request + 'reviews',
+        data: {},
+        headers: {
+          Authorization: `Token ${props.token}`,
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      })
+      .then((response) => {
+        setReviews(response.data)
+      })
+      .catch((error) => {
+        setIsJobValid(false);
+      })
       axios.get(request + 'rating')
         .then((response) => {
           setAverageArray(response.data)
@@ -128,11 +147,11 @@ const JobPage = (props) => {
                       company={company}
                       body={review.body}
                       author={review.author}
-                      workLifeBalance={review.workLife}
-                      culture={review.Culture}
+                      workLifeBalance={review.workLife || review.workLifeBalance}
+                      culture={review.Culture || review.culture}
                       interestingWork={review.interestingWork}
-                      upvoters={review.upvoters}
-                      id={review.id}
+                      numUpvoters={review.numUpvoters}
+                      id={review.id || review._id}
                       key={index}
                     />
                   )
@@ -156,10 +175,10 @@ const JobPage = (props) => {
                       <InterviewQuestion
                         job={job}
                         company={company}
-                        upvoters={question.upvoters}
+                        numUpvoters={question.numUpvoters}
                         body={question.body}
                         author={question.author}
-                        id={question.id}
+                        id={question.id || question._id}
                         key={index}
                       />
                     </div>
@@ -177,7 +196,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowSalaryModal(false);
             }}
-            onSubmit={(salary) => setReviews(salaries => [...salaries, salary])}
+            onSubmit={(salary) => setSalaries(salaries => [...salaries, salary])}
           />
         )}
         {showInterviewModal && (
@@ -188,7 +207,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowInterviewModal(false);
             }}
-            onSubmit={(question) => setReviews(questions => [...questions, question])}
+            onSubmit={(question) => setQuestions(questions => [...questions, question])}
           />
         )}
         {showReviewModal && (
@@ -205,5 +224,11 @@ const JobPage = (props) => {
       </>
     );
   };
+
+// Injecting redux states into props for modal
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn,
+  token: state.token,
+});
   
-export default JobPage;
+export default connect(mapStateToProps)(JobPage);

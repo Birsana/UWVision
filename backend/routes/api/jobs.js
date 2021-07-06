@@ -25,7 +25,7 @@ router.post('/:companyname/:job/question', auth.required, function(req, res, nex
         return question.save().then(function() {
             job[0].questions.push(question);
             return job[0].save().then(function(job) {
-                res.send("question added");
+                res.send(question);
               });
           });
         }).catch(next);
@@ -122,7 +122,7 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
                         
                         user.jobsPostedSalary.push(req.params.job);
                         return user.save().then(function() {
-                            res.send("salary added");
+                            res.send(salary);
                         });
 
                     })
@@ -190,7 +190,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
                     return company[0].save().then(function() {
                         user.jobsPostedReview.push(req.params.job);
                         return user.save().then(function() {
-                            res.send("review added");
+                            res.send(review);
                         });
                     })
                 });

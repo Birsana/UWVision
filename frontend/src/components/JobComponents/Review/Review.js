@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import { useState } from "react";
 
 function Review(props){
-  const [num, setNum] = useState(props.upvoters ? props.upvoters.length : 0)
+  const [num, setNum] = useState(props.numUpvoters ? props.numUpvoters : 0)
+  const [upvoted, setUpvoted] = useState(props.upvoted ? props.upvoted : false)
 
   const upvote = async () => {
     axios({
