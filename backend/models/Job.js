@@ -4,7 +4,7 @@ var JobSchema = new mongoose.Schema({
     jobName: String,
     company: String,
     jobCompanyKey: {type: String, unique: true},
-    added_by: String,
+    addedBy: String,
     questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
     salaries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Salary' }],

@@ -22,7 +22,7 @@ router.post('/addcompany', auth.required, function(req, res, next){
         if(!user){
             return res.sendStatus(401);
         }
-        return Company.create({ company_name: req.body.company_name, added_by: user.email, averageSalary: 0,
+        return Company.create({ company_name: req.body.company_name, addedBy: user.email, averageSalary: 0,
         averageRating: 0, numSalaries: 0, numReviews: 0}, function (err) {
             if (err) return handleError(err);
             return res.send("company added");
@@ -72,7 +72,7 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
   
       var companyName = req.params.companyname;
       var job = new Job(req.body.job);
-      job.added_by = user.email;
+      job.addedBy = user.email;
       job.company = companyName;
       job.averageRating = 0;
       job.averageSalary = 0;

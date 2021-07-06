@@ -105,7 +105,7 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
   
 
       var salary = new Salary(req.body.salary);
-      salary.added_by = user.email;
+      salary.addedBy = user.email;
 
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return salary.save().then(function() {

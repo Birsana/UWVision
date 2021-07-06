@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var CompanySchema = new mongoose.Schema({
   company_name: {type: String, unique: true},
-  added_by: String,
+  addedBy: String,
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   jobNames: [String],
   averageSalary: Number,
@@ -34,7 +34,7 @@ CompanySchema.methods.toJSONFor = function(){
     return {
       id: this._id,
       companyName: this.company_name,
-      added_by: this.added_by,
+      addedBy: this.addedBy,
       averageSalary: this.averageSalary,
       averageRating: this.averageRating,
       numSalaries: this.numSalaries,
