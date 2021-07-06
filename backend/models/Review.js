@@ -21,7 +21,8 @@ ReviewSchema.methods.toJSONFor = function(isUpvoted){
       workLife: this.workLifeBalance,
       interestingWork: this.interestingWork,
       Culture: this.culture,
-      upvoted: isUpvoted
+      upvoted: isUpvoted,
+      numUpvotes: this.upvoters.length
     };
 };
 
