@@ -113,7 +113,7 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
             job[0].averageSalary = Math.round(averageSalary * 10)/10;
             job[0].salaries.push(salary);
             return job[0].save().then(function() {
-                Company.find( {company_name: req.params.companyname} ).then(function(company){
+                Company.find( {companyName: req.params.companyname} ).then(function(company){
                     var companySalary = (company[0].averageSalary * company[0].numSalaries + salary.wage)/(company[0].numSalaries + 1);
                     company[0].averageSalary = Math.round(companySalary * 10)/10;
                     company[0].numSalaries += 1;
@@ -182,7 +182,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
 
             job[0].save().then(function() {
 
-                Company.find( {company_name: req.params.companyname} ).then(function(company){
+                Company.find( {companyName: req.params.companyname} ).then(function(company){
                     var companyRating = (company[0].averageRating * company[0].numReviews + overallRating)/(company[0].numReviews + 1);
                     company[0].averageRating = Math.round(companyRating * 10)/10;
                     company[0].numReviews += 1;

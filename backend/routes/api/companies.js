@@ -22,7 +22,7 @@ router.post('/addcompany', auth.required, function(req, res, next){
         if(!user){
             return res.sendStatus(401);
         }
-        return Company.create({ company_name: req.body.company_name, addedBy: user.email, averageSalary: 0,
+        return Company.create({ companyName: req.body.companyName, addedBy: user.email, averageSalary: 0,
         averageRating: 0, numSalaries: 0, numReviews: 0}, function (err) {
             if (err) return handleError(err);
             return res.send("company added");
@@ -31,7 +31,7 @@ router.post('/addcompany', auth.required, function(req, res, next){
 });
 
 //get data for each job in a company (fetching jobs)
-router.get('/findcompanydata/:companyname', auth.optional, async function(req, res, next) {
+router.get('/getcompanydata/:companyname', auth.optional, async function(req, res, next) {
     
     var companyName = req.params.companyname
     var data = await Company.findCompanyByName(companyName)
@@ -83,7 +83,7 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       job.jobCompanyKey = job.jobName + job.company
   
       return job.save().then(function(){
-        Company.find( {company_name: companyName} ).then(function(company){
+        Company.find( {companyName: companyName} ).then(function(company){
             company[0].addJob(job).then(function(){
                 return res.send("job added");
             }).catch(next);

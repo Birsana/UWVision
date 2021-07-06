@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var CompanySchema = new mongoose.Schema({
-  company_name: {type: String, unique: true},
+  companyName: {type: String, unique: true},
   addedBy: String,
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   jobNames: [String],
@@ -27,13 +27,13 @@ CompanySchema.methods.removeJob = function(id){
 };
 
 CompanySchema.statics.findCompanyByName = function(name) {
-  return this.find({company_name: name});
+  return this.find({companyName: name});
 }
 
 CompanySchema.methods.toJSONFor = function(){
     return {
       id: this._id,
-      companyName: this.company_name,
+      companyName: this.companyName,
       addedBy: this.addedBy,
       averageSalary: this.averageSalary,
       averageRating: this.averageRating,

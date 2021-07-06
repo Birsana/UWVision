@@ -146,8 +146,8 @@ const JobPage = (props) => {
                       company={company}
                       body={review.body}
                       author={review.author}
-                      workLifeBalance={review.workLife || review.workLifeBalance}
-                      culture={review.Culture || review.culture}
+                      workLifeBalance={review.workLifeBalance}
+                      culture={review.culture}
                       interestingWork={review.interestingWork}
                       numUpvotes={review.numUpvotes}
                       upvoted={review.upvoted}

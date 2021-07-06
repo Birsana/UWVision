@@ -9,13 +9,13 @@ const routes = {
   SERVER: server,
 
   // Company Routes:
-  ADDCOMPANY: `${companyRoutes}/addCompany`,
-  COMPANYDATA: `${companyRoutes}/companyData`,
+  ADDCOMPANY: `${companyRoutes}/addcompany`,
+  COMPANYDATA: `${companyRoutes}/companydata`,
 
   // User Routes:
   LOGIN: `${userRoutes}/users/login`,
   SIGNUP: `${userRoutes}/users`,
-  ISEMAILCONFIRMED: `${userRoutes}/isConfirmed`,
+  ISEMAILCONFIRMED: `${userRoutes}/isconfirmed`,
 
   //Job Routes:
   

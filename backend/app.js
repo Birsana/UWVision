@@ -42,7 +42,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
-mongoose.connect('mongodb+srv://test:SXUpObZFN33QWU1e@uwvisiontest.vawle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+mongoose.connect("mongodb+srv://andre:andrejustincyrus@cluster0.aloje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", 
 { 
     useNewUrlParser: true,
     useFindAndModify: false,

@@ -7,7 +7,7 @@ export const getListOfCompanies = () => {
     const companies = [];
 
     data.forEach(company => {
-      companies.push(company.company_name);
+      companies.push(company.companyName);
     });
 
     companies.sort();

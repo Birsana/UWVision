@@ -18,9 +18,9 @@ ReviewSchema.methods.toJSONFor = function(isUpvoted){
       body: this.body,
       createdAt: this.createdAt,
       author: this.author,
-      workLife: this.workLifeBalance,
+      workLifeBalance: this.workLifeBalance,
       interestingWork: this.interestingWork,
-      Culture: this.culture,
+      culture: this.culture,
       upvoted: isUpvoted,
       numUpvotes: this.upvoters.length
     };

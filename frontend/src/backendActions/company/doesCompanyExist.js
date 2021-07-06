@@ -5,7 +5,7 @@ export const doesCompanyExist = (companyToAdd) => {
   return axios.get(routes.COMPANYDATA).then((response) => {
     let companyList = [];
     response.data.forEach((element) => {
-      companyList.push(element.company_name.toLowerCase());
+      companyList.push(element.companyName.toLowerCase());
     });
 
     return companyList.includes(companyToAdd.toLowerCase());

@@ -6,7 +6,7 @@ export const getSalaries = (company, token) => {
     method: "get",
     url: routes.GETSALARIES,
     data: {
-      company_name: companyToAdd
+      companyName: companyToAdd
     },
   });
 };
