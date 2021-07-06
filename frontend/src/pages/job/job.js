@@ -152,6 +152,7 @@ const JobPage = (props) => {
                       numUpvotes={review.numUpvotes}
                       upvoted={review.upvoted}
                       id={review.id || review._id}
+                      loggedIn={props.token !== null}
                       key={index}
                     />
                   )
@@ -180,6 +181,7 @@ const JobPage = (props) => {
                         body={question.body}
                         author={question.author}
                         id={question.id || question._id}
+                        loggedIn={props.token !== null}
                         key={index}
                       />
                     </div>
@@ -191,7 +193,7 @@ const JobPage = (props) => {
         </div>
         {showSalaryModal && (
           <Modal
-            initialModal={"Add Salary"}
+            initialModal={props.token ? "Add Salary" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
@@ -202,7 +204,7 @@ const JobPage = (props) => {
         )}
         {showInterviewModal && (
           <Modal
-            initialModal={"Add Interview"}
+            initialModal={props.token ? "Add Interview" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
@@ -213,7 +215,7 @@ const JobPage = (props) => {
         )}
         {showReviewModal && (
           <Modal
-            initialModal={"Add Review"}
+            initialModal={props.token ? "Add Review" : "Sign Up"}
             job={job}
             company={company}
             onClose={() => {
