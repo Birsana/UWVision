@@ -62,7 +62,7 @@ const CompanyPage = (props) => {
   return (
       <div className="container">
         {renderView(isCompanyValid)}
-        {isCompanyValid && <GenericBox box={"job"} company={company} />}
+        {isCompanyValid && <GenericBox company={company} />}
       </div>
   );
 
