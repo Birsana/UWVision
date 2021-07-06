@@ -38,6 +38,13 @@ const JobPage = (props) => {
   
     useEffect(() => {
       const request = `http://localhost:5000/job/${company}/${job}/`;
+      let headers = {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      }
+      if (props.token) {
+        headers.Authorization = `Token ${props.token}`;
+      }
       axios.get(request + 'salaries')
         .then((response) => {
           setSalaries(response.data)
@@ -49,11 +56,7 @@ const JobPage = (props) => {
         method: "get",
         url: request + 'questions',
         data: {},
-        headers: {
-          Authorization: `Token ${props.token}`,
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-        },
+        headers
       })
         .then((response) => {
           setQuestions(response.data)
@@ -65,11 +68,7 @@ const JobPage = (props) => {
         method: "get",
         url: request + 'reviews',
         data: {},
-        headers: {
-          Authorization: `Token ${props.token}`,
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-        },
+        headers
       })
       .then((response) => {
         setReviews(response.data)
@@ -150,7 +149,8 @@ const JobPage = (props) => {
                       workLifeBalance={review.workLife || review.workLifeBalance}
                       culture={review.Culture || review.culture}
                       interestingWork={review.interestingWork}
-                      numUpvoters={review.numUpvoters}
+                      numUpvotes={review.numUpvotes}
+                      upvoted={review.upvoted}
                       id={review.id || review._id}
                       key={index}
                     />
@@ -175,7 +175,8 @@ const JobPage = (props) => {
                       <InterviewQuestion
                         job={job}
                         company={company}
-                        numUpvoters={question.numUpvoters}
+                        numUpvotes={question.numUpvotes}
+                        upvoted={question.upvoted}
                         body={question.body}
                         author={question.author}
                         id={question.id || question._id}
