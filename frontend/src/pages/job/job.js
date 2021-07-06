@@ -177,6 +177,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowSalaryModal(false);
             }}
+            onSubmit={(salary) => setReviews(salaries => [...salaries, salary])}
           />
         )}
         {showInterviewModal && (
@@ -187,6 +188,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowInterviewModal(false);
             }}
+            onSubmit={(question) => setReviews(questions => [...questions, question])}
           />
         )}
         {showReviewModal && (
@@ -197,6 +199,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowReviewModal(false);
             }}
+            onSubmit={(review) => setReviews(reviews => [...reviews, review])}
           />
         )}
       </>
