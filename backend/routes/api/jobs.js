@@ -67,7 +67,7 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
 
         var retArr = [];
-        if(req.payload != null){
+        if(req.payload != null && req.payload.id != null){
             User.findById(req.payload.id).then(async function(user){
                 
                 const upvotedSet = new Set();
@@ -78,7 +78,6 @@ router.get('/:companyname/:job/questions', auth.optional, function(req, res, nex
                 for(var i = 0; i < job[0].questions.length; ++i){
                     await Question.findById(job[0].questions[i]).then(function(question){
                         retArr.push(question.toJSONFor(upvotedSet.has(question.id)));
-                        console.log(retArr);
                     }).catch(next);
                 }
                 res.send(retArr);
@@ -234,7 +233,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
     Job.find( {jobName: req.params.job, company: req.params.companyname} ).then( async function(job){
         var retArr = [];
 
-        if(req.payload != null){
+        if(req.payload != null && req.payload.id != null){
             User.findById(req.payload.id).then(async function(user){
                 
                 const upvotedSet = new Set();

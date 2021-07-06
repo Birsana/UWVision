@@ -37,7 +37,7 @@ router.get('/findcompanydata/:companyname', auth.optional, async function(req, r
     var data = await Company.findCompanyByName(companyName)
     var retArr = [];
 
-    if(req.payload != null){
+    if(req.payload != null && req.payload.id != null){
         User.findById(req.payload.id).then(async function(user){
             // Populate saved job IDs into a set of strings
             const savedSet = new Set();
