@@ -40,7 +40,7 @@ sendForgotPasswordEmail = (username, email, passwordToken) => {
             html: `<h1>Password Reset</h1>
                 <h2>Hello ${username},</h2>
                 <p>Please reset your password by clicking on the following link</p>
-                <a href=https://www.uwvision.com/forgotpassword/${passwordToken}> Click here</a>
+                <a href=https://www.uwvision.com/forgotPassword/${passwordToken}> Click here</a>
                 </div>`,
       }).catch(err => console.log(err));
 }
@@ -131,7 +131,7 @@ router.post('/forgotpassword/:passwordCode', async (req, res) => { //to reset pa
           user.setPassword(req.body.password);
           user.hasResetPasswordToken = false;
           return user.save().then(function() {
-            return res.redirect("http://localhost:3000/");  
+            return res.send("success");  
           })
         })
         .catch((e) => console.log("error", e));

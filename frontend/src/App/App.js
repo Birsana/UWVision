@@ -14,6 +14,7 @@ import JobPage from 'pages/job/job';
 import InvalidPage from 'pages/invalid';
 import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
 import AccountPage from 'pages/account/accountPage';
+import ForgotPasswordPage from 'pages/forgotPassword';
 import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
@@ -71,6 +72,8 @@ const App = () => {
               <Route exact path="/privacy" component={PrivacyPolicyPage} />
 
               <Route exact path="/account" component={AccountPage} />
+
+              <Route path="/forgotPassword/:resetToken" component={ForgotPasswordPage} />
 
               {/* 404 Page (if provided an unknown URL */}
               <Route component={InvalidPage} />
