@@ -23,6 +23,7 @@ JobSchema.methods.toJSONFor = function(isSaved){
     averageRating: this.averageRating,
     numOfReviews: this.reviews.length,
     averageSalary: this.averageSalary,
+    jobCompanyKey, this.jobCompanyKey,
     numOfSalaryEntries: this.salaries.length,
     isSaved: isSaved
   };
