@@ -46,8 +46,7 @@ function GenericBox(props) {
   useEffect(() => {
     var dataArr = [];
 
-    var url =
-      "https://www.uwvision.com/data/getcompanydata/${company}";
+    var url = `http://localhost:5000/data/getcompanydata/${company}`;
 
     async function fetchData() {
       await axios
@@ -70,27 +69,25 @@ function GenericBox(props) {
         });
     }
     fetchData();
-  }, [props]);
+  }, [company]);
 
   const BoxToRender = () => {
-    if (props.box === "job") {
-        if (!data || data.dataArr.length === 0) {
-          return (
-            <NoJobDataDiv>
-              <h2>There are currently no jobs listed for this company :(</h2>
-              <h2>You can be the first to add one!</h2>
-            </NoJobDataDiv>
-          );
-        }
-
-      return (
-        <JobScrollableDiv>
-          <JobListDiv>
-            <GenericList data={data} />
-          </JobListDiv>
-        </JobScrollableDiv>
-      );
-    }
+      if (!data || data.dataArr.length === 0) {
+        return (
+          <NoJobDataDiv>
+            <h2>There are currently no jobs listed for this company :(</h2>
+            <h2>You can be the first to add one!</h2>
+          </NoJobDataDiv>
+        );
+      }
+    
+    return (
+      <JobScrollableDiv>
+        <JobListDiv>
+          <GenericList data={data} />
+        </JobListDiv>
+      </JobScrollableDiv>
+    );
   };
 
   return (

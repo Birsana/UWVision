@@ -37,7 +37,6 @@ const AddJobModal = (props) => {
     // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
     // These are unreserved characters
     let validChars = /^[a-zA-Z ]+$/;
-    console.log(validChars.test(jobToAdd))
     if (!validChars.test(jobToAdd)) {
       setJobError("The job name cannot contain special characters.");
       return false;
