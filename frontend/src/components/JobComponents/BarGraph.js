@@ -7,14 +7,15 @@ function BarGraph(props){
     const isMobile = useMediaQuery('(max-width: 520px)');
 
     useEffect(() => {
-        var graphLabels = ["$10", "$20", "$30", "$40", "$50", "$60", "$70", "$80", "$90", "$100", ">$100"];
-        var graphValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var graphLabels = ["$5", "$10", "$15", "$20", "$25", "$30", "$35", "$40", "$45", "$50", "$55",
+                            "$60", "$65", "$70", "$75", "$80", "$85", "$90", "$95", "$100", ">$100", ];
+        var graphValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 
         props.salaries.forEach(salary => {
           if (salary.wage > 100) {
-            graphValues[10] += 1;
+            graphValues[20] += 1;
           } else {
-            graphValues[Math.floor(salary.wage / 10)] += 1;
+            graphValues[Math.floor((salary.wage - 1) / 5)] += 1;
           }
         })
 
