@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 import { getSalaries, getQuestions, getReviews, getRatings } from "../../backendActions/jobUtils"
 import { RiErrorWarningLine } from "react-icons/ri";
 
-const ColorButton = withStyles((theme) => ({
+const ReviewButton = withStyles((theme) => ({
   root: {
     color: "white",
     backgroundColor: blue[500],
@@ -23,6 +23,18 @@ const ColorButton = withStyles((theme) => ({
     border: "none",
     padding: "8px 10px",
     width: 150
+  },
+}))(Button);
+
+const AddButton = withStyles((theme) => ({
+  root: {
+    color: "white",
+    backgroundColor: blue[500],
+    '&:hover': {
+      backgroundColor: blue[700],
+    },
+    border: "none",
+    padding: "4px 0"
   },
 }))(Button);
 
@@ -97,20 +109,18 @@ const JobPage = (props) => {
             <div className="salary-reviews-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
+                  <MdMonetizationOn size={24} style={{ marginRight: 6 }} />
                   Salaries ({salaries.length})
-                  <MdMonetizationOn size={24} style={{ marginLeft: 8 }} />
                 </span>
-                <div className="add-button" onClick={() => setShowSalaryModal(true)}>
-                  Add
-                </div>
+                <AddButton onClick={() => setShowSalaryModal(true)}>Add</AddButton>
               </h2>
               <div className="graph">
                 <BarGraph salaries={salaries} />
               </div>
               <div>
                 <h2 className="sub-header" style={{ marginTop: 30 }}>
+                  <MdQuestionAnswer size={24} style={{ marginRight: 10 }} />
                   Reviews ({reviews.length})
-                  <MdQuestionAnswer size={24} style={{ marginLeft: 10 }} />
                 </h2>
                 {reviews.length !== 0 && 
                   <div className="average-container">
@@ -134,7 +144,7 @@ const JobPage = (props) => {
                 }
                 <div className="write-container">
                   <div className="write-text">How was your experience at {company}?</div>
-                  <ColorButton onClick={() => setShowReviewModal(true)}>Write a review</ColorButton>
+                  <ReviewButton onClick={() => setShowReviewModal(true)}>Write a review</ReviewButton>
                 </div>
                 {reviews.length !== 0 ? (reviews.map((review, index) => {
                     return (
@@ -165,12 +175,10 @@ const JobPage = (props) => {
             <div className="interview-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
+                  <BsQuestionSquareFill size={20} style={{ marginRight: 10, marginTop: "auto", marginBottom: "auto" }} />
                   Interview questions ({questions.length})
-                  <BsQuestionSquareFill size={20} style={{ marginLeft: 10, marginTop: "auto", marginBottom: "auto" }} />
                 </span>
-                <div className="add-button" onClick={() => setShowInterviewModal(true)}>
-                  Add
-                </div>
+                <AddButton onClick={() => setShowInterviewModal(true)}>Add</AddButton>
               </h2>
               <div className="questions-container">
                 {questions.length !== 0 ? (questions.map((question, index) => {
