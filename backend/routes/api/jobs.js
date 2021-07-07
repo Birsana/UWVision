@@ -243,9 +243,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
     
                 for(var i = 0; i < job[0].reviews.length; ++i){
                     await Review.findById(job[0].reviews[i]).then(function(review){
-                    if(review.body.length > 0){ //only fetch reviews that have a body
                         retArr.push(review.toJSONFor(upvotedSet.has(review.id)));
-                    }
                     }).catch(next);
                 }
 
@@ -254,9 +252,7 @@ router.get('/:companyname/:job/reviews', auth.optional, function(req, res, next)
         } else {
             for(var i = 0; i < job[0].reviews.length; ++i){
                 await Review.findById(job[0].reviews[i]).then(function(review){
-                    if(review.body.length > 0){ //only fetch reviews that have a body
-                        retArr.push(review.toJSONFor(false));
-                    }
+                    retArr.push(review.toJSONFor(false));
                 }).catch(next);
             }
             res.send(retArr);
