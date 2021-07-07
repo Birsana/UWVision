@@ -116,7 +116,7 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm emai
         .catch((e) => console.log("error", e));
 });
 
-router.post('/confirm/:passwordCode', async (req, res) => { //to reset password email
+router.post('/forgotpassword/:passwordCode', async (req, res) => { //to reset password email
     User.findOne({
         resetPasswordToken: req.params.passwordCode,
       })
@@ -131,7 +131,7 @@ router.post('/confirm/:passwordCode', async (req, res) => { //to reset password 
           user.setPassword(req.body.password);
           user.hasResetPasswordToken = false;
           return user.save().then(function() {
-            return res.redirect("https://www.uwvision.com/");  
+            return res.redirect("http://localhost:3000/");  
           })
         })
         .catch((e) => console.log("error", e));
