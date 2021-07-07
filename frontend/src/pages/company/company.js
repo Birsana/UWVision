@@ -24,7 +24,6 @@ const CompanyPage = (props) => {
       })
   }, [company]);
  
-  //<span style="companyRating">Rating</span>  <span style="numberOfReviews"># of reviews</span>
   const renderView = (doesCompanyExist) => {
     //TODO: Refactor all the returns to use sub-components
     switch (doesCompanyExist) {
