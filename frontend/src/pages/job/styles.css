@@ -81,6 +81,10 @@
   font-weight: bold;
 }
 
+.write-text {
+  margin-right: 10px;
+}
+
 .graph {
   height: max-content;
   width: 100%;
@@ -137,6 +141,7 @@
 
   .write-text {
     margin-bottom: 10px;
+    margin-right: 0;
     text-align: center;
   }
 

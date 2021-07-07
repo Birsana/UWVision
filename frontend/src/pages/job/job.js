@@ -21,7 +21,8 @@ const ColorButton = withStyles((theme) => ({
       backgroundColor: blue[700],
     },
     border: "none",
-    padding: "8px 10px"
+    padding: "8px 10px",
+    width: 150
   },
 }))(Button);
 
@@ -97,7 +98,7 @@ const JobPage = (props) => {
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
                   Salaries ({salaries.length})
-                  <MdMonetizationOn size={24} style={{ marginLeft: 10 }} />
+                  <MdMonetizationOn size={24} style={{ marginLeft: 8 }} />
                 </span>
                 <div className="add-button" onClick={() => setShowSalaryModal(true)}>
                   Add
