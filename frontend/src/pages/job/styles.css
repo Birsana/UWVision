@@ -21,7 +21,7 @@
 }
 
 .company {
-  color: #00c2ff;
+  color: #2196f3;
   font-size: 18px;
   font-weight: bold;
   margin: 0;
@@ -82,11 +82,12 @@
 }
 
 .graph {
-  height: 400px;
+  height: max-content;
   width: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   margin-bottom: 20px;
+  padding: 30px 20px 20px 20px;
 }
 
 .interview-container {
@@ -108,10 +109,6 @@
 @media only screen and (max-width: 1300px) {
   .salary-reviews-container {
     width: 600px;
-  }
-
-  .graph {
-    height: 360px;
   }
 
   .interview-container {
@@ -137,10 +134,6 @@
     width: 500px;
   }
 
-  .graph {
-    height: 300px;
-  }
-
   .job {
     font-size: 32px;
   }
@@ -154,10 +147,6 @@
   .salary-reviews-container {
     order: 2;
     width: 600px;
-  }
-
-  .graph {
-    height: 360px;
   }
 
   .interview-container {
@@ -208,10 +197,6 @@
     width: 500px;
   }
 
-  .graph {
-    height: 240px;
-  }
-
   .interview-container {
     width: 500px;
   }
@@ -234,12 +219,12 @@
     width: 400px;
   }
 
-  .graph {
-    height: 240px;
-  }
-
   .interview-container {
     width: 400px;
+  }
+
+  .graph {
+    padding: 10px 10px 4px 4px;
   }
 
   .question {
@@ -274,10 +259,6 @@
 
   .salary-reviews-container {
     width: 300px;
-  }
-
-  .graph {
-    height: 200px;
   }
 
   .interview-container {
@@ -328,10 +309,6 @@
 
   .salary-reviews-container {
     width: 260px;
-  }
-
-  .graph {
-    height: 160px;
   }
 
   .interview-container {

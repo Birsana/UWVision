@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "none",
         fontFamily: "Roboto",
         fontSize: "16px",
-        color: "#00C2FF"
+        color: "#2196f3"
       }
 }));
 

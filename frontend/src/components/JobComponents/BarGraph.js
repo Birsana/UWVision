@@ -1,72 +1,73 @@
 import React, { useState, useEffect } from 'react';
-import {Bar} from 'react-chartjs-2';
-import axios from "axios";
+import { Bar } from 'react-chartjs-2';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 function BarGraph(props){
     const [graphData, setGraphData] = useState(null);
+    const isMobile = useMediaQuery('(max-width: 520px)');
 
     useEffect(() => {
-        var graphLabels = [];
-        var graphValues = [];
+        var graphLabels = ["$10", "$20", "$30", "$40", "$50", "$60", "$70", "$80", "$90", "$100", ">$100"];
+        var graphValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-        const data = props.salaries;
-        data.forEach(salary => {
-            graphLabels.push(salary.wage);
-          });
-          graphLabels.sort();
-
-          //converting wages to form "x$/hr"
-          for(var i = 0; i < graphLabels.length; ++i){
-              graphLabels[i] = graphLabels[i].toString() + "$/hr";
+        props.salaries.forEach(salary => {
+          if (salary.wage > 100) {
+            graphValues[10] += 1;
+          } else {
+            graphValues[Math.floor(salary.wage / 10)] += 1;
           }
+        })
 
-          //populate the graph values array
-          var currCounter = 1;
-          for(var j = 1; j < graphLabels.length; ++j){
-            if(graphLabels[j] !== graphLabels[j-1]){
-                graphValues.push(currCounter);
-                currCounter = 1;
-            } else {
-                currCounter += 1;
-            }
-          }
-          graphValues.push(currCounter);
-
-          //removing duplicates for labels
-          graphLabels = [...new Set(graphLabels)];
-          setGraphData(
+        setGraphData({
+          labels: graphLabels,
+          datasets: [
             {
-                labels: graphLabels,
-                datasets: [
-                  {
-                    label: '# of people',
-                    backgroundColor: 'rgba(75,192,192,1)',
-                    borderColor: 'rgba(0,0,0,1)',
-                    borderWidth: 1,
-                    data: graphValues
-                  }
-                ]
-        }
-        );
-      }, []);
+              label: '',
+              backgroundColor: '#2196f3',
+              borderColor: '#2196f3',
+              borderRadius: 5,
+              data: graphValues
+            }
+          ]
+        });
+      }, [props.salaries]);
 
     return (
         <div>
           <Bar
             data={graphData}
             options={{
-              title:{ //title not working as of now
-                display:true,
-                text:'Hourly Salary',
-                fontSize: 20
+              plugins: {
+                legend: {
+                  display: false,
+                },
               },
-              legend:{
-                display:false,
-                position:'right'
+              scales: {
+                x: {
+                  title: {
+                    display: !isMobile,
+                    text: 'Hourly wage',
+                    font: {
+                      size: 14,
+                      weight: 'bold'
+                    },
+                  },
+                },
+                y: {
+                  title: {
+                    display: !isMobile,
+                    text: 'Number of people',
+                    font: {
+                      size: 14,
+                      weight: 'bold'
+                    },
+                  },
+                }
               },
+              responsive: true,
               ticks: {
-                precision:0
-              }
+                precision: 0
+              },
             }}
           />
         </div>

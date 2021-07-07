@@ -1,64 +1,64 @@
 .invalidCompany {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 h4 {
-    font-family: Roboto Mono;
-    font-weight: 300;
-    font-size: 18px;
-    margin-left: 5px;
-    margin-bottom: 10px;
+  font-family: Roboto Mono;
+  font-weight: 300;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .companyInfo {
-    margin-left: 100px;
-    width: -webkit-calc(100% - 210px);
+  margin-left: 100px;
+  width: -webkit-calc(100% - 210px);
 }
 
 .companyInfo h1 {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 .companyRating {
-    font-weight: bold;
-    font-size: 20px;
-    color: #00C2FF;
+  font-weight: bold;
+  font-size: 20px;
+  color: #2196f3;
 }
 
 .numberOfReviews {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .jobRating {
-    font-weight: bold;
-    font-size: 18px;
-    color: #00C2FF;
+  font-weight: bold;
+  font-size: 18px;
+  color: #2196f3;
 }
 
 .numberOfReviewsJob {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .textDivider {
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .textDivider2 {
-    font-size: 18px;
-    font-weight: 300;
-    padding-left: 5px;
-    padding-right: 5px;
+  font-size: 18px;
+  font-weight: 300;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .companyTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .companyTitle:last-child {
-    margin-left: 0;
-    vertical-align: center;
+  margin-left: 0;
+  vertical-align: center;
 }

@@ -29,15 +29,15 @@ export const StyledSearch = styled(Select)`
 // input - styling what the user types into the search box
 // singleValue - applies to the selected option that the user chooses
 export const SearchBarStylesHome = {
-    control: (base, state) => ({
+    control: (base, { isFocused }) => ({
       ...base,
       fontFamily: 'Roboto',
       fontSize: 16,
       fontWeight: '400',
-      backgroundColor: 'rgba(229, 229, 229)',
+      backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
       cursor: 'text',
       borderRadius: 0,
-      border: 0,
+      border: isFocused ? "1px solid #2196f3" : "none",
     }),
   
     option: (styles, { isFocused }) => {
@@ -82,15 +82,15 @@ export const SearchBarStylesHome = {
 // input - styling what the user types into the search box
 // singleValue - applies to the selected option that the user chooses
 export const SearchBarStylesNotHome = {
-  control: (base) => ({
+  control: (base, { isFocused }) => ({
     ...base,
     fontFamily: 'Roboto',
     fontSize: 16,
     fontWeight: '400',
-    backgroundColor: '#efefef',
+    backgroundColor: isFocused ? "white" : '#efefef',
     cursor: 'text',
     borderRadius: 0,
-    border: 0
+    border: isFocused ? "1px solid #2196f3" : "none",
   }),
 
   option: (styles, { isFocused }) => {
