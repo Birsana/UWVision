@@ -57,7 +57,7 @@ const AddCompanyModal = (props) => {
         }
         // Otherwise, we proceed to submit a new entry to the database
         else {
-          //addCompany(companyToAdd, authToken);
+          addCompany(companyToAdd, authToken);
           setDidSubmit(true);
         }
       });
