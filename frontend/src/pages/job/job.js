@@ -9,9 +9,9 @@ import { Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
-import axios from "axios";
 import { connect } from "react-redux";
 import { getSalaries, getQuestions, getReviews, getRatings } from "../../backendActions/jobUtils"
+import { RiErrorWarningLine } from "react-icons/ri";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -111,46 +111,54 @@ const JobPage = (props) => {
                   Reviews ({reviews.length})
                   <MdQuestionAnswer size={24} style={{ marginLeft: 10 }} />
                 </h2>
-                <div className="average-container">
-                  <div className="average">
-                    <span className="average-rating">{averageArray[0]}/10</span>
-                    overall
+                {reviews.length !== 0 && 
+                  <div className="average-container">
+                    <div className="average">
+                      <span className="average-rating">{averageArray[0]}/10</span>
+                      overall
+                    </div>
+                    <div className="average">
+                      <span className="average-rating">{averageArray[1]}/10</span>
+                      culture
+                    </div>
+                    <div className="average">
+                      <span className="average-rating">{averageArray[3]}/10</span>
+                      interesting work
+                    </div>
+                    <div className="average">
+                      <span className="average-rating">{averageArray[2]}/10</span>
+                      work-life balance
+                    </div>
                   </div>
-                  <div className="average">
-                    <span className="average-rating">{averageArray[1]}/10</span>
-                    culture
-                  </div>
-                  <div className="average">
-                    <span className="average-rating">{averageArray[3]}/10</span>
-                    interesting work
-                  </div>
-                  <div className="average">
-                    <span className="average-rating">{averageArray[2]}/10</span>
-                    work-life balance
-                  </div>
-                </div>
+                }
                 <div className="write-container">
                   <div className="write-text">How was your experience at {company}?</div>
                   <ColorButton onClick={() => setShowReviewModal(true)}>Write a review</ColorButton>
                 </div>
-                {reviews.map((review, index) => {
-                  return (
-                    <Review 
-                      job={job}
-                      company={company}
-                      body={review.body}
-                      author={review.author}
-                      workLifeBalance={review.workLifeBalance}
-                      culture={review.culture}
-                      interestingWork={review.interestingWork}
-                      numUpvotes={review.numUpvotes}
-                      upvoted={review.upvoted}
-                      id={review.id || review._id}
-                      loggedIn={props.token !== null}
-                      key={index}
-                    />
-                  )
-                })}
+                {reviews.length !== 0 ? (reviews.map((review, index) => {
+                    return (
+                      <Review 
+                        job={job}
+                        company={company}
+                        body={review.body}
+                        author={review.author}
+                        workLifeBalance={review.workLifeBalance}
+                        culture={review.culture}
+                        interestingWork={review.interestingWork}
+                        numUpvotes={review.numUpvotes}
+                        upvoted={review.upvoted}
+                        id={review.id || review._id}
+                        loggedIn={props.token !== null}
+                        key={index}
+                      />
+                    )
+                  }))
+                  :
+                  <div class="no-reviews-questions">
+                    No reviews yet
+                    <RiErrorWarningLine style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
+                  </div>
+                }
               </div>
             </div>
             <div className="interview-container">
@@ -164,7 +172,7 @@ const JobPage = (props) => {
                 </div>
               </h2>
               <div className="questions-container">
-                {questions.map((question, index) => {
+                {questions.length !== 0 ? (questions.map((question, index) => {
                   return (
                     <div className="question">
                       <InterviewQuestion
@@ -180,7 +188,13 @@ const JobPage = (props) => {
                       />
                     </div>
                   )
-                })}
+                }))
+                :
+                  <div class="no-reviews-questions">
+                    No questions yet
+                    <RiErrorWarningLine style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
+                  </div>
+                }
               </div>
             </div>
           </div>

@@ -106,6 +106,16 @@
   opacity: 0.8;
 }
 
+.no-reviews-questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 1300px) {
   .salary-reviews-container {
     width: 600px;
@@ -144,6 +154,10 @@
 }
 
 @media only screen and (max-width: 940px) {
+  .no-reviews-questions {
+    margin-top: 10px;
+  }
+
   .salary-reviews-container {
     order: 2;
     width: 600px;
@@ -246,6 +260,11 @@
   .average-rating {
     font-size: 20px;
   }
+
+  .no-reviews-questions {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (max-width: 520px) {
@@ -295,6 +314,10 @@
       minmax(calc(50% - 15px), calc(50% - 15px))
     );
     row-gap: 10px;
+  }
+
+  .no-reviews-questions {
+    font-size: 16px;
   }
 }
 
