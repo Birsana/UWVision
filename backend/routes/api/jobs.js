@@ -98,8 +98,8 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
 
-      var postedReviewSet = new Set(user.jobsPostedReview);
-      if (postedReviewSet.has(req.params.job)){
+      var postedSalarySet = new Set(user.jobsPostedSalary);
+      if (postedSalarySet.has(req.params.job)){
           return res.send("already posted");
       }
   
