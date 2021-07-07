@@ -40,7 +40,7 @@ sendForgotPasswordEmail = (username, email, passwordToken) => {
             html: `<h1>Password Reset</h1>
                 <h2>Hello ${username},</h2>
                 <p>Please reset your password by clicking on the following link</p>
-                <a href=https://www.uwvision.com/auth/password/${passwordToken}> Click here</a>
+                <a href=https://www.uwvision.com/forgotpassword/${passwordToken}> Click here</a>
                 </div>`,
       }).catch(err => console.log(err));
 }
@@ -146,6 +146,9 @@ router.get("/isconfirmed/:username", function (req, res) {
 router.post('/users/forgotpassword', function(req, res){ //forgot password
 
     User.findOne({email: req.body.email}).then(function(user) {
+        if(user == null){
+            return res.send("error");
+        }
         user.hasResetPasswordToken = true;
         user.resetPasswordToken = jwt.sign({email: req.body.email}, secret);
         user.save().then(function() {
