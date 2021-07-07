@@ -58,14 +58,18 @@ function Review(props){
             work-life balance
           </div>
         </div>
-        <p className="review-body">{props.body}</p>
-        <div className="helpful-button">
-          <Tooltip title="This review was helpful">
-            <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ width: "max-content" }} onClick={() => upvote()}>
-              Helpful ({num})
-            </Button>
-          </Tooltip>
-        </div>
+        { props.body !== '' &&
+          <>
+            <p className="review-body">{props.body}</p>
+            <div className="helpful-button">
+              <Tooltip title="This review was helpful">
+                <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ width: "max-content" }} onClick={() => upvote()}>
+                  Helpful ({num})
+                </Button>
+              </Tooltip>
+            </div>
+          </>
+        }
       </div>
     </div>
   );
