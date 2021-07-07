@@ -98,8 +98,9 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
 
+      var jobCompanyKey = req.params.job + req.params.companyname
       var postedSalarySet = new Set(user.jobsPostedSalary);
-      if (postedSalarySet.has(req.params.job)){
+      if (postedSalarySet.has(jobCompanyKey)){
           return res.send("already posted");
       }
   
@@ -119,7 +120,8 @@ router.post('/:companyname/:job/salary', auth.required, function(req, res, next)
                     company[0].numSalaries += 1;
                     return company[0].save().then(function() {
                         
-                        user.jobsPostedSalary.push(req.params.job);
+                        user.jobsPostedSalary.push(jobCompanyKey);
+                        
                         return user.save().then(function() {
                             res.send(salary);
                         });
@@ -157,8 +159,9 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
     User.findById(req.payload.id).then(function(user){
       if(!user){ return res.sendStatus(401); }
 
-      var postedReviewSet = new Set(user.jobsPostedReview);
-      if (postedReviewSet.has(req.params.job)){
+      var jobCompanyKey = req.params.job + req.params.companyname
+      var postedReviewSet = new Set(user.jobsPostedReview); 
+      if (postedReviewSet.has(jobCompanyKey)){
           return res.send("already posted");
       }
   
@@ -187,7 +190,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
                     company[0].averageRating = Math.round(companyRating * 10)/10;
                     company[0].numReviews += 1;
                     return company[0].save().then(function() {
-                        user.jobsPostedReview.push(req.params.job);
+                        user.jobsPostedReview.push(jobCompanyKey);
                         return user.save().then(function() {
                             res.send(review);
                         });
