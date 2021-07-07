@@ -1,31 +1,19 @@
 import React, { useState} from "react";
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button } from '@material-ui/core'
-import axios from "axios";
+import { postQuestion } from "../../../backendActions/jobUtils"
 import { connect } from "react-redux";
 
 const InterviewModal = (props) => {
     const [question, setQuestion] = useState("")
 
     const handleClick = async () => {
-        await axios({
-            method: "POST",
-            url: `http://localhost:5000/job/${props.company}/${props.job}/question`,
-            data: {
-              question: {
-                  body: question
-              }
-            },
-            headers: {
-              Authorization: `Token ${props.token}`,
-              "Content-Type": "application/json",
-              "X-Requested-With": "XMLHttpRequest",
-            },
-          }).then((res) => {
-              res.data.upvoted = false;
-              props.onSubmit(res.data);
-              props.onClose();
-          });
+        postQuestion(props.company, props.job, props.token, question)
+            .then((res) => {
+                res.data.upvoted = false;
+                props.onSubmit(res.data);
+                props.onClose();
+            });
     }
     
     return (

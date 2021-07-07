@@ -11,6 +11,7 @@ import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
 import axios from "axios";
 import { connect } from "react-redux";
+import { getSalaries, getQuestions, getReviews, getRatings } from "../../backendActions/jobUtils"
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -37,59 +38,52 @@ const JobPage = (props) => {
     const job = props.match.params.jobId;
   
     useEffect(() => {
-      const request = `http://localhost:5000/job/${company}/${job}/`;
-      let headers = {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      }
-      if (props.token) {
-        headers.Authorization = `Token ${props.token}`;
-      }
-      axios.get(request + 'salaries')
+      getSalaries(company, job)
         .then((response) => {
           setSalaries(response.data)
         })
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios({
-        method: "get",
-        url: request + 'questions',
-        data: {},
-        headers
-      })
+      getQuestions(company, job, props.token)
         .then((response) => {
           setQuestions(response.data)
         })
         .catch((error) => {
           setIsJobValid(false);
         })
-      axios({
-        method: "get",
-        url: request + 'reviews',
-        data: {},
-        headers
-      })
-      .then((response) => {
-        setReviews(response.data)
-      })
-      .catch((error) => {
-        setIsJobValid(false);
-      })
-      axios.get(request + 'rating')
+      getReviews(company, job, props.token)
+        .then((response) => {
+          setReviews(response.data)
+        })
+        .catch((error) => {
+          setIsJobValid(false);
+        })
+      getRatings(company, job)
         .then((response) => {
           setAverageArray(response.data)
         })
         .catch((error) => {
           setIsJobValid(false);
         })
-    }, [job]);
+    }, []);
 
     useEffect(() => {
       setShowSalaryModal(false);
       setShowInterviewModal(false);
       setShowReviewModal(false);
     }, [props.isLoggedIn]);
+
+    const addReview = (review) => {
+      setReviews(reviews => [...reviews, review]);;
+      getRatings(company, job)
+        .then((response) => {
+          setAverageArray(response.data)
+        })
+        .catch((error) => {
+          setIsJobValid(false);
+        })
+    }
 
     return (
       <>
@@ -221,7 +215,7 @@ const JobPage = (props) => {
             onClose={() => {
               setShowReviewModal(false);
             }}
-            onSubmit={(review) => setReviews(reviews => [...reviews, review])}
+            onSubmit={(review) => addReview(review)}
           />
         )}
       </>

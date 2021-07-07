@@ -3,12 +3,11 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button, createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
-import axios from "axios";
+import { postReview } from "../../../backendActions/jobUtils"
 import { ModalTitle } from "../styles";
 import { connect } from "react-redux";
 
 const ReviewModal = (props) => {
- 
     //store user responses
     const [text, setText] = useState("")
     const [culture, setCulture] = useState(5)
@@ -16,31 +15,22 @@ const ReviewModal = (props) => {
     const [worklife, setWorkLife] = useState(5)
 
     const handleClick = async () => {
-        await axios({
-            method: "POST",
-            url: `http://localhost:5000/job/${props.company}/${props.job}/review`,
-            data: {
-                review: {
-                    body: text,
-                    workLifeBalance: worklife,
-                    culture: culture,
-                    interestingWork: interesting
-                }
-            },
-            headers: {
-              Authorization: `Token ${props.token}`,
-              "Content-Type": "application/json",
-              "X-Requested-With": "XMLHttpRequest",
-            },
-          }).then((res) => {
-            if (res.data === 'already posted') {
-              alert('You can only review a job once!')
-            } else {
-              res.data.upvoted = false;
-              props.onSubmit(res.data);
-              props.onClose();
-            }
-        });
+      const review = {
+          body: text,
+          workLifeBalance: worklife,
+          culture: culture,
+          interestingWork: interesting
+      }
+      postReview(props.company, props.job, props.token, review)
+          .then((res) => {
+              if (res.data === 'already posted') {
+                alert('You can only review a job once!')
+              } else {
+                res.data.upvoted = false;
+                props.onSubmit(res.data);
+                props.onClose();
+              }
+          });
     }
 
     const handleChangeCulture = (event, newValue) => {

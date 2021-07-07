@@ -2,6 +2,7 @@ import { Button, Tooltip } from '@material-ui/core'
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState } from "react";
+import './styles.css';
 
 function InterviewQuestion(props){
   const [num, setNum] = useState(props.numUpvotes ? props.numUpvotes : 0)
