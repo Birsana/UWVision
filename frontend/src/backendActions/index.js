@@ -11,3 +11,4 @@ export * from './user/isUserConfirmed';
 export * from './user/saveJobToUser';
 export * from './user/getSavedJobs';
 export * from './user/resetPassword';
+export * from './user/sendResetEmail';

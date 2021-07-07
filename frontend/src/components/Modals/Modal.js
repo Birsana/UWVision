@@ -12,6 +12,7 @@ import ReviewModal from "./ReviewModal/ReviewModal";
 import AddJobModal from "./AddJobModal/AddJobModal";
 import InterviewModal from "./InterviewModal/InterviewModal";
 import SalaryModal from "./SalaryModal/SalaryModal";
+import ForgotPasswordModal from "./ForgotPasswordModal/ForgotPasswordModal";
 
 // ==============================================================================================================
 
@@ -35,6 +36,8 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
         return <SalaryModal job={job} company={company} onSubmit={onSubmit} onClose={onClose} />;
     } else if (modalType === "Add Job") {
         return <AddJobModal />
+    } else if (modalType === "Forgot Password") {
+        return <ForgotPasswordModal onClose={onClose}/>
     }
   };
 

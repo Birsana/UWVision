@@ -143,11 +143,11 @@ router.get("/isconfirmed/:username", function (req, res) {
   });
 });
 
-router.post('/users/forgotpassword', function(req, res){ //forgot password
+router.post('/sendresetemail', function(req, res){ //forgot password
 
     User.findOne({email: req.body.email}).then(function(user) {
         if(user == null){
-            return res.send("error");
+            return res.status(404).send({ message: "Email Not Found." });
         }
         user.hasResetPasswordToken = true;
         user.resetPasswordToken = jwt.sign({email: req.body.email}, secret);

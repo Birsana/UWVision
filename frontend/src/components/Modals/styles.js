@@ -102,6 +102,12 @@ export const ModalSignUpButton = ({ onClick }) => {
   )
 }
 
+export const ModalForgotPasswordButton = ({onClick}) => {
+  return (
+    <ModalText> <u onClick={onClick} style={{cursor: "pointer"}}>Forgot Password?</u></ModalText>
+  )
+}
+
 export const ModalLogInButton = ({ onClick }) => {
   return (
     <>

@@ -16,6 +16,7 @@ const routes = {
   LOGIN: `${userRoutes}/users/login`,
   SIGNUP: `${userRoutes}/users`,
   ISEMAILCONFIRMED: `${userRoutes}/isconfirmed`,
+  SENDRESETEMAIL: `${userRoutes}/sendresetemail`,
   RESETPASSWORD: `${userRoutes}/forgotpassword`
 
   //Job Routes:

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ModalTitle,
   ModalSignUpButton,
+  ModalForgotPasswordButton,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,
@@ -124,6 +125,7 @@ const LogInModal = (props) => {
         )}
         <FormSubmitButton value="Login" />
       </form>
+      <ModalForgotPasswordButton onClick={() => props.changeModalState("Forgot Password")} />
       <ModalSignUpButton onClick={() => props.changeModalState("Sign Up")} />
     </>
   );
