@@ -5,6 +5,8 @@ var jwt = require('jsonwebtoken');
 var User = mongoose.model('User');
 var auth = require('../auth');
 const nodemailer = require('nodemailer')
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
 
 
@@ -13,15 +15,42 @@ var secret = require('../../config').secret;
 
 var router = express.Router();
 
-const transport = nodemailer.createTransport({ //for emailer
-    service: "Gmail",
-    auth: {
-      user: "testwwaterloovision@gmail.com",
-      pass: "waterloovision"
-    },
-  });
+const createTransporter = async () => {
+    const oauth2Client = new OAuth2(
+      "674197617974-v5s1n0r2370ec2hmn5e6if0hqc9qs2dr.apps.googleusercontent.com",
+      "VKtPsY1DlTLBjgQ61SQlpAcf",
+      "https://developers.google.com/oauthplayground"
+    ); 
+    oauth2Client.setCredentials({
+        refresh_token: "1//04FUXksmp02SnCgYIARAAGAQSNwF-L9Ir8frYcj37q5t83qRFGPOBHyXLkHPhCokSuTG4F6wFkcg--BkhvHfk4Up3rHixAsavVOo"
+      });
 
-sendConfirmationEmail = (username, email, confirmationCode) => { //sending the email
+    const accessToken = await new Promise((resolve, reject) => {
+        oauth2Client.getAccessToken((err, token) => {
+          if (err) {
+            reject("Failed to create access token :(");
+          }
+          resolve(token);
+        });
+    });
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          type: "OAuth2",
+          user: "info.uwvision@gmail.com",
+          accessToken,
+          clientId: "674197617974-v5s1n0r2370ec2hmn5e6if0hqc9qs2dr.apps.googleusercontent.com",
+          clientSecret: "VKtPsY1DlTLBjgQ61SQlpAcf",
+          refreshToken: "1//04FUXksmp02SnCgYIARAAGAQSNwF-L9Ir8frYcj37q5t83qRFGPOBHyXLkHPhCokSuTG4F6wFkcg--BkhvHfk4Up3rHixAsavVOo"
+        }
+      });
+
+    return transporter
+};
+
+sendConfirmationEmail = async (username, email, confirmationCode) => { //sending the email
+    let transport = await createTransporter();
     transport.sendMail({
         to: email,
         subject: "Please confirm your account",
@@ -33,7 +62,8 @@ sendConfirmationEmail = (username, email, confirmationCode) => { //sending the e
   }).catch(err => console.log(err));
 };
 
-sendForgotPasswordEmail = (username, email, passwordToken) => {
+sendForgotPasswordEmail = async (username, email, passwordToken) => {
+    let transport = await createTransporter();
     transport.sendMail({
             to: email,
             subject: "UWVision Password Reset",
