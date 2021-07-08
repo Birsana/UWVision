@@ -18,6 +18,7 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .company {
@@ -90,7 +91,6 @@
   width: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
-  margin-bottom: 20px;
   padding: 30px 20px 20px 20px;
 }
 
@@ -110,14 +110,20 @@
   opacity: 0.8;
 }
 
+.icon {
+  margin: auto 10px auto 0;
+}
+
 .no-reviews-questions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  padding: 20px 0;
   color: rgba(0, 0, 0, 0.2);
   font-weight: bold;
   font-size: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -127,6 +133,10 @@
 
   .interview-container {
     width: 300px;
+  }
+
+  .icon {
+    display: none;
   }
 }
 
@@ -160,7 +170,8 @@
 
 @media only screen and (max-width: 940px) {
   .no-reviews-questions {
-    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 50px;
   }
 
   .salary-reviews-container {
@@ -196,6 +207,10 @@
   .body {
     width: 600px;
     flex-direction: column;
+  }
+
+  .icon {
+    display: flex;
   }
 }
 
@@ -361,5 +376,9 @@
 
   .add-button {
     font-size: 14px;
+  }
+
+  .icon {
+    display: none;
   }
 }

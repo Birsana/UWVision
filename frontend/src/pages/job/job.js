@@ -11,7 +11,7 @@ import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
 import { connect } from "react-redux";
 import { getSalaries, getQuestions, getReviews, getRatings } from "../../backendActions/jobUtils"
-import { RiErrorWarningLine } from "react-icons/ri";
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const ReviewButton = withStyles((theme) => ({
   root: {
@@ -109,7 +109,7 @@ const JobPage = (props) => {
             <div className="salary-reviews-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
-                  <MdMonetizationOn size={24} style={{ marginRight: 6 }} />
+                  <MdMonetizationOn size={24} class="icon" style={{ marginRight: 6 }} />
                   Salaries ({salaries.length})
                 </span>
                 <AddButton onClick={() => setShowSalaryModal(true)}>Add</AddButton>
@@ -119,7 +119,7 @@ const JobPage = (props) => {
               </div>
               <div>
                 <h2 className="sub-header" style={{ marginTop: 30 }}>
-                  <MdQuestionAnswer size={24} style={{ marginRight: 10 }} />
+                  <MdQuestionAnswer size={24} class="icon" />
                   Reviews ({reviews.length})
                 </h2>
                 {reviews.length !== 0 && 
@@ -167,7 +167,7 @@ const JobPage = (props) => {
                   :
                   <div class="no-reviews-questions">
                     No reviews yet
-                    <RiErrorWarningLine style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
+                    <HiOutlineEmojiSad style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
                   </div>
                 }
               </div>
@@ -175,7 +175,7 @@ const JobPage = (props) => {
             <div className="interview-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
-                  <BsQuestionSquareFill size={20} style={{ marginRight: 10, marginTop: "auto", marginBottom: "auto" }} />
+                  <BsQuestionSquareFill class="icon" size={20} />
                   Interview questions ({questions.length})
                 </span>
                 <AddButton onClick={() => setShowInterviewModal(true)}>Add</AddButton>
@@ -201,7 +201,7 @@ const JobPage = (props) => {
                 :
                   <div class="no-reviews-questions">
                     No questions yet
-                    <RiErrorWarningLine style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
+                    <HiOutlineEmojiSad style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
                   </div>
                 }
               </div>
