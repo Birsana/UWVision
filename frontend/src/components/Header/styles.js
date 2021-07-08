@@ -6,7 +6,13 @@ export const useStyles = makeStyles((theme) => ({
     color: "black",
     boxShadow: "0px 0px 0px 0px",
     padding: "10px 20px",
-    marginBottom: "40px"
+    marginBottom: "40px",
+    [theme.breakpoints.down(520)]: {
+      padding: "10px 0px",
+      display: "flex",
+      alignItems: "center",
+      width: "auto"
+    }
   },
 
   profile: {
@@ -35,7 +41,10 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: 8,
     marginLeft: -6,
     padding: "6px 16px",
-    borderRadius: 10
+    borderRadius: 10,
+    [theme.breakpoints.down(620)]: {
+      display: "none"
+    }
   },
 
   signUpButton: {
@@ -48,13 +57,29 @@ export const useStyles = makeStyles((theme) => ({
     padding: "6px 16px",
     '&:hover': {
       backgroundColor: '#535353'
+    },
+    minWidth: 91,
+    [theme.breakpoints.down(400)]: {
+      fontSize: 14,
+      minWidth: 52,
+      padding: 0,
+      borderRadius: 4,
+      backgroundColor: "transparent",
+      color: "black",
+      '&:hover': {
+        backgroundColor: 'transparent'
+      },
     }
   },
 
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "400px"
+    width: "400px",
+    [theme.breakpoints.down(520)]: {
+      marginLeft: 0,
+      marginRight: 10
+    }
   },
 
   menuItem: {

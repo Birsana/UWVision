@@ -9,6 +9,11 @@ const Container = styled.div`
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 50px;
+
+    @media (max-width: 520px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 `;
 
 const Content = styled.div`

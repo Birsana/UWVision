@@ -90,7 +90,7 @@ export const SearchBarStylesNotHome = {
     backgroundColor: isFocused ? "white" : '#efefef',
     cursor: 'text',
     borderRadius: 0,
-    border: isFocused ? "1px solid #2196f3" : "none",
+    border: isFocused ? "1px solid #2196f3" : "none"
   }),
 
   option: (styles, { isFocused }) => {
@@ -125,6 +125,10 @@ export const SearchBarStylesNotHome = {
   placeholder: styles => ({
     ...styles,
     color: '#9e9ea7',
+    "@media only screen and (max-width: 320px)": {
+        ...styles["@media only screen and (max-width: 320px)"],
+        fontSize: "14px",
+    },
   })
 }
   
@@ -136,7 +140,7 @@ export const DropdownIndicator = props => {
     return (
       components.DropdownIndicator && (
         <components.DropdownIndicator {...props}>
-           <FontAwesomeIcon icon={faSearch} style={ (location.pathname === "/") ? { color: 'rgba(79, 78, 67)' } : { color: '#9e9ea7' } }/>
+          <FontAwesomeIcon icon={faSearch} style={ (location.pathname === "/") ? { color: 'rgba(79, 78, 67)' } : { color: '#9e9ea7' } }/>
         </components.DropdownIndicator>
       )
     )

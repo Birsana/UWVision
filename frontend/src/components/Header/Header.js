@@ -51,7 +51,7 @@ const Header = (props) => {
 
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();
-  const displayTypography = useMediaQuery("(min-width: 523px)");
+  const displayTypography = useMediaQuery("(min-width: 520px)");
 
   // Used to determine whether searchbar should be in header or not:
   const location = useLocation();
@@ -60,7 +60,7 @@ const Header = (props) => {
     <>
       <div className={styles.headerRoot}>
         <AppBar position="static" className={styles.header}>
-          <Toolbar>
+          <Toolbar style={{maxWidth: "100%"}}>
             {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
             {(displayTypography || location.pathname === "/") && (
               <Typography variant="h5" className={styles.title}>
