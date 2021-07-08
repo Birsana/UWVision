@@ -1,11 +1,11 @@
-h1 {
+.landing-header {
   font-family: Roboto;
   font-weight: 600;
   font-size: 54px;
   margin: 0;
 }
 
-h2 {
+.landing-subheader {
   font-family: Roboto;
   font-weight: 300;
   font-size: 22px;
@@ -13,20 +13,18 @@ h2 {
   margin: 0 0 48px 2px;
 }
 
-h3 {
-  font-family: Roboto;
-  font-weight: normal;
-  font-style: italic;
-  font-size: 14px;
-}
-
 .landing {
   position: absolute;
-  margin-left: 100px;
+  margin-left: 60px;
+  padding: 0 40px;
   top: 40%;
   transform: translate(0, -50%);
   z-index: 1;
   margin-bottom: -80;
+}
+
+.searchbar-container {
+  display: flex;
 }
 
 .searchbar {
@@ -48,4 +46,86 @@ h3 {
 
 .select input {
   font-family: Roboto;
+}
+
+@media only screen and (max-width: 1300px) {
+  .landing-header {
+    font-size: 48px;
+  }
+
+  .landing-subheader {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1055px) {
+  .landing-header {
+    font-size: 40px;
+  }
+
+  .landing-subheader {
+    font-size: 18px;
+  }
+
+  .landing {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .searchbar-container {
+    margin: 0 auto;
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .landing-header {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .landing-subheader {
+    font-size: 16px;
+  }
+
+  .landing {
+    padding: 0 20px;
+  }
+
+  .searchbar-container {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .landing-header {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .searchbar-container {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .searchbar-container {
+    width: 260px;
+  }
 }

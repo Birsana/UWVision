@@ -12,11 +12,11 @@ const Home = () => {
   return (
     <>
       <div className="landing">
-        <div>
-          <h1>{landingPageCopy.h1Text}</h1>
-          <h2>{landingPageCopy.keywordsText}</h2>
+        <div className="landing-container">
+          <h1 className="landing-header">{landingPageCopy.h1Text}</h1>
+          <h2 className="landing-subheader">{landingPageCopy.keywordsText}</h2>
 
-          <div style={{ display: "flex" }}>
+          <div className="searchbar-container">
             <div className="searchbar">
               <SearchBar />
             </div>

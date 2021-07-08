@@ -18,11 +18,9 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     boxShadow: "0px 0px 0px 0px",
     color: "black",
-    // marginTop: "3px"
-  },
-
-  extendedIcon: {
-    // marginRight: theme.spacing(1),
+    [theme.breakpoints.down(460)]: {
+      display: "none"
+    }
   },
 }));
 

@@ -5,7 +5,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
 
 // Search Bar Component Styles:
-// TODO: Responsive Designs for Mobile and Tablet
 export const StyledSearch = styled(Select)`
   .select__menu-list::-webkit-scrollbar {
     width: 5px;
@@ -37,7 +36,7 @@ export const SearchBarStylesHome = {
       backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
       cursor: 'text',
       borderRadius: 0,
-      border: isFocused ? "1px solid #2196f3" : "none",
+      border: isFocused ? "1px solid #2196f3" : "none"
     }),
   
     option: (styles, { isFocused }) => {
@@ -48,14 +47,14 @@ export const SearchBarStylesHome = {
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
-        lineHeight: 2,
+        lineHeight: 2
       }
     },
   
     input: styles => ({
       ...styles,
       fontFamily: 'Roboto',
-      color: 'black',
+      color: 'black'
     }),
   
     menu: styles => ({
@@ -72,6 +71,10 @@ export const SearchBarStylesHome = {
     placeholder: styles => ({
       ...styles,
       color: 'black',
+      "@media only screen and (max-width: 320px)": {
+        ...styles["@media only screen and (max-width: 320px)"],
+        fontSize: "14px",
+      },
     })
   }
 
@@ -90,7 +93,8 @@ export const SearchBarStylesNotHome = {
     backgroundColor: isFocused ? "white" : '#efefef',
     cursor: 'text',
     borderRadius: 0,
-    border: isFocused ? "1px solid #2196f3" : "none"
+    border: isFocused ? "1px solid #2196f3" : "none",
+    maxWidth: "100%"
   }),
 
   option: (styles, { isFocused }) => {
@@ -126,8 +130,8 @@ export const SearchBarStylesNotHome = {
     ...styles,
     color: '#9e9ea7',
     "@media only screen and (max-width: 320px)": {
-        ...styles["@media only screen and (max-width: 320px)"],
-        fontSize: "14px",
+      ...styles["@media only screen and (max-width: 320px)"],
+      fontSize: "14px",
     },
   })
 }

@@ -33,9 +33,11 @@ function InterviewQuestion(props){
     <div className="question-container">
       <p className="question-body">{props.body}</p>
       <Tooltip title="This interview question was helpful">
-        <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ margin: "10px 0 -12px -6px", width: "max-content" }} onClick={() => upvote()}>
-          Helpful ({num})
-        </Button>
+        <span>
+          <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ margin: "10px 0 -12px -6px", width: "max-content" }} onClick={() => upvote()}>
+            Helpful ({num})
+          </Button>
+        </span>
       </Tooltip>
     </div>
   );
