@@ -60,7 +60,7 @@ const Header = (props) => {
     <>
       <div className={styles.headerRoot}>
         <AppBar position="static" className={styles.header}>
-          <Toolbar style={{maxWidth: "100%"}}>
+          <Toolbar style={{ maxWidth: "100%" }}>
             {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
             {(displayTypography || location.pathname === "/") && (
               <Typography variant="h5" className={styles.title}>

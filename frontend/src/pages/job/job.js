@@ -34,7 +34,10 @@ const AddButton = withStyles((theme) => ({
       backgroundColor: blue[700],
     },
     border: "none",
-    padding: "4px 0"
+    padding: "4px 0",
+    [theme.breakpoints.down(520)]: {
+      padding: 0
+    }
   },
 }))(Button);
 
