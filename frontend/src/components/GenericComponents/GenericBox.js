@@ -69,7 +69,7 @@ function GenericBox(props) {
         });
     }
     fetchData();
-  }, [company]);
+  }, [company, props.box, props.isLoggedIn, props.token]);
 
   const BoxToRender = () => {
       if (!data || data.dataArr.length === 0) {

@@ -1,6 +1,5 @@
 // Material-UI Imports:
 import { makeStyles } from "@material-ui/core/styles";
-import Fab from "@material-ui/core/Fab";
 import { Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 

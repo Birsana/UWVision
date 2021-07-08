@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
   ModalTitle,
-  ModalText,
-  ModalButton,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,

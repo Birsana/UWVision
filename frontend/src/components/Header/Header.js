@@ -47,7 +47,7 @@ const Header = (props) => {
     setUsernameIcon(props.username);
     setShowLogInModal(false);
     setShowSignUpModal(false);
-  }, [props.isLoggedIn]);
+  }, [props.isLoggedIn, props.username]);
 
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();

@@ -67,7 +67,7 @@ const Job = (props) => {
           <span className="jobRating">
             {" "}
             {props.jobData.averageSalary
-              ? `\$${props.jobData.averageSalary}/hr`
+              ? `$${props.jobData.averageSalary}/hr`
               : "-"}
           </span>
           <span className="numberOfReviewsJob">

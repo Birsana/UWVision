@@ -25,19 +25,23 @@ const SavedJobs = (props) => {
     const [savedJobs, setSavedJobs] = useState({});
     
     useEffect(() => {
+        let isMounted = true;  
         getSavedJobs(props.token).then(response => {
-            const finalData = {};
-    
-            response.data.forEach(element => {
-                if (!finalData[element.company]) {
-                    finalData[element.company] = [];
-                }
-                finalData[element.company].push(element);
-            });
-    
-            setSavedJobs(finalData)
+            if (isMounted) {
+                const finalData = {};
+        
+                response.data.forEach(element => {
+                    if (!finalData[element.company]) {
+                        finalData[element.company] = [];
+                    }
+                    finalData[element.company].push(element);
+                });
+        
+                setSavedJobs(finalData)
+            }
         });
-    }, [savedJobs]); //! Empty dependency array is important as we only want to call this useEffect once
+        return () => { isMounted = false };
+    }, [savedJobs, props.token]); //! Empty dependency array is important as we only want to call this useEffect once
 
     return (
       <SavedJobsList>
@@ -46,13 +50,13 @@ const SavedJobs = (props) => {
         <br></br>
         {Object.keys(savedJobs).map((companyName) => {
           return (
-            <>
-              <h2 key={companyName}>{companyName}</h2>
+            <div key={companyName}>
+              <h2>{companyName}</h2>
               {savedJobs[companyName].map((job) => {
                 return <Job key={`${companyName}-${job.id}`} jobData={job} accountPage={true}/>;
               })}
               <br></br>
-            </>
+            </div>
           );
         })}
       </SavedJobsList>

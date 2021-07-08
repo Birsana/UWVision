@@ -49,7 +49,7 @@ const JobPage = (props) => {
     const [questions, setQuestions] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]) // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
-    const [isJobValid, setIsJobValid] = useState(true);
+    // const [isJobValid, setIsJobValid] = useState(true);
     const company = props.match.params.id;
     const job = props.match.params.jobId;
   
@@ -59,30 +59,30 @@ const JobPage = (props) => {
           setSalaries(response.data)
         })
         .catch((error) => {
-          setIsJobValid(false);
+          // setIsJobValid(false);
         })
       getQuestions(company, job, props.token)
         .then((response) => {
           setQuestions(response.data)
         })
         .catch((error) => {
-          setIsJobValid(false);
+          // setIsJobValid(false);
         })
       getReviews(company, job, props.token)
         .then((response) => {
           setReviews(response.data)
         })
         .catch((error) => {
-          setIsJobValid(false);
+          // setIsJobValid(false);
         })
       getRatings(company, job)
         .then((response) => {
           setAverageArray(response.data)
         })
         .catch((error) => {
-          setIsJobValid(false);
+          // setIsJobValid(false);
         })
-    }, []);
+    }, [company, job, props.token]);
 
     useEffect(() => {
       setShowSalaryModal(false);
@@ -97,7 +97,7 @@ const JobPage = (props) => {
           setAverageArray(response.data)
         })
         .catch((error) => {
-          setIsJobValid(false);
+          // setIsJobValid(false);
         })
     }
 
@@ -112,7 +112,7 @@ const JobPage = (props) => {
             <div className="salary-reviews-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
-                  <MdMonetizationOn size={24} class="icon" style={{ marginRight: 6 }} />
+                  <MdMonetizationOn size={24} className="icon" style={{ marginRight: 6 }} />
                   Salaries ({salaries.length})
                 </span>
                 <AddButton onClick={() => setShowSalaryModal(true)}>Add</AddButton>
@@ -122,7 +122,7 @@ const JobPage = (props) => {
               </div>
               <div>
                 <h2 className="sub-header" style={{ marginTop: 30 }}>
-                  <MdQuestionAnswer size={24} class="icon" />
+                  <MdQuestionAnswer size={24} className="icon" />
                   Reviews ({reviews.length})
                 </h2>
                 {reviews.length !== 0 && 
@@ -168,7 +168,7 @@ const JobPage = (props) => {
                     )
                   }))
                   :
-                  <div class="no-reviews-questions">
+                  <div className="no-reviews-questions">
                     No reviews yet
                     <HiOutlineEmojiSad style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
                   </div>
@@ -178,7 +178,7 @@ const JobPage = (props) => {
             <div className="interview-container">
               <h2 className="sub-header" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
                 <span style={{ display: "flex", alignItems: "center" }}>
-                  <BsQuestionSquareFill class="icon" size={20} />
+                  <BsQuestionSquareFill className="icon" size={20} />
                   Interview questions ({questions.length})
                 </span>
                 <AddButton onClick={() => setShowInterviewModal(true)}>Add</AddButton>
@@ -186,7 +186,7 @@ const JobPage = (props) => {
               <div className="questions-container">
                 {questions.length !== 0 ? (questions.map((question, index) => {
                   return (
-                    <div className="question">
+                    <div className="question" key={index}>
                       <InterviewQuestion
                         job={job}
                         company={company}
@@ -196,13 +196,12 @@ const JobPage = (props) => {
                         author={question.author}
                         id={question.id || question._id}
                         loggedIn={props.token !== null}
-                        key={index}
                       />
                     </div>
                   )
                 }))
                 :
-                  <div class="no-reviews-questions">
+                  <div className="no-reviews-questions">
                     No questions yet
                     <HiOutlineEmojiSad style={{ marginTop: 10 }} size={72} color="rgba(0, 0, 0, 0.1)" />
                   </div>
