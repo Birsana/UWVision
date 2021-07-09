@@ -4,10 +4,25 @@ import { TextField, Button } from '@material-ui/core'
 import { connect } from "react-redux";
 import { postSalary } from "../../../backendActions/jobUtils"
 
+function isNumeric(value) {
+    return /^\d+$/.test(value);
+}
+
 const SalaryModal = (props) => {
     const [salary, setSalary] = useState("")
 
     const handleClick = async () => {
+        
+        if(!isNumeric(salary)){
+            alert("You must a enter a positive whole number!");
+            return;
+        }
+
+        const salaryAsInt = parseInt(salary);
+        if(salaryAsInt > 300){
+            alert('The max salary you can enter is $300!');
+        }
+
         postSalary(props.company, props.job, props.token, salary)
             .then((res) => {
                 if (res.data === 'already posted') {
