@@ -64,9 +64,7 @@ const AddJobModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-        //TODO: Cannot allow duplicate jobs from being added
-        addJob(company, jobToAdd, authToken)
-        setDidSubmit(true);
+        addJob(company, jobToAdd, authToken).then((response) => {setDidSubmit(true)}).catch((response) => {setJobError("This job already exists!")});
     }
   };
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import routes from "backendActions/routes";
 
 export const addCompany = (companyToAdd, token) => {
-  axios({
+  return axios({
     method: "post",
     url: routes.ADDCOMPANY,
     data: {

@@ -10,7 +10,7 @@ import {
 } from "../styles";
 
 // Backend + Redux Imports:
-import { doesCompanyExist, addCompany } from "backendActions";
+import { addCompany } from "backendActions";
 import { connect } from "react-redux";
 
 // ==============================================================================================================
@@ -56,18 +56,8 @@ const AddCompanyModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-      doesCompanyExist(companyToAdd).then((result) => {
-        // If the company being added already exists in the database - set an error explaining the situation
-        if (result) {
-          setCompanyError("This company already exists!");
-        }
-
-        // Otherwise, we proceed to submit a new entry to the database
-        else {
-          addCompany(companyToAdd, authToken);
-          setDidSubmit(true);
-        }
-      });
+    // If the company being added already exists in the database - set an error explaining the situation
+    addCompany(companyToAdd, authToken).then((response) => {setDidSubmit(true)}).catch((response) => {setCompanyError("This company already exists!")});        
     }
   };
 

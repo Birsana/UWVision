@@ -3,7 +3,7 @@ import routes from "backendActions/routes";
 
 export const addJob = (company, job, token) => {
     let URL = `${routes.SERVER}/data/${company}/addjob`;
-    axios({
+    return axios({
         method: "post",
         url: URL,
         data: {
