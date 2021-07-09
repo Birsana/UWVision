@@ -42,6 +42,12 @@ const AddCompanyModal = (props) => {
       return false;
     }
 
+    //max company length is 50 characters
+    if(companyToAdd.length > 50) {
+        setCompanyError("The company can't be longer than 50 characters");
+        return false;
+    }
+
     return true;
   };
 
@@ -55,6 +61,7 @@ const AddCompanyModal = (props) => {
         if (result) {
           setCompanyError("This company already exists!");
         }
+
         // Otherwise, we proceed to submit a new entry to the database
         else {
           addCompany(companyToAdd, authToken);

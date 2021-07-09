@@ -32,6 +32,12 @@ const AddJobModal = (props) => {
       return false;
     }
 
+    //max job length is 50 characters
+    if(jobToAdd.length > 50) {
+        setJobError("The job can't be longer than 50 characters");
+        return false;
+    }
+
 
     // NOTE: Permissible characters for the URL are the following:
     // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
