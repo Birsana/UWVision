@@ -34,11 +34,19 @@ const CompanyPage = (props) => {
               <h1>{company}</h1>
               <AddJobButton />
             </div>
-            <h2>
-              <span className="companyRating">{companyData.averageRating} out of 10</span>
-              <span className="textDivider"> | </span>
-              <span className="numberOfReviews">{companyData.numReviews} reviews </span>
-            </h2>
+            {companyData.numReviews === 0 ? (
+              <h2 style={{color:"#2196f3"}}>No reviews</h2>
+            ) : (
+              <h2>
+                <span className="companyRating">
+                  {companyData.averageRating} out of 10
+                </span>
+                <span className="textDivider"> | </span>
+                <span className="numberOfReviews">
+                  {companyData.numReviews} reviews{" "}
+                </span>
+              </h2>
+            )}
           </div>
         );
 
