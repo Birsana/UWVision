@@ -21,7 +21,13 @@ const SalaryModal = (props) => {
         const salaryAsInt = parseInt(salary);
         if(salaryAsInt > 300){
             alert('The max salary you can enter is $300!');
+            return;
         }
+
+        if (salaryAsInt === 0){
+            alert('The salary you enter must be greater than $0!');
+            return;
+        } 
 
         postSalary(props.company, props.job, props.token, salary)
             .then((res) => {
