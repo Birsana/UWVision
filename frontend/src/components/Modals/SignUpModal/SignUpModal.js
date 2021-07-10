@@ -72,43 +72,55 @@ const SignUpModal = ({ changeModalState }) => {
 
   // Basic Form Input Validation
   const basicInputValidation = () => {
-    let isValid = true;
-
     // User cannot submit an empty username
     if (!username) {
       setUsernameError("Please enter a username.");
-      isValid = false;
+      return false;
     }
 
     // User cannot submit an empty email
     if (!email) {
       setEmailError("Please enter an email.");
-      isValid = false;
+      return false;
     }
     // User cannot use a non-uwaterloo email
     else if (!email.includes("@uwaterloo.ca")) {
       setEmailError('Please enter an @uwaterloo.ca email.');
-      isValid = false;
+      return false;
     }
 
     // User cannot submit an empty password
     if (!password) {
       setPasswordError("Please enter a password.");
-      isValid = false;
+      return false;
+    }
+
+    //! Password strength checks
+    // Must AT LEAST be 8 characters long
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters long.");
+      return false;
+    }
+    // Must AT LEAST contain 1 special character
+    // eslint-disable-next-line no-useless-escape
+    let specialCharRegex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g;
+    if (!password.match(specialCharRegex)) {
+      setPasswordError("Password must contain at least 1 special character.");
+      return false;
     }
 
     // User cannot submit an empty confirm password
     if (!confirmPassword) {
       setConfirmPasswordError("Please confirm the password.");
-      isValid = false;
+      return false;
     }
     // User cannot submit a confirm password that doesn't match the previous password
     else if (confirmPassword !== password) {
       setConfirmPasswordError("Passwords do not match.");
-      isValid = false;
+      return false;
     }
 
-    return isValid;
+    return true;
   };
 
   const handleSubmit = (event) => {
