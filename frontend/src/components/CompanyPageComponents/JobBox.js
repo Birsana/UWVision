@@ -49,7 +49,7 @@ const JobBox = (props) => {
   }, [company, props.isLoggedIn, props.token]);
 
   const BoxToRender = () => {
-      if (!data) {
+      if (!data || data.length === 0) {
         return (
           <NoJobDataDiv>
             <h2>There are currently no jobs listed for this company :(</h2>
