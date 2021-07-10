@@ -49,29 +49,39 @@ const ForgotPasswordPage = (props) => {
   };
 
   const basicInputValidation = () => {
-    let isValid = true;
-
     // User cannot submit an empty password
     if (!password) {
       setPasswordError("Please enter a new password.");
-      isValid = false;
+      return false;
     }
+
+    //! Password strength checks
+    // Must AT LEAST be 8 characters long
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters long.");
+      return false;
+    }
+    // Must AT LEAST contain 1 special character
+    // eslint-disable-next-line no-useless-escape
+    let specialCharRegex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g;
+    if (!password.match(specialCharRegex)) {
+      setPasswordError("Password must contain at least 1 special character.");
+      return false;
+    }
+
 
     // User cannot submit an empty confirm password
     if (!confirmPassword) {
       setConfirmPasswordError("Please confirm your password.");
-      isValid = false;
+      return false;
     }
     // Passwords must match
     else if (password !== confirmPassword) {
       setConfirmPasswordError("Passwords do not match.");
-      isValid = false;
+      return false;
     }
 
-    //TODO: Regex validation
-    //TODO: Check if new password is the same as the old password
-
-    return isValid;
+    return true;
   };
 
   const handleSubmit = (e) => {
@@ -91,7 +101,7 @@ const ForgotPasswordPage = (props) => {
   return (
     <ForgotPasswordForm>
       <h2>Set a New Password</h2>
-      <div style={{ width: "300px" }}>
+      <div style={{ width: "400px" }}>
         <form onSubmit={handleSubmit}>
           <FormInput
             type="password"
