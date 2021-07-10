@@ -8,6 +8,11 @@ const InterviewModal = (props) => {
     const [question, setQuestion] = useState("")
 
     const handleClick = async () => {
+        if (!/\S/.test(question)) {
+            alert("Your interview question must not be blank!")
+            return;
+        }
+        
         postQuestion(props.company, props.job, props.token, question)
             .then((res) => {
                 res.data.upvoted = false;
