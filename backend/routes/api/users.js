@@ -140,7 +140,7 @@ router.get('/confirm/:confirmationCode', async (req, res) => { //to confirm emai
               res.status(500).send({ message: err });
               return;
             }
-            return res.redirect("http://localhost:3000/"); 
+            return res.redirect("https://www.uwvision.com/"); 
           });
         })
         .catch((e) => console.log("error", e));
