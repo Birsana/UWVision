@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import GenericList from "components/GenericComponents/GenericList";
+import JobList from "./JobList";
 import styled from "styled-components";
 import { connect } from "react-redux";
+
+import { getCompanyJobData } from "backendActions";
 
 //TODO: Fix weird scaling behaviour for width + max-height (responsive)
 const JobScrollableDiv = styled.div`
@@ -37,42 +38,18 @@ const NoJobDataDiv = styled.div`
   }
 `;
 
-//TODO: modify data that is being called based on which box it is
-
-function GenericBox(props) {
+const JobBox = (props) => {
   const company = props.company;
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    var dataArr = [];
-
-    var url = `http://localhost:5000/data/getcompanydata/${company}`;
-
-    async function fetchData() {
-      await axios
-        .get(url, {
-          headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest",
-            "Authorization": (props.isLoggedIn ? `Token ${props.token}` : "")
-          },
-        })
-        .then((response) => {
-          let data = response.data;
-          data.forEach((thread) => {
-            dataArr.push(thread);
-          });
-          setData({
-            dataArr: dataArr,
-            type: props.box,
-          });
-        });
-    }
-    fetchData();
-  }, [company, props.box, props.isLoggedIn, props.token]);
+    getCompanyJobData(company, (props.isLoggedIn ? `Token ${props.token}` : "")).then((response) => {
+      setData(response.data);
+    })
+  }, [company, props.isLoggedIn, props.token]);
 
   const BoxToRender = () => {
-      if (!data || data.dataArr.length === 0) {
+      if (!data) {
         return (
           <NoJobDataDiv>
             <h2>There are currently no jobs listed for this company :(</h2>
@@ -84,7 +61,7 @@ function GenericBox(props) {
     return (
       <JobScrollableDiv>
         <JobListDiv>
-          <GenericList data={data} />
+          <JobList data={data} />
         </JobListDiv>
       </JobScrollableDiv>
     );
@@ -102,4 +79,4 @@ const mapStateToProps = (state) => ({
   token: state.token,
 });
 
-export default connect(mapStateToProps)(GenericBox);
+export default connect(mapStateToProps)(JobBox);

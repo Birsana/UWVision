@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button } from '@material-ui/core'
 import { connect } from "react-redux";
-import { postSalary } from "../../../backendActions/jobUtils"
+import { postSalary } from "backendActions"
 
 function isNumeric(value) {
     return /^\d+$/.test(value);

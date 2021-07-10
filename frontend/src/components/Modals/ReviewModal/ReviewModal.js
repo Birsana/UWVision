@@ -3,7 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button, createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
-import { postReview } from "../../../backendActions/jobUtils"
+import { postReview } from "backendActions"
 import { ModalTitle } from "../styles";
 import { connect } from "react-redux";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import Job from "components/CompanyPageComponents/Job";
+import Job from "./Job";
 
-function GenericList(props) {
+function JobList(props) {
   var elements = props.data
-    ? props.data.dataArr.map(function (element) {
+    ? props.data.map(function (element) {
           return <Job key={element.jobName} jobData={element} />;
       })
     : null;
@@ -11,4 +11,4 @@ function GenericList(props) {
   return <div className="threadList">{elements}</div>;
 }
 
-export default GenericList;
+export default JobList;
