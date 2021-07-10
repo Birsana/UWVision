@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
 
-import AddCompanyButton from 'components/AddCompanyButton/AddCompanyButton';
+import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
 import AddJobButton from "components/AddJobButton/AddJobButton";
-import './styles.css';
+import "./styles.css";
 
-import GenericBox from 'components/GenericComponents/GenericBox';
+import JobBox from "components/CompanyPageComponents/JobBox";
+import { getCompany } from "backendActions";
 
 const CompanyPage = (props) => {
   const company = props.match.params.id;
-  const [companyData, setCompanyData] = useState({})
+  const [companyData, setCompanyData] = useState({});
   const [isCompanyValid, setIsCompanyValid] = useState(null);
 
   useEffect(() => {
-    const request = `http://localhost:5000/data/company/${company}`;
-    axios.get(request)
+    getCompany(company)
       .then((response) => {
-        setCompanyData(response.data)
+        setCompanyData(response.data);
         setIsCompanyValid(true);
       })
       .catch((error) => {
         setIsCompanyValid(false);
-      })
+      });
   }, [company]);
- 
+
   const renderView = (doesCompanyExist) => {
     //TODO: Refactor all the returns to use sub-components
     switch (doesCompanyExist) {
@@ -35,7 +34,7 @@ const CompanyPage = (props) => {
               <AddJobButton />
             </div>
             {companyData.numReviews === 0 ? (
-              <h2 style={{color:"#2196f3"}}>No reviews</h2>
+              <h2 style={{ color: "#2196f3" }}>No reviews</h2>
             ) : (
               <h2>
                 <span className="companyRating">
@@ -60,19 +59,16 @@ const CompanyPage = (props) => {
         );
 
       default:
-        return (
-          <div></div>
-        );
+        return <div></div>;
     }
   };
 
   return (
-      <div className="container">
-        {renderView(isCompanyValid)}
-        {isCompanyValid && <GenericBox company={company} />}
-      </div>
+    <div className="container">
+      {renderView(isCompanyValid)}
+      {isCompanyValid && <JobBox company={company} />}
+    </div>
   );
-
 };
 
 export default CompanyPage;

@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Modal from "components/Modals/Modal";
 import { connect } from "react-redux";
-import { getSalaries, getQuestions, getReviews, getRatings } from "../../backendActions/jobUtils"
+import { getSalaries, getQuestions, getReviews, getRatings } from "backendActions"
 import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const ReviewButton = withStyles((theme) => ({

@@ -11,6 +11,8 @@ const routes = {
   // Company Routes:
   ADDCOMPANY: `${companyRoutes}/addcompany`,
   COMPANYDATA: `${companyRoutes}/companydata`,
+  GETCOMPANY: `${companyRoutes}/company`,
+  GETCOMPANYJOBDATA: `${companyRoutes}/getcompanydata`,
 
   // User Routes:
   LOGIN: `${userRoutes}/users/login`,
@@ -26,7 +28,9 @@ const routes = {
   GETRATINGS: (company, job) => { return `${jobRoutes}/${company}/${job}/rating` },
   POSTSALARY: (company, job) => { return `${jobRoutes}/${company}/${job}/salary` },
   POSTQUESTION: (company, job) => { return `${jobRoutes}/${company}/${job}/question` },
+  UPVOTEQUESTION: (company, job, id) => {return `${jobRoutes}/${company}/${job}/question/${id}`},
   POSTREVIEW: (company, job) => { return `${jobRoutes}/${company}/${job}/review` },
+  UPVOTEREVIEW: (company, job, id) => { return `${jobRoutes}/${company}/${job}/review/${id}`}
 };
 
 export default routes;

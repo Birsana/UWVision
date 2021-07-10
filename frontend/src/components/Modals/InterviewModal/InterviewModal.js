@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import Typography from '@material-ui/core/Typography';
 import { TextField, Button } from '@material-ui/core'
-import { postQuestion } from "../../../backendActions/jobUtils"
+import { postQuestion } from "backendActions"
 import { connect } from "react-redux";
 
 const InterviewModal = (props) => {

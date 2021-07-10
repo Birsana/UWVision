@@ -1,4 +1,4 @@
-import { getSavedJobs } from "backendActions/user/getSavedJobs"
+import { getSavedJobs } from "backendActions"
 import { useEffect, useState } from "react"
 import { connect } from "react-redux";
 import styled from "styled-components";
