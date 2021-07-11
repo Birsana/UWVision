@@ -22,12 +22,16 @@ const useStyles = makeStyles((theme) => ({
       display: "none"
     }
   },
+  buttonText: {
+    fontWeight: "bold",
+    margin: "0 4px"
+  }
 }));
 
 // ==============================================================================================================
 
 // Add Company Button Component
-const AddCompanyButton = () => {
+const AddCompanyButton = (props) => {
   const [showAddCompanyModal, setShowAddCompanyModal] = useState(false);
 
   const handleClick = () => {
@@ -40,11 +44,12 @@ const AddCompanyButton = () => {
     <>
       <div>
         <Fab
-          // variant="extended"
+          variant={props.company === '' ? 'round' : 'extend'}
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}
         >
+          {props.company !== '' && <p className={styles.buttonText}>Add {props.company}</p>}
           <AddIcon className={styles.extendedIcon} />
           {/* Add Company */}
         </Fab>

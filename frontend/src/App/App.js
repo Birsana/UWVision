@@ -11,7 +11,7 @@ import Footer from 'components/Footer/Footer';
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company/company';
 import JobPage from 'pages/job/job';
-import InvalidPage from 'pages/invalid';
+import InvalidPage from 'pages/invalid/invalid';
 import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
 import AccountPage from 'pages/account/accountPage';
 import ForgotPasswordPage from 'pages/forgotPassword';

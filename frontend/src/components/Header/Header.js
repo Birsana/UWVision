@@ -115,12 +115,18 @@ const Header = (props) => {
               >
                 <MenuItem
                   className={styles.menuItem}
+                  disabled
+                >
+                  Welcome {usernameIcon}!
+                </MenuItem>
+                <MenuItem
+                  className={styles.menuItem}
                   onClick={() => {
                     props.history.push("/account");
                     handleMenuClose();
                   }}
                 >
-                  My Account
+                  Saved jobs
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}

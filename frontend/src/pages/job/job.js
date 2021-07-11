@@ -212,7 +212,7 @@ const JobPage = (props) => {
         </div>
         {showSalaryModal && (
           <Modal
-            initialModal={props.token ? "Add Salary" : "Sign Up"}
+            initialModal={props.token ? "Add Salary" : "Log In"}
             job={job}
             company={company}
             onClose={() => {
@@ -223,7 +223,7 @@ const JobPage = (props) => {
         )}
         {showInterviewModal && (
           <Modal
-            initialModal={props.token ? "Add Interview" : "Sign Up"}
+            initialModal={props.token ? "Add Interview" : "Log In"}
             job={job}
             company={company}
             onClose={() => {
@@ -234,7 +234,7 @@ const JobPage = (props) => {
         )}
         {showReviewModal && (
           <Modal
-            initialModal={props.token ? "Add Review" : "Sign Up"}
+            initialModal={props.token ? "Add Review" : "Log In"}
             job={job}
             company={company}
             onClose={() => {

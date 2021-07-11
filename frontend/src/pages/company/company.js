@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 import AddCompanyButton from "components/AddCompanyButton/AddCompanyButton";
 import AddJobButton from "components/AddJobButton/AddJobButton";
@@ -56,9 +57,11 @@ const CompanyPage = (props) => {
       case false:
         return (
           <div className="invalidCompany">
-            <h2>The requested company "{company}" does not exist :(</h2>
-            <h4>Would you like to add it to the database?</h4>
-            <AddCompanyButton />
+            {company} hasn't been added yet!
+            <HiOutlineEmojiSad style={{ marginTop: 10 }} size={96} color="rgba(0, 0, 0, 0.1)" />
+            <div style={{ marginTop: 20 }}>
+              <AddCompanyButton company={company} />
+            </div>
           </div>
         );
 
