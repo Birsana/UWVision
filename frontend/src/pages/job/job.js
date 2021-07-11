@@ -47,7 +47,6 @@ const JobPage = (props) => {
   const [showInterviewModal, setShowInterviewModal] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [salaries, setSalaries] = useState([]);
-  const [showSalaries, setShowSalaries] = useState(false); // Salary graph - Loading state
   const [questions, setQuestions] = useState([]);
   const [showQuestions, setShowQuestions] = useState(false); // Interview questions - Loading state
   const [reviews, setReviews] = useState([]);
@@ -61,7 +60,6 @@ const JobPage = (props) => {
     getSalaries(company, job)
       .then((response) => {
         setSalaries(response.data);
-        setShowSalaries(true);
       })
       .catch((error) => {
         // setIsJobValid(false);
@@ -115,15 +113,6 @@ const JobPage = (props) => {
         <Loader type="Oval" color="#2196f3" height={60} width={60} />
       </div>
     );
-  };
-
-  // Renders bar graph component
-  const RenderSalaries = () => {
-    if (!showSalaries) {
-      return <LoadingSpinner />;
-    } else {
-      return <BarGraph salaries={salaries} />;
-    }
   };
 
   // Renders list of all user reviews
@@ -227,7 +216,7 @@ const JobPage = (props) => {
               </AddButton>
             </h2>
             <div className="graph">
-              <RenderSalaries />
+              <BarGraph salaries={salaries} />
             </div>
             <div>
               <h2 className="sub-header" style={{ marginTop: 30 }}>
