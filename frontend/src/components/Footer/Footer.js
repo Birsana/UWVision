@@ -19,7 +19,6 @@ const Footer = (props) => {
     }
 
     props.history.push(destination);
-    window.scrollTo(0, 0);
   }
 
   return (

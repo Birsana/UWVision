@@ -132,6 +132,9 @@ const Header = (props) => {
                   className={styles.menuItem}
                   onClick={() => {
                     props.dispatch({ type: "LOGOUT" });
+                    if (location.pathname === '/account') {
+                      props.history.push("/");
+                    }
                     handleMenuClose();
                   }}
                 >
