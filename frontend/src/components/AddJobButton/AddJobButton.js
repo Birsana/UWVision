@@ -8,6 +8,9 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Modal from "components/Modals/Modal";
 import { useState } from "react";
 
+// Redux Import:
+import { connect } from "react-redux";
+
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
@@ -50,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 // ==============================================================================================================
 
 // Add Job Button Component
-const AddJobButton = () => {
+const AddJobButton = (props) => {
   const [showAddJobModal, setShowAddJobModal] = useState(false);
   const styles = useStyles();
   const isMobile = useMediaQuery("(max-width: 520px)");
@@ -72,15 +75,28 @@ const AddJobButton = () => {
           'Add job'
         }
       </Button>
-
-      {showAddJobModal && (
+      
+      {(!props.isLoggedIn && showAddJobModal) && (
         <Modal
-          initialModal={"Add Job"}
-          onClose={() => setShowAddJobModal(false)}
+        initialModal={"Log In"}
+        onClose={() => setShowAddJobModal(false)}
+        />
+      )}
+
+      {(props.isLoggedIn && showAddJobModal) && (
+        <Modal
+        initialModal={"Add Job"}
+        onClose={() => setShowAddJobModal(false)}
         />
       )}
     </>
   );
 };
 
-export default AddJobButton;
+// Injecting redux states into props for modal
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+
+export default connect(mapStateToProps)(AddJobButton);

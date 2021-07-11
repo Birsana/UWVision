@@ -17,7 +17,6 @@ const AddJobModal = (props) => {
   const company = props.match.params.id;
 
   // User states (from redux)
-  const [isLoggedIn] = useState(props.isLoggedIn);
   const [authToken] = useState(props.token);
 
   // Modal States:
@@ -76,43 +75,33 @@ const AddJobModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Job"} />
-      {isLoggedIn ? (
-        <>
-          {!didSubmit ? (
-            <form onSubmit={handleSubmit}>
-              <FormInput
-                type="text"
-                name="jobTitle"
-                placeholder="Job Title"
-                onChange={onInputChange}
-                autoComplete="off"
-                value={jobToAdd}
-              />
-              {jobError && (
-                <FormErrorMessage>
-                  <p>{jobError}</p>
-                </FormErrorMessage>
-              )}
-              <FormSubmitButton value="Add Job" />
-            </form>
-          ) : (
-            <>
-              <ModalText>
-                The job "<b>{jobToAdd}</b>" has been successfully added to the database!
-              </ModalText>
-              <ModalText>
-                Would you like to start adding information for this job?
-              </ModalText>
-              <ModalButton onClick={goToJob}>Get Started!</ModalButton>
-            </>
+      {!didSubmit ? (
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            type="text"
+            name="jobTitle"
+            placeholder="Job Title"
+            onChange={onInputChange}
+            autoComplete="off"
+            value={jobToAdd}
+          />
+          {jobError && (
+            <FormErrorMessage>
+              <p>{jobError}</p>
+            </FormErrorMessage>
           )}
-        </>
+          <FormSubmitButton value="Add Job" />
+        </form>
       ) : (
         <>
           <ModalText>
-            In order to add a company, you must first be logged-in.
+            The job "<b>{jobToAdd}</b>" has been successfully added to the
+            database!
           </ModalText>
-          <ModalText>Please log in and then try again!</ModalText>
+          <ModalText>
+            Would you like to start adding information for this job?
+          </ModalText>
+          <ModalButton onClick={goToJob}>Get Started!</ModalButton>
         </>
       )}
     </>
@@ -121,7 +110,6 @@ const AddJobModal = (props) => {
 
 // Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn,
   token: state.token,
 });
 

@@ -8,6 +8,9 @@ import AddIcon from "@material-ui/icons/Add";
 // Component Imports:
 import Modal from "components/Modals/Modal";
 
+// Redux Import:
+import { connect } from "react-redux";
+
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
@@ -55,14 +58,26 @@ const AddCompanyButton = (props) => {
         </Fab>
       </div>
 
-      {showAddCompanyModal && (
+      {(!props.isLoggedIn && showAddCompanyModal) && (
         <Modal
-          initialModal={"Add Company"}
-          onClose={() => setShowAddCompanyModal(false)}
+        initialModal={"Log In"}
+        onClose={() => setShowAddCompanyModal(false)}
+        />
+      )}
+
+      {(props.isLoggedIn && showAddCompanyModal) && (
+        <Modal
+        initialModal={"Add Company"}
+        onClose={() => setShowAddCompanyModal(false)}
         />
       )}
     </>
   );
 };
 
-export default AddCompanyButton;
+// Injecting redux states into props for modal
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+export default connect(mapStateToProps)(AddCompanyButton);

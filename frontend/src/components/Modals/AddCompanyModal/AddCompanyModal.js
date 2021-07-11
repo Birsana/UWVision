@@ -18,7 +18,6 @@ import { connect } from "react-redux";
 // Add Company Modal:
 const AddCompanyModal = (props) => {
   // States controlled by Redux:
-  const [isLoggedIn] = useState(props.isLoggedIn);
   const [authToken] = useState(props.token);
 
   // Modal States:
@@ -43,9 +42,9 @@ const AddCompanyModal = (props) => {
     }
 
     //max company length is 50 characters
-    if(companyToAdd.length > 50) {
-        setCompanyError("The company can't be longer than 50 characters");
-        return false;
+    if (companyToAdd.length > 50) {
+      setCompanyError("The company can't be longer than 50 characters");
+      return false;
     }
 
     return true;
@@ -56,8 +55,14 @@ const AddCompanyModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-    // If the company being added already exists in the database - set an error explaining the situation
-    addCompany(companyToAdd, authToken).then((response) => {setDidSubmit(true)}).catch((response) => {setCompanyError("This company already exists!")});        
+      // If the company being added already exists in the database - set an error explaining the situation
+      addCompany(companyToAdd, authToken)
+        .then((response) => {
+          setDidSubmit(true);
+        })
+        .catch((response) => {
+          setCompanyError("This company already exists!");
+        });
     }
   };
 
@@ -74,46 +79,35 @@ const AddCompanyModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Company"} />
-      {isLoggedIn ? (
-        <>
-          {!didSubmit ? (
-            <form onSubmit={handleSubmit}>
-              <FormInput
-                type="text"
-                name="companyName"
-                placeholder="Company Name"
-                onChange={onInputChange}
-                autoComplete="off"
-                value={companyToAdd}
-              />
-              {companyError && (
-                <FormErrorMessage>
-                  <p>{companyError}</p>
-                </FormErrorMessage>
-              )}
-              <FormSubmitButton value="Add Company" />
-            </form>
-          ) : (
-            <>
-              <ModalText>
-                The company "<b>{companyToAdd}</b>" has been successfully added
-                to the database!
-              </ModalText>
-              <ModalText>
-                Would you like to start adding information for this company?
-              </ModalText>
-              <NavLink to={"/company/" + companyToAdd}>
-                <ModalButton>Get Started!</ModalButton>
-              </NavLink>
-            </>
+      {!didSubmit ? (
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            type="text"
+            name="companyName"
+            placeholder="Company Name"
+            onChange={onInputChange}
+            autoComplete="off"
+            value={companyToAdd}
+          />
+          {companyError && (
+            <FormErrorMessage>
+              <p>{companyError}</p>
+            </FormErrorMessage>
           )}
-        </>
+          <FormSubmitButton value="Add Company" />
+        </form>
       ) : (
         <>
           <ModalText>
-            In order to add a company, you must first be logged-in.
+            The company "<b>{companyToAdd}</b>" has been successfully added to
+            the database!
           </ModalText>
-          <ModalText>Please log in and then try again!</ModalText>
+          <ModalText>
+            Would you like to start adding information for this company?
+          </ModalText>
+          <NavLink to={"/company/" + companyToAdd}>
+            <ModalButton>Get Started!</ModalButton>
+          </NavLink>
         </>
       )}
     </>
@@ -122,7 +116,6 @@ const AddCompanyModal = (props) => {
 
 // Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn,
   token: state.token,
 });
 
