@@ -17,7 +17,6 @@ import InvalidPage from 'pages/invalid/invalid';
 import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
 import AccountPage from 'pages/account/accountPage';
 import ForgotPasswordPage from 'pages/forgotPassword';
-import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
 import { createStore } from 'redux';
@@ -72,24 +71,25 @@ const App = () => {
             <Header />
             <Switch>
 
-              {/* Route to landing (home) page*/}
+              {/* Landing page (a.k.a. home) */}
               <Route exact path="/" component={LandingPage} />
 
-              {/* Route to generic job page template - will populate data based on job*/}
-              <Route path="/company/:id/job/:jobId" component={JobPage} />
+              {/* Generic company page template - will populate data based on company */}
+              <Route exact path="/company/:id" component={CompanyPage} />
 
-              {/* Route to generic company page template - will populate data based on company*/}
-              <Route path="/company/:id" component={CompanyPage} />
+              {/* Generic job page template - will populate data based on job */}
+              <Route exact path="/company/:id/job/:jobId" component={JobPage} />
 
-              <Route path="/test" component={TestingPage} />
-
+              {/* Privacy policy page */}
               <Route exact path="/privacy" component={PrivacyPolicyPage} />
 
+              {/* Account page */}
               <Route exact path="/account" component={AccountPage} />
 
-              <Route path="/forgotPassword/:resetToken" component={ForgotPasswordPage} />
+              {/* Reset password page */}
+              <Route exact path="/forgotPassword/:resetToken" component={ForgotPasswordPage} />
 
-              {/* 404 Page (if provided an unknown URL */}
+              {/* 404 Page (if provided a URL that doesn't match the ones above) */}
               <Route component={InvalidPage} />
 
             </Switch>
