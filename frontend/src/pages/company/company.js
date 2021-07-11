@@ -25,7 +25,6 @@ const CompanyPage = (props) => {
   }, [company]);
 
   const renderView = (doesCompanyExist) => {
-    //TODO: Refactor all the returns to use sub-components
     switch (doesCompanyExist) {
       case true:
         return (
