@@ -1,6 +1,8 @@
 // Miscellaneous Imports:
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import 'index.css';
 
 // Component Imports:
@@ -47,12 +49,24 @@ const reduxStore = createStore(reducer);
 
 // =============================================================================================
 
+// Automatically scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 // Main App
 const App = () => {
   return (
     <Provider store={reduxStore}>
       <BrowserRouter>
         <CssBaseline />
+        <ScrollToTop />
         <div>
           <div className="UWVision">
             <Header />
