@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
     zIndex: 1,
     padding: "10px 20px",
-    marginBottom: "40px",
+    marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(520)]: {
       padding: "10px 0px",
