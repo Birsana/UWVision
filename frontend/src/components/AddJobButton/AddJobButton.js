@@ -2,6 +2,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 // Component Imports:
 import Modal from "components/Modals/Modal";
@@ -16,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0px 0px 0px",
     color: "white",
     borderRadius: 10,
-    padding: "8px 17px 8px 14px",
+    height: 44,
+    width: 130,
     marginTop: "12px",
     "&:hover": {
       backgroundColor: "#1976d2",
@@ -25,10 +27,21 @@ const useStyles = makeStyles((theme) => ({
     "&:focus": {
       boxShadow: "0px 0px 0px 0px",
     },
+    [theme.breakpoints.down(820)]: {
+      fontSize: 14,
+      height: 40,
+      width: 112,
+      marginTop: 0
+    },
+    [theme.breakpoints.down(520)]: {
+      height: 36,
+      width: 72
+    }
   },
 
   extendedIcon: {
     marginRight: 5,
+    marginLeft: -4,
     height: 22,
     width: 22
   },
@@ -40,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
 const AddJobButton = () => {
   const [showAddJobModal, setShowAddJobModal] = useState(false);
   const styles = useStyles();
+  const isMobile = useMediaQuery("(max-width: 520px)");
 
   return (
     <>
@@ -49,8 +63,14 @@ const AddJobButton = () => {
         className={styles.buttonStyle}
         onClick={() => setShowAddJobModal(true)}
       >
-        <AddIcon className={styles.extendedIcon} />
-        Add a job
+        {!isMobile ?
+          <>
+            <AddIcon className={styles.extendedIcon} />
+            Add a job
+          </>
+          : 
+          'Add job'
+        }
       </Button>
 
       {showAddJobModal && (

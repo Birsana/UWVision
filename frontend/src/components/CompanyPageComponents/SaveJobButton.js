@@ -5,17 +5,22 @@ import { MdRemoveRedEye } from "react-icons/md"
 import { connect } from "react-redux";
 import Modal from 'components/Modals/Modal';
 import { saveJobToUser } from 'backendActions';
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
     saveButton: {
       textTransform: "none",
-      fontSize: "16px"
+      fontSize: "16px",
+      [theme.breakpoints.down(520)]: {
+        fontSize: "14px"
+      }
     }
 }));
 
 const SaveJobButton = (props) => {
     const [isSaved, setIsSaved] = useState(props.accountPage || props.isSaved);
     const [showLogInModal, setShowLogInModal] = useState(false);
+    const isMobile = useMediaQuery("(max-width: 520px)");
 
     useEffect(() => {
         if (props.isLoggedIn) {
@@ -42,7 +47,7 @@ const SaveJobButton = (props) => {
       <>
         <Button
           onClick={onClick}
-          style={isSaved ? { color: '#2196f3', margin: "-2px -4px 0 0" } : { color: '#939393', margin: "-2px -4px 0 0" }}
+          style={isSaved ? { color: '#2196f3', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" } : { color: '#939393', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" }}
           className={styles.buttonStyleSaved}
         >
           <MdRemoveRedEye
