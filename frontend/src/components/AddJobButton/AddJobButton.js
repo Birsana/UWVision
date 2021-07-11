@@ -10,25 +10,27 @@ import { useState } from "react";
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
-    background: "black",
-    fontFamily: "Roboto",
-    fontSize: 18,
+    background: "#2196f3",
+    fontSize: 16,
     textTransform: "none",
     boxShadow: "0px 0px 0px 0px",
     color: "white",
     borderRadius: 10,
-    height: "45px",
-    paddingRight: "25px",
-    paddingLeft: "22px",
+    padding: "8px 17px 8px 14px",
     marginTop: "12px",
-
     "&:hover": {
-      backgroundColor: "#535353",
+      backgroundColor: "#1976d2",
+      boxShadow: "0px 0px 0px 0px",
+    },
+    "&:focus": {
+      boxShadow: "0px 0px 0px 0px",
     },
   },
 
   extendedIcon: {
-    marginRight: theme.spacing(1),
+    marginRight: 5,
+    height: 22,
+    width: 22
   },
 }));
 

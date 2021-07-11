@@ -1,3 +1,20 @@
+.company-container {
+  margin: 0 auto;
+  /* min-width: 100%;
+  max-width: max-content; */
+  padding: 0 60px;
+}
+
+.company-name {
+  margin: 0;
+  font-size: 40px;
+}
+
+.company-stats {
+  margin: 0;
+  font-size: 18px;
+}
+
 .invalidCompany {
   margin-left: 100px;
 }
@@ -10,37 +27,23 @@ h4 {
   margin-bottom: 10px;
 }
 
-.companyInfo {
-  margin-left: 100px;
-  width: -webkit-calc(100% - 210px);
-}
-
-.companyInfo h1 {
-  font-size: 48px;
-}
-
 .companyRating {
   font-weight: bold;
-  font-size: 20px;
   color: #2196f3;
-}
-
-.numberOfReviews {
-  font-size: 20px;
 }
 
 .jobRating {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #2196f3;
 }
 
 .numberOfReviewsJob {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .textDivider {
-  font-size: 20px;
+  font-size: 18px;
   padding-left: 5px;
   padding-right: 5px;
 }

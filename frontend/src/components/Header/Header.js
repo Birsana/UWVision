@@ -58,103 +58,101 @@ const Header = (props) => {
 
   return (
     <>
-      <div className={styles.headerRoot}>
-        <AppBar position="static" className={location.pathname === "/" ? styles.landingHeader : styles.header}>
-          <Toolbar style={{ maxWidth: "100%" }}>
-            {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
-            {(displayTypography || location.pathname === "/") && (
-              <Typography variant="h5" className={styles.title}>
-                <NavLink
-                  to="/"
-                  style={{ textDecoration: "none", color: "unset" }}
-                >
-                  UW<b>Vision</b>
-                </NavLink>
-              </Typography>
-            )}
+      <AppBar position={location.pathname === "/" ? 'static' : 'sticky'}
+        className={location.pathname === "/" ? styles.landingHeader : styles.header}>
+        <Toolbar style={{ maxWidth: "100%" }}>
+          {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
+          {(displayTypography || location.pathname === "/") && (
+            <Typography variant="h5" className={styles.title}>
+              <NavLink
+                to="/"
+                style={{ textDecoration: "none", color: "unset" }}
+              >
+                UW<b>Vision</b>
+              </NavLink>
+            </Typography>
+          )}
 
-            {/* Render the search bar if not on the home page */}
-            {location.pathname !== "/" && (
-              <div className={styles.searchBar}>
-                <SearchBar />
-              </div>
-            )}
+          {/* Render the search bar if not on the home page */}
+          {location.pathname !== "/" && (
+            <div className={styles.searchBar}>
+              <SearchBar />
+            </div>
+          )}
 
-            {loggedIn ? (
-              <div>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenuOpen}
-                  color="inherit"
-                  style={{ padding: 0 }}
-                >
-                  <div className={styles.profile}>
-                    {usernameIcon.substr(0, 1)}
-                  </div>
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  getContentAnchorEl={null}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "right",
+          {loggedIn ? (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenuOpen}
+                color="inherit"
+                style={{ padding: 0 }}
+              >
+                <div className={styles.profile}>
+                  {usernameIcon.substr(0, 1)}
+                </div>
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                disableScrollLock={true}
+                onClose={handleMenuClose}
+                style={{ marginTop: 14, boxShadow: "0px 0px 0px 0px" }}
+                elevation={3}
+              >
+                <MenuItem
+                  className={styles.menuItem}
+                  onClick={() => {
+                    props.history.push("/account");
+                    handleMenuClose();
                   }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
+                >
+                  My Account
+                </MenuItem>
+                <MenuItem
+                  className={styles.menuItem}
+                  onClick={() => {
+                    props.dispatch({ type: "LOGOUT" });
+                    handleMenuClose();
                   }}
-                  open={open}
-                  disableScrollLock={true}
-                  onClose={handleMenuClose}
-                  style={{ marginTop: 14, boxShadow: "0px 0px 0px 0px" }}
-                  elevation={3}
                 >
-                  <MenuItem
-                    className={styles.menuItem}
-                    onClick={() => {
-                      props.history.push("/account");
-                      handleMenuClose();
-                    }}
-                  >
-                    My Account
-                  </MenuItem>
-                  <MenuItem
-                    className={styles.menuItem}
-                    onClick={() => {
-                      props.dispatch({ type: "LOGOUT" });
-                      handleMenuClose();
-                    }}
-                  >
-                    Logout
-                  </MenuItem>
-                </Menu>
-              </div>
-            ) : (
-              <>
-                <Button
-                  className={styles.logInButton}
-                  color="inherit"
-                  onClick={() => setShowLogInModal(true)}
-                >
-                  Login
-                </Button>
-                <Button
-                  className={styles.signUpButton}
-                  color="inherit"
-                  onClick={() => setShowSignUpModal(true)}
-                >
-                  Sign Up
-                </Button>
-              </>
-            )}
-          </Toolbar>
-        </AppBar>
-      </div>
-
+                  Logout
+                </MenuItem>
+              </Menu>
+            </div>
+          ) : (
+            <>
+              <Button
+                className={styles.logInButton}
+                color="inherit"
+                onClick={() => setShowLogInModal(true)}
+              >
+                Login
+              </Button>
+              <Button
+                className={styles.signUpButton}
+                color="inherit"
+                onClick={() => setShowSignUpModal(true)}
+              >
+                Sign Up
+              </Button>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
       {showLogInModal && !loggedIn && (
         <Modal
           initialModal={"Log In"}

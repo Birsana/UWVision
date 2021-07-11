@@ -6,28 +6,11 @@ import { connect } from "react-redux";
 import Modal from 'components/Modals/Modal';
 import { saveJobToUser } from 'backendActions';
 
-
-// Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
-    buttonStyleNotSaved: {
-      marginTop: "27px",
-      marginBottom: "-30px",
-      marginRight: "40px",
+    saveButton: {
       textTransform: "none",
-      fontFamily: "Roboto",
-      fontSize: "16px",
-      color: "#939393"
-    },
-
-    buttonStyleSaved: {
-        marginTop: "27px",
-        marginBottom: "-30px",
-        marginRight: "40px",
-        textTransform: "none",
-        fontFamily: "Roboto",
-        fontSize: "16px",
-        color: "#2196f3"
-      }
+      fontSize: "16px"
+    }
 }));
 
 const SaveJobButton = (props) => {
@@ -57,23 +40,17 @@ const SaveJobButton = (props) => {
 
     return (
       <>
-        {isSaved ? (
-          <Button onClick={onClick} className={styles.buttonStyleSaved}>
-            <MdRemoveRedEye
-              size={23}
-              style={{ marginRight: 7, marginTop: -2 }}
-            />
-            Saved
-          </Button>
-        ) : (
-          <Button onClick={onClick} className={styles.buttonStyleNotSaved}>
-            <MdRemoveRedEye
-              size={23}
-              style={{ marginRight: 7, marginTop: -2 }}
-            />
-            Save
-          </Button>
-        )}
+        <Button
+          onClick={onClick}
+          style={isSaved ? { color: '#2196f3', margin: "-2px -4px 0 0" } : { color: '#939393', margin: "-2px -4px 0 0" }}
+          className={styles.buttonStyleSaved}
+        >
+          <MdRemoveRedEye
+            size={20}
+            style={{ marginRight: 7 }}
+          />
+          {isSaved ? 'Saved' : 'Save'}
+        </Button>
 
         {showLogInModal && !props.isLoggedIn && (
           <Modal

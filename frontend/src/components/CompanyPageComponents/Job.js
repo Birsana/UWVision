@@ -4,37 +4,31 @@ import { withRouter } from 'react-router-dom';
 import SaveJobButton from './SaveJobButton';
 
 const JobElement = styled.div`
-  height: 115px;
+  padding: 28px 40px;
   border-radius: 20px;
-  background-color: #F2F2F2;
-  margin-right: 20px;
-  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  margin-bottom: 15px;
 
   &:hover {
-    background-color: #DEDEDE;
+    background-color: #ececec;
     cursor: pointer;
   }
 `;
 
 const JobTitle = styled.div`
-  padding-top: 27px;
-  margin-bottom: -70px;
-
+  max-width: calc(100% - 100px);
+  word-break: break-all;
   h2 {
-    font-family: Roboto;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
-    margin-left: 40px;
+    margin: 0;
   }
 `;
 
 const JobMetrics = styled.div`
-  margin-left: 40px;
-
   h3 {
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
+    font-weight: normal;
+    margin: 0;
   }
 `;
 
@@ -48,7 +42,7 @@ const Job = (props) => {
 
   return (
     <JobElement onClick={handleSelection}>
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start"}}>
         <JobTitle>
           <h2>{props.jobData.jobName}</h2>
         </JobTitle>

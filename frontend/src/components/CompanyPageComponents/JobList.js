@@ -8,7 +8,7 @@ function JobList(props) {
       })
     : null;
 
-  return <div className="threadList">{elements}</div>;
+  return <div>{elements}</div>;
 }
 
 export default JobList;

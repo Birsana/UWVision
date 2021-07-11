@@ -28,20 +28,20 @@ const CompanyPage = (props) => {
     switch (doesCompanyExist) {
       case true:
         return (
-          <div className="companyInfo">
+          <div>
             <div className="companyTitle">
-              <h1>{company}</h1>
+              <h1 className="company-name">{company}</h1>
               <AddJobButton />
             </div>
             {companyData.numReviews === 0 ? (
-              <h2 style={{ color: "#2196f3" }}>No reviews</h2>
+              <h2 className="company-stats" style={{ color: "#2196f3" }}>No reviews</h2>
             ) : (
-              <h2>
+              <h2 className="company-stats">
                 <span className="companyRating">
                   {companyData.averageRating} out of 10
                 </span>
                 <span className="textDivider"> | </span>
-                <span className="numberOfReviews">
+                <span>
                   {companyData.numReviews} reviews{" "}
                 </span>
               </h2>
@@ -64,7 +64,7 @@ const CompanyPage = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container company-container">
       {renderView(isCompanyValid)}
       {isCompanyValid && <JobBox company={company} />}
     </div>

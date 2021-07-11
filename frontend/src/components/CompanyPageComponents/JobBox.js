@@ -7,26 +7,9 @@ import { getCompanyJobData } from "backendActions";
 
 //TODO: Fix weird scaling behaviour for width + max-height (responsive)
 const JobScrollableDiv = styled.div`
-  margin-left: 100px;
+  margin: auto;
   margin-top: 40px;
-  width: -webkit-calc(100% - 210px);
-  max-height: 65vh;
-  overflow-y: auto;
-
-  ::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-  }
-`;
-
-const JobListDiv = styled.div`
-  margin-bottom: -25px;
+  width: 100%;
 `;
 
 const NoJobDataDiv = styled.div`
@@ -60,9 +43,7 @@ const JobBox = (props) => {
     
     return (
       <JobScrollableDiv>
-        <JobListDiv>
-          <JobList data={data} />
-        </JobListDiv>
+        <JobList data={data} />
       </JobScrollableDiv>
     );
   };
