@@ -41,7 +41,7 @@ const pageCopy = {
   paragraph2:
     "Moreover, we store a small amount of data on your local machine (your email, username and authentication token) which is to help your computer remember your logged in state when you visit the site. If you would like to remove this from local storage, simply hit the “Logout” button and it will automatically do that for you.",
   paragraph3: "You can verify this afterwards by pressing F12 -> Navigate to Application Tab -> Click on Local Storage on the bottom-left hand side, and you'll see that it is empty.",
-  paragraph4: "If you have additional questions or require more information, please contact us at temp@gmail.com."
+  paragraph4: "If you have additional questions or require more information, please contact us at info.uwvision@gmail.com."
 };
 
 const PrivacyPolicy = () => {
