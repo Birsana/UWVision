@@ -21,7 +21,7 @@ const SalaryModal = (props) => {
         setSalary(event.target.value);
         
         if(!isNumeric(salary)){
-            setError("Salary must be entered as a positive integer");
+            setError("Salary must be a positive integer");
             return;
         }
 
@@ -32,9 +32,9 @@ const SalaryModal = (props) => {
         }
 
         if (salaryAsInt === 0){
-            setError('Salary you enter must be greater than $0');
+            setError('Salary must be greater than $0');
             return;
-        } 
+        }
 
         if (error) {
             setError("");
@@ -43,6 +43,11 @@ const SalaryModal = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (salary.length === 0){
+            setError('Salary cannot be empty');
+            return;
+        } 
 
         postSalary(props.company, props.job, props.token, salary)
             .then((res) => {

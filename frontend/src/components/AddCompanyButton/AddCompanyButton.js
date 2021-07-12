@@ -14,13 +14,17 @@ import { connect } from "react-redux";
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
-    background: 'rgba(229, 229, 229)',
+    background: '#2196f3',
     fontFamily: "Roboto",
     fontWeight: 400,
     fontSize: 16,
     textTransform: "none",
-    boxShadow: "0px 0px 0px 0px",
-    color: "black",
+    boxShadow: "none",
+    color: "white",
+    '&:focus, &:hover, &$active': {
+      background: '#1976d2',
+      boxShadow: 'none',
+    },
     [theme.breakpoints.down(460)]: {
       display: "none"
     }

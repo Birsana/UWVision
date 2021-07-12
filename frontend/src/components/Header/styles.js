@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(520)]: {
-      padding: "10px 0px",
+      padding: "4px 0px",
       display: "flex",
       width: "auto",
       marginBottom: "40px"
@@ -37,10 +37,7 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     height: 34,
     width: 34,
-    borderRadius: "50%",
-    [theme.breakpoints.down(520)]: {
-      marginRight: 10
-    }
+    borderRadius: "50%"
   },
 
   title: {

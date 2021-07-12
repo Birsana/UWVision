@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#2196f3",
     fontSize: 16,
     textTransform: "none",
-    boxShadow: "0px 0px 0px 0px",
+    boxShadow: "none",
     color: "white",
     borderRadius: 10,
     height: 44,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "12px",
     "&:hover": {
       backgroundColor: "#1976d2",
-      boxShadow: "0px 0px 0px 0px",
+      boxShadow: "none",
     },
     "&:focus": {
       boxShadow: "0px 0px 0px 0px",

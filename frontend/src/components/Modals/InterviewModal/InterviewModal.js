@@ -16,10 +16,6 @@ const InterviewModal = (props) => {
     const questionChange = (event) => {
         setQuestion(event.target.value);
 
-        if (!/\S/.test(question)) {
-            setError("Interview question cannot be blank")
-        }
-    
         if (error) {
             setError("");
         }
@@ -27,6 +23,12 @@ const InterviewModal = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (!/\S/.test(question)) {
+            setError("Interview question cannot be blank");
+            return;
+        }
+    
         postQuestion(props.company, props.job, props.token, question)
             .then((res) => {
                 res.data.upvoted = false;

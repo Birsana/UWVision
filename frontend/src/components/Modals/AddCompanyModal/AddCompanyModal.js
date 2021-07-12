@@ -82,6 +82,7 @@ const AddCompanyModal = (props) => {
       {!didSubmit ? (
         <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
           <FormInput
+            maxLength={100}
             type="text"
             name="companyName"
             placeholder="Company Name"
