@@ -35,7 +35,7 @@ export const SearchBarStylesHome = {
       fontWeight: '400',
       backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
       cursor: 'text',
-      borderRadius: 0,
+      borderRadius: 4,
       width: 540,
       border: isFocused ? "1px solid #2196f3" : "none",
       "@media only screen and (max-width: 720px)": {
@@ -117,7 +117,7 @@ export const SearchBarStylesNotHome = {
     fontWeight: '400',
     backgroundColor: isFocused ? "white" : '#efefef',
     cursor: 'text',
-    borderRadius: 0,
+    borderRadius: 4,
     border: isFocused ? "1px solid #2196f3" : "none",
     maxWidth: "100%",
     width: 400,

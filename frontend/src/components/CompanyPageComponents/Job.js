@@ -5,8 +5,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SaveJobButton from './SaveJobButton';
 
 const JobElement = styled.div`
-  padding: 28px 40px;
-  border-radius: 14px;
+  padding: 24px 36px;
+  border-radius: 4px;
   background-color: #f5f5f5;
   margin-bottom: 15px;
   &:hover {

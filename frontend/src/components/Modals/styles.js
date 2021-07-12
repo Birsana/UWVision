@@ -23,7 +23,7 @@ export const ModalWrapper = styled.div`
   transform: translate(-50%, -50%);
   background: #fff;
   padding: 10px;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
   z-index: 1;
   display: flex;
@@ -86,7 +86,7 @@ export const ModalButton = styled.button`
   height: 35px;
   width: 90%;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   font-family: Roboto;
   font-size: 16px;
 
@@ -129,7 +129,7 @@ export const FormTextarea = styled(TextareaAutosize)`
   width: 90%;
   background-color: rgba(239, 239, 239);
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-family: Roboto;
   font-size: 16px;
   padding: 10px;
@@ -146,7 +146,7 @@ export const FormInput = styled.input`
   width: 90%;
   background-color: rgba(239, 239, 239);
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-family: Roboto;
   font-size: 16px;
   padding: 10px;
@@ -180,7 +180,7 @@ export const FormSubmitButton = styled.input.attrs({
   height: 35px;
   width: 90%;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   font-family: Roboto;
   font-size: 16px;
 

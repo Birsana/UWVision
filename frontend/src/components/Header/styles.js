@@ -52,7 +52,7 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: 8,
     marginLeft: -6,
     padding: "6px 16px",
-    borderRadius: 10,
+    borderRadius: 4,
     [theme.breakpoints.down(620)]: {
       display: "none"
     }
@@ -64,7 +64,7 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     backgroundColor: "black",
     color: "white",
-    borderRadius: 10,
+    borderRadius: 4,
     padding: "6px 16px",
     '&:hover': {
       backgroundColor: '#535353'

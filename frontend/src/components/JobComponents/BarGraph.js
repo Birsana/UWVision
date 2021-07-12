@@ -26,7 +26,7 @@ function BarGraph(props){
               label: '# of people',
               backgroundColor: '#2196f3',
               borderColor: '#2196f3',
-              borderRadius: 5,
+              borderRadius: 4,
               data: graphValues
             }
           ]

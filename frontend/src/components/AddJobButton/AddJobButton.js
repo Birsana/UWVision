@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     boxShadow: "none",
     color: "white",
-    borderRadius: 10,
+    borderRadius: 4,
     height: 44,
     width: 130,
     marginTop: "12px",

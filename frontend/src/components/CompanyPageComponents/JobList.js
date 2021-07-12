@@ -6,7 +6,7 @@ function JobList(props) {
   var elements = props.data
     ? props.data.map(function (element) {
           return (
-            <Fade duration={500} key={element.jobName}>
+            <Fade duration={500} key={element.jobName} exit={false} ssrFadeout ssrReveal>
               <Job jobData={element} />
             </Fade>
           );

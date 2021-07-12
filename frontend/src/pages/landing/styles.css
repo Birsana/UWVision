@@ -97,15 +97,11 @@
   }
 
   .searchbar-container {
-    margin: 0 auto;
+    align-items: center;
   }
 }
 
 @media only screen and (max-width: 720px) {
-  .searchbar-container {
-    align-items: center;
-  }
-
   .landing-header {
     font-size: 36px;
     line-height: 40px;
