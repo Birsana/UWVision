@@ -23,7 +23,7 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
   // Determines which modal to render depending on state
   const ModalToRender = () => {
     if (modalType === "Add Company") {
-      return <AddCompanyModal />;
+      return <AddCompanyModal company={company} onClose={onClose} />;
     } else if (modalType === "Log In") {
       return <LogInModal changeModalState={setModalType}/>;
     } else if (modalType === "Sign Up") {

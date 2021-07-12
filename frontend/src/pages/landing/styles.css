@@ -25,6 +25,7 @@
 
 .searchbar-container {
   display: flex;
+  align-items: center;
 }
 
 .searchbar {
@@ -71,6 +72,17 @@
   }
 }
 
+@media only screen and (max-width: 870px) {
+  .searchbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchbar {
+    margin-bottom: 10px;
+  }
+}
+
 @media only screen and (max-width: 820px) {
   .landing-container {
     display: flex;
@@ -90,6 +102,10 @@
 }
 
 @media only screen and (max-width: 720px) {
+  .searchbar-container {
+    align-items: center;
+  }
+
   .landing-header {
     font-size: 36px;
     line-height: 40px;
@@ -98,10 +114,6 @@
 
   .landing-subheader {
     font-size: 16px;
-  }
-
-  .landing {
-    padding: 0 20px;
   }
 }
 
@@ -119,5 +131,12 @@
 @media only screen and (max-width: 459px) {
   .searchbar {
     margin: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 459px) {
+  .landing {
+    padding: 0 20px;
   }
 }

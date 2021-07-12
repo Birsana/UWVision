@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "rgb(34, 30, 29)",
     color: "white",
-    boxShadow: "0px 0px 0px 0px",
+    boxShadow: "none",
     marginTop: 80,
     zIndex: 0
   },

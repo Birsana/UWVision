@@ -8,6 +8,7 @@ import {
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
+import { useLocation } from 'react-router-dom';
 
 // Backend + Redux Imports:
 import { addCompany } from "backendActions";
@@ -21,9 +22,11 @@ const AddCompanyModal = (props) => {
   const [authToken] = useState(props.token);
 
   // Modal States:
-  const [companyToAdd, setCompanyToAdd] = useState("");
+  const [companyToAdd, setCompanyToAdd] = useState(props.company);
   const [companyError, setCompanyError] = useState("");
   const [didSubmit, setDidSubmit] = useState(false);
+
+  const location = useLocation();
 
   // Basic Validation - ensures the user is not submitting an empty company name
   const basicInputValidation = () => {
@@ -106,7 +109,11 @@ const AddCompanyModal = (props) => {
           <ModalText>
             Would you like to start adding information for this company?
           </ModalText>
-          <NavLink style={{ width: "100%", display: "flex", justifyContent: "center" }} to={"/company/" + companyToAdd}>
+          <NavLink
+            style={{ width: "100%", display: "flex", justifyContent: "center", textDecoration: "none" }}
+            onClick={() => location.pathname === "/company/" + companyToAdd ? props.onClose() : {}}
+            to={"/company/" + companyToAdd}
+          >
             <ModalButton>Get Started!</ModalButton>
           </NavLink>
         </div>

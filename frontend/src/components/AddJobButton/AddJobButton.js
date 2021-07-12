@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "none",
     },
     "&:focus": {
-      boxShadow: "0px 0px 0px 0px",
+      boxShadow: "none",
     },
     [theme.breakpoints.down(820)]: {
       fontSize: 14,

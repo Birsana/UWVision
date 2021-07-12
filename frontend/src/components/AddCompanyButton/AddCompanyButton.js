@@ -24,9 +24,6 @@ const useStyles = makeStyles((theme) => ({
     '&:focus, &:hover, &$active': {
       background: '#1976d2',
       boxShadow: 'none',
-    },
-    [theme.breakpoints.down(460)]: {
-      display: "none"
     }
   },
   buttonText: {
@@ -51,28 +48,28 @@ const AddCompanyButton = (props) => {
     <>
       <div>
         <Fab
-          variant={props.company === '' ? 'round' : 'extended'}
+          variant={'extended'}
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}
         >
-          {props.company !== '' && <p className={styles.buttonText}>Add {props.company}</p>}
+          <p className={styles.buttonText}>Add {props.company}</p>
           <AddIcon className={styles.extendedIcon} />
-          {/* Add Company */}
         </Fab>
       </div>
 
       {(!props.isLoggedIn && showAddCompanyModal) && (
         <Modal
-        initialModal={"Log In"}
-        onClose={() => setShowAddCompanyModal(false)}
+          initialModal={"Log In"}
+          onClose={() => setShowAddCompanyModal(false)}
         />
       )}
 
       {(props.isLoggedIn && showAddCompanyModal) && (
         <Modal
-        initialModal={"Add Company"}
-        onClose={() => setShowAddCompanyModal(false)}
+          initialModal={"Add Company"}
+          company={props.company === 'a company' ? '' : props.company}
+          onClose={() => setShowAddCompanyModal(false)}
         />
       )}
     </>
