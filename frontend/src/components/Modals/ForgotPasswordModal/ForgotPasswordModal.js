@@ -36,7 +36,7 @@ const ForgotPasswordModal = (props) => {
   return (
     <>
       <ModalTitle title={"Forgot Password"} />
-      <form onSubmit={handleSubmit}>
+      <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="email"

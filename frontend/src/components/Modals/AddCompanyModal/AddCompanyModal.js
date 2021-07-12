@@ -80,7 +80,7 @@ const AddCompanyModal = (props) => {
     <>
       <ModalTitle title={"Add Company"} />
       {!didSubmit ? (
-        <form onSubmit={handleSubmit}>
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
           <FormInput
             type="text"
             name="companyName"

@@ -15,14 +15,14 @@ export const ModalWrapper = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 80%;
+  max-width: 400px;
   transform: translate(-50%, -50%);
   background: #fff;
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
   z-index: 1;
-
   display: flex;
   flex-direction: column;
 `;
@@ -43,8 +43,8 @@ export const CloseModalButton = styled(MdClose)`
 `;
 
 export const Title = styled.div`
+  margin-left: 12px;
   margin-top: 15px;
-  margin-left: 18px;
   font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
@@ -53,8 +53,7 @@ export const Title = styled.div`
 export const Divider = styled.hr`
   border: none;
   height: 1px;
-  width: 105%;
-  margin-left: -10px;
+  width: 100%;
   margin-bottom: 5px;
   background-color: #d0d0d0;
 `;
@@ -69,14 +68,13 @@ export const ModalTitle = ({ title }) => {
 };
 
 export const ModalText = styled.p`
-  margin-left: 20px;
+  margin-left: 16px;
   font-family: Roboto; 
   width: 90%;
 `;
 
 export const ModalButton = styled.button`
   cursor: pointer;
-  margin-left: 10px;
   margin-top: 15px;
   height: 35px;
   width: 90%;
@@ -118,7 +116,6 @@ export const ModalLogInButton = ({ onClick }) => {
 }
 
 export const FormInput = styled.input`
-  margin-left: 18px;
   margin-top: 10px;
   height: 35px;
   width: 90%;
@@ -135,8 +132,7 @@ export const FormInput = styled.input`
 `;
 
 export const FormErrorMessage = styled.div`
-  margin-left: 18px;  
-  margin-top: 5px;
+  margin: 5px 0;
   height: 20px;
   width: 90%;
 
@@ -154,7 +150,6 @@ export const FormSubmitButton = styled.input.attrs({
   type: "submit",
 })`
   cursor: pointer;
-  margin-left: 18px;
   margin-top: 15px;
   margin-bottom: 10px;
   height: 35px;
@@ -164,11 +159,11 @@ export const FormSubmitButton = styled.input.attrs({
   font-family: Roboto;
   font-size: 16px;
 
-  background: #ffc333;
-  color: black;
+  background: #2196f3;
+  color: white;
   font-weight: bold;
 
   &:hover {
-    background: #f1ac15;
+    background: #1976d2;
   }
 `;
