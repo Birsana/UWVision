@@ -86,6 +86,10 @@
 }
 
 @media only screen and (max-width: 940px) {
+  .review-container {
+    width: calc(100vw - 120px);
+  }
+
   .review-body {
     margin-left: 37px;
   }
@@ -126,6 +130,7 @@
 @media only screen and (max-width: 520px) {
   .review-container {
     flex-direction: column;
+    width: calc(100vw - 40px);
   }
 
   .review-average-container {

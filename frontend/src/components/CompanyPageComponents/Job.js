@@ -76,24 +76,38 @@ const Job = (props) => {
       </div>
       <JobMetrics>
         <h3>
-          <span style={{ color: "#2196f3", fontWeight: "bold" }}>
-            {props.jobData.averageRating ? props.jobData.averageRating : "-"}
-          </span>
-          <span>
-            {" "}
-            ({props.jobData.numOfReviews} reviews)
-          </span>
+          {props.jobData.averageRating ? 
+            <>
+              <span style={{ color: "#2196f3", fontWeight: "bold" }}>
+                {props.jobData.averageRating}/10
+              </span>
+              <span>
+                {" "}
+                ({props.jobData.numOfReviews} reviews)
+              </span>
+            </>
+          :
+            <span>
+              No reviews
+            </span>
+          }
           <span> | </span>
-          <span style={{ color: "#2196f3", fontWeight: "bold" }}>
-            {" "}
-            {props.jobData.averageSalary
-              ? `$${props.jobData.averageSalary}/hr`
-              : "-"}
-          </span>
-          <span>
-            {" "}
-            ({props.jobData.numOfSalaryEntries} entries)
-          </span>
+          {props.jobData.averageSalary ?
+            <>
+              <span style={{ color: "#2196f3", fontWeight: "bold" }}>
+                {" "}
+                ${props.jobData.averageSalary}/hr
+              </span>
+              <span>
+                {" "}
+                ({props.jobData.numOfSalaryEntries} entries)
+              </span>
+            </>
+          :
+            <span>
+              No salaries
+            </span>
+          }
         </h3>
       </JobMetrics>
       { isMobile && <SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/> }

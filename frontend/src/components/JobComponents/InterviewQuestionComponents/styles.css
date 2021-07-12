@@ -13,8 +13,20 @@
   word-break: break-all;
 }
 
+@media only screen and (max-width: 940px) {
+  .question-container {
+    max-width: calc(100vw - 120px);
+  }
+}
+
 @media only screen and (max-width: 720px) {
   .question-container {
     padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .question-container {
+    max-width: calc(100vw - 40px);
   }
 }

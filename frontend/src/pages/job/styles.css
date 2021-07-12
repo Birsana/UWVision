@@ -93,7 +93,7 @@
   width: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  padding: 30px 20px 20px 20px;
+  padding: 20px 20px 10px 10px;
 }
 
 .interview-container {
@@ -178,17 +178,22 @@
 
   .salary-reviews-container {
     order: 2;
-    width: 600px;
+    width: calc(100vw - 120px);
   }
 
   .interview-container {
     order: 1;
-    width: 600px;
+    width: calc(100vw - 120px);
   }
 
   .questions-container {
     overflow: auto;
     white-space: nowrap;
+    width: calc(100vw - 120px);
+  }
+
+  .header {
+    width: calc(100vw - 120px);
   }
 
   .questions-container::-webkit-scrollbar {
@@ -197,7 +202,7 @@
 
   .question {
     display: inline-block;
-    width: 400px;
+    width: calc(100vw - 120px);
     margin-right: 20px;
     vertical-align: top;
   }
@@ -207,7 +212,7 @@
   }
 
   .body {
-    width: 600px;
+    width: calc(100vw - 120px);
     flex-direction: column;
   }
 
@@ -216,15 +221,11 @@
   }
 
   .question {
-    width: 600px;
+    width: calc(100vw - 120px);
   }
 }
 
 @media only screen and (max-width: 820px) {
-  .header {
-    width: 500px;
-  }
-
   .company {
     font-size: 16px;
   }
@@ -232,47 +233,11 @@
   .job {
     font-size: 28px;
   }
-
-  .salary-reviews-container {
-    width: 500px;
-  }
-
-  .interview-container {
-    width: 500px;
-  }
-
-  .question {
-    width: 500px;
-  }
-
-  .body {
-    width: 500px;
-  }
 }
 
 @media only screen and (max-width: 720px) {
-  .header {
-    width: 400px;
-  }
-
-  .salary-reviews-container {
-    width: 400px;
-  }
-
-  .interview-container {
-    width: 400px;
-  }
-
   .graph {
     padding: 10px 10px 4px 4px;
-  }
-
-  .question {
-    width: 400px;
-  }
-
-  .body {
-    width: 400px;
   }
 
   .average-container {
@@ -295,7 +260,7 @@
 
 @media only screen and (max-width: 520px) {
   .header {
-    width: 300px;
+    width: calc(100vw - 40px);
   }
 
   .job-container {
@@ -303,19 +268,23 @@
   }
 
   .salary-reviews-container {
-    width: 300px;
+    width: calc(100vw - 40px);
+  }
+
+  .questions-container {
+    width: calc(100vw - 40px);
   }
 
   .interview-container {
-    width: 300px;
+    width: calc(100vw - 40px);
   }
 
   .question {
-    width: 300px;
+    width: calc(100vw - 40px);
   }
 
   .body {
-    width: 300px;
+    width: calc(100vw - 40px);
   }
 
   .company {
@@ -348,47 +317,5 @@
 
   .write-text {
     font-size: 18px;
-  }
-}
-
-@media only screen and (max-width: 340px) {
-  .job-container {
-    padding: 0 10px;
-  }
-
-  .header {
-    width: 260px;
-  }
-
-  .salary-reviews-container {
-    width: 260px;
-  }
-
-  .interview-container {
-    width: 260px;
-  }
-
-  .question {
-    width: 260px;
-  }
-
-  .body {
-    width: 260px;
-  }
-
-  .company {
-    font-size: 14px;
-  }
-
-  .sub-header {
-    font-size: 16px;
-  }
-
-  .add-button {
-    font-size: 14px;
-  }
-
-  .icon {
-    display: none;
   }
 }
