@@ -50,13 +50,12 @@ const JobPage = (props) => {
   const [salaries, setSalaries] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [showQuestions, setShowQuestions] = useState(false); // Interview questions - Loading state
-  const [fadeQuestions, setFadeQuestions] = useState(false); // Interview questions - If they have already been faded in
   const [reviews, setReviews] = useState([]);
   const [showReviews, setShowReviews] = useState(false); // User reviews - Loading state
   const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]); // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
   const company = props.match.params.id;
   const job = props.match.params.jobId;
-
+  
   useEffect(() => {
     getSalaries(company, job)
       .then((response) => {

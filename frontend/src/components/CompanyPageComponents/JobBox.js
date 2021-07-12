@@ -52,7 +52,7 @@ const JobBox = (props) => {
     if (data && data.length === 0) {
       return (
         <NoJobDataDiv>
-          {company} has no reviews yet!
+          {company} has no jobs yet!
           <HiOutlineEmojiSad
             style={{ marginTop: 10 }}
             size={96}
