@@ -44,9 +44,11 @@ const AddButton = withStyles((theme) => ({
 }))(Button);
 
 const JobPage = (props) => {
-  const [showSalaryModal, setShowSalaryModal] = useState(false);
-  const [showInterviewModal, setShowInterviewModal] = useState(false);
-  const [showReviewModal, setShowReviewModal] = useState(false);
+  // Hacky way to fix fade re-rendering:
+  // 0: page just rendered, 1: open modal, 2: close modal
+  const [showSalaryModal, setShowSalaryModal] = useState(0);
+  const [showInterviewModal, setShowInterviewModal] = useState(0);
+  const [showReviewModal, setShowReviewModal] = useState(0);
   const [salaries, setSalaries] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [showQuestions, setShowQuestions] = useState(false); // Interview questions - Loading state
@@ -78,9 +80,9 @@ const JobPage = (props) => {
   }, [company, job, props.token]);
 
   useEffect(() => {
-    setShowSalaryModal(false);
-    setShowInterviewModal(false);
-    setShowReviewModal(false);
+    setShowSalaryModal(0);
+    setShowInterviewModal(0);
+    setShowReviewModal(0);
   }, [props.isLoggedIn]);
 
   const addReview = (review) => {
@@ -108,7 +110,11 @@ const JobPage = (props) => {
       return reviews.length !== 0 ? (
         reviews.map((review, index) => {
           return (
-            <Fade duration={500} key={index}>
+            <Fade
+              duration={500}
+              key={index}
+              disabled={showInterviewModal !== 0 || showReviewModal !== 0 || showSalaryModal !== 0}
+            >
               <Review
                 job={job}
                 company={company}
@@ -146,7 +152,11 @@ const JobPage = (props) => {
       return questions.length !== 0 ? (
         questions.map((question, index) => {
           return (
-            <Fade duration={500} key={index}>
+            <Fade
+              duration={500}
+              key={index}
+              disabled={showInterviewModal !== 0 || showReviewModal !== 0 || showSalaryModal !== 0}
+            >
               <div className="question">
                 <InterviewQuestion
                   job={job}
@@ -199,7 +209,7 @@ const JobPage = (props) => {
                 />
                 Salaries ({salaries.length})
               </span>
-              <AddButton onClick={() => setShowSalaryModal(true)}>
+              <AddButton onClick={() => setShowSalaryModal(1)}>
                 Add
               </AddButton>
             </h2>
@@ -235,7 +245,7 @@ const JobPage = (props) => {
                 <div className="write-text">
                   How was your experience at {company}?
                 </div>
-                <ReviewButton onClick={() => setShowReviewModal(true)}>
+                <ReviewButton onClick={() => setShowReviewModal(1)}>
                   Write a review
                 </ReviewButton>
               </div>
@@ -254,7 +264,7 @@ const JobPage = (props) => {
                 <BsQuestionSquareFill className="icon" size={20} />
                 Interview questions ({questions.length})
               </span>
-              <AddButton onClick={() => setShowInterviewModal(true)}>
+              <AddButton onClick={() => setShowInterviewModal(1)}>
                 Add
               </AddButton>
             </h2>
@@ -264,39 +274,39 @@ const JobPage = (props) => {
           </div>
         </div>
       </div>
-      {showSalaryModal && (
+      {showSalaryModal === 1 && (
         <Modal
           initialModal={props.token ? "Add Salary" : "Log In"}
           job={job}
           company={company}
           onClose={() => {
-            setShowSalaryModal(false);
+            setShowSalaryModal(2);
           }}
           onSubmit={(salary) =>
             setSalaries((salaries) => [...salaries, salary])
           }
         />
       )}
-      {showInterviewModal && (
+      {showInterviewModal === 1 && (
         <Modal
           initialModal={props.token ? "Add Interview" : "Log In"}
           job={job}
           company={company}
           onClose={() => {
-            setShowInterviewModal(false);
+            setShowInterviewModal(2);
           }}
           onSubmit={(question) =>
             setQuestions((questions) => [...questions, question])
           }
         />
       )}
-      {showReviewModal && (
+      {showReviewModal === 1 && (
         <Modal
           initialModal={props.token ? "Add Review" : "Log In"}
           job={job}
           company={company}
           onClose={() => {
-            setShowReviewModal(false);
+            setShowReviewModal(2);
           }}
           onSubmit={(review) => addReview(review)}
         />
