@@ -60,13 +60,13 @@ const SalaryModal = (props) => {
             <ModalTitle title={"Add salary"} />
             <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
                 <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
-                    What was your hourly rate at {props.company} (in CAD)?
+                    What was your hourly wage at {props.company} (in CAD)?
                 </ModalText>
                 <FormInput
                     type="text"
                     name="salary"
                     maxLength={10}
-                    placeholder="Hourly rate..."
+                    placeholder="Hourly wage..."
                     onChange={salaryChange}
                     value={salary}
                 />

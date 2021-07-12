@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import { getSalaries, getQuestions, getReviews, getRatings } from "backendActions"
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
+import Fade from 'react-reveal/Fade';
 
 const ReviewButton = withStyles((theme) => ({
   root: {
@@ -49,10 +50,10 @@ const JobPage = (props) => {
   const [salaries, setSalaries] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [showQuestions, setShowQuestions] = useState(false); // Interview questions - Loading state
+  const [fadeQuestions, setFadeQuestions] = useState(false); // Interview questions - If they have already been faded in
   const [reviews, setReviews] = useState([]);
   const [showReviews, setShowReviews] = useState(false); // User reviews - Loading state
   const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]); // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
-  // const [isJobValid, setIsJobValid] = useState(true);
   const company = props.match.params.id;
   const job = props.match.params.jobId;
 
@@ -61,32 +62,20 @@ const JobPage = (props) => {
       .then((response) => {
         setSalaries(response.data);
       })
-      .catch((error) => {
-        // setIsJobValid(false);
-      });
     getQuestions(company, job, props.token)
       .then((response) => {
         setQuestions(response.data);
         setShowQuestions(true);
       })
-      .catch((error) => {
-        // setIsJobValid(false);
-      });
     getReviews(company, job, props.token)
       .then((response) => {
         setReviews(response.data);
         setShowReviews(true)
       })
-      .catch((error) => {
-        // setIsJobValid(false);
-      });
     getRatings(company, job)
       .then((response) => {
         setAverageArray(response.data);
       })
-      .catch((error) => {
-        // setIsJobValid(false);
-      });
   }, [company, job, props.token]);
 
   useEffect(() => {
@@ -101,9 +90,6 @@ const JobPage = (props) => {
       .then((response) => {
         setAverageArray(response.data);
       })
-      .catch((error) => {
-        // setIsJobValid(false);
-      });
   };
 
   // Loading spinner used when data is still being fetched from backend
@@ -123,20 +109,21 @@ const JobPage = (props) => {
       return reviews.length !== 0 ? (
         reviews.map((review, index) => {
           return (
-            <Review
-              job={job}
-              company={company}
-              body={review.body}
-              author={review.author}
-              workLifeBalance={review.workLifeBalance}
-              culture={review.culture}
-              interestingWork={review.interestingWork}
-              numUpvotes={review.numUpvotes}
-              upvoted={review.upvoted}
-              id={review.id || review._id}
-              loggedIn={props.token !== null}
-              key={index}
-            />
+            <Fade duration={500} key={index}>
+              <Review
+                job={job}
+                company={company}
+                body={review.body}
+                author={review.author}
+                workLifeBalance={review.workLifeBalance}
+                culture={review.culture}
+                interestingWork={review.interestingWork}
+                numUpvotes={review.numUpvotes}
+                upvoted={review.upvoted}
+                id={review.id || review._id}
+                loggedIn={props.token !== null}
+              />
+            </Fade>
           );
         })
       ) : (
@@ -160,18 +147,20 @@ const JobPage = (props) => {
       return questions.length !== 0 ? (
         questions.map((question, index) => {
           return (
-            <div className="question" key={index}>
-              <InterviewQuestion
-                job={job}
-                company={company}
-                numUpvotes={question.numUpvotes}
-                upvoted={question.upvoted}
-                body={question.body}
-                author={question.author}
-                id={question.id || question._id}
-                loggedIn={props.token !== null}
-              />
-            </div>
+            <Fade duration={500} key={index}>
+              <div className="question">
+                <InterviewQuestion
+                  job={job}
+                  company={company}
+                  numUpvotes={question.numUpvotes}
+                  upvoted={question.upvoted}
+                  body={question.body}
+                  author={question.author}
+                  id={question.id || question._id}
+                  loggedIn={props.token !== null}
+                />
+              </div>
+            </Fade>
           );
         })
       ) : (

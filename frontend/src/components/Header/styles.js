@@ -4,8 +4,8 @@ export const useStyles = makeStyles((theme) => ({
   landingHeader: {
     backgroundColor: "white",
     color: "black",
-    boxShadow: "0px 0px 0px 0px",
-    padding: "10px 20px",
+    boxShadow: "none",
+    padding: "4px 20px",
     marginBottom: "40px",
     width: "100%"
   },
@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     color: "black",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
     zIndex: 1,
-    padding: "10px 20px",
+    padding: "4px 20px",
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(520)]: {

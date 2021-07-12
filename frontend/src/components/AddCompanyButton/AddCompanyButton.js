@@ -47,7 +47,7 @@ const AddCompanyButton = (props) => {
     <>
       <div>
         <Fab
-          variant={props.company === '' ? 'round' : 'extend'}
+          variant={props.company === '' ? 'round' : 'extended'}
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}

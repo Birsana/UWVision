@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Job from "components/CompanyPageComponents/Job";
 import { HiOutlineEmojiSad } from "react-icons/hi";
+import Fade from 'react-reveal/Fade';
 
 const SavedJobsList = styled.div`
   h1 {
@@ -84,7 +85,11 @@ const SavedJobs = (props) => {
               <JobContainer key={companyName}>
                 <h2 style={{ color: "#828282" }}>{companyName}</h2>
                 {savedJobs[companyName].map((job) => {
-                  return <Job key={`${companyName}-${job.id}`} jobData={job} accountPage={true}/>;
+                  return (
+                    <Fade duration={500} key={`${companyName}-${job.id}`}>
+                      <Job jobData={job} accountPage={true}/>
+                    </Fade>
+                  );
                 })}
               </JobContainer>
             );

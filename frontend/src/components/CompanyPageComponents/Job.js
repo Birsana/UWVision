@@ -37,14 +37,17 @@ const JobTitle = styled.div`
   @media (max-width: 520px) {
     max-width: 100%;
     margin-bottom: 6px;
+    h2 {
+      font-size: 18px;
+    }
   }
 `;
 
 const JobMetrics = styled.div`
-  font-size: 14px;
   h3 {
     font-weight: normal;
     margin: 0;
+    font-size: 16px;
   }
   @media (max-width: 1055px) {
     h3 {
