@@ -36,7 +36,24 @@ export const SearchBarStylesHome = {
       backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
       cursor: 'text',
       borderRadius: 0,
-      border: isFocused ? "1px solid #2196f3" : "none"
+      width: 540,
+      border: isFocused ? "1px solid #2196f3" : "none",
+      "@media only screen and (max-width: 720px)": {
+          ...base["@media only screen and (max-width: 720px)"],
+          width: 400,
+      },
+      "@media only screen and (max-width: 520px)": {
+          ...base["@media only screen and (max-width: 520px)"],
+          width: 300,
+      },
+      "@media only screen and (max-width: 360px)": {
+          ...base["@media only screen and (max-width: 360px)"],
+          width: 240,
+      },
+      "@media only screen and (max-width: 320px)": {
+        ...base["@media only screen and (max-width: 320px)"],
+        fontSize: "14px",
+      },
     }),
   
     option: (styles, { isFocused }) => {
@@ -47,7 +64,15 @@ export const SearchBarStylesHome = {
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
         color: isFocused ? 'black' : 'grey',
-        lineHeight: 2
+        lineHeight: 2,
+        "@media only screen and (max-width: 820px)": {
+          ...styles["@media only screen and (max-width: 820px)"],
+          textAlign: "start"
+        },
+        "@media only screen and (max-width: 320px)": {
+          ...styles["@media only screen and (max-width: 320px)"],
+          fontSize: "14px",
+        },
       }
     },
   
@@ -94,7 +119,21 @@ export const SearchBarStylesNotHome = {
     cursor: 'text',
     borderRadius: 0,
     border: isFocused ? "1px solid #2196f3" : "none",
-    maxWidth: "100%"
+    maxWidth: "100%",
+    width: 400,
+    "@media only screen and (max-width: 820px)": {
+      ...base["@media only screen and (max-width: 820px)"],
+      width: 280,
+    },
+    "@media only screen and (max-width: 370px)": {
+      ...base["@media only screen and (max-width: 370px)"],
+      width: 220,
+    },
+    "@media only screen and (max-width: 320px)": {
+      ...base["@media only screen and (max-width: 320px)"],
+      width: 200,
+      fontSize: "14px",
+    },
   }),
 
   option: (styles, { isFocused }) => {
@@ -106,6 +145,10 @@ export const SearchBarStylesNotHome = {
       backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
       color: isFocused ? 'black' : 'grey',
       lineHeight: 2,
+      "@media only screen and (max-width: 320px)": {
+        ...styles["@media only screen and (max-width: 320px)"],
+        fontSize: "14px",
+      },
     }
   },
 
@@ -113,6 +156,10 @@ export const SearchBarStylesNotHome = {
     ...styles,
     fontFamily: 'Roboto',
     color: 'black',
+    "@media only screen and (max-width: 320px)": {
+      ...styles["@media only screen and (max-width: 320px)"],
+      fontSize: "14px",
+    },
   }),
 
   menu: styles => ({

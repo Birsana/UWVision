@@ -48,6 +48,9 @@ export const Title = styled.div`
   font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
+  @media (max-width: 820px) {
+    font-size: 24px;
+  }
 `;
 
 export const Divider = styled.hr`

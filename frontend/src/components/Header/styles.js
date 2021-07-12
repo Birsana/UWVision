@@ -21,8 +21,8 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(520)]: {
       padding: "10px 0px",
       display: "flex",
-      alignItems: "center",
-      width: "auto"
+      width: "auto",
+      marginBottom: "40px"
     }
   },
 
@@ -37,7 +37,10 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     height: 34,
     width: 34,
-    borderRadius: "50%"
+    borderRadius: "50%",
+    [theme.breakpoints.down(520)]: {
+      marginRight: 10
+    }
   },
 
   title: {
@@ -86,11 +89,9 @@ export const useStyles = makeStyles((theme) => ({
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "100%",
-    // maxWidth: "calc(100% - 64px)",
     [theme.breakpoints.down(520)]: {
       marginLeft: 0,
-      marginRight: 10
+      marginRight: "auto"
     }
   },
 
