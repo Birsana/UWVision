@@ -20,7 +20,7 @@ const Home = () => {
             <div className="searchbar">
               <SearchBar />
             </div>
-            <AddCompanyButton />
+            <AddCompanyButton company='' />
           </div>
 
         </div>

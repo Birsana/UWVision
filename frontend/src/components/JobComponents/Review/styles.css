@@ -57,6 +57,7 @@
 .review-body {
   font-size: 16px;
   margin: 20px 0 0 45px;
+  word-break: break-all;
 }
 
 .helpful-button {

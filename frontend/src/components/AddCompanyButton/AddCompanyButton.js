@@ -8,6 +8,9 @@ import AddIcon from "@material-ui/icons/Add";
 // Component Imports:
 import Modal from "components/Modals/Modal";
 
+// Redux Import:
+import { connect } from "react-redux";
+
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
@@ -22,12 +25,16 @@ const useStyles = makeStyles((theme) => ({
       display: "none"
     }
   },
+  buttonText: {
+    fontWeight: "bold",
+    margin: "0 4px"
+  }
 }));
 
 // ==============================================================================================================
 
 // Add Company Button Component
-const AddCompanyButton = () => {
+const AddCompanyButton = (props) => {
   const [showAddCompanyModal, setShowAddCompanyModal] = useState(false);
 
   const handleClick = () => {
@@ -40,24 +47,37 @@ const AddCompanyButton = () => {
     <>
       <div>
         <Fab
-          // variant="extended"
+          variant={props.company === '' ? 'round' : 'extended'}
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}
         >
+          {props.company !== '' && <p className={styles.buttonText}>Add {props.company}</p>}
           <AddIcon className={styles.extendedIcon} />
           {/* Add Company */}
         </Fab>
       </div>
 
-      {showAddCompanyModal && (
+      {(!props.isLoggedIn && showAddCompanyModal) && (
         <Modal
-          initialModal={"Add Company"}
-          onClose={() => setShowAddCompanyModal(false)}
+        initialModal={"Log In"}
+        onClose={() => setShowAddCompanyModal(false)}
+        />
+      )}
+
+      {(props.isLoggedIn && showAddCompanyModal) && (
+        <Modal
+        initialModal={"Add Company"}
+        onClose={() => setShowAddCompanyModal(false)}
         />
       )}
     </>
   );
 };
 
-export default AddCompanyButton;
+// Injecting redux states into props for modal
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+export default connect(mapStateToProps)(AddCompanyButton);

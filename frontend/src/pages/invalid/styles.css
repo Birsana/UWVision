@@ -1,0 +1,19 @@
+.invalid-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.invalid-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 32px;
+}

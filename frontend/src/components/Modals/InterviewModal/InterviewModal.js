@@ -1,18 +1,32 @@
 import React, { useState} from "react";
-import Typography from '@material-ui/core/Typography';
-import { TextField, Button } from '@material-ui/core'
+import {
+    ModalTitle,
+    FormTextarea,
+    FormSubmitButton,
+    FormErrorMessage,
+    ModalText,
+  } from "../styles";
 import { postQuestion } from "backendActions"
 import { connect } from "react-redux";
 
 const InterviewModal = (props) => {
     const [question, setQuestion] = useState("")
+    const [error, setError] = useState("")
 
-    const handleClick = async () => {
+    const questionChange = (event) => {
+        setQuestion(event.target.value);
+
         if (!/\S/.test(question)) {
-            alert("Your interview question must not be blank!")
-            return;
+            setError("Interview question cannot be blank")
         }
-        
+    
+        if (error) {
+            setError("");
+        }
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         postQuestion(props.company, props.job, props.token, question)
             .then((res) => {
                 res.data.upvoted = false;
@@ -22,20 +36,28 @@ const InterviewModal = (props) => {
     }
     
     return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
-            <Typography>
-                What interview question were you asked?
-            </Typography>
-            <TextField
-                placeholder = "Interview question..."
-                inputProps = {{maxLength: 300}}
-                value = {question}
-                onChange={(event) => {setQuestion(event.target.value)}}
-            />
-            <Button variant= "contained" size="small" onClick={handleClick}>
-                Submit
-            </Button>
-      </div>
+        <>
+            <ModalTitle title={"Add question"} />
+            <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+                <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
+                    What interview question were you asked at {props.company}?
+                </ModalText>
+                <FormTextarea
+                    maxLength={500}
+                    type="text"
+                    name="question"
+                    placeholder="Interview question..."
+                    onChange={questionChange}
+                    value={question}
+                />
+                {error && (
+                <FormErrorMessage>
+                    <p>{error}</p>
+                </FormErrorMessage>
+                )}
+                <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
+            </form>
+        </>
     );
   };
   

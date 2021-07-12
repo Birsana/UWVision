@@ -4,8 +4,8 @@ export const useStyles = makeStyles((theme) => ({
   landingHeader: {
     backgroundColor: "white",
     color: "black",
-    boxShadow: "0px 0px 0px 0px",
-    padding: "10px 20px",
+    boxShadow: "none",
+    padding: "4px 20px",
     marginBottom: "40px",
     width: "100%"
   },
@@ -15,14 +15,14 @@ export const useStyles = makeStyles((theme) => ({
     color: "black",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
     zIndex: 1,
-    padding: "10px 20px",
+    padding: "4px 20px",
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(520)]: {
       padding: "10px 0px",
       display: "flex",
-      alignItems: "center",
-      width: "auto"
+      width: "auto",
+      marginBottom: "40px"
     }
   },
 
@@ -37,7 +37,10 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     height: 34,
     width: 34,
-    borderRadius: "50%"
+    borderRadius: "50%",
+    [theme.breakpoints.down(520)]: {
+      marginRight: 10
+    }
   },
 
   title: {
@@ -86,11 +89,9 @@ export const useStyles = makeStyles((theme) => ({
   searchBar: {
     marginLeft: "30px",
     marginRight: "25px",
-    width: "100%",
-    // maxWidth: "calc(100% - 64px)",
     [theme.breakpoints.down(520)]: {
       marginLeft: 0,
-      marginRight: 10
+      marginRight: "auto"
     }
   },
 

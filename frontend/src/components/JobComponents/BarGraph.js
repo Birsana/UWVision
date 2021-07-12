@@ -23,7 +23,7 @@ function BarGraph(props){
           labels: graphLabels,
           datasets: [
             {
-              label: '',
+              label: '# of people',
               backgroundColor: '#2196f3',
               borderColor: '#2196f3',
               borderRadius: 5,
@@ -41,6 +41,33 @@ function BarGraph(props){
               plugins: {
                 legend: {
                   display: false,
+                },
+                tooltip:{
+                  callbacks: {
+                    title: function (tooltipItem) {
+                      const salary = tooltipItem[0].label
+                      if (salary === '>$100') {
+                        return salary
+                      } else {
+                        let lowerSalary = parseInt(salary.substr(1)) - 5
+                        return `$${lowerSalary} - ${salary}`
+                      }
+                    },
+                    label: function (tooltipItem) {
+                      if (tooltipItem.raw === 1) {
+                        return ` ${tooltipItem.raw} person`
+                      } else {
+                        return ` ${tooltipItem.raw} people`
+                      }
+                    },
+                  },
+                },
+              },
+              tooltips:{
+                callbacks: {
+                  label: function (tooltipItem) {
+                    return 'The value is: ' + tooltipItem.yLabel + '%';
+                  },
                 },
               },
               scales: {

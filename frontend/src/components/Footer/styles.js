@@ -2,14 +2,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   footerRoot: {
-    flexGrow: 1,
+    flexGrow: 1
   },
 
   footer: {
     backgroundColor: "rgb(34, 30, 29)",
     color: "white",
     boxShadow: "0px 0px 0px 0px",
-    marginTop: 80
+    marginTop: 80,
+    zIndex: 0
   },
 
   customizeToolbar: {

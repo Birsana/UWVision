@@ -1,6 +1,8 @@
 // Miscellaneous Imports:
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import 'index.css';
 
 // Component Imports:
@@ -11,11 +13,10 @@ import Footer from 'components/Footer/Footer';
 import LandingPage from 'pages/landing/landing';
 import CompanyPage from 'pages/company/company';
 import JobPage from 'pages/job/job';
-import InvalidPage from 'pages/invalid';
+import InvalidPage from 'pages/invalid/invalid';
 import PrivacyPolicyPage from 'pages/privacyPolicy/privacyPolicy';
 import AccountPage from 'pages/account/accountPage';
 import ForgotPasswordPage from 'pages/forgotPassword';
-import TestingPage from 'pages/testingPage'; //TODO: REMOVE THIS LATER
 
 // Handling Redux:
 import { createStore } from 'redux';
@@ -47,35 +48,48 @@ const reduxStore = createStore(reducer);
 
 // =============================================================================================
 
+// Automatically scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 // Main App
 const App = () => {
   return (
     <Provider store={reduxStore}>
       <BrowserRouter>
         <CssBaseline />
+        <ScrollToTop />
         <div>
           <div className="UWVision">
             <Header />
             <Switch>
 
-              {/* Route to landing (home) page*/}
+              {/* Landing page (a.k.a. home) */}
               <Route exact path="/" component={LandingPage} />
 
-              {/* Route to generic job page template - will populate data based on job*/}
-              <Route path="/company/:id/job/:jobId" component={JobPage} />
+              {/* Generic company page template - will populate data based on company */}
+              <Route exact path="/company/:id" component={CompanyPage} />
 
-              {/* Route to generic company page template - will populate data based on company*/}
-              <Route path="/company/:id" component={CompanyPage} />
+              {/* Generic job page template - will populate data based on job */}
+              <Route exact path="/company/:id/job/:jobId" component={JobPage} />
 
-              <Route path="/test" component={TestingPage} />
-
+              {/* Privacy policy page */}
               <Route exact path="/privacy" component={PrivacyPolicyPage} />
 
+              {/* Account page */}
               <Route exact path="/account" component={AccountPage} />
 
-              <Route path="/forgotPassword/:resetToken" component={ForgotPasswordPage} />
+              {/* Reset password page */}
+              <Route exact path="/forgotPassword/:resetToken" component={ForgotPasswordPage} />
 
-              {/* 404 Page (if provided an unknown URL */}
+              {/* 404 Page (if provided a URL that doesn't match the ones above) */}
               <Route component={InvalidPage} />
 
             </Switch>
