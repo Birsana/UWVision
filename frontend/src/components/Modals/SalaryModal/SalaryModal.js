@@ -1,6 +1,11 @@
 import React, { useState} from "react";
-import Typography from '@material-ui/core/Typography';
-import { TextField, Button } from '@material-ui/core'
+import {
+    ModalTitle,
+    FormInput,
+    FormSubmitButton,
+    FormErrorMessage,
+    ModalText,
+  } from "../styles";
 import { connect } from "react-redux";
 import { postSalary } from "backendActions"
 
@@ -10,51 +15,69 @@ function isNumeric(value) {
 
 const SalaryModal = (props) => {
     const [salary, setSalary] = useState("")
+    const [error, setError] = useState("")
 
-    const handleClick = async () => {
+    const salaryChange = (event) => {
+        setSalary(event.target.value);
         
         if(!isNumeric(salary)){
-            alert("You must a enter a positive whole number!");
+            setError("Salary must be entered as a positive integer");
             return;
         }
 
         const salaryAsInt = parseInt(salary);
         if(salaryAsInt > 300){
-            alert('The max salary you can enter is $300!');
+            setError('Salary must be less than $300');
             return;
         }
 
         if (salaryAsInt === 0){
-            alert('The salary you enter must be greater than $0!');
+            setError('Salary you enter must be greater than $0');
             return;
         } 
+
+        if (error) {
+            setError("");
+        }
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
         postSalary(props.company, props.job, props.token, salary)
             .then((res) => {
                 if (res.data === 'already posted') {
-                  alert('You can only report the salary of a job once!')
+                    setError('You can only report the salary of a job once!')
                 } else {
-                  props.onSubmit(res.data);
-                  props.onClose();
+                    props.onSubmit(res.data);
+                    props.onClose();
                 }
             });
     }
     
     return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
-            <Typography>
-                What was your hourly rate (in CAD)?
-            </Typography>
-            <TextField
-                placeholder = "Hourly rate in CAD"
-                inputProps = {{maxLength: 300}}
-                value = {salary}
-                onChange={(event) => {setSalary(event.target.value)}}
-            />
-            <Button variant= "contained" size="small" onClick = {handleClick}>
-                Submit
-            </Button>
-      </div>
+         <>
+            <ModalTitle title={"Add salary"} />
+            <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+                <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
+                    What was your hourly rate at {props.company} (in CAD)?
+                </ModalText>
+                <FormInput
+                    type="text"
+                    name="salary"
+                    maxLength={10}
+                    placeholder="Hourly rate..."
+                    onChange={salaryChange}
+                    value={salary}
+                />
+                {error && (
+                <FormErrorMessage>
+                    <p>{error}</p>
+                </FormErrorMessage>
+                )}
+                <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
+            </form>
+        </>
     );
   };
 

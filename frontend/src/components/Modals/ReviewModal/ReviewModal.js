@@ -1,11 +1,17 @@
-import React, { useState} from "react";
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
-import { TextField, Button, createMuiTheme } from '@material-ui/core'
-import { ThemeProvider } from "@material-ui/styles";
+import { useState} from "react";
+import { createMuiTheme } from '@material-ui/core'
 import { postReview } from "backendActions"
-import { ModalTitle } from "../styles";
+import {
+  ModalTitle,
+  FormTextarea,
+  FormSubmitButton,
+  ModalText,
+  FormErrorMessage
+} from "../styles";
 import { connect } from "react-redux";
+import Slider from '@material-ui/core/Slider';
+import { ThemeProvider } from "@material-ui/styles";
+import Typography from '@material-ui/core/Typography';
 
 const ReviewModal = (props) => {
     //store user responses
@@ -13,60 +19,70 @@ const ReviewModal = (props) => {
     const [culture, setCulture] = useState(5)
     const [interesting, setInteresting] = useState(5)
     const [worklife, setWorkLife] = useState(5)
-
-    const handleClick = async () => {
-      const review = {
-          body: text,
-          workLifeBalance: worklife,
-          culture: culture,
-          interestingWork: interesting
-      }
-      postReview(props.company, props.job, props.token, review)
-          .then((res) => {
-              if (res.data === 'already posted') {
-                alert('You can only review a job once!')
-              } else {
-                res.data.upvoted = false;
-                props.onSubmit(res.data);
-                props.onClose();
-              }
-          });
-    }
+    const [error, setError] = useState("")
 
     const handleChangeCulture = (event, newValue) => {
-        setCulture(newValue);
-      };
+      setCulture(newValue);
+    };
 
     const handleChangeInteresting = (event, newValue) => {
-        setInteresting(newValue);
+      setInteresting(newValue);
     };
     
     const handleChangeWorkLife = (event, newValue) => {
-        setWorkLife(newValue);
+      setWorkLife(newValue);
     };
     
+    const handleChangeText = (newValue) => {
+      setText(newValue);
+
+      if (error) {
+        setError("");
+      }
+    };
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const review = {
+            body: text,
+            workLifeBalance: worklife,
+            culture: culture,
+            interestingWork: interesting
+        }
+        postReview(props.company, props.job, props.token, review)
+            .then((res) => {
+                if (res.data === 'already posted') {
+                  setError('You can only review a job once!')
+                } else {
+                  res.data.upvoted = false;
+                  props.onSubmit(res.data);
+                  props.onClose();
+                }
+            });
+    }
+
       const ReviewSlider = createMuiTheme({
         overrides: {
             MuiSlider: {
                 root: {
-                    color: '#000000',
-                    height: 2,
+                    color: '#2196f3',
                     padding: '15px 0',
                   },
                   thumb: {
-                      height: 24,
-                      width: 24,
+                      height: 20,
+                      width: 20,
                       backgroundColor: '#fff',
                       border: '2px solid currentColor',
-                      marginTop: -8,
-                      marginLeft: -12,
+                      marginTop: -6,
+                      marginLeft: -10,
                       '&:focus, &:hover, &$active': {
                         boxShadow: 'inherit',
                       },
                     },
                     active: {},
                     valueLabel: {
-                      left: 'calc(-50% + 4px)',
+                      fontWeight: "bold",
+                      left: '-50%'
                   },
                   track: {
                       height: 8,
@@ -77,45 +93,54 @@ const ReviewModal = (props) => {
                       borderRadius: 4,
                   },
                   mark: {
-                    backgroundColor: '#000000',
-                    height: 15,
-                    width: 2,
-                    marginTop: -3,
+                    height: 0
                   },
-                  markActive: {
-                    opacity: 1,
-                    backgroundColor: 'currentColor',
-                  }
             }
         }
     });
 
     return (
-      <div>
-            <ModalTitle title={"Leave a review"} />
-            <Typography>
+      <>
+        <ModalTitle title={"Add review"} />
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+          <ModalText style={{ marginBottom: 16, marginLeft: 4, fontSize: 16 }}>
+            How was your experience at {props.company}?
+          </ModalText>
+          <div style={{ width: "90%" }}>
+            <ThemeProvider theme={ReviewSlider}>
+              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Culture/Environment
-            </Typography>
-            <ThemeProvider theme = {ReviewSlider}>
-            <Slider value = {culture} onChange={handleChangeCulture}
-            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
-            <Typography>
+              </Typography>
+              <Slider value={culture} onChange={handleChangeCulture}
+                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
+              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Meaningful/Interesting Work
-            </Typography>
-            <Slider value = {interesting} onChange={handleChangeInteresting}
-            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
-            <Typography>
+              </Typography>
+              <Slider value={interesting} onChange={handleChangeInteresting}
+                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
+              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Work-Life Balance
-            </Typography>
-            <Slider value = {worklife} onChange={handleChangeWorkLife}
-            step={1} valueLabelDisplay="auto" marks min = {1} max = {10}/>
+              </Typography>
+              <Slider value={worklife} onChange={handleChangeWorkLife}
+                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
             </ThemeProvider>
-            <TextField
-                    placeholder = "Add additional comments" inputProps = {{maxLength: 100}}
-                    value = {text}
-                    onChange={(event) => {setText(event.target.value)}}/>
-            <Button variant= "contained" size="small" onClick = {handleClick}>Submit</Button>
-      </div>
+          </div>
+          <FormTextarea
+            maxLength={1000}
+            type="text"
+            name="review"
+            placeholder="Add a review..."
+            onChange={(event) => {handleChangeText(event.target.value)}}
+            value={text}
+          />
+          {error && (
+            <FormErrorMessage>
+              <p>{error}</p>
+            </FormErrorMessage>
+          )}
+          <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
+        </form>
+      </>
     );
   };
   

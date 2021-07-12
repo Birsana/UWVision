@@ -97,7 +97,7 @@ const AddCompanyModal = (props) => {
           <FormSubmitButton value="Add Company" />
         </form>
       ) : (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <ModalText>
             The company "<b>{companyToAdd}</b>" has been successfully added to
             the database!
@@ -105,10 +105,10 @@ const AddCompanyModal = (props) => {
           <ModalText>
             Would you like to start adding information for this company?
           </ModalText>
-          <NavLink to={"/company/" + companyToAdd}>
+          <NavLink style={{ width: "100%", display: "flex", justifyContent: "center" }} to={"/company/" + companyToAdd}>
             <ModalButton>Get Started!</ModalButton>
           </NavLink>
-        </>
+        </div>
       )}
     </>
   );

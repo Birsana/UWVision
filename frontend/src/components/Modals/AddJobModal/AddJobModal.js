@@ -93,7 +93,7 @@ const AddJobModal = (props) => {
           <FormSubmitButton value="Add Job" />
         </form>
       ) : (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <ModalText>
             The job "<b>{jobToAdd}</b>" has been successfully added to the
             database!
@@ -102,7 +102,7 @@ const AddJobModal = (props) => {
             Would you like to start adding information for this job?
           </ModalText>
           <ModalButton onClick={goToJob}>Get Started!</ModalButton>
-        </>
+        </div>
       )}
     </>
   );

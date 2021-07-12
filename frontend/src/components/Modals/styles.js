@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 export const Background = styled.div`
   position: fixed;
@@ -16,6 +17,8 @@ export const ModalWrapper = styled.div`
   top: 50%;
   left: 50%;
   width: 80%;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
   max-width: 400px;
   transform: translate(-50%, -50%);
   background: #fff;
@@ -79,6 +82,7 @@ export const ModalText = styled.p`
 export const ModalButton = styled.button`
   cursor: pointer;
   margin-top: 15px;
+  margin-bottom: 20px;
   height: 35px;
   width: 90%;
   border: none;
@@ -86,11 +90,12 @@ export const ModalButton = styled.button`
   font-family: Roboto;
   font-size: 16px;
 
-  background: #07C45F;
-  color: black;
+  background: #2196f3;
+  color: white;
+  font-weight: bold;
 
   &:hover {
-    background: #0A9C4E;
+    background: #1976d2;
   }
 `;
 
@@ -118,6 +123,23 @@ export const ModalLogInButton = ({ onClick }) => {
   )
 }
 
+export const FormTextarea = styled(TextareaAutosize)`
+  margin-top: 10px;
+  min-height: 100px;
+  width: 90%;
+  background-color: rgba(239, 239, 239);
+  border: none;
+  border-radius: 3px;
+  font-family: Roboto;
+  font-size: 16px;
+  padding: 10px;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+`
+
 export const FormInput = styled.input`
   margin-top: 10px;
   height: 35px;
@@ -127,7 +149,7 @@ export const FormInput = styled.input`
   border-radius: 3px;
   font-family: Roboto;
   font-size: 16px;
-  padding-left: 10px;
+  padding: 10px;
 
   &:focus {
     outline: none;
