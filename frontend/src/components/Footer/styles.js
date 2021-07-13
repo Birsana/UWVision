@@ -22,5 +22,11 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     fontWeight: 400,
     textTransform: 'none',
+    [theme.breakpoints.down(520)]: {
+      fontSize: "14px"
+    },
+    [theme.breakpoints.down(300)]: {
+      fontSize: "12px"
+    }
   }
 }));
