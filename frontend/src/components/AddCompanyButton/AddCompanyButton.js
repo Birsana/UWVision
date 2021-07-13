@@ -21,14 +21,18 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     boxShadow: "none",
     color: "white",
-    '&:focus, &:hover, &$active': {
+    '&:hover': {
       background: '#1976d2',
       boxShadow: 'none',
     }
   },
   buttonText: {
     fontWeight: "bold",
-    margin: "0 4px"
+    marginLeft: 8,
+    marginRight: 4
+  },
+  icon: {
+    marginRight: 1
   }
 }));
 
@@ -54,7 +58,7 @@ const AddCompanyButton = (props) => {
           onClick={handleClick}
         >
           <p className={styles.buttonText}>Add {props.company}</p>
-          <AddIcon className={styles.extendedIcon} />
+          <AddIcon className={styles.icon} />
         </Fab>
       </div>
 

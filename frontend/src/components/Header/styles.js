@@ -62,12 +62,12 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     fontWeight: "bold",
     textTransform: "none",
-    backgroundColor: "black",
+    backgroundColor: "#2196f3",
     color: "white",
     borderRadius: 4,
     padding: "6px 16px",
     '&:hover': {
-      backgroundColor: '#535353'
+      backgroundColor: '#1976d2'
     },
     minWidth: 91,
     [theme.breakpoints.down(400)]: {
