@@ -4,7 +4,7 @@ import routes from "backendActions/routes"
 export const resetPassword = (newPassword, resetToken) => {
     return axios({
         method: "post",
-        url: `${routes.RESETPASSWORD}/${resetToken}`,
+        url: routes.RESETPASSWORD(resetToken),
         data: {
             password: newPassword
         },

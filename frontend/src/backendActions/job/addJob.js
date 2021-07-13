@@ -2,10 +2,9 @@ import axios from "axios";
 import routes from "backendActions/routes";
 
 export const addJob = (company, job, token) => {
-    let URL = `${routes.SERVER}/data/${company}/addjob`;
     return axios({
         method: "post",
-        url: URL,
+        url: routes.ADDJOBTOCOMPANY(company),
         data: {
             job: {
                 jobName: job

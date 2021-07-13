@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Job from "components/CompanyPageComponents/Job";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Fade from 'react-reveal/Fade';
+import Loader from "react-loader-spinner";
 
 const SavedJobsList = styled.div`
   h1 {
@@ -51,35 +52,48 @@ const NoJobDataDiv = styled.div`
 
 const SavedJobs = (props) => {
     const [savedJobs, setSavedJobs] = useState({});
+    const [showSavedJobs, setShowSavedJobs] = useState(false);
     
     useEffect(() => {
         let isMounted = true;  
         getSavedJobs(props.token).then(response => {
-            if (isMounted) {
-                const finalData = {};
-        
-                response.data.forEach(element => {
-                    if (!finalData[element.company]) {
-                        finalData[element.company] = [];
-                    }
-                    finalData[element.company].push(element);
-                });
-        
-                setSavedJobs(finalData)
-            }
+          if (isMounted) {
+            const finalData = {};
+    
+            response.data.forEach(element => {
+                if (!finalData[element.company]) {
+                    finalData[element.company] = [];
+                }
+                finalData[element.company].push(element);
+            });
+    
+            setSavedJobs(finalData);
+            setShowSavedJobs(true);
+          }
         });
         return () => { isMounted = false };
-    }, [savedJobs, props.token]); //! Empty dependency array is important as we only want to call this useEffect once
+    }, [savedJobs, props.token]);
 
-    return (
+    return !showSavedJobs ? (
       <SavedJobsList>
         <h1>Saved jobs</h1>
-        {Object.keys(savedJobs).length === 0 ? 
+        <NoJobDataDiv>
+          <Loader type="Oval" color="#2196f3" height={80} width={80} />
+        </NoJobDataDiv>
+      </SavedJobsList>
+    ) : (
+      <SavedJobsList>
+        <h1>Saved jobs</h1>
+        {Object.keys(savedJobs).length === 0 ? (
           <NoJobDataDiv>
             No saved jobs!
-            <HiOutlineEmojiSad style={{ marginTop: 10 }} size={96} color="rgba(0, 0, 0, 0.1)" />
+            <HiOutlineEmojiSad
+              style={{ marginTop: 10 }}
+              size={96}
+              color="rgba(0, 0, 0, 0.1)"
+            />
           </NoJobDataDiv>
-        :
+        ) : (
           Object.keys(savedJobs).map((companyName) => {
             return (
               <JobContainer key={companyName}>
@@ -87,13 +101,14 @@ const SavedJobs = (props) => {
                 {savedJobs[companyName].map((job) => {
                   return (
                     <Fade duration={500} key={`${companyName}-${job.id}`}>
-                      <Job jobData={job} accountPage={true}/>
+                      <Job jobData={job} accountPage={true} />
                     </Fade>
                   );
                 })}
               </JobContainer>
             );
-        })}
+          })
+        )}
       </SavedJobsList>
     );
 }

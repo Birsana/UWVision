@@ -4,7 +4,7 @@ import routes from "backendActions/routes"
 export const saveJobToUser = (company, job, token) => {
     axios({
         method: "post",
-        url: `${routes.SERVER}/job/${company}/${job}/save`,
+        url: routes.SAVEJOBTOUSER(company, job),
         headers: {
           Authorization: `Token ${token}`,
           "Content-Type": "application/json",
