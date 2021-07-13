@@ -1,5 +1,5 @@
-const server = "https://uwvision.herokuapp.com"; //keep as localhost for local testing
-// const server = "http://localhost:5000";
+//const server = "https://uwvision.herokuapp.com"; //keep as localhost for local testing
+const server = "http://localhost:5000";
 
 const companyRoutes = `${server}/data`;
 const userRoutes = `${server}/auth`;
