@@ -1,5 +1,4 @@
-const server = "https://uwvision.herokuapp.com";
-//const server = "http://localhost:5000";
+const server = (process.env.NODE_ENV !== "production" ? "http://localhost:5000" : "https://uwvision.herokuapp.com")
 
 const companyRoutes = `${server}/data`;
 const userRoutes = `${server}/auth`;
@@ -21,7 +20,7 @@ const routes = {
   SENDRESETEMAIL: `${userRoutes}/sendresetemail`,
   RESETPASSWORD: `${userRoutes}/forgotpassword`,
 
-  //Job Routes:
+  // Job Routes:
   GETSALARIES: (company, job) => { return `${jobRoutes}/${company}/${job}/salaries` },
   GETQUESTIONS: (company, job) => { return `${jobRoutes}/${company}/${job}/questions` },
   GETREVIEWS: (company, job) => { return `${jobRoutes}/${company}/${job}/reviews` },
