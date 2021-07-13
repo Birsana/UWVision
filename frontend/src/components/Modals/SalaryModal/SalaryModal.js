@@ -74,6 +74,7 @@ const SalaryModal = (props) => {
                     placeholder="Hourly wage..."
                     onChange={salaryChange}
                     value={salary}
+                    autoFocus={true}
                 />
                 {error && (
                 <FormErrorMessage>

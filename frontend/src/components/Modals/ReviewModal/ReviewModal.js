@@ -132,6 +132,7 @@ const ReviewModal = (props) => {
             placeholder="Add a review..."
             onChange={(event) => {handleChangeText(event.target.value)}}
             value={text}
+            autoFocus={true}
           />
           {error && (
             <FormErrorMessage>

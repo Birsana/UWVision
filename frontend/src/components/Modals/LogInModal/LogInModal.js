@@ -105,6 +105,7 @@ const LogInModal = (props) => {
           placeholder="Email"
           onChange={emailInputChange}
           value={email}
+          autoFocus={true}
         />
         {emailError && (
           <FormErrorMessage>

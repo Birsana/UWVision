@@ -171,6 +171,7 @@ const SignUpModal = ({ changeModalState }) => {
               placeholder="Username"
               onChange={usernameInputChange}
               value={username}
+              autoFocus={true}
             />
             {usernameError && (
               <FormErrorMessage>
