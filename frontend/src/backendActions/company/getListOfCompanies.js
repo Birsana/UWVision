@@ -2,7 +2,7 @@ import axios from "axios";
 import routes from "backendActions/routes";
 
 export const getListOfCompanies = () => {
-  return axios.get(routes.COMPANYDATA).then(response => {
+  return axios.get(routes.GETCOMPANYLIST()).then(response => {
     let data = response.data;
     const companies = [];
 

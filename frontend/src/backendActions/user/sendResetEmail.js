@@ -4,7 +4,7 @@ import routes from "backendActions/routes"
 export const sendResetEmail = (resetEmail) => {
     return axios({
         method: "post",
-        url: `${routes.SENDRESETEMAIL}`,
+        url: routes.SENDRESETEMAIL(),
         data: {
             email: resetEmail
         },

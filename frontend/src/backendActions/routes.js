@@ -5,20 +5,21 @@ const userRoutes = `${server}/auth`;
 const jobRoutes = `${server}/job`;
 
 const routes = {
-  SERVER: server,
-
   // Company Routes:
-  ADDCOMPANY: `${companyRoutes}/addcompany`,
-  COMPANYDATA: `${companyRoutes}/companydata`,
-  GETCOMPANY: `${companyRoutes}/company`,
-  GETCOMPANYJOBDATA: `${companyRoutes}/getcompanydata`,
+  GETCOMPANYLIST: () => { return `${companyRoutes}/companydata` },
+  ADDCOMPANY: () => { return `${companyRoutes}/addcompany` },
+  GETCOMPANY: (company) => { return `${companyRoutes}/company/${company}` },
+  GETCOMPANYJOBLIST: (company) => { return `${companyRoutes}/getcompanydata/${company}` },
+  ADDJOBTOCOMPANY: (company) => { return `${companyRoutes}/${company}/addjob` },
 
   // User Routes:
-  LOGIN: `${userRoutes}/users/login`,
-  SIGNUP: `${userRoutes}/users`,
-  ISEMAILCONFIRMED: `${userRoutes}/isconfirmed`,
-  SENDRESETEMAIL: `${userRoutes}/sendresetemail`,
-  RESETPASSWORD: `${userRoutes}/forgotpassword`,
+  LOGIN: () => { return `${userRoutes}/users/login` },
+  SIGNUP: () => { return `${userRoutes}/users` },
+  ISEMAILCONFIRMED: (username) => { return `${userRoutes}/isconfirmed/${username}` },
+  SENDRESETEMAIL: () => { return `${userRoutes}/sendresetemail` },
+  RESETPASSWORD: (resetToken) => { return `${userRoutes}/forgotpassword/${resetToken}` },
+  SAVEJOBTOUSER: (company, job) => { return `${jobRoutes}/${company}/${job}/save`},
+  GETSAVEDJOBS: () => { return `${jobRoutes}/savedjobs` },
 
   // Job Routes:
   GETSALARIES: (company, job) => { return `${jobRoutes}/${company}/${job}/salaries` },

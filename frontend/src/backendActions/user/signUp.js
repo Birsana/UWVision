@@ -4,7 +4,7 @@ import routes from "backendActions/routes";
 export const signUp = (username, email, password) => {
   return axios({
     method: "post",
-    url: routes.SIGNUP,
+    url: routes.SIGNUP(),
     data: {
       user: {
         email: email,
