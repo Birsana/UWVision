@@ -7,7 +7,10 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: "none",
     padding: "4px 20px",
     marginBottom: "40px",
-    width: "100%"
+    width: "100%",
+    [theme.breakpoints.down(520)]: {
+      padding: "4px 0px"
+    }
   },
 
   header: {
@@ -20,8 +23,6 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.down(520)]: {
       padding: "4px 0px",
-      display: "flex",
-      width: "auto",
       marginBottom: "40px"
     }
   },
