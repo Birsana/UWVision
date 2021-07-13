@@ -24,7 +24,7 @@ const Content = styled.div`
 
     h1 {
         font-size: 32px;
-        padding-bottom: 85px;
+        padding-bottom: 35px;
         color: white;
     }
 
