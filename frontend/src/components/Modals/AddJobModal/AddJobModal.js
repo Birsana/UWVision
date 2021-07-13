@@ -85,6 +85,7 @@ const AddJobModal = (props) => {
             onChange={onInputChange}
             autoComplete="off"
             value={jobToAdd}
+            autoFocus={true}
           />
           {jobError && (
             <FormErrorMessage>

@@ -51,6 +51,7 @@ const InterviewModal = (props) => {
                     placeholder="Interview question..."
                     onChange={questionChange}
                     value={question}
+                    autoFocus={true}
                 />
                 {error && (
                 <FormErrorMessage>

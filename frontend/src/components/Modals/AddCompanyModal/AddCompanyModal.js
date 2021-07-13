@@ -92,6 +92,7 @@ const AddCompanyModal = (props) => {
             onChange={onInputChange}
             autoComplete="off"
             value={companyToAdd}
+            autoFocus={true}
           />
           {companyError && (
             <FormErrorMessage>

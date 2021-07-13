@@ -43,6 +43,7 @@ const ForgotPasswordModal = (props) => {
           placeholder="Email"
           onChange={emailInputChange}
           value={email}
+          autoFocus={true}
         />
         {emailError && (
           <FormErrorMessage>

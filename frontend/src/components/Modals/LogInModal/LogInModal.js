@@ -105,6 +105,8 @@ const LogInModal = (props) => {
           placeholder="Email"
           onChange={emailInputChange}
           value={email}
+          autoFocus={true}
+          maxLength={64}
         />
         {emailError && (
           <FormErrorMessage>
@@ -117,6 +119,7 @@ const LogInModal = (props) => {
           placeholder="Password"
           onChange={passwordInputChange}
           value={password}
+          maxLength={64}
         />
         {passwordError && (
           <FormErrorMessage>
