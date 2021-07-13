@@ -109,6 +109,8 @@ const ForgotPasswordPage = (props) => {
             placeholder="New Password"
             onChange={passwordInputChange}
             value={password}
+            autoFocus={true}
+            maxLength={64}
           />
           {passwordError && (
             <FormErrorMessage>
@@ -121,6 +123,7 @@ const ForgotPasswordPage = (props) => {
             placeholder="Confirm New Password"
             onChange={confirmPasswordInputChange}
             value={confirmPassword}
+            maxLength={64}
           />
           {confirmPasswordError && (
             <FormErrorMessage>

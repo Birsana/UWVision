@@ -172,6 +172,7 @@ const SignUpModal = ({ changeModalState }) => {
               onChange={usernameInputChange}
               value={username}
               autoFocus={true}
+              maxLength={32}
             />
             {usernameError && (
               <FormErrorMessage>
@@ -184,6 +185,7 @@ const SignUpModal = ({ changeModalState }) => {
               placeholder="Email"
               onChange={emailInputChange}
               value={email}
+              maxLength={64}
             />
             {emailError && (
               <FormErrorMessage>
@@ -196,6 +198,7 @@ const SignUpModal = ({ changeModalState }) => {
               placeholder="Password"
               onChange={passwordInputChange}
               value={password}
+              maxLength={64}
             />
             {passwordError && (
               <FormErrorMessage>
@@ -208,6 +211,7 @@ const SignUpModal = ({ changeModalState }) => {
               placeholder="Confirm Password"
               onChange={confirmPasswordInputChange}
               value={confirmPassword}
+              maxLength={64}
             />
             {confirmPasswordError && (
               <FormErrorMessage>
