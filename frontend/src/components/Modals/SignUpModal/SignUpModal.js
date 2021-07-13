@@ -85,7 +85,7 @@ const SignUpModal = ({ changeModalState }) => {
     }
     // User cannot use a non-uwaterloo email
     else if (!email.includes("@uwaterloo.ca")) {
-      setEmailError('Please enter an @uwaterloo.ca email.');
+      setEmailError('Please enter a @uwaterloo.ca email.');
       return false;
     }
 
@@ -182,7 +182,7 @@ const SignUpModal = ({ changeModalState }) => {
             <FormInput
               type="text"
               name="email"
-              placeholder="Email"
+              placeholder="Email (@uwaterloo.ca)"
               onChange={emailInputChange}
               value={email}
               maxLength={64}
@@ -223,15 +223,15 @@ const SignUpModal = ({ changeModalState }) => {
           <ModalLogInButton onClick={() => changeModalState("Log In")} />{" "}
         </>
       ) : (
-        <>
-          <ModalText>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+          <ModalText style={{ marginLeft: 0 }}>
             Welcome <b>{username}</b>!
           </ModalText>
-          <ModalText>
+          <ModalText style={{ marginLeft: 0 }}>
             You will receive an email to confirm your newly created account
             shortly.
           </ModalText>
-          <ModalText>
+          <ModalText style={{ marginLeft: 0 }}>
             Once you have confirmed your account, go ahead and log in!
           </ModalText>
           <ModalButton onClick={signInAfterConfirm}>Log In!</ModalButton>
@@ -240,7 +240,7 @@ const SignUpModal = ({ changeModalState }) => {
               <p>{confirmationError}</p>
             </FormErrorMessage>
           )}
-        </>
+        </div>
       )}
     </>
   );
