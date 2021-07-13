@@ -8,6 +8,7 @@ import { useStyles } from "./styles";
 
 // Footer Component
 const Footer = (props) => {
+  const contactEmail = "info.uwvision@gmail.com"
   const styles = useStyles();
 
   const handleClick = (clickLocation) => {
@@ -39,6 +40,13 @@ const Footer = (props) => {
             onClick={() => handleClick("privacy")}
           >
             Privacy Policy
+          </Button>
+          <Button
+            className={styles.buttons}
+            color="inherit"
+            onClick={() => window.location = `mailto:${contactEmail}`}
+          >
+            Contact Us
           </Button>
         </Toolbar>
       </AppBar>

@@ -38,10 +38,12 @@ const pageCopy = {
   h1Text: "Privacy Policy",
   paragraph1:
     "UWVision takes user privacy very seriously. The only personal data we store on our server is an individual’s email and username, which we require to allow protected actions such as adding companies, jobs, reviews, and interview questions. This is to ensure that the integrity of the website is preserved and information can only be added by verified UWaterloo students.",
-  paragraph2: "The opinions expressed by users of the site do not represent those of UWVision and its creators. UWVision is in no way affliated with the University of Waterloo. If you have additional questions or require more information, please contact us at info.uwvision@gmail.com."
+  paragraph2: "The opinions expressed by users of the site do not represent those of UWVision and its creators. UWVision is in no way affliated with the University of Waterloo. If you have additional questions or require more information, please contact us at "
 };
 
 const PrivacyPolicy = () => {
+    const contactEmail = "info.uwvision@gmail.com"
+
     return (
         <>
         <img src={privacyPolicyImage} className="privacyPolicyImage" alt=""/>
@@ -49,7 +51,7 @@ const PrivacyPolicy = () => {
             <Content>
                 <h1>{pageCopy.h1Text}</h1>
                 <p>{pageCopy.paragraph1}</p>
-                <p>{pageCopy.paragraph2}</p>
+                <p>{pageCopy.paragraph2} <a href={`mailto:${contactEmail}`}>{contactEmail}.</a></p>
             </Content>
         </Container>
         </>
