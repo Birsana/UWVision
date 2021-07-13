@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.2d8d9c4d.chunk.css",
-    "main.js": "/static/js/main.834df7e9.chunk.js",
+    "main.css": "/static/css/main.a4446f93.chunk.css",
+    "main.js": "/static/js/main.8a587cc7.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.ef9e3da7.chunk.js": "/static/js/2.ef9e3da7.chunk.js",
+    "static/js/2.fd4c0d7b.chunk.js": "/static/js/2.fd4c0d7b.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.ef9e3da7.chunk.js.LICENSE.txt": "/static/js/2.ef9e3da7.chunk.js.LICENSE.txt",
-    "static/js/main.834df7e9.chunk.js.LICENSE.txt": "/static/js/main.834df7e9.chunk.js.LICENSE.txt",
+    "static/js/2.fd4c0d7b.chunk.js.LICENSE.txt": "/static/js/2.fd4c0d7b.chunk.js.LICENSE.txt",
+    "static/js/main.8a587cc7.chunk.js.LICENSE.txt": "/static/js/main.8a587cc7.chunk.js.LICENSE.txt",
     "static/media/landingPageImageDark.7f745cf4.png": "/static/media/landingPageImageDark.7f745cf4.png",
     "static/media/privacyPolicyBackdrop.3ceadcc0.png": "/static/media/privacyPolicyBackdrop.3ceadcc0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.ef9e3da7.chunk.js",
-    "static/css/main.2d8d9c4d.chunk.css",
-    "static/js/main.834df7e9.chunk.js"
+    "static/js/2.fd4c0d7b.chunk.js",
+    "static/css/main.a4446f93.chunk.css",
+    "static/js/main.8a587cc7.chunk.js"
   ]
 }
