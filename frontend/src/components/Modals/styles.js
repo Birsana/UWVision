@@ -174,6 +174,10 @@ export const FormErrorMessage = styled.div`
 export const FormSubmitButton = styled.input.attrs({
   type: "submit",
 })`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 1
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 10px;
