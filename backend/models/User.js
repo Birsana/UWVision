@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
     savedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
     upvotedQuestions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InterviewQuestion'}],
     upvotedReviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review'}],
-    username: {type: String, lowercase: true, unique: true, match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
+    username: {type: String, lowercase: true, unique: true, maxLength: 32, match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
     email: {type: String, lowercase: true, unique: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
     image: String,
     hash: String,
