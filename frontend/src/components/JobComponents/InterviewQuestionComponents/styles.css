@@ -10,7 +10,7 @@
 .question-body {
   font-size: 16px;
   margin: 0;
-  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width: 940px) {

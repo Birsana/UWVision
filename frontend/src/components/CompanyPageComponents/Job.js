@@ -23,7 +23,7 @@ const JobElement = styled.div`
 
 const JobTitle = styled.div`
   max-width: calc(100% - 100px);
-  word-break: break-all;
+  overflow-wrap: break-word;
   h2 {
     font-size: 22px;
     font-weight: bold;

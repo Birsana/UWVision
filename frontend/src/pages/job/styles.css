@@ -26,14 +26,14 @@
   font-size: 18px;
   font-weight: bold;
   margin: 0;
-  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .job {
   font-size: 36px;
   font-weight: bold;
   margin: 0;
-  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .body {
