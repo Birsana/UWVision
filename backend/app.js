@@ -42,7 +42,9 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
-mongoose.connect("mongodb+srv://andre:andrejustincyrus@cluster0.aloje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", 
+const clusterString = process.env.CLUSTER || "mongodb+srv://andre:andrejustincyrus@cluster0.aloje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+mongoose.connect(clusterString, 
 { 
     useNewUrlParser: true,
     useFindAndModify: false,
