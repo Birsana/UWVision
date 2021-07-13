@@ -1,0 +1,3 @@
+//! Empty dependency array is important as we only want to call this useEffect once
+
+//! Password strength checks
