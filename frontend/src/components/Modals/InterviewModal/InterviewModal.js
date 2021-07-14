@@ -45,7 +45,7 @@ const InterviewModal = (props) => {
                     What interview question were you asked at {props.company}?
                 </ModalText>
                 <FormTextarea
-                    maxLength={500}
+                    maxLength={1000}
                     type="text"
                     name="question"
                     placeholder="Interview question..."

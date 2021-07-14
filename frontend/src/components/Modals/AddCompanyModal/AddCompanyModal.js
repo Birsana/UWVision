@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   ModalTitle,
-  ModalText,
-  ModalButton,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
-import { useLocation } from 'react-router-dom';
 
 // Backend + Redux Imports:
 import { addCompany } from "backendActions";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 // ==============================================================================================================
 
@@ -24,9 +21,6 @@ const AddCompanyModal = (props) => {
   // Modal States:
   const [companyToAdd, setCompanyToAdd] = useState(props.company);
   const [companyError, setCompanyError] = useState("");
-  const [didSubmit, setDidSubmit] = useState(false);
-
-  const location = useLocation();
 
   // Basic Validation - ensures the user is not submitting an empty company name
   const basicInputValidation = () => {
@@ -60,10 +54,11 @@ const AddCompanyModal = (props) => {
     if (basicInputValidation()) {
       // If the company being added already exists in the database - set an error explaining the situation
       addCompany(companyToAdd, authToken)
-        .then((response) => {
-          setDidSubmit(true);
+        .then((res) => {
+          props.history.push(`/company/${companyToAdd}`);
         })
-        .catch((response) => {
+        .catch((err) => {
+          console.log(err)
           setCompanyError("This company already exists!");
         });
     }
@@ -82,43 +77,24 @@ const AddCompanyModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Company"} />
-      {!didSubmit ? (
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
-          <FormInput
-            maxLength={100}
-            type="text"
-            name="companyName"
-            placeholder="Company Name"
-            onChange={onInputChange}
-            autoComplete="off"
-            value={companyToAdd}
-            autoFocus={true}
-          />
-          {companyError && (
-            <FormErrorMessage>
-              <p>{companyError}</p>
-            </FormErrorMessage>
-          )}
-          <FormSubmitButton value="Add Company" />
-        </form>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <ModalText>
-            The company "<b>{companyToAdd}</b>" has been successfully added to
-            the database!
-          </ModalText>
-          <ModalText>
-            Would you like to start adding information for this company?
-          </ModalText>
-          <NavLink
-            style={{ width: "100%", display: "flex", justifyContent: "center", textDecoration: "none" }}
-            onClick={() => location.pathname === "/company/" + companyToAdd ? props.onClose() : {}}
-            to={"/company/" + companyToAdd}
-          >
-            <ModalButton>Get Started!</ModalButton>
-          </NavLink>
-        </div>
-      )}
+      <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+        <FormInput
+          maxLength={100}
+          type="text"
+          name="companyName"
+          placeholder="Company Name"
+          onChange={onInputChange}
+          autoComplete="off"
+          value={companyToAdd}
+          autoFocus={true}
+        />
+        {companyError && (
+          <FormErrorMessage>
+            <p>{companyError}</p>
+          </FormErrorMessage>
+        )}
+        <FormSubmitButton value="Add Company" />
+      </form>
     </>
   );
 };
@@ -128,4 +104,4 @@ const mapStateToProps = (state) => ({
   token: state.token,
 });
 
-export default connect(mapStateToProps)(AddCompanyModal);
+export default connect(mapStateToProps)(withRouter(AddCompanyModal));

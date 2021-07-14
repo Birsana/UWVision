@@ -75,7 +75,6 @@ export const ModalTitle = ({ title }) => {
 
 export const ModalText = styled.p`
   margin-left: 16px;
-  font-family: Roboto; 
   width: 90%;
 `;
 

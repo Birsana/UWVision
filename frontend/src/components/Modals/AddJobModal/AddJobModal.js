@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 
 import {
   ModalTitle,
-  ModalText,
-  ModalButton,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,
@@ -22,7 +20,6 @@ const AddJobModal = (props) => {
   // Modal States:
   const [jobToAdd, setJobToAdd] = useState("");
   const [jobError, setJobError] = useState("");
-  const [didSubmit, setDidSubmit] = useState(false);
 
   // Basic Validation - ensures the user is not submitting an empty company name
   const basicInputValidation = () => {
@@ -63,49 +60,37 @@ const AddJobModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-        addJob(company, jobToAdd, authToken).then((response) => {setDidSubmit(true)}).catch((response) => {setJobError("This job already exists!")});
+        addJob(company, jobToAdd, authToken)
+          .then((res) => {
+            props.history.push(`/company/${company}/job/${jobToAdd}`);
+          })
+          .catch((err) => {
+            setJobError("This job already exists!")
+          });
     }
   };
-
-  const goToJob = () => {
-    let destination = `/company/${company}/job/${jobToAdd}`
-    props.history.push(destination);
-  }
 
   return (
     <>
       <ModalTitle title={"Add Job"} />
-      {!didSubmit ? (
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
-          <FormInput
-            maxLength={100}
-            type="text"
-            name="jobTitle"
-            placeholder="Job Title"
-            onChange={onInputChange}
-            autoComplete="off"
-            value={jobToAdd}
-            autoFocus={true}
-          />
-          {jobError && (
-            <FormErrorMessage>
-              <p>{jobError}</p>
-            </FormErrorMessage>
-          )}
-          <FormSubmitButton value="Add Job" />
-        </form>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <ModalText>
-            The job "<b>{jobToAdd}</b>" has been successfully added to the
-            database!
-          </ModalText>
-          <ModalText>
-            Would you like to start adding information for this job?
-          </ModalText>
-          <ModalButton onClick={goToJob}>Get Started!</ModalButton>
-        </div>
-      )}
+      <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+        <FormInput
+          maxLength={100}
+          type="text"
+          name="jobTitle"
+          placeholder="Job Title"
+          onChange={onInputChange}
+          autoComplete="off"
+          value={jobToAdd}
+          autoFocus={true}
+        />
+        {jobError && (
+          <FormErrorMessage>
+            <p>{jobError}</p>
+          </FormErrorMessage>
+        )}
+        <FormSubmitButton value="Add Job" />
+      </form>
     </>
   );
 };

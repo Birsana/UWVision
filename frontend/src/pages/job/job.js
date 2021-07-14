@@ -80,9 +80,11 @@ const JobPage = (props) => {
   }, [company, job, props.token]);
 
   useEffect(() => {
-    setShowSalaryModal(2);
-    setShowInterviewModal(2);
-    setShowReviewModal(2);
+    if (showSalaryModal !== 0 || showInterviewModal !== 0 || showReviewModal !== 0) {
+      setShowSalaryModal(2);
+      setShowInterviewModal(2);
+      setShowReviewModal(2);
+    }
   }, [props.isLoggedIn]);
 
   const addReview = (review) => {

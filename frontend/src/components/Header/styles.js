@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     width: "100%",
     [theme.breakpoints.down(520)]: {
-      padding: "4px 0px"
+      padding: "4px 4px"
     }
   },
 
@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(520)]: {
-      padding: "4px 0px",
+      padding: "4px 4px",
       marginBottom: "40px"
     }
   },

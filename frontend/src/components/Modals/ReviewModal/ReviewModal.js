@@ -126,7 +126,7 @@ const ReviewModal = (props) => {
             </ThemeProvider>
           </div>
           <FormTextarea
-            maxLength={1000}
+            maxLength={2000}
             type="text"
             name="review"
             placeholder="Add a review..."
