@@ -108,7 +108,6 @@ const Header = (props) => {
                   horizontal: "right",
                 }}
                 open={open}
-                disableScrollLock={true}
                 onClose={handleMenuClose}
                 style={{ marginTop: 14, boxShadow: "none" }}
                 elevation={3}
