@@ -299,13 +299,20 @@ router.post('/:companyname/:job/save', auth.required, function(req, res, next) {
 router.get('/savedjobs', auth.required, async function(req, res, next) {
     User.findById(req.payload.id).then(async function(user){
         if(!user){ return res.sendStatus(401); } 
-        var retArr = [];
-        for(var i = 0; i < user.savedJobs.length; ++i){
-            await Job.findById(user.savedJobs[i]).then(function(job){
-                retArr.push(job.toJSONFor());
-            }).catch(next);
+
+        // Create map with (companyName -> [saved jobs for that company])
+        const jobMap = {};
+        for (let i = 0; i < user.savedJobs.length; i++) {
+            await Job.findById(user.savedJobs[i]).then((job) => {
+                if (!jobMap[job.company]) {
+                    jobMap[job.company] = [];
+                }
+                jobMap[job.company].push(job.toJSONFor());
+            });
         }
-        res.send(retArr);
+        
+        // Return map of saved jobs
+        res.send(jobMap);
       }).catch(next);
 });
 

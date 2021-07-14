@@ -57,22 +57,13 @@ const SavedJobs = (props) => {
     useEffect(() => {
         let isMounted = true;  
         getSavedJobs(props.token).then(response => {
-          if (isMounted) {
-            const finalData = {};
-    
-            response.data.forEach(element => {
-                if (!finalData[element.company]) {
-                    finalData[element.company] = [];
-                }
-                finalData[element.company].push(element);
-            });
-    
-            setSavedJobs(finalData);
+          if (isMounted) {   
+            setSavedJobs(response.data);
             setShowSavedJobs(true);
           }
         });
         return () => { isMounted = false };
-    }, [savedJobs, props.token]);
+    }, [props.token]);
 
     return !showSavedJobs ? (
       <SavedJobsList>
