@@ -58,7 +58,6 @@ const AddCompanyModal = (props) => {
           props.history.push(`/company/${companyToAdd}`);
         })
         .catch((err) => {
-          console.log(err)
           setCompanyError("This company already exists!");
         });
     }
