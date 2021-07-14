@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var ReviewSchema = new mongoose.Schema({
     body: String,
     author: String,
+    year: {type: Number, min: 2000, max: Date().getFullYear()},
+    term: {type: String, enum: ['fall', 'winter', 'spring']},
     workLifeBalance: Number,
     culture: Number,
     interestingWork: Number,
@@ -16,6 +18,8 @@ ReviewSchema.methods.toJSONFor = function(isUpvoted){
     return {
       id: this._id,
       body: this.body,
+      year: this.year,
+      term: this.term,
       createdAt: this.createdAt,
       author: this.author,
       workLifeBalance: this.workLifeBalance,

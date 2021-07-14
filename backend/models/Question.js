@@ -1,8 +1,12 @@
 var mongoose = require('mongoose');
 
+
+
 var InterviewQuestionSchema = new mongoose.Schema({
     body: String,
     author: String,
+    year: {type: Number, min: 2000, max: Date().getFullYear()},
+    term: {type: String, enum: ['fall', 'winter', 'spring']},
     upvoters: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     job: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' }
   }, {timestamps: true});
@@ -14,6 +18,8 @@ InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
       body: this.body,
       createdAt: this.createdAt,
       author: this.author,
+      year: this.year,
+      term: this.term,
       numUpvotes: this.upvoters.length,
       upvoted: isUpvoted
     };
