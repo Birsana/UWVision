@@ -20,14 +20,8 @@ const SearchBar = (props) => {
 
   // Populate search bar options when component mounts
   useEffect(() => {
-    getListOfCompanies().then(companyList => {
-      const listOfCompanies = [];
-      
-      companyList.forEach(company => {
-        listOfCompanies.push({label: company, value: company});
-      });
-
-      setCompanyData(listOfCompanies);
+    getListOfCompanies().then(response => {
+      setCompanyData(response.data);
     });
   }, []);
 

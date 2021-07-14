@@ -11,8 +11,25 @@ var Job = mongoose.model('Job');
 //get all the companies
 router.get('/companydata', function(req, res){
     Company.find({}, function(err, companies) {
-    if (err) throw err;
-    return res.json(companies);
+        if (err) throw err;
+
+        const listOfCompanies = [];
+        companies.forEach((company) => {
+            let companyName = company.companyName;
+            listOfCompanies.push({label: companyName, value: companyName});
+        });
+
+        listOfCompanies.sort((a, b) => {
+            if (a.label < b.label) {
+                return -1;
+            } else if (a.label > b.label) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
+        return res.json(listOfCompanies);
     });
 });
 
