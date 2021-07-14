@@ -1,9 +1,18 @@
 var mongoose = require('mongoose');
 
+function validator(year){
+    var date = new Date()
+    if(year < 2000 || year > date.getFullYear){
+        return false;
+    } else {
+        return true;
+    }
+}
+
 var ReviewSchema = new mongoose.Schema({
     body: String,
     author: String,
-    year: {type: Number, min: 2000, max: Date().getFullYear()},
+    year: {type: Number, validate: validator},
     term: {type: String, enum: ['fall', 'winter', 'spring']},
     workLifeBalance: Number,
     culture: Number,

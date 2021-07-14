@@ -1,11 +1,18 @@
 var mongoose = require('mongoose');
 
-
+function validator(year){
+    var date = new Date()
+    if(year < 2000 || year > date.getFullYear()){
+        return false;
+    } else {
+        return true;
+    }
+}
 
 var InterviewQuestionSchema = new mongoose.Schema({
     body: String,
     author: String,
-    year: {type: Number, min: 2000, max: Date().getFullYear()},
+    year: {type: Number, validate: validator},
     term: {type: String, enum: ['fall', 'winter', 'spring']},
     upvoters: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     job: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' }
@@ -25,4 +32,4 @@ InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
     };
 };
 
-  mongoose.model('InterviewQuestion', InterviewQuestionSchema);
+  mongoose.model('InterviewQuestion', InterviewQuestionSchema); 
