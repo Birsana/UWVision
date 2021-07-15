@@ -94,5 +94,6 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   menuItem: {
+    fontFamily: "'Source Sans Pro', sans-serif"
   }
 }));

@@ -109,7 +109,7 @@ const Header = (props) => {
                 }}
                 open={open}
                 onClose={handleMenuClose}
-                style={{ marginTop: 14, boxShadow: "none" }}
+                style={{ marginTop: 14 }}
                 elevation={3}
               >
                 <MenuItem
