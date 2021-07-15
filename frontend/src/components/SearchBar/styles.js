@@ -188,7 +188,13 @@ export const SearchBarStylesNotHome = {
     ...styles,
     marginTop: 8,
     borderRadius: 4,
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    "@media only screen and (max-width: 520px)": {
+      ...styles["@media only screen and (max-width: 320px)"],
+      width: "100vw",
+      marginLeft: -20,
+      boxShadow: '0 14px 14px rgba(0, 0, 0, 0.07)',
+    },
   }),
 
   singleValue: styles => ({
