@@ -55,7 +55,7 @@ function Review(props){
             <div className="helpful-button">
               <Tooltip title="This review was helpful">
                 <span>
-                  <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ width: "max-content" }} onClick={() => upvote()}>
+                  <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ width: "max-content", fontWeight: "600" }} onClick={() => upvote()}>
                     Helpful ({num})
                   </Button>
                 </span>

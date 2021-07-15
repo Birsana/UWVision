@@ -16,7 +16,6 @@
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 20px;
   margin-top: 0;
 }
@@ -231,7 +230,7 @@
   }
 
   .job {
-    font-size: 28px;
+    font-size: 30px;
   }
 }
 
@@ -289,10 +288,6 @@
 
   .company {
     font-size: 14px;
-  }
-
-  .job {
-    font-size: 24px;
   }
 
   .sub-header {

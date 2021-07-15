@@ -1,15 +1,14 @@
 .landing-header {
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 50px;
   margin: 0;
 }
 
 .landing-subheader {
-  font-family: Roboto;
   font-weight: 300;
-  font-size: 22px;
-  font-weight: normal;
-  margin: 0 0 28px 2px;
+  font-size: 24px;
+  font-weight: 500;
+  margin: -4px 0 28px 2px;
 }
 
 .landing {
@@ -41,10 +40,6 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-}
-
-.select input {
-  font-family: Roboto;
 }
 
 @media only screen and (max-width: 1300px) {

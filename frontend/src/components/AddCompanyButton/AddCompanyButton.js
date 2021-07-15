@@ -15,7 +15,6 @@ import { connect } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
     background: '#2196f3',
-    fontFamily: "Roboto",
     fontWeight: 400,
     fontSize: 16,
     textTransform: "none",
@@ -29,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
   buttonText: {
     fontWeight: "bold",
     marginLeft: 8,
-    marginRight: 4
+    marginRight: 4,
+    marginTop: 13
   },
   icon: {
     marginRight: 1

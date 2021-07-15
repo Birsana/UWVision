@@ -30,7 +30,6 @@ export const StyledSearch = styled(Select)`
 export const SearchBarStylesHome = {
     control: (base, { isFocused }) => ({
       ...base,
-      fontFamily: 'Roboto',
       fontSize: 16,
       fontWeight: '400',
       backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
@@ -59,7 +58,6 @@ export const SearchBarStylesHome = {
     option: (styles, { isFocused }) => {
       return {
         ...styles,
-        fontFamily: 'Roboto',
         fontSize: 16,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
@@ -78,7 +76,6 @@ export const SearchBarStylesHome = {
   
     input: styles => ({
       ...styles,
-      fontFamily: 'Roboto',
       color: 'black'
     }),
   
@@ -112,7 +109,6 @@ export const SearchBarStylesHome = {
 export const SearchBarStylesNotHome = {
   control: (base, { isFocused }) => ({
     ...base,
-    fontFamily: 'Roboto',
     fontSize: 16,
     fontWeight: '400',
     backgroundColor: isFocused ? "white" : '#efefef',
@@ -125,7 +121,11 @@ export const SearchBarStylesNotHome = {
       ...base["@media only screen and (max-width: 820px)"],
       width: 280,
     },
-    "@media only screen and (max-width: 370px)": {
+    "@media only screen and (max-width: 700px)": {
+      ...base["@media only screen and (max-width: 820px)"],
+      width: 236,
+    },
+    "@media only screen and (max-width: 600px)": {
       ...base["@media only screen and (max-width: 370px)"],
       width: 220,
     },
@@ -134,12 +134,15 @@ export const SearchBarStylesNotHome = {
       width: 200,
       fontSize: "14px",
     },
+    "@media only screen and (max-width: 300px)": {
+      ...base["@media only screen and (max-width: 320px)"],
+      width: 190
+    },
   }),
 
   option: (styles, { isFocused }) => {
     return {
       ...styles,
-      fontFamily: 'Roboto',
       fontSize: 16,
       cursor: 'pointer',
       backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
@@ -154,7 +157,6 @@ export const SearchBarStylesNotHome = {
 
   input: styles => ({
     ...styles,
-    fontFamily: 'Roboto',
     color: 'black',
     "@media only screen and (max-width: 320px)": {
       ...styles["@media only screen and (max-width: 320px)"],

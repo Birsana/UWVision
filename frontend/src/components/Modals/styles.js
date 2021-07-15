@@ -48,7 +48,6 @@ export const CloseModalButton = styled(MdClose)`
 export const Title = styled.div`
   margin-left: 12px;
   margin-top: 15px;
-  font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
   @media (max-width: 820px) {
@@ -86,7 +85,6 @@ export const ModalButton = styled.button`
   width: 90%;
   border: none;
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
 
   background: #2196f3;
@@ -129,7 +127,6 @@ export const FormTextarea = styled(TextareaAutosize)`
   background-color: rgba(239, 239, 239);
   border: none;
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
   padding: 10px;
   resize: none;
@@ -146,7 +143,6 @@ export const FormInput = styled.input`
   background-color: rgba(239, 239, 239);
   border: none;
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
   padding: 10px;
 
@@ -163,7 +159,6 @@ export const FormErrorMessage = styled.div`
   p {
     margin-top: 0;
     margin-left: 4px;
-    font-family: Roboto;
     font-size: 13px;
     font-weight: bold;
     color: rgb(255, 86, 48);
@@ -184,7 +179,6 @@ export const FormSubmitButton = styled.input.attrs({
   width: 90%;
   border: none;
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
 
   background: #2196f3;

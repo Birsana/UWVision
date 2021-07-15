@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   buttonStyle: {
     background: "#2196f3",
     fontSize: 16,
+    fontWeight: "bold",
     textTransform: "none",
     boxShadow: "none",
     color: "white",
@@ -34,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
       height: 40,
       width: 112,
-      marginTop: 0
+      marginTop: 0,
+      marginBottom: -32
     },
     [theme.breakpoints.down(520)]: {
       height: 36,
@@ -46,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 5,
     marginLeft: -4,
     height: 22,
-    width: 22
+    width: 22,
   },
 }));
 

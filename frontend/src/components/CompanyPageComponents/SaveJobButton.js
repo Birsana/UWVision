@@ -1,7 +1,7 @@
 import {Button} from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from 'react';
-import { MdRemoveRedEye } from "react-icons/md"
+import { RiBookmarkLine, RiBookmarkFill } from "react-icons/ri"
 import { connect } from "react-redux";
 import Modal from 'components/Modals/Modal';
 import { saveJobToUser } from 'backendActions';
@@ -47,14 +47,26 @@ const SaveJobButton = (props) => {
       <>
         <Button
           onClick={onClick}
-          style={isSaved ? { color: '#2196f3', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" } : { color: '#939393', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" }}
+          style={isSaved ? { color: '#2196f3', fontWeight: "600", margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" } : { color: '#939393', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" }}
           className={styles.buttonStyleSaved}
         >
-          <MdRemoveRedEye
-            size={20}
-            style={{ marginRight: 7 }}
-          />
-          {isSaved ? 'Saved' : 'Save'}
+          {isSaved ? 
+            <>
+              <RiBookmarkFill
+                size={20}
+                style={{ marginRight: 4 }}
+              />
+              Saved
+            </>
+          :
+            <>
+              <RiBookmarkLine
+                size={20}
+                style={{ marginRight: 4 }}
+              />
+              Save
+            </>
+          }
         </Button>
 
         {showLogInModal && !props.isLoggedIn && (

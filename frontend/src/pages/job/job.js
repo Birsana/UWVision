@@ -18,6 +18,7 @@ import Fade from 'react-reveal/Fade';
 const ReviewButton = withStyles((theme) => ({
   root: {
     color: "white",
+    fontWeight: "bold",
     backgroundColor: blue[500],
     '&:hover': {
       backgroundColor: blue[700],
@@ -31,6 +32,7 @@ const ReviewButton = withStyles((theme) => ({
 const AddButton = withStyles((theme) => ({
   root: {
     color: "white",
+    fontWeight: "bold",
     backgroundColor: blue[500],
     '&:hover': {
       backgroundColor: blue[700],
@@ -38,7 +40,15 @@ const AddButton = withStyles((theme) => ({
     border: "none",
     padding: "4px 0",
     [theme.breakpoints.down(520)]: {
-      padding: 0
+      padding: 0,
+      marginBottom: -2,
+      color: blue[500],
+      fontWeight: "bold",
+      width: 40,
+      backgroundColor: "white",
+      '&:hover': {
+        backgroundColor: "white"
+      },
     }
   },
 }))(Button);

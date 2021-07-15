@@ -10,6 +10,16 @@ import {
 
 import { resetPassword } from "backendActions";
 
+const ForgotPasswordTitle = styled.h2`
+  font-size: 32px;
+  @media (max-width: 600px) {
+    font-size: 28px;
+  }
+  @media (max-width: 520px) {
+    font-size: 24px;
+  }
+`
+
 const ForgotPasswordForm = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,16 +103,16 @@ const ForgotPasswordPage = (props) => {
           props.history.push("/");
         })
         .catch((err) => {
-          setFormSubmissionError("ERROR: Password change unsuccessful!");
+          setFormSubmissionError("Password change unsuccessful!");
         });
     }
   };
 
   return (
-    <ForgotPasswordForm>
-      <h2>Set a New Password</h2>
-      <div style={{ width: "400px" }}>
-        <form onSubmit={handleSubmit}>
+    <div className="container" style={{margin: "0 auto"}}>
+      <ForgotPasswordForm>
+        <ForgotPasswordTitle>Set a New Password</ForgotPasswordTitle>
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", maxWidth: 400 }} onSubmit={handleSubmit}>
           <FormInput
             type="password"
             name="NewPassword"
@@ -137,8 +147,8 @@ const ForgotPasswordPage = (props) => {
             </FormErrorMessage>
           )}
         </form>
-      </div>
-    </ForgotPasswordForm>
+      </ForgotPasswordForm>
+    </div>
   );
 };
 

@@ -48,11 +48,11 @@ export const useStyles = makeStyles((theme) => ({
 
   logInButton: {
     fontSize: "16px",
-    fontWeight: 400,
+    fontWeight: 600,
     textTransform: 'none',
     marginRight: 8,
     marginLeft: -6,
-    padding: "6px 16px",
+    padding: "5px 16px",
     borderRadius: 4,
     [theme.breakpoints.down(620)]: {
       display: "none"
@@ -66,7 +66,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2196f3",
     color: "white",
     borderRadius: 4,
-    padding: "6px 16px",
+    padding: "5px 16px",
     '&:hover': {
       backgroundColor: '#1976d2'
     },

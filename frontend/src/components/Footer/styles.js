@@ -18,7 +18,6 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   buttons: {
-    fontFamily: "Roboto",
     fontSize: "16px",
     fontWeight: 400,
     textTransform: 'none',
