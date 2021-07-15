@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme) => ({
 
   buttons: {
     fontSize: "16px",
-    fontWeight: 400,
     textTransform: 'none',
     [theme.breakpoints.down(520)]: {
       fontSize: "14px"

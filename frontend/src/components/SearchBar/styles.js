@@ -115,18 +115,37 @@ export const SearchBarStylesNotHome = {
     cursor: 'text',
     borderRadius: 4,
     border: isFocused ? "1px solid #2196f3" : "none",
-    maxWidth: "100%",
     width: 400,
     "@media only screen and (max-width: 820px)": {
       ...base["@media only screen and (max-width: 820px)"],
       width: 280,
     },
     "@media only screen and (max-width: 700px)": {
-      ...base["@media only screen and (max-width: 820px)"],
+      ...base["@media only screen and (max-width: 700px)"],
       width: 236,
     },
     "@media only screen and (max-width: 600px)": {
       ...base["@media only screen and (max-width: 370px)"],
+      width: 220,
+    },
+    "@media only screen and (max-width: 520px)": {
+      ...base["@media only screen and (max-width: 520px)"],
+      width: 340,
+    },
+    "@media only screen and (max-width: 490px)": {
+      ...base["@media only screen and (max-width: 490px)"],
+      width: 300,
+    },
+    "@media only screen and (max-width: 450px)": {
+      ...base["@media only screen and (max-width: 450px)"],
+      width: 250,
+    },
+    "@media only screen and (max-width: 400px)": {
+      ...base["@media only screen and (max-width: 400px)"],
+      width: 260,
+    },
+    "@media only screen and (max-width: 364px)": {
+      ...base["@media only screen and (max-width: 364px)"],
       width: 220,
     },
     "@media only screen and (max-width: 320px)": {

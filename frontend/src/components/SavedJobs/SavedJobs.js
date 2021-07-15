@@ -22,13 +22,7 @@ const SavedJobsList = styled.div`
 
   @media (max-width: 820px) {
     h1 {
-      font-size: 28px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    h1 {
-      font-size: 24px;
+      font-size: 30px;
     }
   }
 `;

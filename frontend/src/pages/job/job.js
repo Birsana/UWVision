@@ -14,6 +14,7 @@ import { getSalaries, getQuestions, getReviews, getRatings } from "backendAction
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
 import Fade from 'react-reveal/Fade';
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const ReviewButton = withStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ const AddButton = withStyles((theme) => ({
     padding: "4px 0",
     [theme.breakpoints.down(520)]: {
       padding: 0,
-      marginBottom: -2,
+      marginTop: -2,
       color: blue[500],
       fontWeight: "bold",
       width: 40,
@@ -65,6 +66,7 @@ const JobPage = (props) => {
   const [reviews, setReviews] = useState([]);
   const [showReviews, setShowReviews] = useState(false); // User reviews - Loading state
   const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]); // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
+  const isSmallMobile = useMediaQuery("(max-width: 350px)");
   const company = props.match.params.id;
   const job = props.match.params.jobId;
   
@@ -274,7 +276,7 @@ const JobPage = (props) => {
             >
               <span style={{ display: "flex", alignItems: "center" }}>
                 <BsQuestionSquareFill className="icon" size={20} />
-                Interview questions ({questions.length})
+                {isSmallMobile ? 'Interviews ' : 'Interview questions '}({questions.length})
               </span>
               <AddButton onClick={() => setShowInterviewModal(1)}>
                 Add

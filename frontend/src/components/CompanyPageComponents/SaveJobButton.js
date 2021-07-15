@@ -47,7 +47,7 @@ const SaveJobButton = (props) => {
       <>
         <Button
           onClick={onClick}
-          style={isSaved ? { color: '#2196f3', fontWeight: "600", margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" } : { color: '#939393', margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" }}
+          style={isSaved ? { color: '#2196f3', fontWeight: "600", margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" } : { color: '#939393', fontWeight: "600", margin: isMobile ? "4px 0 0 -6px" : "-2px -4px 0 0" }}
           className={styles.buttonStyleSaved}
         >
           {isSaved ? 

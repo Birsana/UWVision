@@ -15,8 +15,9 @@
   display: flex;
   align-items: center;
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 14px;
   margin-top: 0;
 }
 
@@ -99,16 +100,6 @@
   height: 100%;
   overflow: auto;
   width: 400px;
-}
-
-.add-button {
-  cursor: pointer;
-  font-size: 16px;
-  color: #2196f3;
-}
-
-.add-button:hover {
-  opacity: 0.8;
 }
 
 .icon {
@@ -231,6 +222,8 @@
 
   .job {
     font-size: 30px;
+    line-height: 32px;
+    margin-top: 2px;
   }
 }
 
@@ -262,6 +255,10 @@
     width: calc(100vw - 40px);
   }
 
+  .sub-header {
+    font-size: 18px;
+  }
+
   .job-container {
     padding: 0 20px;
   }
@@ -284,18 +281,6 @@
 
   .body {
     width: calc(100vw - 40px);
-  }
-
-  .company {
-    font-size: 14px;
-  }
-
-  .sub-header {
-    font-size: 16px;
-  }
-
-  .add-button {
-    font-size: 14px;
   }
 
   .average-container {
