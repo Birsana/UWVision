@@ -14,17 +14,15 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   customizeToolbar: {
-    height: 50
+    height: 50,
+    [theme.breakpoints.down(820)]: {
+      margin: "0 auto",
+      padding: 0
+    },
   },
 
   buttons: {
     fontSize: "16px",
     textTransform: 'none',
-    [theme.breakpoints.down(520)]: {
-      fontSize: "14px"
-    },
-    [theme.breakpoints.down(300)]: {
-      fontSize: "12px"
-    }
   }
 }));
