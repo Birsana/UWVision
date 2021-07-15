@@ -47,11 +47,12 @@ export const SearchBarStylesHome = {
       },
       "@media only screen and (max-width: 360px)": {
           ...base["@media only screen and (max-width: 360px)"],
-          width: 240,
+          width: 270,
       },
       "@media only screen and (max-width: 320px)": {
         ...base["@media only screen and (max-width: 320px)"],
         fontSize: "14px",
+        width: 240,
       },
     }),
   
@@ -61,7 +62,7 @@ export const SearchBarStylesHome = {
         fontSize: 16,
         cursor: 'pointer',
         backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
-        color: isFocused ? 'black' : 'grey',
+        color: isFocused ? 'black' : '#4d4d4d',
         lineHeight: 2,
         "@media only screen and (max-width: 820px)": {
           ...styles["@media only screen and (max-width: 820px)"],
@@ -165,7 +166,7 @@ export const SearchBarStylesNotHome = {
       fontSize: 16,
       cursor: 'pointer',
       backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
-      color: isFocused ? 'black' : 'grey',
+      color: isFocused ? 'black' : '#4d4d4d',
       lineHeight: 2,
       "@media only screen and (max-width: 320px)": {
         ...styles["@media only screen and (max-width: 320px)"],
@@ -185,7 +186,8 @@ export const SearchBarStylesNotHome = {
 
   menu: styles => ({
     ...styles,
-    marginTop: 2,
+    marginTop: 8,
+    borderRadius: 4,
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
   }),
 

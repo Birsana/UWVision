@@ -27,17 +27,27 @@ const SearchBar = (props) => {
 
   // Handles user's selection of specific company
   const handleChange = (selection) => {
-    setSelectedCompany(selection.value);
+    setSelectedCompany(selection.label);
 
     // Redirects the router to the selected company's page
-    const company = selection.value;
+    const company = selection.label;
     props.history.push("/company/" + company);
   };
+
+  const formatOptionLabel = ({ value, label }) => (
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div>{label}</div>
+      <div style={{ color: "#a6a6a6" }}>
+        {value} jobs
+      </div>
+    </div>
+  );
 
   return (
       <StyledSearch
         value={selectedCompany} // Allows for selected option to appear in search bar, after clicking it
         options={companyData} // Uses the map to display the given options
+        formatOptionLabel={formatOptionLabel} // Customize options
         onChange={handleChange}
         placeholder="Search for a company..."
         openMenuOnClick={false} // Prevents option to reveal all options when user clicks the search bar

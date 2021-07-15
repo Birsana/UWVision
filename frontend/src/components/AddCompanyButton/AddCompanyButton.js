@@ -14,6 +14,9 @@ import { connect } from "react-redux";
 // Material-UI Specific Styling:
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     background: '#2196f3',
     fontWeight: 400,
     fontSize: 16,
@@ -27,12 +30,10 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonText: {
     fontWeight: "bold",
-    marginLeft: 8,
-    marginRight: 4,
-    marginTop: 13
+    margin: "-1px 2px 0 8px"
   },
   icon: {
-    marginRight: 1
+    marginRight: 2
   }
 }));
 

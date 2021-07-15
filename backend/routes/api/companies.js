@@ -16,7 +16,7 @@ router.get('/companydata', function(req, res){
         const listOfCompanies = [];
         companies.forEach((company) => {
             let companyName = company.companyName;
-            listOfCompanies.push({label: companyName, value: companyName});
+            listOfCompanies.push({label: companyName, value: company.jobs.length});
         });
 
         listOfCompanies.sort((a, b) => {

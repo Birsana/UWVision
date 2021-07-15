@@ -73,7 +73,7 @@ const AddJobModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Job"} />
-      <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+      <form style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 10 }} onSubmit={handleSubmit}>
         <FormInput
           maxLength={100}
           type="text"

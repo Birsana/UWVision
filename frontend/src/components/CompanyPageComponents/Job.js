@@ -9,9 +9,11 @@ const JobElement = styled.div`
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-bottom: 15px;
-  &:hover {
-    background-color: #ececec;
-    cursor: pointer;
+  @media (hover: hover) and (pointer: fine), only screen and (-ms-high-contrast:active), (-ms-high-contrast:none) {
+    &:hover {
+      background-color: #ececec;
+      cursor: pointer;
+    }
   }
   @media (max-width: 820px) {
     padding: 20px 30px;
@@ -110,7 +112,7 @@ const Job = (props) => {
           }
         </h3>
       </JobMetrics>
-      { isMobile && <SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/> }
+      { isMobile && <div style={{ marginLeft: -5 }}><SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/></div> }
     </JobElement>
   );
 };
