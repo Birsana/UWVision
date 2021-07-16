@@ -60,7 +60,7 @@ const Header = (props) => {
     <>
       <AppBar position={location.pathname === "/" ? 'static' : 'sticky'}
         className={location.pathname === "/" ? styles.landingHeader : styles.header}>
-        <Toolbar style={{ maxWidth: "100%" }}>
+        <Toolbar>
           {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
           {(displayTypography || location.pathname === "/") && (
             <Typography variant="h5" className={styles.title}>

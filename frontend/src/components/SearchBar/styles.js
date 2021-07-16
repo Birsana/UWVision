@@ -168,8 +168,14 @@ export const SearchBarStylesNotHome = {
       backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
       color: isFocused ? 'black' : '#4d4d4d',
       lineHeight: 2,
+      "@media only screen and (max-width: 520px)": {
+        paddingLeft: 30,
+        paddingRight: 30
+      },
       "@media only screen and (max-width: 320px)": {
         ...styles["@media only screen and (max-width: 320px)"],
+        paddingLeft: 20,
+        paddingRight: 20,
         fontSize: "14px",
       },
     }

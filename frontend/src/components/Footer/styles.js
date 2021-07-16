@@ -15,9 +15,8 @@ export const useStyles = makeStyles((theme) => ({
 
   customizeToolbar: {
     height: 50,
-    [theme.breakpoints.down(820)]: {
-      margin: "0 auto",
-      padding: 0
+    [theme.breakpoints.down(320)]: {
+      padding: 4
     },
   },
 

@@ -32,6 +32,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    marginTop: 2,
     backgroundColor: "black",
     color: "white",
     fontSize: 16,
