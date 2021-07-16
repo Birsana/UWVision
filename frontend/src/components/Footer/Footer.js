@@ -22,6 +22,11 @@ const Footer = (props) => {
     props.history.push(destination);
   }
 
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
   return (
     <div className={styles.footerRoot}>
       <AppBar position="relative" className={styles.footer}>
@@ -44,7 +49,7 @@ const Footer = (props) => {
           <Button
             className={styles.buttons}
             color="inherit"
-            onClick={() => window.location = `mailto:${contactEmail}`}
+            onClick={() => openInNewTab(`mailto:${contactEmail}`)}
           >
             Contact Us
           </Button>

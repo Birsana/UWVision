@@ -9,7 +9,7 @@ import './styles.css';
 
 const Home = () => {
   return (
-    <>
+    <div style={{minHeight: 600, position: "relative"}}>
       <div className="landing">
         <div className="landing-container">
           <h1 className="landing-header">Get the inside scoop on co-op jobs</h1>
@@ -24,8 +24,8 @@ const Home = () => {
 
         </div>
       </div>
-      <img src={landingPageImage} className="landingImage" alt=""/>
-    </>
+      {/* <img src={landingPageImage} className="landingImage" alt=""/> */}
+    </div>
   );
 };
   

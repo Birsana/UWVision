@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.08f17d2a.chunk.css",
-    "main.js": "/static/js/main.72267905.chunk.js",
+    "main.css": "/static/css/main.5ea21ba9.chunk.css",
+    "main.js": "/static/js/main.cf46e8a7.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.ad587d6c.chunk.js": "/static/js/2.ad587d6c.chunk.js",
+    "static/js/2.8f77a2a6.chunk.js": "/static/js/2.8f77a2a6.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.ad587d6c.chunk.js.LICENSE.txt": "/static/js/2.ad587d6c.chunk.js.LICENSE.txt",
-    "static/js/main.72267905.chunk.js.LICENSE.txt": "/static/js/main.72267905.chunk.js.LICENSE.txt",
+    "static/js/2.8f77a2a6.chunk.js.LICENSE.txt": "/static/js/2.8f77a2a6.chunk.js.LICENSE.txt",
+    "static/js/main.cf46e8a7.chunk.js.LICENSE.txt": "/static/js/main.cf46e8a7.chunk.js.LICENSE.txt",
     "static/media/landingPageImageDark.7f745cf4.png": "/static/media/landingPageImageDark.7f745cf4.png",
     "static/media/privacyPolicyBackdrop.3ceadcc0.png": "/static/media/privacyPolicyBackdrop.3ceadcc0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.ad587d6c.chunk.js",
-    "static/css/main.08f17d2a.chunk.css",
-    "static/js/main.72267905.chunk.js"
+    "static/js/2.8f77a2a6.chunk.js",
+    "static/css/main.5ea21ba9.chunk.css",
+    "static/js/main.cf46e8a7.chunk.js"
   ]
 }

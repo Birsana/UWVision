@@ -276,7 +276,7 @@ const JobPage = (props) => {
             >
               <span style={{ display: "flex", alignItems: "center" }}>
                 <BsQuestionSquareFill className="icon" size={20} />
-                {isSmallMobile ? 'Interviews ' : 'Interview questions '}({questions.length})
+                {isSmallMobile ? 'Interview ' : 'Interview questions '}({questions.length})
               </span>
               <AddButton onClick={() => setShowInterviewModal(1)}>
                 Add

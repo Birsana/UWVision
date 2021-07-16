@@ -211,7 +211,18 @@ export const SearchBarStylesNotHome = {
     },
   })
 }
-  
+
+// Limit number of options to 6
+export const MenuList = ({ children, ...props }) => {
+  return (
+    <components.MenuList {...props}>
+      {Array.isArray(children) 
+        ? children.slice(0, 6)
+        : children
+       }
+    </components.MenuList>
+  );
+};
 
 // Add search icon to search bar
 export const DropdownIndicator = props => {
@@ -225,3 +236,6 @@ export const DropdownIndicator = props => {
       )
     )
 }
+
+// Allows DropdownIndicator to work
+export const Input = (props) => <components.Input {...props} isHidden={false} />;
