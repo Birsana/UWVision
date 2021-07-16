@@ -31,8 +31,9 @@ const SearchBar = (props) => {
 
   // Handles user's selection of specific company
   const onChange = (selection) => {
-    setValue(selection);
-    setInputValue(selection ? selection.label : "");
+    setValue("");
+    setInputValue("");
+    selectRef.current.blur();
     // Redirects the router to the selected company's page
     const company = selection.label;
     props.history.push("/company/" + company);
@@ -66,11 +67,9 @@ const SearchBar = (props) => {
         onInputChange={onInputChange}
         inputValue={inputValue}
         value={value}
-        controlShouldRenderValue={false}
         options={companyData} // Uses the map to display the given options
         formatOptionLabel={formatOptionLabel} // Customize options
         placeholder="Search for a company..."
-        className="select" // Since it is part of the "Select" component
         styles={(location.pathname === "/") ? SearchBarStylesHome : SearchBarStylesNotHome} // Utilizes custom style given above
         components={{ Input, DropdownIndicator, MenuList }}
         noOptionsMessage={() => <div style={{ fontSize: 16 }}>No companies</div>}
