@@ -24,7 +24,6 @@ InterviewQuestionSchema.methods.toJSONFor = function(isUpvoted){
       id: this._id,
       body: this.body,
       createdAt: this.createdAt,
-      author: this.author,
       year: this.year,
       term: this.term,
       numUpvotes: this.upvoters.length,

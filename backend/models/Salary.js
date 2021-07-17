@@ -9,8 +9,7 @@ var SalarySchema = new mongoose.Schema({
 SalarySchema.methods.toJSONFor = function(){
     return {
       id: this._id,
-      wage: this.wage,
-      addedBy: this.addedBy
+      wage: this.wage
     };
 };
 

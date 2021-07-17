@@ -34,7 +34,6 @@ CompanySchema.methods.toJSONFor = function(){
     return {
       id: this._id,
       companyName: this.companyName,
-      addedBy: this.addedBy,
       averageSalary: this.averageSalary,
       averageRating: this.averageRating,
       numSalaries: this.numSalaries,
