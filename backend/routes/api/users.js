@@ -28,7 +28,7 @@ const createTransporter = async () => {
     const accessToken = await new Promise((resolve, reject) => {
         oauth2Client.getAccessToken((err, token) => {
           if (err) {
-            reject("Failed to create access token :(");
+            reject("Failed to create access token");
           }
           resolve(token);
         });
@@ -64,6 +64,7 @@ sendConfirmationEmail = async (username, email, confirmationCode) => { //sending
 
 sendForgotPasswordEmail = async (username, email, passwordToken) => {
     let transport = await createTransporter();
+    console.log("HERE")
     transport.sendMail({
             to: email,
             subject: "UWVision Password Reset",
