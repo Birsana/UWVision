@@ -42,7 +42,7 @@ const pageCopy = {
 };
 
 const PrivacyPolicy = () => {
-    const contactEmail = "info.uwvision@gmail.com"
+    const contactEmail = "info@uwvision.com"
 
     return (
         <>

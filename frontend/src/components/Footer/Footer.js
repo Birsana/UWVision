@@ -8,7 +8,7 @@ import { useStyles } from "./styles";
 
 // Footer Component
 const Footer = (props) => {
-  const contactEmail = "info.uwvision@gmail.com"
+  const contactEmail = "info@uwvision.com"
   const styles = useStyles();
 
   const handleClick = (clickLocation) => {

@@ -14,10 +14,10 @@ var ReviewSchema = new mongoose.Schema({
     author: String,
     year: {type: Number, validate: validator},
     term: {type: String, enum: ['fall', 'winter', 'spring']},
-    workLifeBalance: Number,
-    culture: Number,
-    interestingWork: Number,
-    overallRating: Number,
+    workLifeBalance: {type: Number, min: 1, max: 5},
+    culture: {type: Number, min: 1, max: 5},
+    interestingWork: {type: Number, min: 1, max: 5},
+    overallRating: {type: Number, min: 1, max: 5},
     upvoters: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
   }, {timestamps: true});
 
@@ -30,7 +30,6 @@ ReviewSchema.methods.toJSONFor = function(isUpvoted){
       year: this.year,
       term: this.term,
       createdAt: this.createdAt,
-      author: this.author,
       workLifeBalance: this.workLifeBalance,
       interestingWork: this.interestingWork,
       culture: this.culture,
