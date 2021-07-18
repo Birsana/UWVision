@@ -1,4 +1,4 @@
-import { Button, Tooltip } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { connect } from "react-redux";
 import { useState } from "react";
 import './styles.css';
@@ -24,13 +24,9 @@ function InterviewQuestion(props){
   return (
     <div className="question-container">
       <p className="question-body">{props.body}</p>
-      <Tooltip title="This interview question was helpful">
-        <span>
-          <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ margin: "10px 0 -12px -6px", width: "max-content", fontWeight: "600" }} onClick={() => upvote()}>
-            Helpful ({num})
-          </Button>
-        </span>
-      </Tooltip>
+      <Button disabled={!props.loggedIn} color={upvoted ? 'secondary' : 'inherit'} style={{ margin: "10px 0 -12px -6px", width: "max-content", fontWeight: "600" }} onClick={() => upvote()}>
+        Helpful ({num})
+      </Button>
     </div>
   );
 }
