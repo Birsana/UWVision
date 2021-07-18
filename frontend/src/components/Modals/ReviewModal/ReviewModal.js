@@ -16,9 +16,9 @@ import Typography from '@material-ui/core/Typography';
 const ReviewModal = (props) => {
     //store user responses
     const [text, setText] = useState("")
-    const [culture, setCulture] = useState(5)
-    const [interesting, setInteresting] = useState(5)
-    const [worklife, setWorkLife] = useState(5)
+    const [culture, setCulture] = useState(3)
+    const [interesting, setInteresting] = useState(3)
+    const [worklife, setWorkLife] = useState(3)
     const [error, setError] = useState("")
 
     const handleChangeCulture = (event, newValue) => {
@@ -112,17 +112,17 @@ const ReviewModal = (props) => {
                 Culture/Environment
               </Typography>
               <Slider value={culture} onChange={handleChangeCulture}
-                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
+                step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
               <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Meaningful/Interesting Work
               </Typography>
               <Slider value={interesting} onChange={handleChangeInteresting}
-                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
+                step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
               <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Work-Life Balance
               </Typography>
               <Slider value={worklife} onChange={handleChangeWorkLife}
-                step={1} valueLabelDisplay="auto" marks min={1} max={10}/>
+                step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
             </ThemeProvider>
           </div>
           <FormTextarea
