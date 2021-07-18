@@ -27,6 +27,20 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
 
+  noShadowHeader: {
+    backgroundColor: "white",
+    color: "black",
+    boxShadow: "none",
+    zIndex: 1,
+    padding: "4px 20px",
+    marginBottom: "60px",
+    width: "100%",
+    [theme.breakpoints.down(520)]: {
+      padding: "4px 4px",
+      marginBottom: "40px"
+    }
+  },
+
   profile: {
     display: "flex",
     justifyContent: "center",
@@ -95,6 +109,10 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   menuItem: {
-    fontFamily: "'Source Sans Pro', sans-serif"
+    fontFamily: "Source Sans Pro",
+    fontSize: 16,
+    width: 200,
+    whiteSpace: "break-spaces",
+    // wordBreak: "break-all"
   }
 }));

@@ -81,7 +81,7 @@ const Job = (props) => {
           {props.jobData.averageRating ? 
             <>
               <span style={{ color: "#2196f3", fontWeight: "bold" }}>
-                {props.jobData.averageRating}/10
+                {props.jobData.averageRating}/5
               </span>
               <span>
                 {" "}

@@ -56,6 +56,9 @@ const AddCompanyModal = (props) => {
       addCompany(companyToAdd, authToken)
         .then((res) => {
           props.history.push(`/company/${companyToAdd}`);
+          if (props.onClose) {
+            props.onClose();
+          }
         })
         .catch((err) => {
           setCompanyError("This company already exists!");

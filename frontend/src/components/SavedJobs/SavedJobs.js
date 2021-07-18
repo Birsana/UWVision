@@ -43,6 +43,15 @@ const NoJobDataDiv = styled.div`
   margin-top: 40px;
 `;
 
+const CompanyName = styled.h2`
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 14px;
+  @media (max-width: 520px) {
+    font-size: 20px;
+  }
+`
 
 const SavedJobs = (props) => {
     const [savedJobs, setSavedJobs] = useState({});
@@ -82,7 +91,7 @@ const SavedJobs = (props) => {
           Object.keys(savedJobs).map((companyName) => {
             return (
               <JobContainer key={companyName}>
-                <h2 style={{ color: "#828282" }}>{companyName}</h2>
+                <CompanyName>{companyName}</CompanyName>
                 {savedJobs[companyName].map((job) => {
                   return (
                     <Fade duration={500} key={`${companyName}-${job.id}`}>

@@ -25,9 +25,9 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
     if (modalType === "Add Company") {
       return <AddCompanyModal company={company} onClose={onClose} />;
     } else if (modalType === "Log In") {
-      return <LogInModal changeModalState={setModalType}/>;
+      return <LogInModal changeModalState={setModalType} />;
     } else if (modalType === "Sign Up") {
-      return <SignUpModal changeModalState={setModalType}/>;
+      return <SignUpModal changeModalState={setModalType} />;
     } else if (modalType === "Add Review") {
         return <ReviewModal job={job} company={company} onSubmit={onSubmit} onClose={onClose} />;
     } else if (modalType === "Add Interview") {
@@ -45,7 +45,7 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
   const modalRef = useRef();
   const closeModalClick = (event) => {
     if (modalRef.current === event.target) {
-      onClose();
+      onClose(true);
     }
   };
 
@@ -53,7 +53,7 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
   useEffect(() => {
     const closeModalKey = (event) => {
       if (event.key === "Escape") {
-        onClose();
+        onClose(true);
       }
     }
 
@@ -66,7 +66,7 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
   return ReactDom.createPortal(
     <Background onMouseDown={closeModalClick} ref={modalRef}>
         <ModalWrapper onClick={(e) => e.stopPropagation()}>
-          <CloseModalButton onClick={onClose} />
+          <CloseModalButton onClick={() => onClose(true)} />
           <ModalToRender />
         </ModalWrapper>
     </Background>,

@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       background: '#1976d2',
       boxShadow: 'none',
+    },
+    "&:focus": {
+      boxShadow: "none",
     }
   },
   buttonText: {
@@ -46,6 +49,13 @@ const AddCompanyButton = (props) => {
   const handleClick = () => {
     setShowAddCompanyModal(true);
   };
+
+  const onClose = () => {
+    if (props.onClose) {
+      props.onClose();
+    }
+    setShowAddCompanyModal(false);
+  }
 
   const styles = useStyles();
 
@@ -74,7 +84,7 @@ const AddCompanyButton = (props) => {
         <Modal
           initialModal={"Add Company"}
           company={props.company === 'a company' ? '' : props.company}
-          onClose={() => setShowAddCompanyModal(false)}
+          onClose={onClose}
         />
       )}
     </>

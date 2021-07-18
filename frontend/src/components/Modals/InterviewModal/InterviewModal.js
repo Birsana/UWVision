@@ -14,8 +14,9 @@ const InterviewModal = (props) => {
     const [error, setError] = useState("")
 
     const questionChange = (event) => {
-        setQuestion(event.target.value);
-
+        const newQuestion = event.target.value;
+        setQuestion(newQuestion);
+        
         if (error) {
             setError("");
         }
@@ -33,7 +34,7 @@ const InterviewModal = (props) => {
             .then((res) => {
                 res.data.upvoted = false;
                 props.onSubmit(res.data);
-                props.onClose();
+                props.onClose(false);
             });
     }
     

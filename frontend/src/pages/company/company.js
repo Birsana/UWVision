@@ -13,7 +13,7 @@ const CompanyPage = (props) => {
   const [companyData, setCompanyData] = useState({});
   const [isCompanyValid, setIsCompanyValid] = useState(null);
 
-  useEffect(() => {
+  const getCompanyInfo = () => {
     getCompany(company)
       .then((response) => {
         setCompanyData(response.data);
@@ -22,6 +22,10 @@ const CompanyPage = (props) => {
       .catch((error) => {
         setIsCompanyValid(false);
       });
+  }
+
+  useEffect(() => {
+    getCompanyInfo();
   }, [company]);
 
   const renderView = (doesCompanyExist) => {
@@ -59,7 +63,7 @@ const CompanyPage = (props) => {
             {company} hasn't been added yet!
             <HiOutlineEmojiSad style={{ marginTop: 10 }} size={96} color="rgba(0, 0, 0, 0.1)" />
             <div style={{ marginTop: 20 }}>
-              <AddCompanyButton company={company} />
+              <AddCompanyButton onClose={getCompanyInfo} company={company} />
             </div>
           </div>
         );

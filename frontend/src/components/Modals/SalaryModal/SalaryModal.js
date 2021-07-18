@@ -18,14 +18,15 @@ const SalaryModal = (props) => {
     const [error, setError] = useState("")
 
     const salaryChange = (event) => {
-        setSalary(event.target.value);
+        const newSalary = event.target.value;
+        setSalary(newSalary);
         
-        if(!isNumeric(salary)){
+        if(!isNumeric(newSalary)){
             setError("Salary must be a positive integer");
             return;
         }
 
-        const salaryAsInt = parseInt(salary);
+        const salaryAsInt = parseInt(newSalary);
         if(salaryAsInt > 300){
             setError('Salary must be less than $300');
             return;
@@ -44,10 +45,14 @@ const SalaryModal = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (error !== "") {
+            return;
+        }
+
         if (salary.length === 0){
             setError('Salary cannot be empty');
             return;
-        } 
+        }
 
         postSalary(props.company, props.job, props.token, salary)
             .then((res) => {
@@ -55,7 +60,7 @@ const SalaryModal = (props) => {
                     setError('You can only report the salary of a job once!')
                 } else {
                     props.onSubmit(res.data);
-                    props.onClose();
+                    props.onClose(false);
                 }
             });
     }
@@ -68,18 +73,19 @@ const SalaryModal = (props) => {
                     What was your hourly wage at {props.company} (in CAD)?
                 </ModalText>
                 <FormInput
-                    type="text"
+                    type="number"
+                    min={0}
+                    max={300}
                     name="salary"
-                    maxLength={10}
                     placeholder="Hourly wage..."
                     onChange={salaryChange}
                     value={salary}
                     autoFocus={true}
                 />
                 {error && (
-                <FormErrorMessage>
-                    <p>{error}</p>
-                </FormErrorMessage>
+                    <FormErrorMessage>
+                        <p>{error}</p>
+                    </FormErrorMessage>
                 )}
                 <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
             </form>

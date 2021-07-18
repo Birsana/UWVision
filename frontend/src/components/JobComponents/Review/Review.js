@@ -37,15 +37,15 @@ function Review(props){
       <div className="review-info">
         <div className="review-average-container">
           <div className="review-average">
-            <span className="review-rating">{props.culture}/10</span>
+            <span className="review-rating">{props.culture}/5</span>
             culture
           </div>
           <div className="review-average">
-            <span className="review-rating">{props.interestingWork}/10</span>
+            <span className="review-rating">{props.interestingWork}/5</span>
             interesting work
           </div>
           <div className="review-average">
-            <span className="review-rating">{props.workLifeBalance}/10</span>
+            <span className="review-rating">{props.workLifeBalance}/5</span>
             work-life balance
           </div>
         </div>

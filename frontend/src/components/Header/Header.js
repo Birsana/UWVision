@@ -30,6 +30,7 @@ const Header = (props) => {
   // Header States:
   const [showLogInModal, setShowLogInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
   // Account Menu States
   const [anchorEl, setAnchorEl] = useState(null);
@@ -49,6 +50,17 @@ const Header = (props) => {
     setShowSignUpModal(false);
   }, [props.isLoggedIn, props.username]);
 
+  useEffect(() => {
+    window.onscroll = () => {
+      if(window.pageYOffset === 0) {
+        setAtTop(true);
+      } else {
+        setAtTop(false);
+      }
+    }
+    return () => window.onscroll = null;
+  })
+
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();
   const displayTypography = useMediaQuery("(min-width: 520px)");
@@ -59,7 +71,7 @@ const Header = (props) => {
   return (
     <>
       <AppBar position={location.pathname === "/" ? 'static' : 'sticky'}
-        className={location.pathname === "/" ? styles.landingHeader : styles.header}>
+        className={location.pathname === "/" ? styles.landingHeader : atTop ? styles.noShadowHeader : styles.header}>
         <Toolbar>
           {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
           {(displayTypography || location.pathname === "/") && (
@@ -116,7 +128,7 @@ const Header = (props) => {
                   className={styles.menuItem}
                   disabled
                 >
-                  Welcome {usernameIcon}!
+                  Welcome <span style={{ fontWeight: 600 }}>{usernameIcon}</span>
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}

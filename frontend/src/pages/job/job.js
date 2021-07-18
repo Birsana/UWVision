@@ -15,6 +15,7 @@ import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
 import Fade from 'react-reveal/Fade';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { NavLink } from "react-router-dom";
 
 const ReviewButton = withStyles((theme) => ({
   root: {
@@ -106,6 +107,25 @@ const JobPage = (props) => {
         setAverageArray(response.data);
       })
   };
+
+  const onModalClose = (type, changed = false) => {
+    if (type === "Add Salary" && changed) {
+      if (window.confirm("Your salary will be lost if you close this modal. Are you sure you want to continue?"))
+        setShowSalaryModal(2);
+    } else if (type === "Add Interview" && changed) {
+      if (window.confirm("Your interview question will be lost if you close this modal. Are you sure you want to continue?"))
+        setShowInterviewModal(2);
+    } else if (type === "Add Review" && changed) {
+      if (window.confirm("Your review will be lost if you close this modal. Are you sure you want to continue?"))
+        setShowReviewModal(2);
+    } else if (type === "Salary Login" || type === "Add Salary") {
+      setShowSalaryModal(2);
+    } else if (type === "Interview Login" || type === "Add Interview") {
+      setShowInterviewModal(2);
+    } else if (type === "Review Login" || type === "Add Review") {
+      setShowReviewModal(2);
+    }
+  }
 
   // Loading spinner used when data is still being fetched from backend
   const LoadingSpinner = () => {
@@ -203,7 +223,12 @@ const JobPage = (props) => {
     <>
       <div className="container job-container">
         <div className="header">
-          <p className="company">{company}</p>
+          <NavLink
+            to={`/company/${company}`}
+            style={{ textDecoration: "none", color: "unset", width: "fit-content" }}
+          >
+            <p className="company">{company}</p>
+          </NavLink>
           <p className="job">{job}</p>
         </div>
         <div className="body">
@@ -238,19 +263,19 @@ const JobPage = (props) => {
               {reviews.length !== 0 && (
                 <div className="average-container">
                   <div className="average">
-                    <span className="average-rating">{averageArray[0]}/10</span>
+                    <span className="average-rating">{averageArray[0]}/5</span>
                     overall
                   </div>
                   <div className="average">
-                    <span className="average-rating">{averageArray[1]}/10</span>
+                    <span className="average-rating">{averageArray[1]}/5</span>
                     culture
                   </div>
                   <div className="average">
-                    <span className="average-rating">{averageArray[3]}/10</span>
+                    <span className="average-rating">{averageArray[3]}/5</span>
                     interesting work
                   </div>
                   <div className="average">
-                    <span className="average-rating">{averageArray[2]}/10</span>
+                    <span className="average-rating">{averageArray[2]}/5</span>
                     work-life balance
                   </div>
                 </div>
@@ -293,9 +318,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Salary" : "Log In"}
           job={job}
           company={company}
-          onClose={() => {
-            setShowSalaryModal(2);
-          }}
+          onClose={(changed) => onModalClose(props.token ? "Add Salary" : "Salary Login", changed)}
           onSubmit={(salary) =>
             setSalaries((salaries) => [...salaries, salary])
           }
@@ -306,9 +329,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Interview" : "Log In"}
           job={job}
           company={company}
-          onClose={() => {
-            setShowInterviewModal(2);
-          }}
+          onClose={(changed) => onModalClose(props.token ? "Add Interview" : "Interview Login", changed)}
           onSubmit={(question) =>
             setQuestions((questions) => [...questions, question])
           }
@@ -319,9 +340,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Review" : "Log In"}
           job={job}
           company={company}
-          onClose={() => {
-            setShowReviewModal(2);
-          }}
+          onClose={(changed) => onModalClose(props.token ? "Add Review" : "Review Login", changed)}
           onSubmit={(review) => addReview(review)}
         />
       )}

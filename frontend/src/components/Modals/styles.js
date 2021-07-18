@@ -114,8 +114,8 @@ export const ModalForgotPasswordButton = ({onClick}) => {
 export const ModalLogInButton = ({ onClick }) => {
   return (
     <>
-    <Divider />
-    <ModalText>Already have an account? <u onClick={onClick} style={{cursor: "pointer"}}>Login!</u></ModalText>
+      <Divider />
+      <ModalText>Already have an account? <u onClick={onClick} style={{cursor: "pointer"}}>Login!</u></ModalText>
     </>
   )
 }
@@ -150,6 +150,38 @@ export const FormInput = styled.input`
     outline: none;
   }
 `;
+
+export const FormSelect = styled.select`
+  margin-top: 10px;
+  height: 35px;
+  width: 100%;
+  background-color: rgba(239, 239, 239);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 10px;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const FormSelectWrapper = styled.div`
+  position: relative;
+  height: 35px;
+  width: 90%;
+  &::after {
+    content: "▼";
+    pointer-events: none;
+    font-size: 10px;
+    top: 23px;
+    right: 10px;
+    color: grey;
+    position: absolute;
+  }
+`
 
 export const FormErrorMessage = styled.div`
   margin: 5px 0;

@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { createMuiTheme } from '@material-ui/core'
 import { postReview } from "backendActions"
 import {
@@ -6,7 +6,10 @@ import {
   FormTextarea,
   FormSubmitButton,
   ModalText,
-  FormErrorMessage
+  FormErrorMessage,
+  FormInput,
+  FormSelect,
+  FormSelectWrapper
 } from "../styles";
 import { connect } from "react-redux";
 import Slider from '@material-ui/core/Slider';
@@ -14,11 +17,15 @@ import { ThemeProvider } from "@material-ui/styles";
 import Typography from '@material-ui/core/Typography';
 
 const ReviewModal = (props) => {
+    const currentYear = new Date().getFullYear();
+
     //store user responses
     const [text, setText] = useState("")
     const [culture, setCulture] = useState(5)
     const [interesting, setInteresting] = useState(5)
     const [worklife, setWorkLife] = useState(5)
+    const [term, setTerm] = useState("Spring")
+    const [year, setYear] = useState(currentYear)
     const [error, setError] = useState("")
 
     const handleChangeCulture = (event, newValue) => {
@@ -35,20 +42,42 @@ const ReviewModal = (props) => {
     
     const handleChangeText = (newValue) => {
       setText(newValue);
-
+      
       if (error) {
         setError("");
       }
     };
+
+    const handleChangeYear = (event) => {
+      const newYear = event.target.value;
+      setYear(newYear);
+      
+      if(newYear > 2021 || newYear < 2000){
+          setError('Year must be between 2000 and 2021');
+          return;
+      }
+
+      if (error) {
+          setError("");
+      }
+    }
     
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (error !== "") {
+            return;
+        }
+
         const review = {
             body: text,
             workLifeBalance: worklife,
             culture: culture,
-            interestingWork: interesting
+            interestingWork: interesting,
+            year: year,
+            term: term === "Fall" ? "fall" : term === "Spring" ? "spring" : "winter" // For some reason toLowerCase didn't work
         }
+        
         postReview(props.company, props.job, props.token, review)
             .then((res) => {
                 if (res.data === 'already posted') {
@@ -56,7 +85,7 @@ const ReviewModal = (props) => {
                 } else {
                   res.data.upvoted = false;
                   props.onSubmit(res.data);
-                  props.onClose();
+                  props.onClose(false);
                 }
             });
     }
@@ -130,10 +159,29 @@ const ReviewModal = (props) => {
             type="text"
             name="review"
             placeholder="Add a review..."
-            onChange={(event) => {handleChangeText(event.target.value)}}
+            onChange={(event) => handleChangeText(event.target.value)}
             value={text}
             autoFocus={true}
           />
+          <div style={{ display: "flex", justifyContent: "space-between", width: "90%" }}>
+            <FormSelectWrapper style={{ marginRight: 5 }}>
+              <FormSelect value={term} onChange={(e) => setTerm(e.target.value)}>
+                <option value="volvo">Spring</option>
+                <option value="saab">Fall</option>
+                <option value="opel">Winter</option>
+              </FormSelect>
+            </FormSelectWrapper>
+            <FormInput
+                type="number"
+                min={2000}
+                max={currentYear}
+                name="year"
+                placeholder="Year"
+                onChange={handleChangeYear}
+                value={year}
+                style={{ marginLeft: 5 }}
+            />
+          </div>
           {error && (
             <FormErrorMessage>
               <p>{error}</p>
