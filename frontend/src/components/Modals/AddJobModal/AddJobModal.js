@@ -23,12 +23,12 @@ const AddJobModal = (props) => {
 
   // Basic Validation - ensures the user is not submitting an empty company name
   const basicInputValidation = () => {
-    if (!jobToAdd) {
+    if (!jobToAdd || jobToAdd.trim().length === 0) {
       setJobError("The job title cannot be blank.");
       return false;
     }
 
-    //max job length is 50 characters
+    // Max job length is 50 characters
     if(jobToAdd.length > 50) {
         setJobError("The job can't be longer than 50 characters");
         return false;
@@ -36,8 +36,7 @@ const AddJobModal = (props) => {
 
 
     // NOTE: Permissible characters for the URL are the following:
-    // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
-    // These are unreserved characters
+    // A-Z, a-z, 0-9, " "
     let validChars = /^[a-zA-Z ]+$/;
     if (!validChars.test(jobToAdd)) {
       setJobError("The job name cannot contain special characters.");

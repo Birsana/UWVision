@@ -88,7 +88,7 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
         }
   
       var companyName = req.params.companyname;
-      var job = new Job(req.body.job);
+      var job = new Job(req.body.job.trim());
       job.addedBy = user.email;
       job.company = companyName;
       job.averageRating = 0;
