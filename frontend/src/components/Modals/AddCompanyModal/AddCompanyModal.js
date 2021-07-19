@@ -24,26 +24,26 @@ const AddCompanyModal = (props) => {
 
   // Basic Validation - ensures the user is not submitting an empty company name
   const basicInputValidation = () => {
-    if (!companyToAdd) {
+    // Preventing user from entering blank entry or purely whitespace entry
+    if (!companyToAdd || companyToAdd.trim().length === 0) {
       setCompanyError("The company name cannot be blank.");
       return false;
     }
 
     // NOTE: Permissible characters for the URL are the following:
-    // A-Z, a-z, 0-9, "-", "_", ".", "!", "~", "*", "'", "(", ")"
-    // These are unreserved characters
-    let validChars = /^(?:[A-Za-z]+)(?:[A-Za-z0-9 _]*)$/g;
+    // A-Z, a-z, 0-9, " "
+    let validChars = /^(?:[A-Za-z0-9 ]*)$/g;
     if (!validChars.test(companyToAdd)) {
       setCompanyError("The company name cannot contain special characters.");
       return false;
     }
 
-    //max company length is 50 characters
+    // Max company length is 50 characters
     if (companyToAdd.length > 50) {
       setCompanyError("The company can't be longer than 50 characters");
       return false;
     }
-
+    
     return true;
   };
 
