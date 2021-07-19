@@ -168,11 +168,6 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
       var review = new Review(req.body.review);
       review.author = user.email;
 
-      //get total rating
-      var totalRating = review.culture + review.interestingWork + review.workLifeBalance;
-      var overallRating = Math.round(totalRating/3 * 10)/10;
-      review.overallRating = overallRating;
-
       Job.find( {jobName: req.params.job, company: req.params.companyname} ).then(function(job){
         return review.save().then(function() {
 
