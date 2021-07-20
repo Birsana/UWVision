@@ -99,7 +99,7 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       job.averageWorklife = 0;
       job.averageInteresting = 0;
 
-      job.jobCompanyKey = jobName + companyName;
+      job.jobCompanyKey = jobName.toLowerCase() + companyName;
   
       return job.save().then(function(){
         Company.find( {companyName: companyName} ).then(function(company){
