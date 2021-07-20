@@ -45,13 +45,13 @@ function Review(props){
 
     for (let i = 0; i < num; i++) { // Filled stars
       stars.push(
-        <AiFillStar color={color} />
+        <AiFillStar key={i} color={color} />
       )
     }
 
     for (let i = 0; i < 5 - num; i++) { // Empty stars
       stars.push(
-        <AiOutlineStar color={color} />
+        <AiOutlineStar key={5-i} color={color} />
       )
     }
 
@@ -67,7 +67,7 @@ function Review(props){
         <div className="review-average-container">
           <div className="review-average">
             <span className="review-rating">
-              {renderStars(props.culture)}
+              {renderStars(props.overall)}
             </span>
             Overall
           </div>

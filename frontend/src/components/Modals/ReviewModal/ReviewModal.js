@@ -21,12 +21,18 @@ const ReviewModal = (props) => {
 
     //store user responses
     const [text, setText] = useState("")
+    const [overall, setOverall] = useState(3)
     const [culture, setCulture] = useState(3)
     const [interesting, setInteresting] = useState(3)
     const [worklife, setWorkLife] = useState(3)
     const [term, setTerm] = useState("Spring")
     const [year, setYear] = useState(currentYear)
     const [error, setError] = useState("")
+
+
+    const handleChangeOverall = (event, newValue) => {
+      setOverall(newValue);
+    };
 
     const handleChangeCulture = (event, newValue) => {
       setCulture(newValue);
@@ -71,6 +77,7 @@ const ReviewModal = (props) => {
 
         const review = {
             body: text,
+            overallRating: overall,
             workLifeBalance: worklife,
             culture: culture,
             interestingWork: interesting,
@@ -137,6 +144,11 @@ const ReviewModal = (props) => {
           </ModalText>
           <div style={{ width: "90%" }}>
             <ThemeProvider theme={ReviewSlider}>
+              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
+                Overall
+              </Typography>
+              <Slider value={overall} onChange={handleChangeOverall}
+                step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
               <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
                 Culture/Environment
               </Typography>

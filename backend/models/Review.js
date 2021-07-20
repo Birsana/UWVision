@@ -33,6 +33,7 @@ ReviewSchema.methods.toJSONFor = function(isUpvoted){
       workLifeBalance: this.workLifeBalance,
       interestingWork: this.interestingWork,
       culture: this.culture,
+      overallRating: this.overallRating,
       upvoted: isUpvoted,
       numUpvotes: this.upvoters.length
     };

@@ -42,7 +42,7 @@ const CompanyPage = (props) => {
               ) : (
                 <h2 className="company-stats">
                   <span className="companyRating">
-                    {companyData.averageRating} out of 10
+                    {companyData.averageRating} out of 5
                   </span>
                   <span className="textDivider"> | </span>
                   <span>

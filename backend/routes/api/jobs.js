@@ -181,7 +181,7 @@ router.post('/:companyname/:job/review', auth.required, function(req, res, next)
             job[0].save().then(function() {
 
                 Company.find( {companyName: req.params.companyname} ).then(function(company){
-                    var companyRating = (company[0].averageRating * company[0].numReviews + overallRating)/(company[0].numReviews + 1);
+                    var companyRating = (company[0].averageRating * company[0].numReviews + review.overallRating)/(company[0].numReviews + 1);
                     company[0].averageRating = Math.round(companyRating * 10)/10;
                     company[0].numReviews += 1;
                     return company[0].save().then(function() {
