@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var JobSchema = new mongoose.Schema({
     jobName: String,
     company: String,
-    jobCompanyKey: {type: String, unique: true, collation:{ locale: "en", strength: 2 }},
+    jobCompanyKey: {type: String, unique: true},
     addedBy: String,
     questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
