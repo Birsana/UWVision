@@ -28,6 +28,7 @@ const transport = nodemailer.createTransport({ //for emailer
 sendConfirmationEmail = async (username, email, confirmationCode) => { //sending the email
     // let transport = await createTransporter();
     transport.sendMail({
+        from: '"UWVision Team" <info@uwvision.com>',
         to: email,
         subject: "Please confirm your account",
         html: `<h1>Email Confirmation</h1>
@@ -93,6 +94,7 @@ router.post('/users', function(req, res, next){ //signup
     user.confirmationCode = jwt.sign({email: req.body.user.email}, secret);
   
     user.save().then(function(){
+
     sendConfirmationEmail(
             user.username,
             user.email,
