@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var CompanySchema = new mongoose.Schema({
-  companyName: {type: String, unique: true},
+  companyName: {type: String, unique: true, collation:{ locale: "en", strength: 2 }},
   addedBy: String,
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   jobNames: [String],

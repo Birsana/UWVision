@@ -86,7 +86,9 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       if(!user){ 
           return res.sendStatus(401); 
         }
-  
+        console.log("h");
+        console.log(req.body.job);
+        console.log("b");
       var companyName = req.params.companyname;
       var job = new Job(req.body.job.trim());
       job.addedBy = user.email;
