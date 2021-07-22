@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var CompanySchema = new mongoose.Schema({
   companyName: {type: String, unique: true},
+  companyNameLowercase: {type: String, unique: true},
   addedBy: String,
   jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   jobNames: [String],

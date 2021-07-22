@@ -119,6 +119,7 @@ const Header = (props) => {
                   vertical: "top",
                   horizontal: "right",
                 }}
+                disableScrollLock={true}
                 open={open}
                 onClose={handleMenuClose}
                 style={{ marginTop: 14 }}
@@ -128,7 +129,7 @@ const Header = (props) => {
                   className={styles.menuItem}
                   disabled
                 >
-                  Welcome <span style={{ fontWeight: 600 }}>{usernameIcon}</span>
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Welcome <span style={{ fontWeight: 600 }}>{usernameIcon}</span></span>
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}
@@ -137,7 +138,7 @@ const Header = (props) => {
                     handleMenuClose();
                   }}
                 >
-                  Saved jobs
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Saved jobs</span>
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}
@@ -149,7 +150,7 @@ const Header = (props) => {
                     handleMenuClose();
                   }}
                 >
-                  Logout
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Logout</span>
                 </MenuItem>
               </Menu>
             </div>

@@ -39,7 +39,9 @@ router.post('/addcompany', auth.required, function(req, res, next){
         if(!user){
             return res.sendStatus(401);
         }
-        return Company.create({ companyName: req.body.companyName.trim(), addedBy: user.email, averageSalary: 0,
+        var companyName = req.body.companyName.trim()
+        var lowercaseName = companyName.toLowerCase();
+        return Company.create({ companyName: companyName, companyNameLowercase: lowercaseName, addedBy: user.email, averageSalary: 0,
         averageRating: 0, numSalaries: 0, numReviews: 0}, function (err) {
             if (err) return res.sendStatus(400);
             return res.send("company added");
@@ -86,9 +88,9 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       if(!user){ 
           return res.sendStatus(401); 
         }
-  
       var companyName = req.params.companyname;
-      var job = new Job(req.body.job.trim());
+      var jobName = req.body.job.jobName.trim()
+      var job = new Job({jobName: jobName});
       job.addedBy = user.email;
       job.company = companyName;
       job.averageRating = 0;
@@ -97,7 +99,7 @@ router.post('/:companyname/addjob', auth.required, function(req, res, next) {
       job.averageWorklife = 0;
       job.averageInteresting = 0;
 
-      job.jobCompanyKey = job.jobName + job.company
+      job.jobCompanyKey = jobName.toLowerCase() + companyName;
   
       return job.save().then(function(){
         Company.find( {companyName: companyName} ).then(function(company){

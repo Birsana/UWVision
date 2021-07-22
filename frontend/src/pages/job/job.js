@@ -191,6 +191,7 @@ const JobPage = (props) => {
               <Review
                 job={job}
                 company={company}
+                overall={review.overallRating}
                 year={review.year}
                 term={review.term}
                 body={review.body}
