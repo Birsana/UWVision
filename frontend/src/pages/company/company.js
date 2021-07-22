@@ -35,7 +35,7 @@ const CompanyPage = (props) => {
           <div className="companyTitle">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className="companyTitle">
-                <h1 className="company-name">{company}</h1>
+                <h1 className="company-name">{companyData.companyName}</h1>
               </div>
               {companyData.numReviews === 0 ? (
                 <h2 className="company-stats" style={{ color: "#2196f3" }}>No reviews</h2>
@@ -76,7 +76,7 @@ const CompanyPage = (props) => {
   return (
     <div className="container company-container">
       {renderView(isCompanyValid)}
-      {isCompanyValid && <JobBox company={company} />}
+      {isCompanyValid && <JobBox company={companyData.companyName} />}
     </div>
   );
 };

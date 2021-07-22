@@ -28,7 +28,7 @@ CompanySchema.methods.removeJob = function(id){
 };
 
 CompanySchema.statics.findCompanyByName = function(name) {
-  return this.find({companyName: name});
+  return this.find({companyNameLowercase: name.toLowerCase()});
 }
 
 CompanySchema.methods.toJSONFor = function(){
