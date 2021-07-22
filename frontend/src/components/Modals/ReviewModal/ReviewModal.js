@@ -144,22 +144,22 @@ const ReviewModal = (props) => {
           </ModalText>
           <div style={{ width: "90%" }}>
             <ThemeProvider theme={ReviewSlider}>
-              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
+              <Typography style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: "bold", marginBottom: -10 }}>
                 Overall
               </Typography>
               <Slider value={overall} onChange={handleChangeOverall}
                 step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
-              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
+              <Typography style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: "bold", marginBottom: -10 }}>
                 Culture/Environment
               </Typography>
               <Slider value={culture} onChange={handleChangeCulture}
                 step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
-              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
+              <Typography style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: "bold", marginBottom: -10 }}>
                 Meaningful/Interesting Work
               </Typography>
               <Slider value={interesting} onChange={handleChangeInteresting}
                 step={1} valueLabelDisplay="auto" marks min={1} max={5}/>
-              <Typography style={{ fontWeight: "bold", marginBottom: -10 }}>
+              <Typography style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: "bold", marginBottom: -10 }}>
                 Work-Life Balance
               </Typography>
               <Slider value={worklife} onChange={handleChangeWorkLife}
