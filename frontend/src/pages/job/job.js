@@ -274,7 +274,7 @@ const JobPage = (props) => {
         //     </div>
         //   </Slider>
       ) : (
-        <div className="no-reviews-questions">
+        <div className="no-reviews-questions" style={{ margin: 6 }}>
           No questions yet
           <HiOutlineEmojiSad
             style={{ marginTop: 10 }}

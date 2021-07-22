@@ -18,12 +18,12 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #333333;
+  background-color: rgba(33, 150, 243, 0.5);
   color: white;
   font-size: 16px;
   font-weight: bold;
-  height: 34px;
-  width: 34px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
 }
 
@@ -86,7 +86,7 @@
 
 @media only screen and (max-width: 940px) {
   .review-container {
-    width: calc(100vw - 120px);
+    max-width: calc(100vw - 120px);
   }
 }
 
@@ -118,6 +118,6 @@
 
 @media only screen and (max-width: 520px) {
   .review-container {
-    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
   }
 }

@@ -41,8 +41,7 @@ function InterviewQuestion(props){
           disabled
         >
           <div className="profile">
-            <FaUserAlt size={14} />
-            {/* {props.author.substr(0, 1)} */}
+            <FaUserAlt size={12} />
           </div>
         </IconButton>
         {isMobile ?

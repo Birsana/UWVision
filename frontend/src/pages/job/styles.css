@@ -294,7 +294,8 @@
   }
 
   .no-reviews-questions {
-    font-size: 16px;
+    padding-top: 20px;
+    line-height: 16px;
   }
 
   .write-text {
