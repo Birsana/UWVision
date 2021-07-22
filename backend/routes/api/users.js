@@ -20,7 +20,7 @@ const transport = nodemailer.createTransport({ //for emailer
     port: 465,
     auth: {
       user: "info@uwvision.com",
-      pass: "AndreCyrusJustin123$"
+      pass: "VKZ,3y6B)~w^PQu$"
     },
   });
 
