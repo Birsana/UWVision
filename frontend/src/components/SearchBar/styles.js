@@ -126,7 +126,7 @@ export const SearchBarStylesNotHome = {
       width: 236,
     },
     "@media only screen and (max-width: 600px)": {
-      ...base["@media only screen and (max-width: 370px)"],
+      ...base["@media only screen and (max-width: 600px)"],
       width: 220,
     },
     "@media only screen and (max-width: 520px)": {

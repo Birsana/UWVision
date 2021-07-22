@@ -67,6 +67,8 @@ const SearchBar = (props) => {
         onInputChange={onInputChange}
         inputValue={inputValue}
         value={value}
+        menuPortalTarget={document.body} // Fixes zIndex issue
+        styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }} // Fixes zIndex issue
         options={companyData} // Uses the map to display the given options
         formatOptionLabel={formatOptionLabel} // Customize options
         placeholder="Search for a company..."

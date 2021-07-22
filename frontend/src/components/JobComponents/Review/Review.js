@@ -4,25 +4,30 @@ import './styles.css';
 import { connect } from "react-redux";
 import { useState } from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { AiOutlineStar, AiFillStar } from "react-icons/ai"
-import { RiThumbUpLine, RiThumbUpFill } from "react-icons/ri"
-import { BiPencil, BiTrashAlt, BiFlag } from "react-icons/bi"
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { RiThumbUpLine, RiThumbUpFill } from "react-icons/ri";
+import { FaUserAlt } from "react-icons/fa";
+// import { BiPencil, BiTrashAlt, BiFlag } from "react-icons/bi"
 import { upvoteReview } from 'backendActions';
 
 function Review(props){
   const [num, setNum] = useState(props.numUpvotes ? props.numUpvotes : 0)
+  const [disabled, setDisabled] = useState(props.loggedIn ? false : true)
   const [upvoted, setUpvoted] = useState(props.upvoted ? props.upvoted : false)
   const isMobile = useMediaQuery("(max-width: 600px)");
   const isSmallMobile = useMediaQuery("(max-width: 320px)");
 
   const upvote = async () => {
+    setDisabled(true);
     upvoteReview(props.company, props.job, props.id, props.token).then((res) => {
       if (res.data === "upvoted") {
         setNum(num + 1);
         setUpvoted(true);
+        setDisabled(false);
       } else {
         setNum(num - 1);
         setUpvoted(false);
+        setDisabled(false);
       }
     });
   }
@@ -62,7 +67,7 @@ function Review(props){
     <div className="review-container">
       <div className="review-info">
         <span className="review-title">
-          {props.job} | <span style={{fontWeight: 600, color: "black"}}>{`${props.term[0].toUpperCase() + props.term.slice(1)} ${props.year}`}</span>
+          {props.job} | <span style={{ fontWeight: 600, color: "black" }}>{`${props.term[0].toUpperCase() + props.term.slice(1)} ${props.year}`}</span>
         </span>
         <div className="review-average-container">
           <div className="review-average">
@@ -93,7 +98,7 @@ function Review(props){
         { props.body !== '' &&
           <>
             <p className="review-body">{props.body}</p>
-            <div className="review-footer">
+            <div className="review-footer" style={{margin: "10px 0 -6px -6px"}}>
               <IconButton
                 color="inherit"
                 style={{ padding: 0 }}
@@ -101,12 +106,13 @@ function Review(props){
                 disabled
               >
                 <div className="profile">
+                  <FaUserAlt size={14} />
                   {/* {props.author.substr(0, 1)} */}
                 </div>
               </IconButton>
               {isMobile ?
                 <div>
-                  <IconButton disabled={!props.loggedIn} style={ upvoted ? { color: "#2196f3", fontWeight: 600, fontSize: 16, padding: isSmallMobile ? 4 : 12 } : { fontWeight: 600, fontSize: 16, padding: isSmallMobile ? 4 : 12 }} onClick={() => upvote()}>
+                  <IconButton disabled={disabled} style={ upvoted ? { color: "#2196f3", fontWeight: 600, fontSize: 16, padding: isSmallMobile ? 4 : 12 } : { fontWeight: 600, fontSize: 16, padding: isSmallMobile ? 4 : 12 }} onClick={() => upvote()}>
                     { upvoted ?
                         <RiThumbUpFill size={18} style={{ marginRight: 4 }} />
                       :
@@ -132,7 +138,7 @@ function Review(props){
                 </div>
               :
                 <div>
-                  <Button disabled={!props.loggedIn} style={ upvoted ? { color: "#2196f3", fontWeight: 600, marginRight: 6 } : { fontWeight: 600, marginRight: 6 }} onClick={() => upvote()}>
+                  <Button disabled={disabled} style={ upvoted ? { color: "#2196f3", fontWeight: 600 } : { color: "grey", fontWeight: 600 }} onClick={() => upvote()}>
                     { upvoted ?
                         <RiThumbUpFill style={{ marginRight: 6 }} size={18} />
                       :

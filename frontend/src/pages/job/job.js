@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import './styles.css';
 import BarGraph from '../../components/JobComponents/BarGraph'
 import InterviewQuestion from '../../components/JobComponents/InterviewQuestionComponents/InterviewQuestion'
@@ -15,7 +15,9 @@ import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
 import Fade from 'react-reveal/Fade';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { NavHashLink } from 'react-router-hash-link';
+// import Slider from "react-slick";
 
 const ReviewButton = withStyles((theme) => ({
   root: {
@@ -68,8 +70,18 @@ const JobPage = (props) => {
   const [showReviews, setShowReviews] = useState(false); // User reviews - Loading state
   const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]); // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
   const isSmallMobile = useMediaQuery("(max-width: 350px)");
+  const { hash } = useLocation();
+  const mounted = useRef();
   const company = props.match.params.id;
   const job = props.match.params.jobId;
+
+  // const settings = {
+  //   // dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1
+  // };
   
   useEffect(() => {
     getSalaries(company, job)
@@ -99,6 +111,33 @@ const JobPage = (props) => {
       setShowReviewModal(2);
     }
   }, [props.isLoggedIn]);
+
+  // Scroll to anchor element
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      if (hash !== "") {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          let pos = element.style.position;
+          let top = element.style.top;
+          element.style.position = 'relative';
+          element.style.top = '-90px';
+          element.scrollIntoView({behavior: 'smooth', block: 'start'});
+          element.style.top = top;
+          element.style.position = pos;
+        }
+      }
+    }
+  });
+
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -90; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  }
 
   const addReview = (review) => {
     setReviews((reviews) => [...reviews, review]);
@@ -208,6 +247,31 @@ const JobPage = (props) => {
             </Fade>
           );
         })
+        // <Slider {...settings} style={{ position: "relative" }}>
+        //   <div className="gradient">
+        //     {questions.map((question, index) => {
+        //       return (
+        //         <Fade
+        //           duration={500}
+        //           key={index}
+        //           disabled={showInterviewModal !== 0 || showReviewModal !== 0 || showSalaryModal !== 0}
+        //         >
+        //           <div className="question">
+        //             <InterviewQuestion
+        //               job={job}
+        //               company={company}
+        //               numUpvotes={question.numUpvotes}
+        //               upvoted={question.upvoted}
+        //               body={question.body}
+        //               author={question.author}
+        //               id={question.id || question._id}
+        //               loggedIn={props.token !== null}
+        //             />
+        //           </div>
+        //         </Fade>
+        //       )})}
+        //     </div>
+        //   </Slider>
       ) : (
         <div className="no-reviews-questions">
           No questions yet
@@ -242,14 +306,20 @@ const JobPage = (props) => {
                 alignItems: "flex-end",
               }}
             >
-              <span style={{ display: "flex", alignItems: "center" }}>
+              <NavHashLink
+                id="salaries"
+                smooth
+                to={`/company/${company}/job/${job}#salaries`}
+                scroll={el => scrollWithOffset(el)}
+                style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+              >
                 <MdMonetizationOn
                   size={24}
                   className="icon"
                   style={{ marginRight: 6 }}
                 />
                 Salaries ({salaries.length})
-              </span>
+              </NavHashLink>
               <AddButton onClick={() => setShowSalaryModal(1)}>
                 Add
               </AddButton>
@@ -257,28 +327,62 @@ const JobPage = (props) => {
             <div className="graph">
               <BarGraph salaries={salaries} />
             </div>
+            {/* <div>
+              <h2
+                className="sub-header"
+                style={{
+                  justifyContent: "space-between",
+                  alignItems: "flex-end",
+                }}
+              >
+                <NavHashLink
+                  id="questions"
+                  smooth
+                  to={`/company/${company}/job/${job}#questions`}
+                  scroll={el => scrollWithOffset(el)}
+                  style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+                >
+                  <BsQuestionSquareFill className="icon" size={20} />
+                  {isSmallMobile ? 'Interview ' : 'Interview questions '}({questions.length})
+                </NavHashLink>
+                <AddButton onClick={() => setShowInterviewModal(1)}>
+                  Add
+                </AddButton>
+              </h2>
+              <div className="questions-container">
+                <RenderQuestions />
+              </div>
+            </div> */}
             <div>
               <h2 className="sub-header" style={{ marginTop: 30 }}>
-                <MdQuestionAnswer size={24} className="icon" />
-                Reviews ({reviews.length})
+                <NavHashLink
+                  id="reviews"
+                  smooth
+                  to={`/company/${company}/job/${job}#reviews`}
+                  scroll={el => scrollWithOffset(el)}
+                  style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+                >
+                  <MdQuestionAnswer size={24} className="icon" />
+                  Reviews ({reviews.length})
+                </NavHashLink>
               </h2>
               {reviews.length !== 0 && (
                 <div className="average-container">
                   <div className="average">
                     <span className="average-rating">{averageArray[0]}/5</span>
-                    overall
+                    Overall
                   </div>
                   <div className="average">
                     <span className="average-rating">{averageArray[1]}/5</span>
-                    culture
+                    Culture
                   </div>
                   <div className="average">
                     <span className="average-rating">{averageArray[3]}/5</span>
-                    interesting work
+                    Interesting Work
                   </div>
                   <div className="average">
                     <span className="average-rating">{averageArray[2]}/5</span>
-                    work-life balance
+                    Work-life Balance
                   </div>
                 </div>
               )}
@@ -301,10 +405,16 @@ const JobPage = (props) => {
                 alignItems: "flex-end",
               }}
             >
-              <span style={{ display: "flex", alignItems: "center" }}>
+              <NavHashLink
+                id="questions"
+                smooth
+                to={`/company/${company}/job/${job}#questions`}
+                scroll={el => scrollWithOffset(el)}
+                style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+              >
                 <BsQuestionSquareFill className="icon" size={20} />
                 {isSmallMobile ? 'Interview ' : 'Interview questions '}({questions.length})
-              </span>
+              </NavHashLink>
               <AddButton onClick={() => setShowInterviewModal(1)}>
                 Add
               </AddButton>

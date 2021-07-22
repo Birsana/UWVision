@@ -1,0 +1,23 @@
+.image {
+  margin: 20px 30px;
+  height: 36px;
+  transition: all 0.2s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1180px) {
+  .image {
+    height: 30px;
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .image {
+    height: 28px;
+    margin: 18px 14px;
+  }
+}

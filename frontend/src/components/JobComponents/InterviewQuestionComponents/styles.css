@@ -1,10 +1,11 @@
 .question-container {
-  border: 1px solid #e0e0e0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 30px;
-  max-width: 760px;
-  margin-bottom: 20px;
+  max-width: 760px; /* Delete when refactoring job page */
   white-space: normal;
+  margin: 6px;
+  margin-bottom: 20px; /* For refactoring job page: 20px 30px; */
 }
 
 .question-body {

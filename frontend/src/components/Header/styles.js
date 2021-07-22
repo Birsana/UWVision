@@ -8,8 +8,11 @@ export const useStyles = makeStyles((theme) => ({
     padding: "4px 20px",
     marginBottom: "40px",
     width: "100%",
+    [theme.breakpoints.down(600)]: {
+      padding: 8
+    },
     [theme.breakpoints.down(520)]: {
-      padding: "4px 4px"
+      padding: 4
     }
   },
 
@@ -21,8 +24,11 @@ export const useStyles = makeStyles((theme) => ({
     padding: "4px 20px",
     marginBottom: "60px",
     width: "100%",
+    [theme.breakpoints.down(600)]: {
+      padding: 8
+    },
     [theme.breakpoints.down(520)]: {
-      padding: "4px 4px",
+      padding: 4,
       marginBottom: "40px"
     }
   },
@@ -35,8 +41,11 @@ export const useStyles = makeStyles((theme) => ({
     padding: "4px 20px",
     marginBottom: "60px",
     width: "100%",
+    [theme.breakpoints.down(600)]: {
+      padding: 8
+    },
     [theme.breakpoints.down(520)]: {
-      padding: "4px 4px",
+      padding: 4,
       marginBottom: "40px"
     }
   },

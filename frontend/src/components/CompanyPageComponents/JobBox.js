@@ -11,7 +11,6 @@ import Loader from "react-loader-spinner";
 const JobScrollableDiv = styled.div`
   margin: auto;
   margin-top: 40px;
-  width: 100%;
 `;
 
 const NoJobDataDiv = styled.div`
