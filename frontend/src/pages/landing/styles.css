@@ -87,7 +87,7 @@
   .landing-graphics {
     width: 240px;
   }
-  
+
   .landing-header {
     font-size: 36px;
     line-height: 40px;
@@ -114,7 +114,6 @@
     width: 200px;
   }
 }
-
 
 @media only screen and (max-width: 860px) {
   .landing-graphics {

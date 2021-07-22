@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.1832f2af.chunk.css",
-    "main.js": "/static/js/main.4ebcdc75.chunk.js",
+    "main.css": "/static/css/main.e7fec651.chunk.css",
+    "main.js": "/static/js/main.4f789cbb.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.7cbac5ce.js",
     "static/js/2.5924d3e6.chunk.js": "/static/js/2.5924d3e6.chunk.js",
     "index.html": "/index.html",
     "static/js/2.5924d3e6.chunk.js.LICENSE.txt": "/static/js/2.5924d3e6.chunk.js.LICENSE.txt",
-    "static/js/main.4ebcdc75.chunk.js.LICENSE.txt": "/static/js/main.4ebcdc75.chunk.js.LICENSE.txt",
+    "static/js/main.4f789cbb.chunk.js.LICENSE.txt": "/static/js/main.4f789cbb.chunk.js.LICENSE.txt",
     "static/media/1password.png": "/static/media/1password.ca8eb7ca.png",
     "static/media/amazon.png": "/static/media/amazon.cd2f59d0.png",
     "static/media/apple.png": "/static/media/apple.83af90e6.png",
@@ -50,7 +50,7 @@
   "entrypoints": [
     "static/js/runtime-main.7cbac5ce.js",
     "static/js/2.5924d3e6.chunk.js",
-    "static/css/main.1832f2af.chunk.css",
-    "static/js/main.4ebcdc75.chunk.js"
+    "static/css/main.e7fec651.chunk.css",
+    "static/js/main.4f789cbb.chunk.js"
   ]
 }

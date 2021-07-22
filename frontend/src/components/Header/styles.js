@@ -78,6 +78,7 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: -6,
     padding: "5px 16px",
     borderRadius: 4,
+    zIndex: 1,
     [theme.breakpoints.down(620)]: {
       display: "none"
     }
@@ -95,6 +96,7 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: '#1976d2'
     },
     minWidth: 91,
+    zIndex: 1,
     [theme.breakpoints.down(400)]: {
       fontSize: 14,
       minWidth: 52,
