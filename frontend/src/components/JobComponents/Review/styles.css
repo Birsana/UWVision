@@ -58,7 +58,8 @@
 
 .review-body {
   font-size: 16px;
-  margin: 20px 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
   overflow-wrap: break-word;
 }
 
@@ -77,10 +78,6 @@
 @media only screen and (max-width: 1055px) {
   .review-average {
     margin-right: 26px;
-  }
-
-  .review-body {
-    margin: 20px 0;
   }
 }
 

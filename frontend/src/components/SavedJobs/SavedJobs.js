@@ -6,6 +6,7 @@ import Job from "components/CompanyPageComponents/Job";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Fade from 'react-reveal/Fade';
 import Loader from "react-loader-spinner";
+import { NavLink } from "react-router-dom";
 
 const SavedJobsList = styled.div`
   h1 {
@@ -91,7 +92,12 @@ const SavedJobs = (props) => {
           Object.keys(savedJobs).map((companyName) => {
             return (
               <JobContainer key={companyName}>
-                <CompanyName>{companyName}</CompanyName>
+                <NavLink
+                  to={`/company/${companyName}`}
+                  style={{ textDecoration: "none", color: "unset", width: "fit-content" }}
+                >
+                  <CompanyName>{companyName}</CompanyName>
+                </NavLink>
                 {savedJobs[companyName].map((job) => {
                   return (
                     <Fade duration={500} key={`${companyName}-${job.id}`}>

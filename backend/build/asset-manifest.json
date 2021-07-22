@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.f626770d.chunk.css",
-    "main.js": "/static/js/main.d738aaa9.chunk.js",
+    "main.css": "/static/css/main.c62812f6.chunk.css",
+    "main.js": "/static/js/main.d95d76e0.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.98c19dc3.chunk.js": "/static/js/2.98c19dc3.chunk.js",
+    "static/js/2.ec98a16f.chunk.js": "/static/js/2.ec98a16f.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.98c19dc3.chunk.js.LICENSE.txt": "/static/js/2.98c19dc3.chunk.js.LICENSE.txt",
-    "static/js/main.d738aaa9.chunk.js.LICENSE.txt": "/static/js/main.d738aaa9.chunk.js.LICENSE.txt",
+    "static/js/2.ec98a16f.chunk.js.LICENSE.txt": "/static/js/2.ec98a16f.chunk.js.LICENSE.txt",
+    "static/js/main.d95d76e0.chunk.js.LICENSE.txt": "/static/js/main.d95d76e0.chunk.js.LICENSE.txt",
     "static/media/1password.png": "/static/media/1password.ca8eb7ca.png",
     "static/media/amazon.png": "/static/media/amazon.cd2f59d0.png",
     "static/media/apple.png": "/static/media/apple.83af90e6.png",
@@ -49,8 +49,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7cbac5ce.js",
-    "static/js/2.98c19dc3.chunk.js",
-    "static/css/main.f626770d.chunk.css",
-    "static/js/main.d738aaa9.chunk.js"
+    "static/js/2.ec98a16f.chunk.js",
+    "static/css/main.c62812f6.chunk.css",
+    "static/js/main.d95d76e0.chunk.js"
   ]
 }
