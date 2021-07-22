@@ -46,7 +46,7 @@ export const CloseModalButton = styled(MdClose)`
 `;
 
 export const Title = styled.div`
-  margin-left: 12px;
+  margin-left: 22px;
   margin-top: 15px;
   font-size: 30px;
   font-weight: bold;
@@ -73,7 +73,7 @@ export const ModalTitle = ({ title }) => {
 };
 
 export const ModalText = styled.p`
-  margin-left: 16px;
+  margin-left: 20px;
   width: 90%;
 `;
 
