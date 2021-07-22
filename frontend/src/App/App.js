@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { use100vh } from 'react-div-100vh'
 import 'index.css';
 
 // Component Imports:
@@ -61,13 +62,15 @@ const ScrollToTop = () => {
 
 // Main App
 const App = () => {
+  const height = use100vh()
+
   return (
     <Provider store={reduxStore}>
       <BrowserRouter>
         <CssBaseline />
         <ScrollToTop />
         <div>
-          <div className="UWVision">
+          <div style={{ minHeight: height - 80 }}>
             <Header />
             <Switch>
 

@@ -2,10 +2,6 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.UWVision {
-  min-height: calc(100vh - 80px);
-}
-
 .container {
   width: 100%;
   max-width: 1200px;
