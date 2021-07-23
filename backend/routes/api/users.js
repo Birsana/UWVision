@@ -13,14 +13,22 @@ var secret = require('../../config').secret;
 var router = express.Router();
 
 
+// const transport = nodemailer.createTransport({ //for emailer
+//     service: "Zoho",
+//     host: "smtp.zoho.com",
+//     secure: true,
+//     port: 465,
+//     auth: {
+//       user: "info@uwvision.com",
+//       pass: "VKZ,3y6B)~w^PQu$"
+//     },
+//   });
+
 const transport = nodemailer.createTransport({ //for emailer
-    service: "Zoho",
-    host: "smtp.zoho.com",
-    secure: true,
-    port: 465,
+    service: "Gmail",
     auth: {
-      user: "info@uwvision.com",
-      pass: "VKZ,3y6B)~w^PQu$"
+      user: "info.uwvision@gmail.com",
+      pass: "AndreCyrusJustin123$"
     },
   });
 
