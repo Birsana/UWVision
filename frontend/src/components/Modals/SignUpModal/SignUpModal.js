@@ -164,7 +164,7 @@ const SignUpModal = ({ changeModalState }) => {
       <ModalTitle title={"Sign Up"} />
       {!accountCreated ? (
         <>
-          <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+          <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <FormInput
               type="text"
               name="username"
@@ -218,7 +218,7 @@ const SignUpModal = ({ changeModalState }) => {
                 <p>{confirmPasswordError}</p>
               </FormErrorMessage>
             )}
-            <FormSubmitButton value="Sign Up" />
+            <FormSubmitButton value="Sign Up" onClick={handleSubmit} />
           </form>
           <ModalLogInButton onClick={() => changeModalState("Log In")} />{" "}
         </>
