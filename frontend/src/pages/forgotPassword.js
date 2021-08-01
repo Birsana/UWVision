@@ -18,7 +18,7 @@ const ForgotPasswordTitle = styled.h2`
   @media (max-width: 520px) {
     font-size: 24px;
   }
-`
+`;
 
 const ForgotPasswordForm = styled.div`
   display: flex;
@@ -79,7 +79,6 @@ const ForgotPasswordPage = (props) => {
       return false;
     }
 
-
     // User cannot submit an empty confirm password
     if (!confirmPassword) {
       setConfirmPasswordError("Please confirm your password.");
@@ -109,10 +108,19 @@ const ForgotPasswordPage = (props) => {
   };
 
   return (
-    <div className="container" style={{margin: "0 auto"}}>
+    <div className="container" style={{ margin: "0 auto" }}>
       <ForgotPasswordForm>
         <ForgotPasswordTitle>Set a New Password</ForgotPasswordTitle>
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", maxWidth: 400 }} onSubmit={handleSubmit}>
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: 400,
+          }}
+          onSubmit={handleSubmit}
+        >
           <FormInput
             type="password"
             name="NewPassword"

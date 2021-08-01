@@ -17,9 +17,9 @@ import ForgotPasswordModal from "./ForgotPasswordModal/ForgotPasswordModal";
 // ==============================================================================================================
 
 // Generic Modal Handler:
-const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
+const Modal = ({ job, company, initialModal, onClose, onSubmit }) => {
   const [modalType, setModalType] = useState(initialModal);
-    
+
   // Determines which modal to render depending on state
   const ModalToRender = () => {
     if (modalType === "Add Company") {
@@ -29,15 +29,36 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
     } else if (modalType === "Sign Up") {
       return <SignUpModal changeModalState={setModalType} />;
     } else if (modalType === "Add Review") {
-        return <ReviewModal job={job} company={company} onSubmit={onSubmit} onClose={onClose} />;
+      return (
+        <ReviewModal
+          job={job}
+          company={company}
+          onSubmit={onSubmit}
+          onClose={onClose}
+        />
+      );
     } else if (modalType === "Add Interview") {
-        return <InterviewModal job={job} company={company} onSubmit={onSubmit} onClose={onClose} />;
+      return (
+        <InterviewModal
+          job={job}
+          company={company}
+          onSubmit={onSubmit}
+          onClose={onClose}
+        />
+      );
     } else if (modalType === "Add Salary") {
-        return <SalaryModal job={job} company={company} onSubmit={onSubmit} onClose={onClose} />;
+      return (
+        <SalaryModal
+          job={job}
+          company={company}
+          onSubmit={onSubmit}
+          onClose={onClose}
+        />
+      );
     } else if (modalType === "Add Job") {
-        return <AddJobModal />
+      return <AddJobModal />;
     } else if (modalType === "Forgot Password") {
-        return <ForgotPasswordModal onClose={onClose}/>
+      return <ForgotPasswordModal onClose={onClose} />;
     }
   };
 
@@ -55,20 +76,20 @@ const Modal = ({job, company, initialModal, onClose, onSubmit }) => {
       if (event.key === "Escape") {
         onClose(true);
       }
-    }
+    };
 
-    window.addEventListener('keydown', closeModalKey);
-    return () => window.removeEventListener('keydown', closeModalKey);
-  })
+    window.addEventListener("keydown", closeModalKey);
+    return () => window.removeEventListener("keydown", closeModalKey);
+  });
 
   //TODO: Brief fade-in animation for Modal
 
   return ReactDom.createPortal(
     <Background onMouseDown={closeModalClick} ref={modalRef}>
-        <ModalWrapper onClick={(e) => e.stopPropagation()}>
-          <CloseModalButton onClick={() => onClose(true)} />
-          <ModalToRender />
-        </ModalWrapper>
+      <ModalWrapper onClick={(e) => e.stopPropagation()}>
+        <CloseModalButton onClick={() => onClose(true)} />
+        <ModalToRender />
+      </ModalWrapper>
     </Background>,
     document.getElementById("portal")
   );

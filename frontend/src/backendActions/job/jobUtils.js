@@ -2,14 +2,14 @@ import axios from "axios";
 import routes from "backendActions/routes";
 
 const getSalaries = (company, job) => {
-  return axios.get(routes.GETSALARIES(company, job))
+  return axios.get(routes.GETSALARIES(company, job));
 };
 
 const getQuestions = (company, job, token = null) => {
   let headers = {
     "Content-Type": "application/json",
     "X-Requested-With": "XMLHttpRequest",
-  }
+  };
   if (token) {
     headers.Authorization = `Token ${token}`;
   }
@@ -17,15 +17,15 @@ const getQuestions = (company, job, token = null) => {
     method: "get",
     url: routes.GETQUESTIONS(company, job),
     data: {},
-    headers
-  })
+    headers,
+  });
 };
 
 const getReviews = (company, job, token = null) => {
   let headers = {
     "Content-Type": "application/json",
     "X-Requested-With": "XMLHttpRequest",
-  }
+  };
   if (token) {
     headers.Authorization = `Token ${token}`;
   }
@@ -33,12 +33,12 @@ const getReviews = (company, job, token = null) => {
     method: "get",
     url: routes.GETREVIEWS(company, job),
     data: {},
-    headers
-  })
+    headers,
+  });
 };
 
 const getRatings = (company, job) => {
-  return axios.get(routes.GETRATINGS(company, job))
+  return axios.get(routes.GETRATINGS(company, job));
 };
 
 const postSalary = (company, job, token, salary) => {
@@ -47,15 +47,15 @@ const postSalary = (company, job, token, salary) => {
     url: routes.POSTSALARY(company, job),
     data: {
       salary: {
-          wage: salary
-      }
+        wage: salary,
+      },
     },
     headers: {
       Authorization: `Token ${token}`,
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-  })
+  });
 };
 
 const postQuestion = (company, job, token, question) => {
@@ -64,15 +64,15 @@ const postQuestion = (company, job, token, question) => {
     url: routes.POSTQUESTION(company, job),
     data: {
       question: {
-          body: question
-      }
+        body: question,
+      },
     },
     headers: {
       Authorization: `Token ${token}`,
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-  })
+  });
 };
 
 const upvoteQuestion = (company, job, id, token) => {
@@ -85,35 +85,45 @@ const upvoteQuestion = (company, job, id, token) => {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-  })
-}
+  });
+};
 
 const postReview = (company, job, token, review) => {
   return axios({
     method: "POST",
     url: routes.POSTREVIEW(company, job),
     data: {
-      review
+      review,
     },
     headers: {
       Authorization: `Token ${token}`,
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-  })
+  });
 };
 
 const upvoteReview = (company, job, id, token) => {
   return axios({
     method: "POST",
     url: routes.UPVOTEREVIEW(company, job, id),
-    data:{},
+    data: {},
     headers: {
       Authorization: `Token ${token}`,
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-  })
-}
+  });
+};
 
-export { getSalaries, getQuestions, getReviews, getRatings, postSalary, postQuestion, upvoteQuestion, postReview, upvoteReview }
+export {
+  getSalaries,
+  getQuestions,
+  getReviews,
+  getRatings,
+  postSalary,
+  postQuestion,
+  upvoteQuestion,
+  postReview,
+  upvoteReview,
+};

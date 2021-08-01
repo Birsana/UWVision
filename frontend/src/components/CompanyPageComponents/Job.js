@@ -1,15 +1,17 @@
 import styled from "styled-components";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import SaveJobButton from './SaveJobButton';
+import SaveJobButton from "./SaveJobButton";
 
 const JobElement = styled.div`
   padding: 24px 36px;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-bottom: 15px;
-  @media (hover: hover) and (pointer: fine), only screen and (-ms-high-contrast:active), (-ms-high-contrast:none) {
+  @media (hover: hover) and (pointer: fine),
+    only screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
     &:hover {
       background-color: #ececec;
       cursor: pointer;
@@ -66,53 +68,66 @@ const Job = (props) => {
 
   const handleSelection = (event) => {
     props.history.push(`/company/${companyName}/job/${jobName}`);
-  }
+  };
 
   return (
     <JobElement onClick={handleSelection}>
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+        }}
+      >
         <JobTitle>
           <h2>{props.jobData.jobName}</h2>
         </JobTitle>
-        { !isMobile && <SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/> }
+        {!isMobile && (
+          <SaveJobButton
+            companyName={companyName}
+            jobName={jobName}
+            isSaved={props.jobData.isSaved}
+            accountPage={props.accountPage}
+          />
+        )}
       </div>
       <JobMetrics>
         <h3>
-          {props.jobData.averageRating ? 
+          {props.jobData.averageRating ? (
             <>
               <span style={{ color: "#2196f3", fontWeight: "bold" }}>
                 {props.jobData.averageRating}/5
               </span>
-              <span>
-                {" "}
-                ({props.jobData.numOfReviews} reviews)
-              </span>
+              <span> ({props.jobData.numOfReviews} reviews)</span>
             </>
-          :
-            <span>
-              No reviews
-            </span>
-          }
+          ) : (
+            <span>No reviews</span>
+          )}
           <span> | </span>
-          {props.jobData.averageSalary ?
+          {props.jobData.averageSalary ? (
             <>
               <span style={{ color: "#2196f3", fontWeight: "bold" }}>
                 {" "}
                 ${props.jobData.averageSalary}/hr
               </span>
-              <span>
-                {" "}
-                ({props.jobData.numOfSalaryEntries} entries)
-              </span>
+              <span> ({props.jobData.numOfSalaryEntries} entries)</span>
             </>
-          :
-            <span>
-              No salaries
-            </span>
-          }
+          ) : (
+            <span>No salaries</span>
+          )}
         </h3>
       </JobMetrics>
-      { isMobile && <div style={{ marginLeft: -5 }}><SaveJobButton companyName={companyName} jobName={jobName} isSaved={props.jobData.isSaved} accountPage={props.accountPage}/></div> }
+      {isMobile && (
+        <div style={{ marginLeft: -5 }}>
+          <SaveJobButton
+            companyName={companyName}
+            jobName={jobName}
+            isSaved={props.jobData.isSaved}
+            accountPage={props.accountPage}
+          />
+        </div>
+      )}
     </JobElement>
   );
 };

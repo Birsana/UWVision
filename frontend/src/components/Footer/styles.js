@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   footerRoot: {
-    flexGrow: 1
+    flexGrow: 1,
   },
 
   footer: {
@@ -10,18 +10,18 @@ export const useStyles = makeStyles((theme) => ({
     color: "white",
     boxShadow: "none",
     marginTop: 80,
-    zIndex: 0
+    zIndex: 0,
   },
 
   customizeToolbar: {
     height: 50,
     [theme.breakpoints.down(320)]: {
-      padding: 4
+      padding: 4,
     },
   },
 
   buttons: {
     fontSize: "16px",
-    textTransform: 'none',
-  }
+    textTransform: "none",
+  },
 }));

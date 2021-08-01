@@ -29,11 +29,10 @@ const AddJobModal = (props) => {
     }
 
     // Max job length is 50 characters
-    if(jobToAdd.length > 50) {
-        setJobError("The job can't be longer than 50 characters");
-        return false;
+    if (jobToAdd.length > 50) {
+      setJobError("The job can't be longer than 50 characters");
+      return false;
     }
-
 
     // NOTE: Permissible characters for the URL are the following:
     // A-Z, a-z, 0-9, " "
@@ -59,20 +58,28 @@ const AddJobModal = (props) => {
     event.preventDefault();
 
     if (basicInputValidation()) {
-        addJob(company, jobToAdd, authToken)
-          .then((res) => {
-            props.history.push(`/company/${company}/job/${jobToAdd}`);
-          })
-          .catch((err) => {
-            setJobError("This job already exists!")
-          });
+      addJob(company, jobToAdd, authToken)
+        .then((res) => {
+          props.history.push(`/company/${company}/job/${jobToAdd}`);
+        })
+        .catch((err) => {
+          setJobError("This job already exists!");
+        });
     }
   };
 
   return (
     <>
       <ModalTitle title={"Add Job"} />
-      <form style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 10 }} onSubmit={handleSubmit}>
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: 10,
+        }}
+        onSubmit={handleSubmit}
+      >
         <FormInput
           maxLength={100}
           type="text"

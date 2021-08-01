@@ -17,27 +17,27 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: '#2196f3',
+    background: "#2196f3",
     fontWeight: 400,
     fontSize: 16,
     textTransform: "none",
     boxShadow: "none",
     color: "white",
-    '&:hover': {
-      background: '#1976d2',
-      boxShadow: 'none',
+    "&:hover": {
+      background: "#1976d2",
+      boxShadow: "none",
     },
     "&:focus": {
       boxShadow: "none",
-    }
+    },
   },
   buttonText: {
     fontWeight: "bold",
-    margin: "-1px 2px 0 8px"
+    margin: "-1px 2px 0 8px",
   },
   icon: {
-    marginRight: 2
-  }
+    marginRight: 2,
+  },
 }));
 
 // ==============================================================================================================
@@ -55,7 +55,7 @@ const AddCompanyButton = (props) => {
       props.onClose();
     }
     setShowAddCompanyModal(false);
-  }
+  };
 
   const styles = useStyles();
 
@@ -63,7 +63,7 @@ const AddCompanyButton = (props) => {
     <>
       <div>
         <Fab
-          variant={'extended'}
+          variant={"extended"}
           size="small"
           className={styles.buttonStyle}
           onClick={handleClick}
@@ -73,17 +73,17 @@ const AddCompanyButton = (props) => {
         </Fab>
       </div>
 
-      {(!props.isLoggedIn && showAddCompanyModal) && (
+      {!props.isLoggedIn && showAddCompanyModal && (
         <Modal
           initialModal={"Log In"}
           onClose={() => setShowAddCompanyModal(false)}
         />
       )}
 
-      {(props.isLoggedIn && showAddCompanyModal) && (
+      {props.isLoggedIn && showAddCompanyModal && (
         <Modal
           initialModal={"Add Company"}
-          company={props.company === 'a company' ? '' : props.company}
+          company={props.company === "a company" ? "" : props.company}
           onClose={onClose}
         />
       )}
@@ -93,7 +93,7 @@ const AddCompanyButton = (props) => {
 
 // Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn
+  isLoggedIn: state.isLoggedIn,
 });
 
 export default connect(mapStateToProps)(AddCompanyButton);

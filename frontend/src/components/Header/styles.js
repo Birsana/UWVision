@@ -9,11 +9,11 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     width: "100%",
     [theme.breakpoints.down(600)]: {
-      padding: 8
+      padding: 8,
     },
     [theme.breakpoints.down(520)]: {
-      padding: 4
-    }
+      padding: 4,
+    },
   },
 
   header: {
@@ -25,12 +25,12 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(600)]: {
-      padding: 8
+      padding: 8,
     },
     [theme.breakpoints.down(520)]: {
       padding: 4,
-      marginBottom: "40px"
-    }
+      marginBottom: "40px",
+    },
   },
 
   noShadowHeader: {
@@ -42,12 +42,12 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "60px",
     width: "100%",
     [theme.breakpoints.down(600)]: {
-      padding: 8
+      padding: 8,
     },
     [theme.breakpoints.down(520)]: {
       padding: 4,
-      marginBottom: "40px"
-    }
+      marginBottom: "40px",
+    },
   },
 
   profile: {
@@ -62,26 +62,26 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     height: 34,
     width: 34,
-    borderRadius: "50%"
+    borderRadius: "50%",
   },
 
   title: {
     flex: 1,
-    fontSize: "20px"
+    fontSize: "20px",
   },
 
   logInButton: {
     fontSize: "16px",
     fontWeight: 600,
-    textTransform: 'none',
+    textTransform: "none",
     marginRight: 8,
     marginLeft: -6,
     padding: "5px 16px",
     borderRadius: 4,
     zIndex: 1,
     [theme.breakpoints.down(620)]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   signUpButton: {
@@ -92,8 +92,8 @@ export const useStyles = makeStyles((theme) => ({
     color: "white",
     borderRadius: 4,
     padding: "5px 16px",
-    '&:hover': {
-      backgroundColor: '#1976d2'
+    "&:hover": {
+      backgroundColor: "#1976d2",
     },
     minWidth: 91,
     zIndex: 1,
@@ -104,10 +104,10 @@ export const useStyles = makeStyles((theme) => ({
       borderRadius: 4,
       backgroundColor: "transparent",
       color: "black",
-      '&:hover': {
-        backgroundColor: 'transparent'
+      "&:hover": {
+        backgroundColor: "transparent",
       },
-    }
+    },
   },
 
   searchBar: {
@@ -115,8 +115,8 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: "25px",
     [theme.breakpoints.down(520)]: {
       marginLeft: 0,
-      marginRight: "auto"
-    }
+      marginRight: "auto",
+    },
   },
 
   menuItem: {
@@ -125,5 +125,5 @@ export const useStyles = makeStyles((theme) => ({
     width: 200,
     whiteSpace: "break-spaces",
     // wordBreak: "break-all"
-  }
+  },
 }));

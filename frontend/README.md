@@ -1,8 +1,8 @@
 # Notes:
+
 - Deleted "reportWebVitals.js" and "setupTests.js" from frontend currently as they are just adding noise
 - Ideally, we should add some form of tests to each component / view
 - Setup user analytics (later on)
-
 
 # Getting Started with Create React App
 

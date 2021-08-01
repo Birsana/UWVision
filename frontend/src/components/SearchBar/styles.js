@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import Select, { components } from 'react-select';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from 'react-router-dom';
+import styled from "@emotion/styled";
+import Select, { components } from "react-select";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from "react-router-dom";
 
 // Search Bar Component Styles:
 export const StyledSearch = styled(Select)`
@@ -10,13 +10,16 @@ export const StyledSearch = styled(Select)`
     width: 5px;
     height: 0px;
   }
-  .select__menu-list::-webkit-scrollbar-track {   /* Colour of Scroll Button's entire area to scroll up/down in */
+  .select__menu-list::-webkit-scrollbar-track {
+    /* Colour of Scroll Button's entire area to scroll up/down in */
     background: #f1f1f1;
   }
-  .select__menu-list::-webkit-scrollbar-thumb {   /* Actual Scroll Button's Colour */
+  .select__menu-list::-webkit-scrollbar-thumb {
+    /* Actual Scroll Button's Colour */
     background: #888;
   }
-  .select__menu-list::-webkit-scrollbar-thumb:hover {  /* Colour of Scroll Button when you hover your mouse over it*/
+  .select__menu-list::-webkit-scrollbar-thumb:hover {
+    /* Colour of Scroll Button when you hover your mouse over it*/
     background: #555;
   }
 `;
@@ -28,78 +31,78 @@ export const StyledSearch = styled(Select)`
 // input - styling what the user types into the search box
 // singleValue - applies to the selected option that the user chooses
 export const SearchBarStylesHome = {
-    control: (base, { isFocused }) => ({
-      ...base,
-      fontSize: 16,
-      fontWeight: '400',
-      backgroundColor: isFocused ? "white" : 'rgba(229, 229, 229)',
-      cursor: 'text',
-      borderRadius: 4,
-      width: 540,
-      border: isFocused ? "1px solid #2196f3" : "none",
-      "@media only screen and (max-width: 720px)": {
-          ...base["@media only screen and (max-width: 720px)"],
-          width: 400,
-      },
-      "@media only screen and (max-width: 520px)": {
-          ...base["@media only screen and (max-width: 520px)"],
-          width: 300,
-      },
-      "@media only screen and (max-width: 360px)": {
-          ...base["@media only screen and (max-width: 360px)"],
-          width: 270,
-      },
-      "@media only screen and (max-width: 320px)": {
-        ...base["@media only screen and (max-width: 320px)"],
-        fontSize: "14px",
-        width: 240,
-      },
-    }),
-  
-    option: (styles, { isFocused }) => {
-      return {
-        ...styles,
-        fontSize: 16,
-        cursor: 'pointer',
-        backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
-        color: isFocused ? 'black' : '#4d4d4d',
-        lineHeight: 2,
-        "@media only screen and (max-width: 820px)": {
-          ...styles["@media only screen and (max-width: 820px)"],
-          textAlign: "start"
-        },
-        "@media only screen and (max-width: 320px)": {
-          ...styles["@media only screen and (max-width: 320px)"],
-          fontSize: "14px",
-        },
-      }
+  control: (base, { isFocused }) => ({
+    ...base,
+    fontSize: 16,
+    fontWeight: "400",
+    backgroundColor: isFocused ? "white" : "rgba(229, 229, 229)",
+    cursor: "text",
+    borderRadius: 4,
+    width: 540,
+    border: isFocused ? "1px solid #2196f3" : "none",
+    "@media only screen and (max-width: 720px)": {
+      ...base["@media only screen and (max-width: 720px)"],
+      width: 400,
     },
-  
-    input: styles => ({
-      ...styles,
-      color: 'black'
-    }),
-  
-    menu: styles => ({
-      ...styles,
-      marginTop: 12,
-      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
-    }),
-  
-    singleValue: styles => ({
-      ...styles,
-      color: 'black',
-    }),
+    "@media only screen and (max-width: 520px)": {
+      ...base["@media only screen and (max-width: 520px)"],
+      width: 300,
+    },
+    "@media only screen and (max-width: 360px)": {
+      ...base["@media only screen and (max-width: 360px)"],
+      width: 270,
+    },
+    "@media only screen and (max-width: 320px)": {
+      ...base["@media only screen and (max-width: 320px)"],
+      fontSize: "14px",
+      width: 240,
+    },
+  }),
 
-    placeholder: styles => ({
+  option: (styles, { isFocused }) => {
+    return {
       ...styles,
-      color: 'black',
+      fontSize: 16,
+      cursor: "pointer",
+      backgroundColor: isFocused ? "rgba(226, 227, 228)" : "white",
+      color: isFocused ? "black" : "#4d4d4d",
+      lineHeight: 2,
+      "@media only screen and (max-width: 820px)": {
+        ...styles["@media only screen and (max-width: 820px)"],
+        textAlign: "start",
+      },
       "@media only screen and (max-width: 320px)": {
         ...styles["@media only screen and (max-width: 320px)"],
         fontSize: "14px",
       },
-    })
-  }
+    };
+  },
+
+  input: (styles) => ({
+    ...styles,
+    color: "black",
+  }),
+
+  menu: (styles) => ({
+    ...styles,
+    marginTop: 12,
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+  }),
+
+  singleValue: (styles) => ({
+    ...styles,
+    color: "black",
+  }),
+
+  placeholder: (styles) => ({
+    ...styles,
+    color: "black",
+    "@media only screen and (max-width: 320px)": {
+      ...styles["@media only screen and (max-width: 320px)"],
+      fontSize: "14px",
+    },
+  }),
+};
 
 // Search Bar Behaviour Styles:
 // control - styling the search box itself
@@ -111,9 +114,9 @@ export const SearchBarStylesNotHome = {
   control: (base, { isFocused }) => ({
     ...base,
     fontSize: 16,
-    fontWeight: '400',
-    backgroundColor: isFocused ? "white" : '#efefef',
-    cursor: 'text',
+    fontWeight: "400",
+    backgroundColor: isFocused ? "white" : "#efefef",
+    cursor: "text",
     borderRadius: 4,
     border: isFocused ? "1px solid #2196f3" : "none",
     width: 400,
@@ -156,7 +159,7 @@ export const SearchBarStylesNotHome = {
     },
     "@media only screen and (max-width: 300px)": {
       ...base["@media only screen and (max-width: 320px)"],
-      width: 190
+      width: 190,
     },
   }),
 
@@ -164,13 +167,13 @@ export const SearchBarStylesNotHome = {
     return {
       ...styles,
       fontSize: 16,
-      cursor: 'pointer',
-      backgroundColor: isFocused ? 'rgba(226, 227, 228)' : 'white',
-      color: isFocused ? 'black' : '#4d4d4d',
+      cursor: "pointer",
+      backgroundColor: isFocused ? "rgba(226, 227, 228)" : "white",
+      color: isFocused ? "black" : "#4d4d4d",
       lineHeight: 2,
       "@media only screen and (max-width: 520px)": {
         paddingLeft: 30,
-        paddingRight: 30
+        paddingRight: 30,
       },
       "@media only screen and (max-width: 320px)": {
         ...styles["@media only screen and (max-width: 320px)"],
@@ -178,70 +181,76 @@ export const SearchBarStylesNotHome = {
         paddingRight: 20,
         fontSize: "14px",
       },
-    }
+    };
   },
 
-  input: styles => ({
+  input: (styles) => ({
     ...styles,
-    color: 'black',
+    color: "black",
     "@media only screen and (max-width: 320px)": {
       ...styles["@media only screen and (max-width: 320px)"],
       fontSize: "14px",
     },
   }),
 
-  menu: styles => ({
+  menu: (styles) => ({
     ...styles,
     marginTop: 8,
     borderRadius: 4,
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
     "@media only screen and (max-width: 520px)": {
       ...styles["@media only screen and (max-width: 320px)"],
       width: "100vw",
       marginLeft: -20,
-      boxShadow: '0 14px 14px rgba(0, 0, 0, 0.07)',
+      boxShadow: "0 14px 14px rgba(0, 0, 0, 0.07)",
     },
   }),
 
-  singleValue: styles => ({
+  singleValue: (styles) => ({
     ...styles,
-    color: 'black',
+    color: "black",
   }),
 
-  placeholder: styles => ({
+  placeholder: (styles) => ({
     ...styles,
-    color: '#9e9ea7',
+    color: "#9e9ea7",
     "@media only screen and (max-width: 320px)": {
       ...styles["@media only screen and (max-width: 320px)"],
       fontSize: "14px",
     },
-  })
-}
+  }),
+};
 
 // Limit number of options to 6
 export const MenuList = ({ children, ...props }) => {
   return (
     <components.MenuList {...props}>
-      {Array.isArray(children) 
-        ? children.slice(0, 6)
-        : children
-       }
+      {Array.isArray(children) ? children.slice(0, 6) : children}
     </components.MenuList>
   );
 };
 
 // Add search icon to search bar
-export const DropdownIndicator = props => {
-    const location = useLocation();
+export const DropdownIndicator = (props) => {
+  const location = useLocation();
 
-    return (
-      components.DropdownIndicator && (
-        <components.DropdownIndicator {...props}>
-          <FontAwesomeIcon icon={faSearch} style={ (location.pathname === "/") ? { color: 'rgba(79, 78, 67)' } : { color: '#9e9ea7' } }/>
-        </components.DropdownIndicator>
-      )
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <FontAwesomeIcon
+          icon={faSearch}
+          style={
+            location.pathname === "/"
+              ? { color: "rgba(79, 78, 67)" }
+              : { color: "#9e9ea7" }
+          }
+        />
+      </components.DropdownIndicator>
     )
-}
+  );
+};
 
 // Allows DropdownIndicator to work
-export const Input = (props) => <components.Input {...props} isHidden={false} />;
+export const Input = (props) => (
+  <components.Input {...props} isHidden={false} />
+);

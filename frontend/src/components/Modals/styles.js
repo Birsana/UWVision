@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
 export const Background = styled.div`
   position: fixed;
@@ -99,26 +99,41 @@ export const ModalButton = styled.button`
 export const ModalSignUpButton = ({ onClick }) => {
   return (
     <>
-    <Divider />
-    <ModalText>New to UWVision? <u onClick={onClick} style={{cursor: "pointer"}}>Sign Up!</u></ModalText>
+      <Divider />
+      <ModalText>
+        New to UWVision?{" "}
+        <u onClick={onClick} style={{ cursor: "pointer" }}>
+          Sign Up!
+        </u>
+      </ModalText>
     </>
-  )
-}
+  );
+};
 
-export const ModalForgotPasswordButton = ({onClick}) => {
+export const ModalForgotPasswordButton = ({ onClick }) => {
   return (
-    <ModalText> <u onClick={onClick} style={{cursor: "pointer"}}>Forgot Password?</u></ModalText>
-  )
-}
+    <ModalText>
+      {" "}
+      <u onClick={onClick} style={{ cursor: "pointer" }}>
+        Forgot Password?
+      </u>
+    </ModalText>
+  );
+};
 
 export const ModalLogInButton = ({ onClick }) => {
   return (
     <>
       <Divider />
-      <ModalText>Already have an account? <u onClick={onClick} style={{cursor: "pointer"}}>Login!</u></ModalText>
+      <ModalText>
+        Already have an account?{" "}
+        <u onClick={onClick} style={{ cursor: "pointer" }}>
+          Login!
+        </u>
+      </ModalText>
     </>
-  )
-}
+  );
+};
 
 export const FormTextarea = styled(TextareaAutosize)`
   margin-top: 10px;
@@ -134,7 +149,7 @@ export const FormTextarea = styled(TextareaAutosize)`
   &:focus {
     outline: none;
   }
-`
+`;
 
 export const FormInput = styled.input`
   margin-top: 10px;
@@ -181,7 +196,7 @@ export const FormSelectWrapper = styled.div`
     color: grey;
     position: absolute;
   }
-`
+`;
 
 export const FormErrorMessage = styled.div`
   margin: 5px 0;

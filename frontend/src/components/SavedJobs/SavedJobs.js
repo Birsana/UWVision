@@ -1,10 +1,10 @@
-import { getSavedJobs } from "backendActions"
-import { useEffect, useState } from "react"
+import { getSavedJobs } from "backendActions";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Job from "components/CompanyPageComponents/Job";
 import { HiOutlineEmojiSad } from "react-icons/hi";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 import Loader from "react-loader-spinner";
 import { NavLink } from "react-router-dom";
 
@@ -30,7 +30,7 @@ const SavedJobsList = styled.div`
 
 const JobContainer = styled.div`
   margin-bottom: 40px;
-`
+`;
 
 const NoJobDataDiv = styled.div`
   display: flex;
@@ -52,71 +52,77 @@ const CompanyName = styled.h2`
   @media (max-width: 520px) {
     font-size: 20px;
   }
-`
+`;
 
 const SavedJobs = (props) => {
-    const [savedJobs, setSavedJobs] = useState({});
-    const [showSavedJobs, setShowSavedJobs] = useState(false);
-    
-    useEffect(() => {
-        let isMounted = true;  
-        getSavedJobs(props.token).then(response => {
-          if (isMounted) {   
-            setSavedJobs(response.data);
-            setShowSavedJobs(true);
-          }
-        });
-        return () => { isMounted = false };
-    }, [props.token]);
+  const [savedJobs, setSavedJobs] = useState({});
+  const [showSavedJobs, setShowSavedJobs] = useState(false);
 
-    return !showSavedJobs ? (
-      <SavedJobsList>
-        <h1>Saved jobs</h1>
+  useEffect(() => {
+    let isMounted = true;
+    getSavedJobs(props.token).then((response) => {
+      if (isMounted) {
+        setSavedJobs(response.data);
+        setShowSavedJobs(true);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [props.token]);
+
+  return !showSavedJobs ? (
+    <SavedJobsList>
+      <h1>Saved jobs</h1>
+      <NoJobDataDiv>
+        <Loader type="Oval" color="#2196f3" height={80} width={80} />
+      </NoJobDataDiv>
+    </SavedJobsList>
+  ) : (
+    <SavedJobsList>
+      <h1>Saved jobs</h1>
+      {Object.keys(savedJobs).length === 0 ? (
         <NoJobDataDiv>
-          <Loader type="Oval" color="#2196f3" height={80} width={80} />
+          No saved jobs!
+          <HiOutlineEmojiSad
+            style={{ marginTop: 10 }}
+            size={96}
+            color="rgba(0, 0, 0, 0.1)"
+          />
         </NoJobDataDiv>
-      </SavedJobsList>
-    ) : (
-      <SavedJobsList>
-        <h1>Saved jobs</h1>
-        {Object.keys(savedJobs).length === 0 ? (
-          <NoJobDataDiv>
-            No saved jobs!
-            <HiOutlineEmojiSad
-              style={{ marginTop: 10 }}
-              size={96}
-              color="rgba(0, 0, 0, 0.1)"
-            />
-          </NoJobDataDiv>
-        ) : (
-          Object.keys(savedJobs).map((companyName) => {
-            return (
-              <JobContainer key={companyName}>
-                <NavLink
-                  to={`/company/${companyName}`}
-                  style={{ textDecoration: "none", color: "unset", width: "fit-content" }}
-                >
-                  <CompanyName>{companyName}</CompanyName>
-                </NavLink>
-                {savedJobs[companyName].map((job) => {
-                  return (
-                    <Fade duration={500} key={`${companyName}-${job.id}`}>
-                      <Job jobData={job} accountPage={true} />
-                    </Fade>
-                  );
-                })}
-              </JobContainer>
-            );
-          })
-        )}
-      </SavedJobsList>
-    );
-}
+      ) : (
+        Object.keys(savedJobs).map((companyName) => {
+          return (
+            <JobContainer key={companyName}>
+              <NavLink
+                to={`/company/${companyName}`}
+                style={{
+                  textDecoration: "none",
+                  color: "unset",
+                  width: "fit-content",
+                }}
+              >
+                <CompanyName>{companyName}</CompanyName>
+              </NavLink>
+              {savedJobs[companyName].map((job) => {
+                return (
+                  <Fade duration={500} key={`${companyName}-${job.id}`}>
+                    <Job jobData={job} accountPage={true} />
+                  </Fade>
+                );
+              })}
+            </JobContainer>
+          );
+        })
+      )}
+    </SavedJobsList>
+  );
+};
 
 // Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
-    isLoggedIn: state.isLoggedIn,
-    token: state.token,
-  });
-  
+  isLoggedIn: state.isLoggedIn,
+  token: state.token,
+});
+
 export default connect(mapStateToProps)(SavedJobs);

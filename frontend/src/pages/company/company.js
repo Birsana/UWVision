@@ -22,7 +22,7 @@ const CompanyPage = (props) => {
       .catch((error) => {
         setIsCompanyValid(false);
       });
-  }
+  };
 
   useEffect(() => {
     getCompanyInfo();
@@ -38,16 +38,16 @@ const CompanyPage = (props) => {
                 <h1 className="company-name">{companyData.companyName}</h1>
               </div>
               {companyData.numReviews === 0 ? (
-                <h2 className="company-stats" style={{ color: "#2196f3" }}>No reviews</h2>
+                <h2 className="company-stats" style={{ color: "#2196f3" }}>
+                  No reviews
+                </h2>
               ) : (
                 <h2 className="company-stats">
                   <span className="companyRating">
                     {companyData.averageRating} out of 5
                   </span>
                   <span className="textDivider"> | </span>
-                  <span>
-                    {companyData.numReviews} reviews{" "}
-                  </span>
+                  <span>{companyData.numReviews} reviews </span>
                 </h2>
               )}
             </div>
@@ -61,7 +61,11 @@ const CompanyPage = (props) => {
         return (
           <div className="invalidCompany">
             {company} hasn't been added yet!
-            <HiOutlineEmojiSad style={{ marginTop: 10 }} size={96} color="rgba(0, 0, 0, 0.1)" />
+            <HiOutlineEmojiSad
+              style={{ marginTop: 10 }}
+              size={96}
+              color="rgba(0, 0, 0, 0.1)"
+            />
             <div style={{ marginTop: 20 }}>
               <AddCompanyButton onClose={getCompanyInfo} company={company} />
             </div>

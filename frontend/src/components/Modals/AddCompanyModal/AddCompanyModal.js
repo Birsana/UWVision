@@ -43,7 +43,7 @@ const AddCompanyModal = (props) => {
       setCompanyError("The company can't be longer than 50 characters");
       return false;
     }
-    
+
     return true;
   };
 
@@ -79,7 +79,15 @@ const AddCompanyModal = (props) => {
   return (
     <>
       <ModalTitle title={"Add Company"} />
-      <form style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 10 }} onSubmit={handleSubmit}>
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: 10,
+        }}
+        onSubmit={handleSubmit}
+      >
         <FormInput
           maxLength={100}
           type="text"

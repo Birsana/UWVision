@@ -54,7 +54,7 @@ const LogInModal = (props) => {
 
     // User cannot sign in with a non-uwaterloo email
     else if (!email.includes("@uwaterloo.ca")) {
-      setEmailError('Please enter an @uwaterloo.ca email.');
+      setEmailError("Please enter an @uwaterloo.ca email.");
       isValid = false;
     }
 
@@ -98,7 +98,14 @@ const LogInModal = (props) => {
   return (
     <>
       <ModalTitle title={"Login"} />
-      <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit}>
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        onSubmit={handleSubmit}
+      >
         <FormInput
           type="text"
           name="email"
@@ -128,7 +135,9 @@ const LogInModal = (props) => {
         )}
         <FormSubmitButton value="Login" />
       </form>
-      <ModalForgotPasswordButton onClick={() => props.changeModalState("Forgot Password")} />
+      <ModalForgotPasswordButton
+        onClick={() => props.changeModalState("Forgot Password")}
+      />
       <ModalSignUpButton onClick={() => props.changeModalState("Sign Up")} />
     </>
   );

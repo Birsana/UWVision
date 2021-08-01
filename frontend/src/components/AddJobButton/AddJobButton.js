@@ -36,12 +36,12 @@ const useStyles = makeStyles((theme) => ({
       height: 40,
       width: 112,
       marginTop: 0,
-      marginBottom: -32
+      marginBottom: -32,
     },
     [theme.breakpoints.down(520)]: {
       height: 36,
-      width: 72
-    }
+      width: 72,
+    },
   },
 
   extendedIcon: {
@@ -68,27 +68,27 @@ const AddJobButton = (props) => {
         className={styles.buttonStyle}
         onClick={() => setShowAddJobModal(true)}
       >
-        {!isMobile ?
+        {!isMobile ? (
           <>
             <AddIcon className={styles.extendedIcon} />
             Add a job
           </>
-          : 
-          'Add job'
-        }
+        ) : (
+          "Add job"
+        )}
       </Button>
-      
-      {(!props.isLoggedIn && showAddJobModal) && (
+
+      {!props.isLoggedIn && showAddJobModal && (
         <Modal
-        initialModal={"Log In"}
-        onClose={() => setShowAddJobModal(false)}
+          initialModal={"Log In"}
+          onClose={() => setShowAddJobModal(false)}
         />
       )}
 
-      {(props.isLoggedIn && showAddJobModal) && (
+      {props.isLoggedIn && showAddJobModal && (
         <Modal
-        initialModal={"Add Job"}
-        onClose={() => setShowAddJobModal(false)}
+          initialModal={"Add Job"}
+          onClose={() => setShowAddJobModal(false)}
         />
       )}
     </>
@@ -97,8 +97,7 @@ const AddJobButton = (props) => {
 
 // Injecting redux states into props for modal
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn
+  isLoggedIn: state.isLoggedIn,
 });
-
 
 export default connect(mapStateToProps)(AddJobButton);

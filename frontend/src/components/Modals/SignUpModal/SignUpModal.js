@@ -85,7 +85,7 @@ const SignUpModal = ({ changeModalState }) => {
     }
     // User cannot use a non-uwaterloo email
     else if (!email.includes("@uwaterloo.ca")) {
-      setEmailError('Please enter a @uwaterloo.ca email.');
+      setEmailError("Please enter a @uwaterloo.ca email.");
       return false;
     }
 
@@ -164,7 +164,13 @@ const SignUpModal = ({ changeModalState }) => {
       <ModalTitle title={"Sign Up"} />
       {!accountCreated ? (
         <>
-          <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <FormInput
               type="text"
               name="username"
@@ -223,7 +229,13 @@ const SignUpModal = ({ changeModalState }) => {
           <ModalLogInButton onClick={() => changeModalState("Log In")} />{" "}
         </>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <ModalText style={{ marginLeft: 0 }}>
             Welcome <b>{username}</b>!
           </ModalText>

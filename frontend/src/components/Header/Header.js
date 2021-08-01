@@ -52,14 +52,14 @@ const Header = (props) => {
 
   useEffect(() => {
     window.onscroll = () => {
-      if(window.pageYOffset === 0) {
+      if (window.pageYOffset === 0) {
         setAtTop(true);
       } else {
         setAtTop(false);
       }
-    }
-    return () => window.onscroll = null;
-  })
+    };
+    return () => (window.onscroll = null);
+  });
 
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();
@@ -70,8 +70,16 @@ const Header = (props) => {
 
   return (
     <>
-      <AppBar position={location.pathname === "/" ? 'static' : 'sticky'}
-        className={location.pathname === "/" ? styles.landingHeader : atTop ? styles.noShadowHeader : styles.header}>
+      <AppBar
+        position={location.pathname === "/" ? "static" : "sticky"}
+        className={
+          location.pathname === "/"
+            ? styles.landingHeader
+            : atTop
+            ? styles.noShadowHeader
+            : styles.header
+        }
+      >
         <Toolbar>
           {/* Render the UWVision typography if viewport size is greater than 650px or if on homepage*/}
           {(displayTypography || location.pathname === "/") && (
@@ -125,11 +133,11 @@ const Header = (props) => {
                 style={{ marginTop: 14 }}
                 elevation={3}
               >
-                <MenuItem
-                  className={styles.menuItem}
-                  disabled
-                >
-                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Welcome <span style={{ fontWeight: 600 }}>{usernameIcon}</span></span>
+                <MenuItem className={styles.menuItem} disabled>
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+                    Welcome{" "}
+                    <span style={{ fontWeight: 600 }}>{usernameIcon}</span>
+                  </span>
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}
@@ -138,19 +146,23 @@ const Header = (props) => {
                     handleMenuClose();
                   }}
                 >
-                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Saved jobs</span>
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+                    Saved jobs
+                  </span>
                 </MenuItem>
                 <MenuItem
                   className={styles.menuItem}
                   onClick={() => {
                     props.dispatch({ type: "LOGOUT" });
-                    if (location.pathname === '/account') {
+                    if (location.pathname === "/account") {
                       props.history.push("/");
                     }
                     handleMenuClose();
                   }}
                 >
-                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Logout</span>
+                  <span style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+                    Logout
+                  </span>
                 </MenuItem>
               </Menu>
             </div>
@@ -196,7 +208,7 @@ const Header = (props) => {
 // Injecting redux logged-in states into props for header
 const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
-  username: state.username
+  username: state.username,
 });
 
 export default connect(mapStateToProps)(withRouter(Header));

@@ -1,22 +1,27 @@
 import { useState, useEffect, useRef } from "react";
-import './styles.css';
-import BarGraph from '../../components/JobComponents/BarGraph'
-import InterviewQuestion from '../../components/JobComponents/InterviewQuestionComponents/InterviewQuestion'
-import Review from '../../components/JobComponents/Review/Review'
-import { MdMonetizationOn, MdQuestionAnswer } from "react-icons/md"
-import { BsQuestionSquareFill } from "react-icons/bs"
-import { Button } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles';
-import { blue } from '@material-ui/core/colors';
+import "./styles.css";
+import BarGraph from "../../components/JobComponents/BarGraph";
+import InterviewQuestion from "../../components/JobComponents/InterviewQuestionComponents/InterviewQuestion";
+import Review from "../../components/JobComponents/Review/Review";
+import { MdMonetizationOn, MdQuestionAnswer } from "react-icons/md";
+import { BsQuestionSquareFill } from "react-icons/bs";
+import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { blue } from "@material-ui/core/colors";
 import Modal from "components/Modals/Modal";
 import { connect } from "react-redux";
-import { getSalaries, getQuestions, getReviews, getRatings } from "backendActions"
+import {
+  getSalaries,
+  getQuestions,
+  getReviews,
+  getRatings,
+} from "backendActions";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { NavLink, useLocation } from "react-router-dom";
-import { NavHashLink } from 'react-router-hash-link';
+import { NavHashLink } from "react-router-hash-link";
 // import Slider from "react-slick";
 
 const ReviewButton = withStyles((theme) => ({
@@ -24,12 +29,12 @@ const ReviewButton = withStyles((theme) => ({
     color: "white",
     fontWeight: "bold",
     backgroundColor: blue[500],
-    '&:hover': {
+    "&:hover": {
       backgroundColor: blue[700],
     },
     border: "none",
     padding: "8px 10px",
-    width: 150
+    width: 150,
   },
 }))(Button);
 
@@ -38,7 +43,7 @@ const AddButton = withStyles((theme) => ({
     color: "white",
     fontWeight: "bold",
     backgroundColor: blue[500],
-    '&:hover': {
+    "&:hover": {
       backgroundColor: blue[700],
     },
     border: "none",
@@ -50,10 +55,10 @@ const AddButton = withStyles((theme) => ({
       fontWeight: "bold",
       width: 40,
       backgroundColor: "white",
-      '&:hover': {
-        backgroundColor: "white"
+      "&:hover": {
+        backgroundColor: "white",
       },
-    }
+    },
   },
 }))(Button);
 
@@ -82,30 +87,30 @@ const JobPage = (props) => {
   //   slidesToShow: 1,
   //   slidesToScroll: 1
   // };
-  
+
   useEffect(() => {
-    getSalaries(company, job)
-      .then((response) => {
-        setSalaries(response.data);
-      })
-    getQuestions(company, job, props.token)
-      .then((response) => {
-        setQuestions(response.data);
-        setShowQuestions(true);
-      })
-    getReviews(company, job, props.token)
-      .then((response) => {
-        setReviews(response.data);
-        setShowReviews(true)
-      })
-    getRatings(company, job)
-      .then((response) => {
-        setAverageArray(response.data);
-      })
+    getSalaries(company, job).then((response) => {
+      setSalaries(response.data);
+    });
+    getQuestions(company, job, props.token).then((response) => {
+      setQuestions(response.data);
+      setShowQuestions(true);
+    });
+    getReviews(company, job, props.token).then((response) => {
+      setReviews(response.data);
+      setShowReviews(true);
+    });
+    getRatings(company, job).then((response) => {
+      setAverageArray(response.data);
+    });
   }, [company, job, props.token]);
 
   useEffect(() => {
-    if (showSalaryModal !== 0 || showInterviewModal !== 0 || showReviewModal !== 0) {
+    if (
+      showSalaryModal !== 0 ||
+      showInterviewModal !== 0 ||
+      showReviewModal !== 0
+    ) {
       setShowSalaryModal(2);
       setShowInterviewModal(2);
       setShowReviewModal(2);
@@ -118,14 +123,14 @@ const JobPage = (props) => {
       mounted.current = true;
     } else {
       if (hash !== "") {
-        const id = hash.replace('#', '');
+        const id = hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
           let pos = element.style.position;
           let top = element.style.top;
-          element.style.position = 'relative';
-          element.style.top = '-90px';
-          element.scrollIntoView({behavior: 'smooth', block: 'start'});
+          element.style.position = "relative";
+          element.style.top = "-90px";
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
           element.style.top = top;
           element.style.position = pos;
         }
@@ -135,27 +140,38 @@ const JobPage = (props) => {
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -90; 
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-  }
+    const yOffset = -90;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
 
   const addReview = (review) => {
     setReviews((reviews) => [...reviews, review]);
-    getRatings(company, job)
-      .then((response) => {
-        setAverageArray(response.data);
-      })
+    getRatings(company, job).then((response) => {
+      setAverageArray(response.data);
+    });
   };
 
   const onModalClose = (type, changed = false) => {
     if (type === "Add Salary" && changed) {
-      if (window.confirm("Your salary will be lost if you close this modal. Are you sure you want to continue?"))
+      if (
+        window.confirm(
+          "Your salary will be lost if you close this modal. Are you sure you want to continue?"
+        )
+      )
         setShowSalaryModal(2);
     } else if (type === "Add Interview" && changed) {
-      if (window.confirm("Your interview question will be lost if you close this modal. Are you sure you want to continue?"))
+      if (
+        window.confirm(
+          "Your interview question will be lost if you close this modal. Are you sure you want to continue?"
+        )
+      )
         setShowInterviewModal(2);
     } else if (type === "Add Review" && changed) {
-      if (window.confirm("Your review will be lost if you close this modal. Are you sure you want to continue?"))
+      if (
+        window.confirm(
+          "Your review will be lost if you close this modal. Are you sure you want to continue?"
+        )
+      )
         setShowReviewModal(2);
     } else if (type === "Salary Login" || type === "Add Salary") {
       setShowSalaryModal(2);
@@ -164,7 +180,7 @@ const JobPage = (props) => {
     } else if (type === "Review Login" || type === "Add Review") {
       setShowReviewModal(2);
     }
-  }
+  };
 
   // Loading spinner used when data is still being fetched from backend
   const LoadingSpinner = () => {
@@ -186,7 +202,11 @@ const JobPage = (props) => {
             <Fade
               duration={500}
               key={index}
-              disabled={showInterviewModal !== 0 || showReviewModal !== 0 || showSalaryModal !== 0}
+              disabled={
+                showInterviewModal !== 0 ||
+                showReviewModal !== 0 ||
+                showSalaryModal !== 0
+              }
             >
               <Review
                 job={job}
@@ -231,7 +251,11 @@ const JobPage = (props) => {
             <Fade
               duration={500}
               key={index}
-              disabled={showInterviewModal !== 0 || showReviewModal !== 0 || showSalaryModal !== 0}
+              disabled={
+                showInterviewModal !== 0 ||
+                showReviewModal !== 0 ||
+                showSalaryModal !== 0
+              }
             >
               <div className="question">
                 <InterviewQuestion
@@ -248,6 +272,7 @@ const JobPage = (props) => {
             </Fade>
           );
         })
+      ) : (
         // <Slider {...settings} style={{ position: "relative" }}>
         //   <div className="gradient">
         //     {questions.map((question, index) => {
@@ -273,7 +298,6 @@ const JobPage = (props) => {
         //       )})}
         //     </div>
         //   </Slider>
-      ) : (
         <div className="no-reviews-questions" style={{ margin: 6 }}>
           No questions yet
           <HiOutlineEmojiSad
@@ -292,7 +316,11 @@ const JobPage = (props) => {
         <div className="header">
           <NavLink
             to={`/company/${company}`}
-            style={{ textDecoration: "none", color: "unset", width: "fit-content" }}
+            style={{
+              textDecoration: "none",
+              color: "unset",
+              width: "fit-content",
+            }}
           >
             <p className="company">{company}</p>
           </NavLink>
@@ -311,8 +339,13 @@ const JobPage = (props) => {
                 id="salaries"
                 smooth
                 to={`/company/${company}/job/${job}#salaries`}
-                scroll={el => scrollWithOffset(el)}
-                style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+                scroll={(el) => scrollWithOffset(el)}
+                style={{
+                  textDecoration: "none",
+                  color: "unset",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
                 <MdMonetizationOn
                   size={24}
@@ -321,9 +354,7 @@ const JobPage = (props) => {
                 />
                 Salaries ({salaries.length})
               </NavHashLink>
-              <AddButton onClick={() => setShowSalaryModal(1)}>
-                Add
-              </AddButton>
+              <AddButton onClick={() => setShowSalaryModal(1)}>Add</AddButton>
             </h2>
             <div className="graph">
               <BarGraph salaries={salaries} />
@@ -360,8 +391,13 @@ const JobPage = (props) => {
                   id="reviews"
                   smooth
                   to={`/company/${company}/job/${job}#reviews`}
-                  scroll={el => scrollWithOffset(el)}
-                  style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+                  scroll={(el) => scrollWithOffset(el)}
+                  style={{
+                    textDecoration: "none",
+                    color: "unset",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                 >
                   <MdQuestionAnswer size={24} className="icon" />
                   Reviews ({reviews.length})
@@ -410,11 +446,17 @@ const JobPage = (props) => {
                 id="questions"
                 smooth
                 to={`/company/${company}/job/${job}#questions`}
-                scroll={el => scrollWithOffset(el)}
-                style={{ textDecoration: "none", color: "unset", display: "flex", alignItems: "center" }}
+                scroll={(el) => scrollWithOffset(el)}
+                style={{
+                  textDecoration: "none",
+                  color: "unset",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
                 <BsQuestionSquareFill className="icon" size={20} />
-                {isSmallMobile ? 'Interview ' : 'Interview questions '}({questions.length})
+                {isSmallMobile ? "Interview " : "Interview questions "}(
+                {questions.length})
               </NavHashLink>
               <AddButton onClick={() => setShowInterviewModal(1)}>
                 Add
@@ -431,7 +473,9 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Salary" : "Log In"}
           job={job}
           company={company}
-          onClose={(changed) => onModalClose(props.token ? "Add Salary" : "Salary Login", changed)}
+          onClose={(changed) =>
+            onModalClose(props.token ? "Add Salary" : "Salary Login", changed)
+          }
           onSubmit={(salary) =>
             setSalaries((salaries) => [...salaries, salary])
           }
@@ -442,7 +486,12 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Interview" : "Log In"}
           job={job}
           company={company}
-          onClose={(changed) => onModalClose(props.token ? "Add Interview" : "Interview Login", changed)}
+          onClose={(changed) =>
+            onModalClose(
+              props.token ? "Add Interview" : "Interview Login",
+              changed
+            )
+          }
           onSubmit={(question) =>
             setQuestions((questions) => [...questions, question])
           }
@@ -453,7 +502,9 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Review" : "Log In"}
           job={job}
           company={company}
-          onClose={(changed) => onModalClose(props.token ? "Add Review" : "Review Login", changed)}
+          onClose={(changed) =>
+            onModalClose(props.token ? "Add Review" : "Review Login", changed)
+          }
           onSubmit={(review) => addReview(review)}
         />
       )}
@@ -466,5 +517,5 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
   token: state.token,
 });
-  
+
 export default connect(mapStateToProps)(JobPage);

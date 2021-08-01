@@ -1,4 +1,4 @@
-import { withRouter, } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 // Material-UI Imports:
 import AppBar from "@material-ui/core/AppBar";
@@ -8,7 +8,7 @@ import { useStyles } from "./styles";
 
 // Footer Component
 const Footer = (props) => {
-  const contactEmail = "info@uwvision.com"
+  const contactEmail = "info@uwvision.com";
   const styles = useStyles();
 
   const handleClick = (clickLocation) => {
@@ -20,12 +20,12 @@ const Footer = (props) => {
     }
 
     props.history.push(destination);
-  }
+  };
 
   const openInNewTab = (url) => {
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-    if (newWindow) newWindow.opener = null
-  }
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   return (
     <div className={styles.footerRoot}>
