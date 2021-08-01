@@ -38,12 +38,27 @@ sendConfirmationEmail = async (username, email, confirmationCode) => { //sending
     transport.sendMail({
         from: '"UWVision Team" <info@uwvision.com>',
         to: email,
-        subject: "Please confirm your account",
-        html: `<h1>Email Confirmation</h1>
-            <h2>Hello ${username},</h2>
-            <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
-            <a href=https://www.uwvision.com/auth/confirm/${confirmationCode}> Click here</a>
-            </div>`,
+        subject: "Confirm your account",
+        html: `
+          <p style="line-height: 6px">Hey ${username},</p>
+          <p style="margin-bottom: 30px">Thank you for registering with UWVision! Please confirm your email by clicking on the button below:</p>
+          <table cellspacing="0" cellpadding="0" border="0" align="center" style="border-spacing:0;border-collapse:collapse;margin:auto">
+            <tbody>
+              <tr>
+                <td style="border-radius:4px" align="center" bgcolor="#ea4c89">
+                  <a style="padding: 10px 14px; background-color: #2196f3; color: white; font-weight: bold; border: none; border-radius: 4px; text-decoration: none;" href=https://www.uwvision.com/auth/confirm/${confirmationCode}>
+                    Confirm Email
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="line-height: 6px; margin-top: 32px">Thanks,</p>
+          <p style="line-height: 6px">The UWVision Team</p>
+          <span style="font-size: 14px; color: grey; margin-top: 16px">
+            If the button above doesn't work, please <a href=https://www.uwvision.com/auth/confirm/${confirmationCode}>click here</a> to confirm your email.
+          </span>
+        `
   }).catch(err => console.log(err));
 };
 
@@ -52,12 +67,27 @@ sendForgotPasswordEmail = async (username, email, passwordToken) => {
     transport.sendMail({
             from: '"UWVision Team" <info@uwvision.com>',
             to: email,
-            subject: "UWVision Password Reset",
-            html: `<h1>Password Reset</h1>
-                <h2>Hello ${username},</h2>
-                <p>Please reset your password by clicking on the following link</p>
-                <a href=https://www.uwvision.com/forgotPassword/${passwordToken}> Click here</a>
-                </div>`,
+            subject: "Reset your password",
+            html: `
+              <p style="line-height: 6px">Hey ${username},</p>
+              <p style="margin-bottom: 30px">A request was made to reset your UWVision password. If you didn't make this request, please ignore this email. Otherwise, please reset your password by clicking on the button below:</p>
+              <table cellspacing="0" cellpadding="0" border="0" align="center" style="border-spacing:0;border-collapse:collapse;margin:auto">
+                <tbody>
+                  <tr>
+                    <td style="border-radius:4px" align="center" bgcolor="#ea4c89">
+                      <a style="padding: 10px 14px; background-color: #2196f3; color: white; font-weight: bold; border: none; border-radius: 4px; text-decoration: none;" href=https://www.uwvision.com/forgotPassword/${passwordToken}>
+                        Reset Password
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="line-height: 6px; margin-top: 32px">Thanks,</p>
+              <p style="line-height: 6px">The UWVision Team</p>
+              <span style="font-size: 14px; color: grey; margin-top: 16px">
+                If the button above doesn't work, please <a href=https://www.uwvision.com/forgotPassword/${passwordToken}>click here</a> to reset your password.
+              </span>
+            `
       }).catch(err => console.log(err));
 }
 
