@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   ModalTitle,
   FormTextarea,
@@ -8,67 +8,76 @@ import {
 } from "../styles";
 import { postQuestion } from "backendActions";
 import { connect } from "react-redux";
+import { Formik, Form, Field } from "formik";
 
 const InterviewModal = (props) => {
-  const [question, setQuestion] = useState("");
-  const [error, setError] = useState("");
+  const { company, job, token, onSubmit, onClose } = props;
 
-  const questionChange = (event) => {
-    const newQuestion = event.target.value;
-    setQuestion(newQuestion);
-
-    if (error) {
-      setError("");
+  const validateQuestion = (question) => {
+    let error = "";
+    if (!question) {
+      error = "Interview question cannot be blank";
     }
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!/\S/.test(question)) {
-      setError("Interview question cannot be blank");
-      return;
-    }
-
-    postQuestion(props.company, props.job, props.token, question).then(
-      (res) => {
-        res.data.upvoted = false;
-        props.onSubmit(res.data);
-        props.onClose(false);
-      }
-    );
+    return error;
   };
 
   return (
     <>
       <ModalTitle title={"Add question"} />
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+      <Formik
+        validateOnBlur={false}
+        initialValues={{
+          question: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          postQuestion(company, job, token, values.question)
+            .then((res) => {
+                res.data.upvoted = false;
+                onSubmit(res.data);
+                onClose(false);
+            })
+            .catch((err) => {
+                actions.setErrors({ question: "An error occured" })
+            })
+        }}
       >
-        <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
-          What interview question were you asked at {props.company}?
-        </ModalText>
-        <FormTextarea
-          maxLength={1000}
-          type="text"
-          name="question"
-          placeholder="Interview question..."
-          onChange={questionChange}
-          value={question}
-          autoFocus={true}
-        />
-        {error && (
-          <FormErrorMessage>
-            <p>{error}</p>
-          </FormErrorMessage>
+        {(props) => (
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.handleSubmit();
+            }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
+              What interview question were you asked at {company}?
+            </ModalText>
+            <Field
+              name="question"
+              id="question"
+              maxLength={1000}
+              type="text"
+              placeholder="Interview question..."
+              autoFocus={true}
+              as={FormTextarea}
+              validate={validateQuestion}
+            />
+            <FormErrorMessage>
+              <p>{props.errors.question}</p>
+            </FormErrorMessage>
+            <FormSubmitButton
+              disabled={props.isSubmitting}
+              type="submit"
+              style={{ marginBottom: 20 }}
+              value="Enter"
+            />
+          </Form>
         )}
-        <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
-      </form>
+      </Formik>
     </>
   );
 };
