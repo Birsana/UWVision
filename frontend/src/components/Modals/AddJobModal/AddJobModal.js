@@ -1,102 +1,90 @@
 import { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 import {
   ModalTitle,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
-
+import { Formik, Form, Field } from "formik";
 import { addJob } from "backendActions";
 
 const AddJobModal = (props) => {
   const company = props.match.params.id;
-
-  // User states (from redux)
   const [authToken] = useState(props.token);
 
-  // Modal States:
-  const [jobToAdd, setJobToAdd] = useState("");
-  const [jobError, setJobError] = useState("");
-
-  // Basic Validation - ensures the user is not submitting an empty company name
-  const basicInputValidation = () => {
-    if (!jobToAdd || jobToAdd.trim().length === 0) {
-      setJobError("The job title cannot be blank.");
-      return false;
+  const validateJob = (job) => {
+    let error = "";
+    let validChars = /^[a-zA-Z ]+$/; // A-Z, a-z, 0-9, " "
+    if (!validChars.test(job)) {
+      error = "Job title cannot contain special characters";
     }
-
-    // Max job length is 50 characters
-    if (jobToAdd.length > 50) {
-      setJobError("The job can't be longer than 50 characters");
-      return false;
+    if (!job || job.trim().length === 0) {
+      error = "Job title cannot be blank";
     }
-
-    // NOTE: Permissible characters for the URL are the following:
-    // A-Z, a-z, 0-9, " "
-    let validChars = /^[a-zA-Z ]+$/;
-    if (!validChars.test(jobToAdd)) {
-      setJobError("The job name cannot contain special characters.");
-      return false;
+    if (job.length > 50) {
+      error = "Job title cannot be longer than 50 characters";
     }
-
-    return true;
-  };
-
-  const onInputChange = (event) => {
-    setJobToAdd(event.target.value);
-
-    // Removes error once user begins typing again
-    if (jobError) {
-      setJobError("");
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (basicInputValidation()) {
-      addJob(company, jobToAdd, authToken)
-        .then((res) => {
-          props.history.push(`/company/${company}/job/${jobToAdd}`);
-        })
-        .catch((err) => {
-          setJobError("This job already exists!");
-        });
-    }
+    return error;
   };
 
   return (
     <>
       <ModalTitle title={"Add Job"} />
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 10,
+      <Formik
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          job: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          addJob(company, values.job, authToken)
+            .then((res) => {
+              props.history.push(`/company/${company}/job/${values.job}`);
+            })
+            .catch((err) => {
+              actions.setErrors({ job: "Job already exists" });
+              actions.setSubmitting(false);
+            });
+        }}
       >
-        <FormInput
-          maxLength={100}
-          type="text"
-          name="jobTitle"
-          placeholder="Job Title"
-          onChange={onInputChange}
-          autoComplete="off"
-          value={jobToAdd}
-          autoFocus={true}
-        />
-        {jobError && (
-          <FormErrorMessage>
-            <p>{jobError}</p>
-          </FormErrorMessage>
+        {(props) => (
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.handleSubmit();
+            }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: 10,
+            }}
+          >
+            <Field
+              type="text"
+              name="job"
+              maxLength={100}
+              placeholder="Job Title"
+              autoFocus={true}
+              autoComplete="off"
+              as={FormInput}
+              validate={validateJob}
+            />
+            {props.errors.job && (
+              <FormErrorMessage>
+                <p>{props.errors.job}</p>
+              </FormErrorMessage>
+            )}
+            <FormSubmitButton
+              disabled={props.isSubmitting}
+              type="submit"
+              value="Add Job"
+            />
+          </Form>
         )}
-        <FormSubmitButton value="Add Job" />
-      </form>
+      </Formik>
     </>
   );
 };

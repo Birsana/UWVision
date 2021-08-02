@@ -15,7 +15,7 @@ const InterviewModal = (props) => {
 
   const validateQuestion = (question) => {
     let error = "";
-    if (!question) {
+    if (!question || question.trim().length === 0) {
       error = "Interview question cannot be blank";
     }
     return error;
@@ -26,19 +26,21 @@ const InterviewModal = (props) => {
       <ModalTitle title={"Add question"} />
       <Formik
         validateOnBlur={false}
+        validateOnChange={false}
         initialValues={{
           question: "",
         }}
         onSubmit={(values, actions) => {
           postQuestion(company, job, token, values.question)
             .then((res) => {
-                res.data.upvoted = false;
-                onSubmit(res.data);
-                onClose(false);
+              res.data.upvoted = false;
+              onSubmit(res.data);
+              onClose(false);
             })
             .catch((err) => {
-                actions.setErrors({ question: "An error occured" })
-            })
+              actions.setErrors({ question: "An error occured" });
+              actions.setSubmitting(false);
+            });
         }}
       >
         {(props) => (
@@ -57,18 +59,19 @@ const InterviewModal = (props) => {
               What interview question were you asked at {company}?
             </ModalText>
             <Field
-              name="question"
-              id="question"
-              maxLength={1000}
               type="text"
+              name="question"
+              maxLength={1000}
               placeholder="Interview question..."
               autoFocus={true}
               as={FormTextarea}
               validate={validateQuestion}
             />
-            <FormErrorMessage>
-              <p>{props.errors.question}</p>
-            </FormErrorMessage>
+            {props.errors.question && (
+              <FormErrorMessage>
+                <p>{props.errors.question}</p>
+              </FormErrorMessage>
+            )}
             <FormSubmitButton
               disabled={props.isSubmitting}
               type="submit"

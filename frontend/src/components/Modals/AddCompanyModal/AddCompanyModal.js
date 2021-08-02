@@ -5,106 +5,88 @@ import {
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
-
-// Backend + Redux Imports:
+import { Formik, Form, Field } from "formik";
 import { addCompany } from "backendActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-// ==============================================================================================================
-
-// Add Company Modal:
 const AddCompanyModal = (props) => {
-  // States controlled by Redux:
   const [authToken] = useState(props.token);
 
-  // Modal States:
-  const [companyToAdd, setCompanyToAdd] = useState(props.company);
-  const [companyError, setCompanyError] = useState("");
-
-  // Basic Validation - ensures the user is not submitting an empty company name
-  const basicInputValidation = () => {
-    // Preventing user from entering blank entry or purely whitespace entry
-    if (!companyToAdd || companyToAdd.trim().length === 0) {
-      setCompanyError("The company name cannot be blank.");
-      return false;
+  const validateCompany = (company) => {
+    let error = "";
+    let validChars = /^(?:[A-Za-z0-9 ]*)$/g; // A-Z, a-z, 0-9, " "
+    if (!validChars.test(company)) {
+      error = "Company name cannot contain special characters";
     }
-
-    // NOTE: Permissible characters for the URL are the following:
-    // A-Z, a-z, 0-9, " "
-    let validChars = /^(?:[A-Za-z0-9 ]*)$/g;
-    if (!validChars.test(companyToAdd)) {
-      setCompanyError("The company name cannot contain special characters.");
-      return false;
+    if (!company || company.trim().length === 0) {
+      error = "Company name cannot be blank";
     }
-
-    // Max company length is 50 characters
-    if (companyToAdd.length > 50) {
-      setCompanyError("The company can't be longer than 50 characters");
-      return false;
+    if (company.length > 50) {
+      error = "Company name cannot be longer than 50 characters";
     }
-
-    return true;
-  };
-
-  // Handles submission of the Add Company form
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (basicInputValidation()) {
-      // If the company being added already exists in the database - set an error explaining the situation
-      addCompany(companyToAdd, authToken)
-        .then((res) => {
-          props.history.push(`/company/${companyToAdd}`);
-          if (props.onClose) {
-            props.onClose();
-          }
-        })
-        .catch((err) => {
-          setCompanyError("This company already exists!");
-        });
-    }
-  };
-
-  // Deals with the form inputs
-  const onInputChange = (event) => {
-    setCompanyToAdd(event.target.value);
-
-    // Removes error once user begins typing
-    if (companyError) {
-      setCompanyError("");
-    }
+    return error;
   };
 
   return (
     <>
       <ModalTitle title={"Add Company"} />
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 10,
+      <Formik
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          company: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          addCompany(values.company, authToken)
+            .then((res) => {
+              if (props.onClose) {
+                props.onClose();
+              }
+              props.history.push(`/company/${values.company}`);
+            })
+            .catch((err) => {
+              actions.setErrors({ company: "Company already exists" });
+              actions.setSubmitting(false);
+            });
+        }}
       >
-        <FormInput
-          maxLength={100}
-          type="text"
-          name="companyName"
-          placeholder="Company Name"
-          onChange={onInputChange}
-          autoComplete="off"
-          value={companyToAdd}
-          autoFocus={true}
-        />
-        {companyError && (
-          <FormErrorMessage>
-            <p>{companyError}</p>
-          </FormErrorMessage>
+        {(props) => (
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.handleSubmit();
+            }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: 10,
+            }}
+          >
+            <Field
+              type="text"
+              name="company"
+              maxLength={100}
+              placeholder="Company Name"
+              autoFocus={true}
+              autoComplete="off"
+              as={FormInput}
+              validate={validateCompany}
+            />
+            {props.errors.company && (
+              <FormErrorMessage>
+                <p>{props.errors.company}</p>
+              </FormErrorMessage>
+            )}
+            <FormSubmitButton
+              disabled={props.isSubmitting}
+              type="submit"
+              value="Add Company"
+            />
+          </Form>
         )}
-        <FormSubmitButton value="Add Company" />
-      </form>
+      </Formik>
     </>
   );
 };

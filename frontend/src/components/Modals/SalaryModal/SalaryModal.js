@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   ModalTitle,
   FormInput,
@@ -8,93 +8,100 @@ import {
 } from "../styles";
 import { connect } from "react-redux";
 import { postSalary } from "backendActions";
+import { Formik, Form, Field } from "formik";
 
 function isNumeric(value) {
   return /^\d+$/.test(value);
 }
 
 const SalaryModal = (props) => {
-  const [salary, setSalary] = useState("");
-  const [error, setError] = useState("");
+  const { company, job, token, onSubmit, onClose } = props;
 
-  const salaryChange = (event) => {
-    const newSalary = event.target.value;
-    setSalary(newSalary);
-
-    if (!isNumeric(newSalary)) {
-      setError("Salary must be a positive integer");
-      return;
+  const validateSalary = (salary) => {
+    let error = "";
+    if (!salary || salary.length === 0) {
+      error = "Salary cannot be blank";
     }
-
-    const salaryAsInt = parseInt(newSalary);
+    if (!isNumeric(salary)) {
+      error = "Salary must be a positive integer";
+    }
+    const salaryAsInt = parseInt(salary);
     if (salaryAsInt > 300) {
-      setError("Salary must be less than $300");
-      return;
+      error = "Salary must be less than $300";
     }
-
     if (salaryAsInt === 0) {
-      setError("Salary must be greater than $0");
-      return;
+      error = "Salary must be greater than $0";
     }
-
-    if (error) {
-      setError("");
-    }
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (error !== "") {
-      return;
-    }
-
-    if (salary.length === 0) {
-      setError("Salary cannot be empty");
-      return;
-    }
-
-    postSalary(props.company, props.job, props.token, salary).then((res) => {
-      if (res.data === "already posted") {
-        setError("You can only report the salary of a job once!");
-      } else {
-        props.onSubmit(res.data);
-        props.onClose(false);
-      }
-    });
+    return error;
   };
 
   return (
     <>
       <ModalTitle title={"Add salary"} />
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+      <Formik
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          salary: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          postSalary(company, job, token, values.salary)
+            .then((res) => {
+              if (res.data === "already posted") {
+                actions.setErrors({
+                  salary: "Cannot report salary more than once",
+                });
+                actions.setSubmitting(false);
+              } else {
+                onSubmit(res.data);
+                onClose(false);
+              }
+            })
+            .catch((err) => {
+              actions.setErrors({ salary: "An error occured" });
+              actions.setSubmitting(false);
+            });
+        }}
       >
-        <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
-          What was your hourly wage at {props.company} (in CAD)?
-        </ModalText>
-        <FormInput
-          type="number"
-          min={0}
-          max={300}
-          name="salary"
-          placeholder="Hourly wage..."
-          onChange={salaryChange}
-          value={salary}
-          autoFocus={true}
-        />
-        {error && (
-          <FormErrorMessage>
-            <p>{error}</p>
-          </FormErrorMessage>
+        {(props) => (
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.handleSubmit();
+            }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <ModalText style={{ marginBottom: 4, marginLeft: 4, fontSize: 16 }}>
+              What was your hourly wage (CAD) at {company}?
+            </ModalText>
+            <Field
+              type="number"
+              name="salary"
+              min={0}
+              max={300}
+              placeholder="Hourly wage (CAD)..."
+              autoFocus={true}
+              as={FormInput}
+              validate={validateSalary}
+            />
+            {props.errors.salary && (
+              <FormErrorMessage>
+                <p>{props.errors.salary}</p>
+              </FormErrorMessage>
+            )}
+            <FormSubmitButton
+              disabled={props.isSubmitting}
+              type="submit"
+              style={{ marginBottom: 20 }}
+              value="Enter"
+            />
+          </Form>
         )}
-        <FormSubmitButton style={{ marginBottom: 20 }} value="Enter" />
-      </form>
+      </Formik>
     </>
   );
 };

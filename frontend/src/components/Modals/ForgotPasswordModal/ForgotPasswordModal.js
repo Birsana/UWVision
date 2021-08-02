@@ -1,65 +1,65 @@
-import { useState } from "react";
 import {
   ModalTitle,
   FormInput,
   FormSubmitButton,
   FormErrorMessage,
 } from "../styles";
-
+import { Formik, Form, Field } from "formik";
 import { sendResetEmail } from "backendActions";
 
 const ForgotPasswordModal = (props) => {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-
-  // Deals with the email field's inputs
-  const emailInputChange = (event) => {
-    setEmail(event.target.value);
-
-    // Removes error once user begins typing inside email field
-    if (emailError) {
-      setEmailError("");
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    sendResetEmail(email)
-      .then((response) => {
-        props.onClose();
-      })
-      .catch((err) => {
-        setEmailError("You have entered an invalid email.");
-      });
-  };
-
   return (
     <>
       <ModalTitle title={"Forgot Password"} />
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 10,
+      <Formik
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          email: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          sendResetEmail(values.email)
+            .then((res) => {
+              props.onClose();
+            })
+            .catch((err) => {
+              actions.setErrors({ email: "Invalid email provided" });
+            });
+        }}
       >
-        <FormInput
-          type="text"
-          name="email"
-          placeholder="Email"
-          onChange={emailInputChange}
-          value={email}
-          autoFocus={true}
-        />
-        {emailError && (
-          <FormErrorMessage>
-            <p>{emailError}</p>
-          </FormErrorMessage>
+        {(props) => (
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.handleSubmit();
+            }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: 10,
+            }}
+          >
+            <Field
+              type="text"
+              name="email"
+              placeholder="Email"
+              autoFocus={true}
+              as={FormInput}
+            />
+            {props.errors.email && (
+              <FormErrorMessage>
+                <p>{props.errors.email}</p>
+              </FormErrorMessage>
+            )}
+            <FormSubmitButton
+              disabled={props.isSubmitting}
+              type="submit"
+              value="Send Reset Email"
+            />
+          </Form>
         )}
-        <FormSubmitButton value="Send Reset Email" />
-      </form>
+      </Formik>
     </>
   );
 };

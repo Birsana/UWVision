@@ -8,153 +8,49 @@ import {
   FormErrorMessage,
   ModalText,
 } from "../styles";
-
-// Backend Imports:
+import { Formik, Form, Field } from "formik";
 import { signUp, isUserConfirmed } from "backendActions";
 
-// ==============================================================================================================
-
-// Sign Up Modal:
 const SignUpModal = ({ changeModalState }) => {
-  // Sign-up Form States:
   const [username, setUsername] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
-
-  // Post-creation of user states:
   const [accountCreated, setAccountCreated] = useState(false);
   const [confirmationError, setConfirmationError] = useState("");
 
-  // Deals with the username field's inputs
-  const usernameInputChange = (event) => {
-    setUsername(event.target.value);
-
-    // Removes error once user begins typing inside username field
-    if (usernameError) {
-      setUsernameError("");
+  const validate = (values) => {
+    const { username, email, password, confirmPassword } = values;
+    const errors = {};
+    if (!username || username.trim().length === 0) {
+      errors.username = "Username cannot be blank";
     }
-  };
-
-  // Deals with the email field's inputs
-  const emailInputChange = (event) => {
-    setEmail(event.target.value);
-
-    // Removes error once user begins typing inside email field
-    if (emailError) {
-      setEmailError("");
+    if (!email.includes("@uwaterloo.ca")) {
+      errors.email = "Please enter a @uwaterloo.ca email";
     }
-  };
-
-  // Deals with the password field's inputs
-  const passwordInputChange = (event) => {
-    setPassword(event.target.value);
-
-    // Removes error once user begins typing inside password field
-    if (passwordError) {
-      setPasswordError("");
+    if (!email || email.trim().length === 0) {
+      errors.email = "Email cannot be blank";
     }
-  };
-
-  // Deals with the confirm password field's inputs
-  const confirmPasswordInputChange = (event) => {
-    setConfirmPassword(event.target.value);
-
-    // Removes error once user begins typing inside confirm password field
-    if (confirmPasswordError) {
-      setConfirmPasswordError("");
-    }
-  };
-
-  // Basic Form Input Validation
-  const basicInputValidation = () => {
-    // User cannot submit an empty username
-    if (!username) {
-      setUsernameError("Please enter a username.");
-      return false;
-    }
-
-    // User cannot submit an empty email
-    if (!email) {
-      setEmailError("Please enter an email.");
-      return false;
-    }
-    // User cannot use a non-uwaterloo email
-    else if (!email.includes("@uwaterloo.ca")) {
-      setEmailError("Please enter a @uwaterloo.ca email.");
-      return false;
-    }
-
-    // User cannot submit an empty password
-    if (!password) {
-      setPasswordError("Please enter a password.");
-      return false;
-    }
-
-    //! Password strength checks
-    // Must AT LEAST be 8 characters long
     if (password.length < 8) {
-      setPasswordError("Password must be at least 8 characters long.");
-      return false;
+      errors.password = "Password must be at least 8 characters long";
     }
-    // Must AT LEAST contain 1 special character
-    // eslint-disable-next-line no-useless-escape
-    let specialCharRegex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g;
-    if (!password.match(specialCharRegex)) {
-      setPasswordError("Password must contain at least 1 special character.");
-      return false;
+    if (!password) {
+      errors.password = "Password cannot be blank";
     }
-
-    // User cannot submit an empty confirm password
     if (!confirmPassword) {
-      setConfirmPasswordError("Please confirm the password.");
-      return false;
+      errors.confirmPassword = "Confirm your password";
     }
-    // User cannot submit a confirm password that doesn't match the previous password
-    else if (confirmPassword !== password) {
-      setConfirmPasswordError("Passwords do not match.");
-      return false;
+    if (confirmPassword !== password) {
+      errors.confirmPassword = "Passwords don't match";
     }
-
-    return true;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (basicInputValidation()) {
-      signUp(username, email, password)
-        .then((response) => {
-          setAccountCreated(true);
-        })
-        .catch((error) => {
-          let message = error.response.data.error.message;
-
-          // Error Interpretation based on backend's response
-          if (message.includes("username: is already taken.")) {
-            setUsernameError("This username is already taken.");
-          }
-
-          if (message.includes("email: is already taken.")) {
-            setEmailError("This email is already in use.");
-          }
-        });
-    }
+    return errors;
   };
 
   // Handles switching back the modal to the log-in state once the user has successfully been created
   const signInAfterConfirm = () => {
     isUserConfirmed(username).then((response) => {
       let isConfirmed = response.data.status;
-
       if (isConfirmed) {
         changeModalState("Log In");
       } else {
-        setConfirmationError("Please confirm your email first.");
+        setConfirmationError("Please confirm your email");
       }
     });
   };
@@ -164,69 +60,105 @@ const SignUpModal = ({ changeModalState }) => {
       <ModalTitle title={"Sign Up"} />
       {!accountCreated ? (
         <>
-          <form
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+          <Formik
+            validateOnBlur={false}
+            validateOnChange={false}
+            validate={validate}
+            initialValues={{
+              username: "",
+              email: "",
+              password: "",
+            }}
+            onSubmit={(values, actions) => {
+              setUsername(values.username);
+              signUp(values.username, values.email, values.password)
+                .then((res) => {
+                  setAccountCreated(true);
+                })
+                .catch((error) => {
+                  let message = error.response.data.error.message;
+                  if (message.includes("username: is already taken.")) {
+                    actions.setErrors({
+                      username: "Username is already in use",
+                    });
+                  }
+                  if (message.includes("email: is already taken.")) {
+                    actions.setErrors({ email: "Email is already in use" });
+                  }
+                  actions.setSubmitting(false);
+                });
             }}
           >
-            <FormInput
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={usernameInputChange}
-              value={username}
-              autoFocus={true}
-              maxLength={32}
-            />
-            {usernameError && (
-              <FormErrorMessage>
-                <p>{usernameError}</p>
-              </FormErrorMessage>
+            {(props) => (
+              <Form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  props.handleSubmit();
+                }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Field
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  autoFocus={true}
+                  maxLength={32}
+                  as={FormInput}
+                />
+                {props.errors.username && (
+                  <FormErrorMessage>
+                    <p>{props.errors.username}</p>
+                  </FormErrorMessage>
+                )}
+                <Field
+                  type="email"
+                  name="email"
+                  maxLength={64}
+                  placeholder="Email (@uwaterloo.ca)"
+                  as={FormInput}
+                />
+                {props.errors.email && (
+                  <FormErrorMessage>
+                    <p>{props.errors.email}</p>
+                  </FormErrorMessage>
+                )}
+                <Field
+                  type="password"
+                  name="password"
+                  maxLength={64}
+                  placeholder="Password"
+                  as={FormInput}
+                />
+                {props.errors.password && (
+                  <FormErrorMessage>
+                    <p>{props.errors.password}</p>
+                  </FormErrorMessage>
+                )}
+                <Field
+                  type="password"
+                  name="confirmPassword"
+                  maxLength={64}
+                  placeholder="Confirm password"
+                  as={FormInput}
+                />
+                {props.errors.confirmPassword && (
+                  <FormErrorMessage>
+                    <p>{props.errors.confirmPassword}</p>
+                  </FormErrorMessage>
+                )}
+                <FormSubmitButton
+                  disabled={props.isSubmitting}
+                  type="submit"
+                  value="Sign Up"
+                />
+              </Form>
             )}
-            <FormInput
-              type="text"
-              name="email"
-              placeholder="Email (@uwaterloo.ca)"
-              onChange={emailInputChange}
-              value={email}
-              maxLength={64}
-            />
-            {emailError && (
-              <FormErrorMessage>
-                <p>{emailError}</p>
-              </FormErrorMessage>
-            )}
-            <FormInput
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={passwordInputChange}
-              value={password}
-              maxLength={64}
-            />
-            {passwordError && (
-              <FormErrorMessage>
-                <p>{passwordError}</p>
-              </FormErrorMessage>
-            )}
-            <FormInput
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              onChange={confirmPasswordInputChange}
-              value={confirmPassword}
-              maxLength={64}
-            />
-            {confirmPasswordError && (
-              <FormErrorMessage>
-                <p>{confirmPasswordError}</p>
-              </FormErrorMessage>
-            )}
-            <FormSubmitButton value="Sign Up" onClick={handleSubmit} />
-          </form>
-          <ModalLogInButton onClick={() => changeModalState("Log In")} />{" "}
+          </Formik>
+          <ModalLogInButton onClick={() => changeModalState("Log In")} />
         </>
       ) : (
         <div
@@ -234,19 +166,17 @@ const SignUpModal = ({ changeModalState }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            fontSize: 16,
           }}
         >
-          <ModalText style={{ marginLeft: 0 }}>
+          <ModalText style={{ marginLeft: 0, marginBottom: 0 }}>
             Welcome <b>{username}</b>!
           </ModalText>
           <ModalText style={{ marginLeft: 0 }}>
             You will receive an email to confirm your newly created account
-            shortly.
+            shortly. Once you have confirmed your account, go ahead and log in!
           </ModalText>
-          <ModalText style={{ marginLeft: 0 }}>
-            Once you have confirmed your account, go ahead and log in!
-          </ModalText>
-          <ModalButton onClick={signInAfterConfirm}>Log In!</ModalButton>
+          <ModalButton onClick={signInAfterConfirm}>Log In</ModalButton>
           {confirmationError && (
             <FormErrorMessage>
               <p>{confirmationError}</p>
