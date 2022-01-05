@@ -1,0 +1,972 @@
+{ 
+    "_id" : ObjectId("60f8bd0b67ba58001589e319"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Very easy work and low expectations, but didn't learn much. Decent team culture.", 
+    "overallRating" : NumberInt(3), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(3), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "a2birsan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T00:34:19.279+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:34:19.279+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bda467ba58001589e31e"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Pretty good experience, had the opportunity to touch a lot of really cool and cutting edge technologies. Interns were given a fair amount of real work, but still a very relaxed environment.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "s44ding@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T00:36:52.220+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:36:52.220+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bf5867ba58001589e335"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great team/culture, and lots of opportunity to do great/interesting work. You get feedback often and will learn a lot, but the workload is pretty demanding sometimes", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "a2birsan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T00:44:08.046+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:44:08.046+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c06767ba58001589e33f"), 
+    "upvoters" : [
+        ObjectId("60f63ce8d9feba001580bcd3")
+    ], 
+    "body" : "I really enjoyed this internship. As an intern I was given a well scoped out project and provided great mentorship from the fulltimes. Work life balance and culture was amazing too, lots of intern events and gifts. Really liked this internship.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "s44ding@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T00:48:39.907+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:49:35.114+0000"), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8c4e267ba58001589e34e"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great team, had a blast to work with! However, everyone seemed overworked and a decent amount of time was spent putting out fires instead of doing proper development work. Company would have benefitted from more experienced engineers on the team. Regardless, was a great learning experience and would definitely recommend for a 1st co-op!  ", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "cgandevi@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T01:07:46.877+0000"), 
+    "updatedAt" : ISODate("2021-07-22T01:07:46.877+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c8ff67ba58001589e355"), 
+    "upvoters" : [
+        ObjectId("60f63ce8d9feba001580bcd3")
+    ], 
+    "body" : "Really enjoyed this internship, everyone I met was very pro-growth and there was great mentorship in place for interns. Interns are fully integrated with the team and there is tons of opportunity to contribute to meaningful work - just make sure you take the initiative and let your manager know early on what you'd like to get out of this co-op. Overall, great internship would definitely recommend.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "cgandevi@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T01:25:19.371+0000"), 
+    "updatedAt" : ISODate("2021-09-26T23:59:37.859+0000"), 
+    "__v" : NumberInt(3)
+}
+{ 
+    "_id" : ObjectId("60f8f18a67ba58001589e362"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Really exciting startup environment. Everyone was super helpful and interns were given a lot of freedom. But some tasks may seem repetitive at times.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "s44ding@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T04:18:18.978+0000"), 
+    "updatedAt" : ISODate("2021-07-22T04:18:18.978+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f92c3cb2448e00158d8c7e"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "The team and company environment is very friendly and welcoming. Be ready to work on many aspects of the product and also be willing to learn new things - the other engineers and the CTO are very happy to help clear up any confusion. Things may get slightly disorganized, but other than that, the work-life balance is easily manageable. Overall, Pencil has been a great place to work at.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "j64chu@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T08:28:44.993+0000"), 
+    "updatedAt" : ISODate("2021-07-22T08:28:53.527+0000"), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f9af5d20567c0015f63c98"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Awesome Communitech lab overall - great management and interesting projects", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "tailai.wang@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T17:48:13.070+0000"), 
+    "updatedAt" : ISODate("2021-07-22T17:48:13.070+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9b8f720567c0015f63cd4"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Can get a bit busy, but overall team culture is amazing. There is a lot of autonomy with your work and minimal hand-holding (but you are heavily encouraged to ask for help if needed). Flexible hours as well.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "j52hou@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T18:29:11.812+0000"), 
+    "updatedAt" : ISODate("2021-07-22T18:29:11.812+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bb0c20567c0015f63cdf"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "pay is pretty garbage, $17/h\nmanager isn't super familiar with what's going on so you'll have to just sort of figure stuff out yourself. The waterloo office is pretty much completely intern run. \n\nAlthough the position says SWE, you may not actually get to do software development. If the manager things you're capable, you might get some stuff and it's actually not too bad. If your resume and your skills are a little lacking, you might just be doing grunt work the entire time.", 
+    "overallRating" : NumberInt(3), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "v29wang@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T18:38:04.276+0000"), 
+    "updatedAt" : ISODate("2021-07-22T18:38:04.276+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bbdd20567c0015f63cec"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "g7zhong@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T18:41:33.076+0000"), 
+    "updatedAt" : ISODate("2021-07-22T18:41:33.076+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bd4220567c0015f63cf4"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "rwolynyk@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T18:47:30.248+0000"), 
+    "updatedAt" : ISODate("2021-07-22T18:47:30.248+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c75a20567c0015f63d31"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Surprisingly good. Everyone is very nice and fun, and the position gives you time to accomplish tasks at work and home. Work is only 4 days a week ", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "cjchessu@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:30:34.743+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:30:34.743+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c97020567c0015f63d37"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Mainly dependent on team. If you’re lucky enough you might get cool work with great mentors. On the downside, you could also be wanted to do stuff unrelated to DS.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(3), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "sajmera@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:39:28.320+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:39:28.320+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cabc20567c0015f63d40"), 
+    "upvoters" : [
+        ObjectId("60f9e1cf20567c0015f63db5"), 
+        ObjectId("60f658cb92f2030015164dd0"), 
+        ObjectId("6138f199a4e85c00156f584b")
+    ], 
+    "body" : "It was fun, office was nice with catered breakfast, lunch, and dinner. Got to meet lots of other interns, and fun events. Work was fine, pretty standard web dev, not too much expected of me.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "cjmosele@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:45:00.184+0000"), 
+    "updatedAt" : ISODate("2021-09-08T17:28:42.307+0000"), 
+    "__v" : NumberInt(5)
+}
+{ 
+    "_id" : ObjectId("60f9cb7c20567c0015f63d47"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Culture was pretty \"corporate\" on my team, didn't get to meet many people outside of the intern program. Work was quite interesting if you are into finance, and there was no expectation of long hours or grinding. The office is really nice and living in New York is cool.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(2), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "cjmosele@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:48:12.334+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:48:12.334+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cbfa20567c0015f63d4d"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "cjmosele@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:50:18.115+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:50:18.115+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cc4120567c0015f63d54"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(2), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "cjmosele@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T19:51:29.318+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:51:29.318+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cedd20567c0015f63d63"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "d364li@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T20:02:37.808+0000"), 
+    "updatedAt" : ISODate("2021-07-22T20:02:37.808+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9d4cf20567c0015f63d82"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great team overall!", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "nthavaruban@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T20:27:59.994+0000"), 
+    "updatedAt" : ISODate("2021-07-22T20:27:59.994+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9d53820567c0015f63d87"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great culture, the people are super nice. The work itself is not super relevant to mechanical engineering work, at least for this position.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "m35tan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T20:29:44.802+0000"), 
+    "updatedAt" : ISODate("2021-07-22T20:29:44.802+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e05620567c0015f63da3"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2019), 
+    "term" : "spring", 
+    "author" : "d2linkov@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T21:17:10.889+0000"), 
+    "updatedAt" : ISODate("2021-07-22T21:17:10.889+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e07a20567c0015f63daa"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "d2linkov@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T21:17:46.312+0000"), 
+    "updatedAt" : ISODate("2021-07-22T21:17:46.312+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e0c220567c0015f63db2"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "d2linkov@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T21:18:58.906+0000"), 
+    "updatedAt" : ISODate("2021-07-22T21:18:58.906+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e50e20567c0015f63dc0"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Good co-op, extremely independent.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "jseweryn@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T21:37:18.974+0000"), 
+    "updatedAt" : ISODate("2021-07-22T21:37:18.974+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9eb4020567c0015f63dd9"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Not much day-to-day but overall, good role if you want to gain reliability experience", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "ktayl@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T22:03:44.216+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:03:44.216+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f0a420567c0015f63df6"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great learning experience. Allowed me to get some hands-on lab experience and learn more about the experimental side of things! Downside is a fairly small team and not a lot of opportunity to meet new people during COVID, but still had a blast.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(2), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "lbozanic@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T22:26:44.589+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:26:44.589+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f93820567c0015f63e0f"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Overall, I really enjoyed working with OSFI. I worked at the Private Pension Plans Division, and everyone there was welcoming and friendly. I really loved the management system at OSFI, and the manager and the director at PPPD were the best. The salary is based on the Government of Canada's student salary (based on the number of study terms you have completed). My salary after completing 3B was $23.15.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "y276lee@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T23:03:20.416+0000"), 
+    "updatedAt" : ISODate("2021-07-22T23:03:20.416+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9fd1520567c0015f63e1c"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "jm2fan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T23:19:49.540+0000"), 
+    "updatedAt" : ISODate("2021-07-22T23:19:49.540+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9fdb920567c0015f63e23"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "jkzhai@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-22T23:22:33.272+0000"), 
+    "updatedAt" : ISODate("2021-07-22T23:22:33.272+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fa4a5bfd280a00151985f3"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "super fun place to be! the work you do is pretty meaningful and there's a lot of autonomy that u get. everyone is really nice and supportive of co-ops. however, everyone is also really hardworking and sometimes the hours can be longer. also, i feel like we could have better communication amongst the co-ops since socials are pretty empty (maybe everyone is too busy) + we need more swag.", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "dora.su@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T04:49:31.193+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:39:11.511+0000"), 
+    "__v" : NumberInt(4)
+}
+{ 
+    "_id" : ObjectId("60facb3ffd280a0015198619"), 
+    "upvoters" : [
+        ObjectId("60fc30d3d51ed5001510a4b7"), 
+        ObjectId("6138f199a4e85c00156f584b")
+    ], 
+    "body" : "Worked during pandemic remotely, so overall engagement was down. Worked on a few large projects throughout the term and was treated like a full time as it was my second coop on the team. Was given full ownership of the projects (meaning I make the decisions on how to do it for 4 months; no step by step instructions).  This is good and bad, it trains me to be significantly more independent, but limits how quickly I can pick up many skills - get really good at a few things vs. learn a little about a lot of things.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(2), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "cjlund@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T13:59:27.492+0000"), 
+    "updatedAt" : ISODate("2021-09-08T17:28:55.638+0000"), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60fad199fd280a0015198632"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "smmeliny@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T14:26:33.304+0000"), 
+    "updatedAt" : ISODate("2021-07-23T14:26:33.304+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad1d3fd280a0015198638"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2018), 
+    "term" : "spring", 
+    "author" : "smmeliny@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T14:27:31.244+0000"), 
+    "updatedAt" : ISODate("2021-07-23T14:27:31.244+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad20ffd280a001519863b"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(2), 
+    "workLifeBalance" : NumberInt(2), 
+    "culture" : NumberInt(2), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "smmeliny@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T14:28:31.127+0000"), 
+    "updatedAt" : ISODate("2021-07-23T14:28:31.127+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad24cfd280a0015198640"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2017), 
+    "term" : "winter", 
+    "author" : "smmeliny@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T14:29:32.085+0000"), 
+    "updatedAt" : ISODate("2021-07-23T14:29:32.085+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fafb62fd280a0015198651"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Great place, good learning + work", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "parth.patel@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T17:24:50.017+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:24:50.017+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fafcbdfd280a0015198657"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "surya.krishnan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T17:30:37.027+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:30:37.027+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb03a2fd280a001519866a"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Pretty cool company. Engineers are smart and good development practices are followed everywhere.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "ya3shi@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T18:00:02.118+0000"), 
+    "updatedAt" : ISODate("2021-07-23T18:00:02.118+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb0e8dfd280a0015198671"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "This was a fully remote internship, so it's hard to say how it would compare to in person. My manager was an excellent mentor, however I felt a bit isolated from the rest of my team due to working from home. \nI got a lot of experience with low level (driver and firmware) code, and worked on features that shipped into production.  Definitely a great position for a 1st/2nd co-op, especially if you are interested in embedded development.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "agratton@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T18:46:37.967+0000"), 
+    "updatedAt" : ISODate("2021-07-23T18:46:37.967+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb2c04fd280a001519867d"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "First internship. Mainly just had to fix issues that people had with their computers. During my time, I migrated the entire office from Windows 7 to Windows 10. I wrote one VBA script which was fun.\n\nOne thing is that I had a lot of free time, so I would take a couple hours every day to work on a side project of mine unrelated to work.", 
+    "overallRating" : NumberInt(3), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(3), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2018), 
+    "term" : "winter", 
+    "author" : "r22islam@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T20:52:20.872+0000"), 
+    "updatedAt" : ISODate("2021-07-23T20:52:20.872+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb3ae2fd280a0015198683"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "kmdietz@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T21:55:46.666+0000"), 
+    "updatedAt" : ISODate("2021-07-23T21:55:46.666+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb3b0afd280a0015198684"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "kmdietz@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T21:56:26.726+0000"), 
+    "updatedAt" : ISODate("2021-07-23T21:56:26.726+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb4ef4fd280a001519868b"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "mkcyoung@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-23T23:21:24.447+0000"), 
+    "updatedAt" : ISODate("2021-07-23T23:21:24.447+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc31fed51ed5001510a4be"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Worked in JavaScript using react-native-web, redux. Only needed to work about 2-3 hours a day on average to complete all required work. Very small team of 1-2 devs. Daily stand-up calls over zoom, often expected to show progress through screen-sharing. Very nice and accommodating team.", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "j4stinso@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-24T15:30:06.465+0000"), 
+    "updatedAt" : ISODate("2021-07-24T15:30:06.465+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc750ed51ed5001510a4c4"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(4), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "dmolivej@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-24T20:16:14.802+0000"), 
+    "updatedAt" : ISODate("2021-07-24T20:16:14.802+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc766fd51ed5001510a4cf"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Second co-op, great learning culture and WLB. People are very friendly to help you, didn't get to do anything too impactful though because I didn't know many of the skills. \n\nWorked in the Ottawa office, had a free gym and snacks inside. Often a few times a month there was free food as well.\n\nOverall great learning experience and nice teammates! ", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "dmolivej@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-24T20:22:07.520+0000"), 
+    "updatedAt" : ISODate("2021-07-24T20:22:07.520+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc76b8d51ed5001510a4d2"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(3), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(3), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2019), 
+    "term" : "winter", 
+    "author" : "dmolivej@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-24T20:23:20.534+0000"), 
+    "updatedAt" : ISODate("2021-07-24T20:23:20.534+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fdc926107afb0015a8003f"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Landed an entry-level job as a first-year student. I loved the people and work environment. You will also see that most employees are Waterloo graduates. Will likely be placed on one or more projects, but you can ask for more if you feel that your workload is too small. Loved it here!", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(5), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "r53lin@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-25T20:27:18.176+0000"), 
+    "updatedAt" : ISODate("2021-07-25T20:27:18.176+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fde344107afb0015a80046"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(1), 
+    "workLifeBalance" : NumberInt(2), 
+    "culture" : NumberInt(1), 
+    "interestingWork" : NumberInt(1), 
+    "year" : NumberInt(2019), 
+    "term" : "spring", 
+    "author" : "j65wei@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-25T22:18:44.830+0000"), 
+    "updatedAt" : ISODate("2021-07-25T22:18:44.830+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fecbe6aee29900157234ac"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(4), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "spring", 
+    "author" : "d5khan@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-26T14:51:18.055+0000"), 
+    "updatedAt" : ISODate("2021-07-26T14:51:18.055+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6101ff479208d300158caff5"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(4), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(2), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "m5wolfe@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-07-29T01:07:19.986+0000"), 
+    "updatedAt" : ISODate("2021-07-29T01:07:19.986+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("611979846d86ff0015fc50e1"), 
+    "upvoters" : [
+        ObjectId("60f9aedf20567c0015f63c8f")
+    ], 
+    "body" : "I was hired and laid off by KGS Research around last year or so and I’d just like to give everybody advice by saying not work for KGS Research. I will be extremely respectful, I won’t mention specific business practices, nor list names.\n\nI worked when COVID was in full-force and all other companies were starting to let you work remote. KGS Research had an in-person party for Eid in May of 2020. I enjoy festivals and celebrations, but not during a pandemic, especially when we weren’t sure what was going to happen next. It had mandatory attendance.\n\nI wore a mask and socially distanced politely from people, but the boss and his brother (they’re very young, probably younger than most university students’ age) went around hugging everybody and not socially distancing.\n\nThey looked at me and told me they had a “no mask” policy (it’s a call center, they had no dress code), but I kept my mask on regardless (I just had a basic blue mask to cover my nose and mouth). They also kept reaching to hug me and I refused politely and I waved my hand to say hi nicely. They were drinking during the day and blasting music (even though drinking is not allowed during Eid). Whenever they’d see my mask they’d sarcastically ask me “Are you okay? You look like an alien!”\n\nI’m a man so I don’t believe they were being nasty by trying to hug me, they were very young so I think they were just trying to be “bros”, but this was during the pandemic and my grandmother had passed away from COVID so I didn’t want to take any risks.\n\nA few days after the party I was suddenly laid off from the company for “not being a cultural fit”. They didn’t even have the respect to tell me over the phone that they laid me off.\n\nI was given no prior warnings. Anyways, a few days after the party, they locked my company account in the middle of one of my shifts and I couldn’t log in. I had to call the receptionist and call around for an hour to get to the boss’s number and extension, who only then told me “You don’t wo", 
+    "overallRating" : NumberInt(1), 
+    "workLifeBalance" : NumberInt(1), 
+    "culture" : NumberInt(1), 
+    "interestingWork" : NumberInt(1), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "a8xue@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-08-15T20:31:00.162+0000"), 
+    "updatedAt" : ISODate("2021-09-21T17:21:17.878+0000"), 
+    "__v" : NumberInt(3)
+}
+{ 
+    "_id" : ObjectId("611c8ff98c8a250015357eca"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(5), 
+    "workLifeBalance" : NumberInt(5), 
+    "culture" : NumberInt(5), 
+    "interestingWork" : NumberInt(4), 
+    "year" : NumberInt(2020), 
+    "term" : "winter", 
+    "author" : "cxzhu@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-08-18T04:43:37.105+0000"), 
+    "updatedAt" : ISODate("2021-08-18T04:43:37.105+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("614bbc142a31fb00150ffddc"), 
+    "upvoters" : [
+        ObjectId("60fb5c19fd280a00151986a0")
+    ], 
+    "body" : "xx", 
+    "overallRating" : NumberInt(1), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(1), 
+    "interestingWork" : NumberInt(1), 
+    "year" : NumberInt(2021), 
+    "term" : "winter", 
+    "author" : "m5wolfe@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-09-22T23:28:20.069+0000"), 
+    "updatedAt" : ISODate("2021-09-22T23:28:29.502+0000"), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("614c769d2a31fb00150ffde8"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "", 
+    "overallRating" : NumberInt(3), 
+    "workLifeBalance" : NumberInt(3), 
+    "culture" : NumberInt(3), 
+    "interestingWork" : NumberInt(3), 
+    "year" : NumberInt(2021), 
+    "term" : "spring", 
+    "author" : "m5wolfe@uwaterloo.ca", 
+    "createdAt" : ISODate("2021-09-23T12:44:13.267+0000"), 
+    "updatedAt" : ISODate("2021-09-23T12:44:13.267+0000"), 
+    "__v" : NumberInt(0)
+}

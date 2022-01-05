@@ -1,0 +1,336 @@
+{ 
+    "_id" : ObjectId("60f8bd5c67ba58001589e31d"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Basic ML questions (supervised vs unsupervised learning, etc). Basic Python syntax questions, asked to code factorial using recursion.", 
+    "author" : "a2birsan@uwaterloo.ca", 
+    "job" : ObjectId("60f8bc1c67ba58001589e314"), 
+    "createdAt" : ISODate("2021-07-22T00:35:40.968+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:35:40.968+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bdb867ba58001589e322"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Standard coding questions from leetcode", 
+    "author" : "s44ding@uwaterloo.ca", 
+    "job" : ObjectId("60f8bd1067ba58001589e31b"), 
+    "createdAt" : ISODate("2021-07-22T00:37:12.435+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:37:12.435+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bf1067ba58001589e334"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Leetcode medium, didn't need to code it in Swift", 
+    "author" : "a2birsan@uwaterloo.ca", 
+    "job" : ObjectId("60f8befe67ba58001589e330"), 
+    "createdAt" : ISODate("2021-07-22T00:42:56.865+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:42:56.865+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c0f667ba58001589e346"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Standard data science questions", 
+    "author" : "s44ding@uwaterloo.ca", 
+    "job" : ObjectId("60f8be9567ba58001589e326"), 
+    "createdAt" : ISODate("2021-07-22T00:51:02.268+0000"), 
+    "updatedAt" : ISODate("2021-07-22T00:51:02.268+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c53e67ba58001589e350"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Nothing technical, just a casual chat with the CTO where you discuss about projects and interests.", 
+    "author" : "cgandevi@uwaterloo.ca", 
+    "job" : ObjectId("60f8c13767ba58001589e347"), 
+    "createdAt" : ISODate("2021-07-22T01:09:18.767+0000"), 
+    "updatedAt" : ISODate("2021-07-22T01:09:18.767+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c66567ba58001589e354"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Simple technical question (LeetCode Easy)", 
+    "author" : "cgandevi@uwaterloo.ca", 
+    "job" : ObjectId("60f8c5ce67ba58001589e352"), 
+    "createdAt" : ISODate("2021-07-22T01:14:13.439+0000"), 
+    "updatedAt" : ISODate("2021-07-22T01:14:13.439+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f92a37b2448e00158d8c7b"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Everyone interested has to complete a programming assignment (not too difficult - putting in a decent amount of effort will help you a lot). The interview wasn’t technical and was more of a casual chat with the CTO and senior engineer.", 
+    "author" : "j64chu@uwaterloo.ca", 
+    "job" : ObjectId("60f9290ab2448e00158d8c79"), 
+    "createdAt" : ISODate("2021-07-22T08:20:07.781+0000"), 
+    "updatedAt" : ISODate("2021-07-27T17:51:38.967+0000"), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f9b89220567c0015f63cd3"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Leetcode Medium Level (for hackerrank and live interviews)", 
+    "author" : "j52hou@uwaterloo.ca", 
+    "job" : ObjectId("60f9b86420567c0015f63ccf"), 
+    "createdAt" : ISODate("2021-07-22T18:27:30.792+0000"), 
+    "updatedAt" : ISODate("2021-07-22T18:27:30.792+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bcec20567c0015f63cf1"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "What is the best Microsoft Product ?", 
+    "author" : "rwolynyk@uwaterloo.ca", 
+    "job" : ObjectId("60f9bcd920567c0015f63cef"), 
+    "createdAt" : ISODate("2021-07-22T18:46:04.664+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:35:56.690+0000"), 
+    "__v" : NumberInt(4)
+}
+{ 
+    "_id" : ObjectId("60f9c6e720567c0015f63d2e"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Acid Spill cleanup procedure?", 
+    "author" : "cjchessu@uwaterloo.ca", 
+    "job" : ObjectId("60f9c6cd20567c0015f63d2a"), 
+    "createdAt" : ISODate("2021-07-22T19:28:39.549+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:28:39.549+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c6f220567c0015f63d2f"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Irate customer experience?", 
+    "author" : "cjchessu@uwaterloo.ca", 
+    "job" : ObjectId("60f9c6cd20567c0015f63d2a"), 
+    "createdAt" : ISODate("2021-07-22T19:28:50.824+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:28:50.824+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c70020567c0015f63d30"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Common items brought in?", 
+    "author" : "cjchessu@uwaterloo.ca", 
+    "job" : ObjectId("60f9c6cd20567c0015f63d2a"), 
+    "createdAt" : ISODate("2021-07-22T19:29:04.183+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:29:04.183+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c8e320567c0015f63d34"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Asked in detail about resume, bunch of stats terminology, different types of models, differences, trade offs etc. No coding question.", 
+    "author" : "sajmera@uwaterloo.ca", 
+    "job" : ObjectId("60f8bc1c67ba58001589e314"), 
+    "createdAt" : ISODate("2021-07-22T19:37:07.276+0000"), 
+    "updatedAt" : ISODate("2021-07-22T19:37:07.276+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9d5b320567c0015f63d89"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Relevant experience with Robotics", 
+    "author" : "m35tan@uwaterloo.ca", 
+    "job" : ObjectId("60f9d4e920567c0015f63d85"), 
+    "createdAt" : ISODate("2021-07-22T20:31:47.417+0000"), 
+    "updatedAt" : ISODate("2021-07-22T20:31:52.708+0000"), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f9eb0020567c0015f63dd8"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Tell me about yourself", 
+    "author" : "ktayl@uwaterloo.ca", 
+    "job" : ObjectId("60f9eaef20567c0015f63dd6"), 
+    "createdAt" : ISODate("2021-07-22T22:02:40.767+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:02:40.767+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f0d720567c0015f63df9"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Describe a time you had to explain a scientific concept to a non-scientific audience. ", 
+    "author" : "lbozanic@uwaterloo.ca", 
+    "job" : ObjectId("60f9effc20567c0015f63df0"), 
+    "createdAt" : ISODate("2021-07-22T22:27:35.302+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:27:35.302+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f10f20567c0015f63dfa"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "What is your experience with quantum science, and what interests you about it?", 
+    "author" : "lbozanic@uwaterloo.ca", 
+    "job" : ObjectId("60f9effc20567c0015f63df0"), 
+    "createdAt" : ISODate("2021-07-22T22:28:31.304+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:28:31.304+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f12120567c0015f63dfb"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "This position has three major components: optics construction, demonstration control coding, and scientific communication. Which of the three do you find most interesting, and why?", 
+    "author" : "lbozanic@uwaterloo.ca", 
+    "job" : ObjectId("60f9effc20567c0015f63df0"), 
+    "createdAt" : ISODate("2021-07-22T22:28:49.156+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:28:49.156+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f12a20567c0015f63dfc"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "What experience do you hope to build this term?\n", 
+    "author" : "lbozanic@uwaterloo.ca", 
+    "job" : ObjectId("60f9effc20567c0015f63df0"), 
+    "createdAt" : ISODate("2021-07-22T22:28:58.601+0000"), 
+    "updatedAt" : ISODate("2021-07-22T22:28:58.601+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fa4987fd280a00151985f2"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "easy leetcode style question using hashmaps", 
+    "author" : "dora.su@uwaterloo.ca", 
+    "job" : ObjectId("60fa4957fd280a00151985ef"), 
+    "createdAt" : ISODate("2021-07-23T04:45:59.748+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:39:01.255+0000"), 
+    "__v" : NumberInt(6)
+}
+{ 
+    "_id" : ObjectId("60faff7cfd280a0015198664"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Convert an iterative version of a function returning a Fibonacci number to a recursive version. Give the time complexity of both.", 
+    "author" : "m2bourge@uwaterloo.ca", 
+    "job" : ObjectId("60fafb55fd280a001519864d"), 
+    "createdAt" : ISODate("2021-07-23T17:42:20.361+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:42:20.361+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb0336fd280a0015198669"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Instead of doing a Leetcode style question I had this working session with a Faire engineer building a simple inventory feature", 
+    "author" : "ya3shi@uwaterloo.ca", 
+    "job" : ObjectId("60fa4957fd280a00151985ef"), 
+    "createdAt" : ISODate("2021-07-23T17:58:14.864+0000"), 
+    "updatedAt" : ISODate("2021-07-23T17:58:14.864+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb5834fd280a001519869d"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Switch two integers without using any more memory", 
+    "author" : "j65wei@uwaterloo.ca", 
+    "job" : ObjectId("60fb57d8fd280a0015198699"), 
+    "createdAt" : ISODate("2021-07-24T00:00:52.212+0000"), 
+    "updatedAt" : ISODate("2021-07-24T00:00:52.212+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb584dfd280a001519869e"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "Variation of Two Sum ", 
+    "author" : "j65wei@uwaterloo.ca", 
+    "job" : ObjectId("60fb57d8fd280a0015198699"), 
+    "createdAt" : ISODate("2021-07-24T00:01:17.351+0000"), 
+    "updatedAt" : ISODate("2021-07-24T00:01:17.351+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb5877fd280a001519869f"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "What is your approach to asking for help?", 
+    "author" : "j65wei@uwaterloo.ca", 
+    "job" : ObjectId("60fb57d8fd280a0015198699"), 
+    "createdAt" : ISODate("2021-07-24T00:01:59.508+0000"), 
+    "updatedAt" : ISODate("2021-07-24T00:01:59.508+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc33b9d51ed5001510a4c0"), 
+    "upvoters" : [
+        ObjectId("60f8bf6567ba58001589e337")
+    ], 
+    "body" : "Interview for the Data & relevancy role for Fall 2021\n\nHackerRank question - https://leetcode.com/problems/palindromic-substrings/ \n\nThen asked general questions about javascript/html:\nmapping function of array, properties of arrow functions, BigInt library, access character in string using .charAt(), how to layout the children in a div horizontally, vertically\n\nResult -> ranked 1, took offer", 
+    "author" : "j4stinso@uwaterloo.ca", 
+    "job" : ObjectId("60f9c9a520567c0015f63d3a"), 
+    "createdAt" : ISODate("2021-07-24T15:37:29.383+0000"), 
+    "updatedAt" : ISODate("2021-07-25T13:28:01.498+0000"), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fc7591d51ed5001510a4c9"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "How would you improve wish?", 
+    "author" : "dmolivej@uwaterloo.ca", 
+    "job" : ObjectId("60fc7574d51ed5001510a4c6"), 
+    "createdAt" : ISODate("2021-07-24T20:18:25.046+0000"), 
+    "updatedAt" : ISODate("2021-07-24T20:18:25.046+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("614bbc3c2a31fb00150ffde2"), 
+    "upvoters" : [
+
+    ], 
+    "body" : "g", 
+    "author" : "m5wolfe@uwaterloo.ca", 
+    "job" : ObjectId("614bbb822a31fb00150ffddb"), 
+    "createdAt" : ISODate("2021-09-22T23:29:00.759+0000"), 
+    "updatedAt" : ISODate("2021-09-22T23:29:00.759+0000"), 
+    "__v" : NumberInt(0)
+}

@@ -1,0 +1,564 @@
+{ 
+    "_id" : ObjectId("60f8bc2867ba58001589e316"), 
+    "wage" : NumberInt(25), 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bdab67ba58001589e320"), 
+    "wage" : NumberInt(23), 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bf0467ba58001589e332"), 
+    "wage" : NumberInt(32), 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c08867ba58001589e341"), 
+    "wage" : NumberInt(37), 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c16e67ba58001589e349"), 
+    "wage" : NumberInt(19), 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c90c67ba58001589e357"), 
+    "wage" : NumberInt(26), 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8cc0667ba58001589e35e"), 
+    "wage" : NumberInt(32), 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8f14067ba58001589e361"), 
+    "wage" : NumberInt(30), 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f92a4eb2448e00158d8c7c"), 
+    "wage" : NumberInt(25), 
+    "addedBy" : "j64chu@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9af2d20567c0015f63c96"), 
+    "wage" : NumberInt(29), 
+    "addedBy" : "tailai.wang@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9afce20567c0015f63c9d"), 
+    "wage" : NumberInt(52), 
+    "addedBy" : "tailai.wang@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9b3b220567c0015f63cc2"), 
+    "wage" : NumberInt(18), 
+    "addedBy" : "lahicks@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9b86820567c0015f63cd1"), 
+    "wage" : NumberInt(24), 
+    "addedBy" : "j52hou@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9ba5920567c0015f63cdc"), 
+    "wage" : NumberInt(17), 
+    "addedBy" : "v29wang@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bb5920567c0015f63ce5"), 
+    "wage" : NumberInt(17), 
+    "addedBy" : "tmcnabb@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bbbf20567c0015f63cea"), 
+    "wage" : NumberInt(19), 
+    "addedBy" : "g7zhong@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bd2420567c0015f63cf2"), 
+    "wage" : NumberInt(49), 
+    "addedBy" : "rwolynyk@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bf2f20567c0015f63cf9"), 
+    "wage" : NumberInt(25), 
+    "addedBy" : "tri.ho@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c17520567c0015f63cff"), 
+    "wage" : NumberInt(26), 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c19220567c0015f63d04"), 
+    "wage" : NumberInt(21), 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c21c20567c0015f63d0d"), 
+    "wage" : NumberInt(18), 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c23320567c0015f63d12"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c6d420567c0015f63d2c"), 
+    "wage" : NumberInt(21), 
+    "addedBy" : "cjchessu@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c8fa20567c0015f63d35"), 
+    "wage" : NumberInt(29), 
+    "addedBy" : "sajmera@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9ca4720567c0015f63d3e"), 
+    "wage" : NumberInt(58), 
+    "addedBy" : "cjmosele@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cb1520567c0015f63d44"), 
+    "wage" : NumberInt(57), 
+    "addedBy" : "cjmosele@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cbc820567c0015f63d4b"), 
+    "wage" : NumberInt(136), 
+    "addedBy" : "cjmosele@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9cc2820567c0015f63d52"), 
+    "wage" : NumberInt(88), 
+    "addedBy" : "cjmosele@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9ceb120567c0015f63d62"), 
+    "wage" : NumberInt(50), 
+    "addedBy" : "d364li@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9d49520567c0015f63d80"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "nthavaruban@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e04120567c0015f63da1"), 
+    "wage" : NumberInt(19), 
+    "addedBy" : "d2linkov@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e07220567c0015f63da8"), 
+    "wage" : NumberInt(70), 
+    "addedBy" : "d2linkov@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e09f20567c0015f63daf"), 
+    "wage" : NumberInt(26), 
+    "addedBy" : "d2linkov@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e4f320567c0015f63dbe"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "jseweryn@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e65120567c0015f63dc2"), 
+    "wage" : NumberInt(25), 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f02020567c0015f63df4"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "lbozanic@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f7e720567c0015f63e0c"), 
+    "wage" : NumberInt(23), 
+    "addedBy" : "y276lee@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9fbc220567c0015f63e14"), 
+    "wage" : NumberInt(27), 
+    "addedBy" : "s323gupt@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9fcfc20567c0015f63e1a"), 
+    "wage" : NumberInt(19), 
+    "addedBy" : "jm2fan@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9fd5a20567c0015f63e21"), 
+    "wage" : NumberInt(21), 
+    "addedBy" : "jkzhai@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fa18b120567c0015f63e2f"), 
+    "wage" : NumberInt(24), 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fa4974fd280a00151985f0"), 
+    "wage" : NumberInt(27), 
+    "addedBy" : "dora.su@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fa6377fd280a00151985fa"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "m4kakkar@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fac436fd280a0015198614"), 
+    "wage" : NumberInt(16), 
+    "addedBy" : "n26tang@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60faca01fd280a0015198618"), 
+    "wage" : NumberInt(57), 
+    "addedBy" : "cjlund@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad17cfd280a0015198630"), 
+    "wage" : NumberInt(65), 
+    "addedBy" : "smmeliny@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad1bdfd280a0015198636"), 
+    "wage" : NumberInt(52), 
+    "addedBy" : "smmeliny@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad1fdfd280a001519863a"), 
+    "wage" : NumberInt(91), 
+    "addedBy" : "smmeliny@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fad23dfd280a001519863e"), 
+    "wage" : NumberInt(30), 
+    "addedBy" : "smmeliny@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fafb5dfd280a001519864f"), 
+    "wage" : NumberInt(18), 
+    "addedBy" : "m2bourge@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb0290fd280a0015198668"), 
+    "wage" : NumberInt(36), 
+    "addedBy" : "ya3shi@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb0cf9fd280a001519866f"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "agratton@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb0f7bfd280a0015198673"), 
+    "wage" : NumberInt(29), 
+    "addedBy" : "parth.patel@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb2b1cfd280a001519867a"), 
+    "wage" : NumberInt(34), 
+    "addedBy" : "r22islam@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb2ba6fd280a001519867c"), 
+    "wage" : NumberInt(17), 
+    "addedBy" : "r22islam@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb3ad4fd280a0015198682"), 
+    "wage" : NumberInt(37), 
+    "addedBy" : "kmdietz@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb4ea7fd280a0015198689"), 
+    "wage" : NumberInt(19), 
+    "addedBy" : "mkcyoung@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb57e2fd280a001519869b"), 
+    "wage" : NumberInt(26), 
+    "addedBy" : "j65wei@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb77c9fd280a00151986a5"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "j339park@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb8759fd280a00151986a9"), 
+    "wage" : NumberInt(46), 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb8f7bfd280a00151986af"), 
+    "wage" : NumberInt(44), 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb8fa5fd280a00151986b4"), 
+    "wage" : NumberInt(39), 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb8fcffd280a00151986b9"), 
+    "wage" : NumberInt(43), 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc3113d51ed5001510a4bc"), 
+    "wage" : NumberInt(21), 
+    "addedBy" : "j4stinso@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc3431d51ed5001510a4c1"), 
+    "wage" : NumberInt(49), 
+    "addedBy" : "j4stinso@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc757dd51ed5001510a4c7"), 
+    "wage" : NumberInt(52), 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc75dcd51ed5001510a4cd"), 
+    "wage" : NumberInt(24), 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fc76a6d51ed5001510a4d1"), 
+    "wage" : NumberInt(17), 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fdc87a107afb0015a8003d"), 
+    "wage" : NumberInt(18), 
+    "addedBy" : "r53lin@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fde32a107afb0015a80044"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "j65wei@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fecbd4aee29900157234aa"), 
+    "wage" : NumberInt(20), 
+    "addedBy" : "d5khan@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6101658897f35c0015133b36"), 
+    "wage" : NumberInt(31), 
+    "addedBy" : "s2naufal@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6101ff579208d300158caff7"), 
+    "wage" : NumberInt(30), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61025cbd9208d300158caffd"), 
+    "wage" : NumberInt(41), 
+    "addedBy" : "jerry.xie1@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("611c8fd98c8a250015357ec9"), 
+    "wage" : NumberInt(29), 
+    "addedBy" : "cxzhu@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("614bbc2e2a31fb00150ffde0"), 
+    "wage" : NumberInt(2), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("614bbeaf2a31fb00150ffde4"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6151095c84b6170015a4114b"), 
+    "wage" : NumberInt(300), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6151099884b6170015a4114c"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109a284b6170015a4114d"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109b484b6170015a4114e"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109c484b6170015a41150"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109cd84b6170015a41152"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109dc84b6170015a41154"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("615109e584b6170015a41155"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a1f84b6170015a41158"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a2d84b6170015a41159"), 
+    "wage" : NumberInt(300), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a3b84b6170015a4115a"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a4184b6170015a4115b"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a5c84b6170015a4115c"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a6384b6170015a4115d"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a8384b6170015a4115e"), 
+    "wage" : NumberInt(1), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61510a9684b6170015a4115f"), 
+    "wage" : NumberInt(300), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6155ed85238e8400155a399e"), 
+    "wage" : NumberInt(300), 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "__v" : NumberInt(0)
+}

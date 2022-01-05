@@ -1,0 +1,1784 @@
+{ 
+    "_id" : ObjectId("60f63d07d9feba001580bcd4"), 
+    "jobs" : [
+        ObjectId("60f63d18d9feba001580bcd6")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Google", 
+    "companyNameLowercase" : "google", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(1), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f6586f92f2030015164dcf"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Facebook", 
+    "companyNameLowercase" : "facebook", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bbf767ba58001589e313"), 
+    "jobs" : [
+        ObjectId("60f8bc1c67ba58001589e314")
+    ], 
+    "jobNames" : [
+        "Data Scientist"
+    ], 
+    "companyName" : "Scotiabank", 
+    "companyNameLowercase" : "scotiabank", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(27), 
+    "averageRating" : 3.5, 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bd0567ba58001589e318"), 
+    "jobs" : [
+        ObjectId("60f8bd1067ba58001589e31b")
+    ], 
+    "jobNames" : [
+        "Data Scientist Intern"
+    ], 
+    "companyName" : "CIBC", 
+    "companyNameLowercase" : "cibc", 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "averageSalary" : NumberInt(12), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8be4f67ba58001589e323"), 
+    "jobs" : [
+        ObjectId("60f8befe67ba58001589e330"), 
+        ObjectId("60fa4957fd280a00151985ef")
+    ], 
+    "jobNames" : [
+        "iOS Engineer", 
+        "Frontend Engineer"
+    ], 
+    "companyName" : "Faire", 
+    "companyNameLowercase" : "faire", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 19.4, 
+    "averageRating" : 4.7, 
+    "numSalaries" : NumberInt(5), 
+    "numReviews" : NumberInt(3), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f8be6667ba58001589e324"), 
+    "jobs" : [
+        ObjectId("60f9cbaa20567c0015f63d49")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Jane Street", 
+    "companyNameLowercase" : "jane street", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 68.5, 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8be8d67ba58001589e325"), 
+    "jobs" : [
+        ObjectId("60f8be9567ba58001589e326")
+    ], 
+    "jobNames" : [
+        "Data Scientist Intern"
+    ], 
+    "companyName" : "Coursera", 
+    "companyNameLowercase" : "coursera", 
+    "addedBy" : "s44ding@uwaterloo.ca", 
+    "averageSalary" : NumberInt(37), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bea667ba58001589e328"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Tesla", 
+    "companyNameLowercase" : "tesla", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(3), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8beb267ba58001589e329"), 
+    "jobs" : [
+        ObjectId("60f9bcd920567c0015f63cef")
+    ], 
+    "jobNames" : [
+        "Program Manager Intern"
+    ], 
+    "companyName" : "Microsoft", 
+    "companyNameLowercase" : "microsoft", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(49), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bec167ba58001589e32a"), 
+    "jobs" : [
+        ObjectId("60fad1b5fd280a0015198634")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Apple", 
+    "companyNameLowercase" : "apple", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 26.5, 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8becb67ba58001589e32b"), 
+    "jobs" : [
+        ObjectId("60fad236fd280a001519863c")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Shopify", 
+    "companyNameLowercase" : "shopify", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 22.7, 
+    "averageRating" : 4.5, 
+    "numSalaries" : NumberInt(3), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bed367ba58001589e32c"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "KPMG", 
+    "companyNameLowercase" : "kpmg", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bee267ba58001589e32d"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "PwC", 
+    "companyNameLowercase" : "pwc", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8beea67ba58001589e32e"), 
+    "jobs" : [
+        ObjectId("60f9cc1720567c0015f63d50")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Citadel", 
+    "companyNameLowercase" : "citadel", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 89.5, 
+    "averageRating" : NumberInt(3), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bef267ba58001589e32f"), 
+    "jobs" : [
+        ObjectId("61025c889208d300158caffb")
+    ], 
+    "jobNames" : [
+        "Software Development Engineering Intern"
+    ], 
+    "companyName" : "Amazon", 
+    "companyNameLowercase" : "amazon", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 170.5, 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8bf7167ba58001589e338"), 
+    "jobs" : [
+        ObjectId("60f9c9a520567c0015f63d3a"), 
+        ObjectId("60facb68fd280a001519861a"), 
+        ObjectId("60fc7574d51ed5001510a4c6")
+    ], 
+    "jobNames" : [
+        "Fullstack Engineer", 
+        "Infrastructure Engineer", 
+        "Associate Product Manager"
+    ], 
+    "companyName" : "Wish", 
+    "companyNameLowercase" : "wish", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : 53.2, 
+    "averageRating" : 4.3, 
+    "numSalaries" : NumberInt(5), 
+    "numReviews" : NumberInt(3), 
+    "__v" : NumberInt(3)
+}
+{ 
+    "_id" : ObjectId("60f8bf9f67ba58001589e339"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Datadog", 
+    "companyNameLowercase" : "datadog", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bfa767ba58001589e33a"), 
+    "jobs" : [
+        ObjectId("615109f184b6170015a41156")
+    ], 
+    "jobNames" : [
+        "pee"
+    ], 
+    "companyName" : "Splunk", 
+    "companyNameLowercase" : "splunk", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(1), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f8bfb667ba58001589e33b"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Toyota", 
+    "companyNameLowercase" : "toyota", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bfd867ba58001589e33c"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Linamar", 
+    "companyNameLowercase" : "linamar", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bfea67ba58001589e33d"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Rivian", 
+    "companyNameLowercase" : "rivian", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8bff767ba58001589e33e"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Perkin Elmer", 
+    "companyNameLowercase" : "perkin elmer", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c0f367ba58001589e345"), 
+    "jobs" : [
+        ObjectId("60f8c13767ba58001589e347"), 
+        ObjectId("60f9e03a20567c0015f63da0")
+    ], 
+    "jobNames" : [
+        "Full Stack Developer Intern", 
+        "Software Development Intern"
+    ], 
+    "companyName" : "Raven Telemetry", 
+    "companyNameLowercase" : "raven telemetry", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(19), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60f8c1e967ba58001589e34b"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Palantir", 
+    "companyNameLowercase" : "palantir", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c25367ba58001589e34c"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "BMO", 
+    "companyNameLowercase" : "bmo", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c4a367ba58001589e34d"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Ellisdon", 
+    "companyNameLowercase" : "ellisdon", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f8c59567ba58001589e351"), 
+    "jobs" : [
+        ObjectId("60f8c5ce67ba58001589e352")
+    ], 
+    "jobNames" : [
+        "Full Stack Developer Intern"
+    ], 
+    "companyName" : "Prodigy Education", 
+    "companyNameLowercase" : "prodigy education", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(163), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f8cbf467ba58001589e35b"), 
+    "jobs" : [
+        ObjectId("60f8cbfe67ba58001589e35c")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Wealthsimple", 
+    "companyNameLowercase" : "wealthsimple", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(31), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f91af4b59382001500bce3"), 
+    "jobs" : [
+        ObjectId("60fb8755fd280a00151986a7")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Nvidia", 
+    "companyNameLowercase" : "nvidia", 
+    "addedBy" : "j64chu@uwaterloo.ca", 
+    "averageSalary" : NumberInt(46), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9222759bbe50015cceffe"), 
+    "jobs" : [
+        ObjectId("60f9bf2820567c0015f63cf7"), 
+        ObjectId("60f9e01120567c0015f63d99"), 
+        ObjectId("614bbb822a31fb00150ffddb"), 
+        ObjectId("614bbd832a31fb00150ffde3")
+    ], 
+    "jobNames" : [
+        "Junior Developer", 
+        "Software Engineer Intern", 
+        "t", 
+        "tt"
+    ], 
+    "companyName" : "1Password", 
+    "companyNameLowercase" : "1password", 
+    "addedBy" : "j64chu@uwaterloo.ca", 
+    "averageSalary" : 11.7, 
+    "averageRating" : NumberInt(1), 
+    "numSalaries" : NumberInt(7), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(4)
+}
+{ 
+    "_id" : ObjectId("60f9223c59bbe50015ccefff"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Lockheed Martin", 
+    "companyNameLowercase" : "lockheed martin", 
+    "addedBy" : "j64chu@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f928cab2448e00158d8c78"), 
+    "jobs" : [
+        ObjectId("60f9290ab2448e00158d8c79")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Pencil", 
+    "companyNameLowercase" : "pencil", 
+    "addedBy" : "j64chu@uwaterloo.ca", 
+    "averageSalary" : NumberInt(25), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(3)
+}
+{ 
+    "_id" : ObjectId("60f96df5b2448e00158d8c82"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Recursion", 
+    "companyNameLowercase" : "recursion", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f96e15b2448e00158d8c83"), 
+    "jobs" : [
+        ObjectId("60f9caf720567c0015f63d42")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Bloomberg", 
+    "companyNameLowercase" : "bloomberg", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(29), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f96e1bb2448e00158d8c84"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Salesforce", 
+    "companyNameLowercase" : "salesforce", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f96e3db2448e00158d8c85"), 
+    "jobs" : [
+        ObjectId("60f9b62720567c0015f63cc7")
+    ], 
+    "jobNames" : [
+        "Software Developer"
+    ], 
+    "companyName" : "Ceridian", 
+    "companyNameLowercase" : "ceridian", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(31), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f96eabb2448e00158d8c86"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Manulife", 
+    "companyNameLowercase" : "manulife", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9a0bc9b8f210015ca56a6"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "PCL Construction", 
+    "companyNameLowercase" : "pcl construction", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9a12b9b8f210015ca56a7"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Arup", 
+    "companyNameLowercase" : "arup", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9a1879b8f210015ca56a8"), 
+    "jobs" : [
+        ObjectId("6101ff1e9208d300158caff3")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Flipp", 
+    "companyNameLowercase" : "flipp", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(30), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9a1e19b8f210015ca56a9"), 
+    "jobs" : [
+        ObjectId("60f9c18f20567c0015f63d02")
+    ], 
+    "jobNames" : [
+        "Quality Engineering Automation Developer"
+    ], 
+    "companyName" : "SAP", 
+    "companyNameLowercase" : "sap", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(21), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9a60f9b8f210015ca56aa"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "IBI Group", 
+    "companyNameLowercase" : "ibi group", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9a6439b8f210015ca56ab"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Cisco", 
+    "companyNameLowercase" : "cisco", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9a6509b8f210015ca56ac"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Aecon", 
+    "companyNameLowercase" : "aecon", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9af1520567c0015f63c90"), 
+    "jobs" : [
+        ObjectId("60f9af2020567c0015f63c91")
+    ], 
+    "jobNames" : [
+        "Developer Coop"
+    ], 
+    "companyName" : "Sonova", 
+    "companyNameLowercase" : "sonova", 
+    "addedBy" : "tailai.wang@uwaterloo.ca", 
+    "averageSalary" : NumberInt(29), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9afbe20567c0015f63c9a"), 
+    "jobs" : [
+        ObjectId("60f9afc420567c0015f63c9b")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Tile", 
+    "companyNameLowercase" : "tile", 
+    "addedBy" : "tailai.wang@uwaterloo.ca", 
+    "averageSalary" : NumberInt(52), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9b2cf20567c0015f63cbb"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Trusscore", 
+    "companyNameLowercase" : "trusscore", 
+    "addedBy" : "m48alam@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9b39920567c0015f63cbe"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Wonolo", 
+    "companyNameLowercase" : "wonolo", 
+    "addedBy" : "mskably@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9b39a20567c0015f63cbf"), 
+    "jobs" : [
+        ObjectId("60f9b3a520567c0015f63cc0")
+    ], 
+    "jobNames" : [
+        "GIS Analyst"
+    ], 
+    "companyName" : "Department of National Defense", 
+    "companyNameLowercase" : "department of national defense", 
+    "addedBy" : "lahicks@uwaterloo.ca", 
+    "averageSalary" : NumberInt(18), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9b60e20567c0015f63cc5"), 
+    "jobs" : [
+        ObjectId("60fafcabfd280a0015198655")
+    ], 
+    "jobNames" : [
+        "Backend Software Developer Intern"
+    ], 
+    "companyName" : "Reebee", 
+    "companyNameLowercase" : "reebee", 
+    "addedBy" : "parth.patel@uwaterloo.ca", 
+    "averageSalary" : NumberInt(29), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9b84320567c0015f63cce"), 
+    "jobs" : [
+        ObjectId("60f9b86420567c0015f63ccf")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "myKaarma", 
+    "companyNameLowercase" : "mykaarma", 
+    "addedBy" : "j52hou@uwaterloo.ca", 
+    "averageSalary" : NumberInt(24), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9b99620567c0015f63cd8"), 
+    "jobs" : [
+        ObjectId("60f9ba5420567c0015f63cda")
+    ], 
+    "jobNames" : [
+        "Software Development Engineer"
+    ], 
+    "companyName" : "Dragonagile", 
+    "companyNameLowercase" : "dragonagile", 
+    "addedBy" : "v29wang@uwaterloo.ca", 
+    "averageSalary" : NumberInt(9), 
+    "averageRating" : NumberInt(3), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9b9c420567c0015f63cd9"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Tailscale", 
+    "companyNameLowercase" : "tailscale", 
+    "addedBy" : "n2sood@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9bb4920567c0015f63ce1"), 
+    "jobs" : [
+        ObjectId("60f9bb5120567c0015f63ce2")
+    ], 
+    "jobNames" : [
+        "IT Support Specialist"
+    ], 
+    "companyName" : "PRGX", 
+    "companyNameLowercase" : "prgx", 
+    "addedBy" : "tmcnabb@uwaterloo.ca", 
+    "averageSalary" : NumberInt(17), 
+    "averageRating" : NumberInt(3), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9bbb020567c0015f63ce7"), 
+    "jobs" : [
+        ObjectId("60f9bbb920567c0015f63ce8")
+    ], 
+    "jobNames" : [
+        "Engineering Intern"
+    ], 
+    "companyName" : "FUS Instruments Inc", 
+    "companyNameLowercase" : "fus instruments inc", 
+    "addedBy" : "g7zhong@uwaterloo.ca", 
+    "averageSalary" : NumberInt(19), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9c16a20567c0015f63cfc"), 
+    "jobs" : [
+        ObjectId("60f9c17020567c0015f63cfd")
+    ], 
+    "jobNames" : [
+        "Technical Quality Assurance Engineering Assistant"
+    ], 
+    "companyName" : "Novantas Inc", 
+    "companyNameLowercase" : "novantas inc", 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "averageSalary" : NumberInt(26), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9c18420567c0015f63d01"), 
+    "jobs" : [
+        ObjectId("60f9c1a620567c0015f63d09")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "Affirm", 
+    "companyNameLowercase" : "affirm", 
+    "addedBy" : "irene.chen@uwaterloo.ca", 
+    "averageSalary" : NumberInt(300), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9c19c20567c0015f63d06"), 
+    "jobs" : [
+        ObjectId("60f9c1a120567c0015f63d07")
+    ], 
+    "jobNames" : [
+        "QA Developer"
+    ], 
+    "companyName" : "Imagine Communications", 
+    "companyNameLowercase" : "imagine communications", 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "averageSalary" : 17.5, 
+    "averageRating" : NumberInt(3), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9c22820567c0015f63d0f"), 
+    "jobs" : [
+        ObjectId("60f9c22f20567c0015f63d10")
+    ], 
+    "jobNames" : [
+        "Performance Test Developer"
+    ], 
+    "companyName" : "NCR Canada", 
+    "companyNameLowercase" : "ncr canada", 
+    "addedBy" : "sgunter@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9c2d020567c0015f63d1a"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Blindside Networks", 
+    "companyNameLowercase" : "blindside networks", 
+    "addedBy" : "jafprudh@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c2fb20567c0015f63d22"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "360insights", 
+    "companyNameLowercase" : "360insights", 
+    "addedBy" : "jafprudh@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c32920567c0015f63d23"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "ESCRYPT", 
+    "companyNameLowercase" : "escrypt", 
+    "addedBy" : "jafprudh@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c33920567c0015f63d24"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "SigOpt", 
+    "companyNameLowercase" : "sigopt", 
+    "addedBy" : "jafprudh@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c34520567c0015f63d25"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Crypto4A", 
+    "companyNameLowercase" : "crypto4a", 
+    "addedBy" : "jafprudh@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9c6c020567c0015f63d29"), 
+    "jobs" : [
+        ObjectId("60f9c6cd20567c0015f63d2a")
+    ], 
+    "jobNames" : [
+        "Hazardous Waste Facility Operator"
+    ], 
+    "companyName" : "Region of Peel", 
+    "companyNameLowercase" : "region of peel", 
+    "addedBy" : "cjchessu@uwaterloo.ca", 
+    "averageSalary" : NumberInt(21), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9d39620567c0015f63d7a"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "RouteThis", 
+    "companyNameLowercase" : "routethis", 
+    "addedBy" : "bkhnguye@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9d47420567c0015f63d7c"), 
+    "jobs" : [
+        ObjectId("60f9d48c20567c0015f63d7d")
+    ], 
+    "jobNames" : [
+        "DevOps Software Engineer"
+    ], 
+    "companyName" : "The Cooperators", 
+    "companyNameLowercase" : "the cooperators", 
+    "addedBy" : "nthavaruban@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9d4da20567c0015f63d84"), 
+    "jobs" : [
+        ObjectId("60f9d4e920567c0015f63d85")
+    ], 
+    "jobNames" : [
+        "Operations Technician"
+    ], 
+    "companyName" : "Tophat Robotics", 
+    "companyNameLowercase" : "tophat robotics", 
+    "addedBy" : "m35tan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9d75b20567c0015f63d8c"), 
+    "jobs" : [
+        ObjectId("60f9ef0a20567c0015f63de8")
+    ], 
+    "jobNames" : [
+        "Staff Accountant I"
+    ], 
+    "companyName" : "Deloitte", 
+    "companyNameLowercase" : "deloitte", 
+    "addedBy" : "cgandevi@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9e06520567c0015f63da5"), 
+    "jobs" : [
+        ObjectId("60f9e06c20567c0015f63da6")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Roblox", 
+    "companyNameLowercase" : "roblox", 
+    "addedBy" : "d2linkov@uwaterloo.ca", 
+    "averageSalary" : NumberInt(70), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9e08b20567c0015f63dac"), 
+    "jobs" : [
+        ObjectId("60f9e09420567c0015f63dad")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Hockeystick Co", 
+    "companyNameLowercase" : "hockeystick co", 
+    "addedBy" : "d2linkov@uwaterloo.ca", 
+    "averageSalary" : 27.5, 
+    "averageRating" : 4.5, 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9e1f320567c0015f63db7"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Snowflake", 
+    "companyNameLowercase" : "snowflake", 
+    "addedBy" : "a2birsan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9e4e120567c0015f63dbb"), 
+    "jobs" : [
+        ObjectId("60f9e4eb20567c0015f63dbc")
+    ], 
+    "jobNames" : [
+        "Engineering Coop"
+    ], 
+    "companyName" : "Tenneco", 
+    "companyNameLowercase" : "tenneco", 
+    "addedBy" : "jseweryn@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9eae220567c0015f63dd5"), 
+    "jobs" : [
+        ObjectId("60f9eaef20567c0015f63dd6")
+    ], 
+    "jobNames" : [
+        "Engineering Coop"
+    ], 
+    "companyName" : "IKO Industries", 
+    "companyNameLowercase" : "iko industries", 
+    "addedBy" : "ktayl@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9eeed20567c0015f63de2"), 
+    "jobs" : [
+        ObjectId("60f9effc20567c0015f63df0")
+    ], 
+    "jobNames" : [
+        "Quantum Outreach and Optics Research Assistant"
+    ], 
+    "companyName" : "Institute for Quantum Computing", 
+    "companyNameLowercase" : "institute for quantum computing", 
+    "addedBy" : "lbozanic@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9f1b020567c0015f63dfe"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Geotab", 
+    "companyNameLowercase" : "geotab", 
+    "addedBy" : "rjarodge@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f54520567c0015f63e06"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Brown and Beattie Building Science and Engineering", 
+    "companyNameLowercase" : "brown and beattie building science and engineering", 
+    "addedBy" : "a4fyfe@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60f9f7cc20567c0015f63e09"), 
+    "jobs" : [
+        ObjectId("60f9f7d920567c0015f63e0a")
+    ], 
+    "jobNames" : [
+        "Supervision Trainee"
+    ], 
+    "companyName" : "OSFI", 
+    "companyNameLowercase" : "osfi", 
+    "addedBy" : "y276lee@uwaterloo.ca", 
+    "averageSalary" : NumberInt(23), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9fcea20567c0015f63e17"), 
+    "jobs" : [
+        ObjectId("60f9fcf320567c0015f63e18")
+    ], 
+    "jobNames" : [
+        "Mobile Developer"
+    ], 
+    "companyName" : "Home Depot", 
+    "companyNameLowercase" : "home depot", 
+    "addedBy" : "jm2fan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(19), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9fd2120567c0015f63e1e"), 
+    "jobs" : [
+        ObjectId("60f9fd4520567c0015f63e1f")
+    ], 
+    "jobNames" : [
+        "Merchandising Analyst"
+    ], 
+    "companyName" : "Loblaw Companies Limited", 
+    "companyNameLowercase" : "loblaw companies limited", 
+    "addedBy" : "jkzhai@uwaterloo.ca", 
+    "averageSalary" : NumberInt(21), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60f9fdcc20567c0015f63e25"), 
+    "jobs" : [
+        ObjectId("60f9fdda20567c0015f63e26")
+    ], 
+    "jobNames" : [
+        "Software Developer"
+    ], 
+    "companyName" : "Nest Wealth", 
+    "companyNameLowercase" : "nest wealth", 
+    "addedBy" : "dj6patel@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fa188920567c0015f63e2c"), 
+    "jobs" : [
+        ObjectId("60fa18a520567c0015f63e2d"), 
+        ObjectId("60fb4e97fd280a0015198688")
+    ], 
+    "jobNames" : [
+        "Product Management Intern", 
+        "Project Coordinator"
+    ], 
+    "companyName" : "Blackberry", 
+    "companyNameLowercase" : "blackberry", 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "averageSalary" : 11.3, 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(4), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("60fa6363fd280a00151985f7"), 
+    "jobs" : [
+        ObjectId("60fa636ffd280a00151985f8")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "AlertDriving", 
+    "companyNameLowercase" : "alertdriving", 
+    "addedBy" : "m4kakkar@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fac41dfd280a0015198611"), 
+    "jobs" : [
+        ObjectId("60fac427fd280a0015198612")
+    ], 
+    "jobNames" : [
+        "Professional Programs Coordinator"
+    ], 
+    "companyName" : "Engineers of Tomorrow", 
+    "companyNameLowercase" : "engineers of tomorrow", 
+    "addedBy" : "n26tang@uwaterloo.ca", 
+    "averageSalary" : NumberInt(16), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fad15dfd280a001519862d"), 
+    "jobs" : [
+        ObjectId("60fad168fd280a001519862e")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Stripe", 
+    "companyNameLowercase" : "stripe", 
+    "addedBy" : "smmeliny@uwaterloo.ca", 
+    "averageSalary" : NumberInt(65), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fafb4bfd280a001519864c"), 
+    "jobs" : [
+        ObjectId("60fafb55fd280a001519864d")
+    ], 
+    "jobNames" : [
+        "Backend Developer"
+    ], 
+    "companyName" : "Hypercare", 
+    "companyNameLowercase" : "hypercare", 
+    "addedBy" : "m2bourge@uwaterloo.ca", 
+    "averageSalary" : NumberInt(18), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb0ce2fd280a001519866c"), 
+    "jobs" : [
+        ObjectId("60fb0cf1fd280a001519866d")
+    ], 
+    "jobNames" : [
+        "Display Solutions Team"
+    ], 
+    "companyName" : "AMD", 
+    "companyNameLowercase" : "amd", 
+    "addedBy" : "agratton@uwaterloo.ca", 
+    "averageSalary" : NumberInt(160), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(2), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb2b08fd280a0015198677"), 
+    "jobs" : [
+        ObjectId("60fb2b11fd280a0015198678")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Capital One", 
+    "companyNameLowercase" : "capital one", 
+    "addedBy" : "r22islam@uwaterloo.ca", 
+    "averageSalary" : NumberInt(34), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(2), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb2d1bfd280a001519867f"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Uber", 
+    "companyNameLowercase" : "uber", 
+    "addedBy" : "r22islam@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb2d3cfd280a0015198680"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Autodesk", 
+    "companyNameLowercase" : "autodesk", 
+    "addedBy" : "r22islam@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60fb57c5fd280a0015198698"), 
+    "jobs" : [
+        ObjectId("60fb57d8fd280a0015198699")
+    ], 
+    "jobNames" : [
+        "Jr Database and Devops Engineer"
+    ], 
+    "companyName" : "Tucows Inc", 
+    "companyNameLowercase" : "tucows inc", 
+    "addedBy" : "j65wei@uwaterloo.ca", 
+    "averageSalary" : NumberInt(26), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb8f71fd280a00151986ac"), 
+    "jobs" : [
+        ObjectId("60fb8f77fd280a00151986ad")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Lifion", 
+    "companyNameLowercase" : "lifion", 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "averageSalary" : NumberInt(44), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb8f9bfd280a00151986b1"), 
+    "jobs" : [
+        ObjectId("60fb8fa2fd280a00151986b2")
+    ], 
+    "jobNames" : [
+        "Software Developer Intern"
+    ], 
+    "companyName" : "Thomson Reuters", 
+    "companyNameLowercase" : "thomson reuters", 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "averageSalary" : NumberInt(39), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fb8fbbfd280a00151986b6"), 
+    "jobs" : [
+        ObjectId("60fb8fc2fd280a00151986b7")
+    ], 
+    "jobNames" : [
+        "Software Engineering Intern"
+    ], 
+    "companyName" : "Squarepoint Capital", 
+    "companyNameLowercase" : "squarepoint capital", 
+    "addedBy" : "y97su@uwaterloo.ca", 
+    "averageSalary" : NumberInt(43), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fc30f7d51ed5001510a4b9"), 
+    "jobs" : [
+        ObjectId("60fc310ad51ed5001510a4ba")
+    ], 
+    "jobNames" : [
+        "Front End Developer"
+    ], 
+    "companyName" : "Zamplo", 
+    "companyNameLowercase" : "zamplo", 
+    "addedBy" : "j4stinso@uwaterloo.ca", 
+    "averageSalary" : NumberInt(21), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fc75c8d51ed5001510a4ca"), 
+    "jobs" : [
+        ObjectId("60fc75d5d51ed5001510a4cb")
+    ], 
+    "jobNames" : [
+        "Full Stack Developer"
+    ], 
+    "companyName" : "IBM", 
+    "companyNameLowercase" : "ibm", 
+    "addedBy" : "dmolivej@uwaterloo.ca", 
+    "averageSalary" : NumberInt(24), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fdc86b107afb0015a8003a"), 
+    "jobs" : [
+        ObjectId("60fdc873107afb0015a8003b")
+    ], 
+    "jobNames" : [
+        "Engineering Assistant"
+    ], 
+    "companyName" : "Zeton", 
+    "companyNameLowercase" : "zeton", 
+    "addedBy" : "r53lin@uwaterloo.ca", 
+    "averageSalary" : NumberInt(18), 
+    "averageRating" : NumberInt(5), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fde31c107afb0015a80041"), 
+    "jobs" : [
+        ObjectId("60fde324107afb0015a80042")
+    ], 
+    "jobNames" : [
+        "Software Developer"
+    ], 
+    "companyName" : "i3 International Inc", 
+    "companyNameLowercase" : "i3 international inc", 
+    "addedBy" : "j65wei@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(1), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60fecbb8aee29900157234a7"), 
+    "jobs" : [
+        ObjectId("60fecbc6aee29900157234a8")
+    ], 
+    "jobNames" : [
+        "Mechanical Engineering Intern"
+    ], 
+    "companyName" : "Valbruna ASW", 
+    "companyNameLowercase" : "valbruna asw", 
+    "addedBy" : "d5khan@uwaterloo.ca", 
+    "averageSalary" : NumberInt(20), 
+    "averageRating" : NumberInt(4), 
+    "numSalaries" : NumberInt(1), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("60ff7902aee29900157234af"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Genesys Telecommunications", 
+    "companyNameLowercase" : "genesys telecommunications", 
+    "addedBy" : "a43lu@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("61082a9b14e9bc00159759cf"), 
+    "jobs" : [
+
+    ], 
+    "jobNames" : [
+
+    ], 
+    "companyName" : "Dropbox", 
+    "companyNameLowercase" : "dropbox", 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6119796a6d86ff0015fc50de"), 
+    "jobs" : [
+        ObjectId("611979746d86ff0015fc50df")
+    ], 
+    "jobNames" : [
+        "Software Engineer Intern"
+    ], 
+    "companyName" : "KGS Research", 
+    "companyNameLowercase" : "kgs research", 
+    "addedBy" : "a8xue@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(1), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("6130301c02c81800155529bc"), 
+    "jobs" : [
+        ObjectId("6130309c02c81800155529bd")
+    ], 
+    "jobNames" : [
+        "Data Scientist"
+    ], 
+    "companyName" : "Genellipse", 
+    "companyNameLowercase" : "genellipse", 
+    "addedBy" : "kliwonga@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(0), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(0), 
+    "__v" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("614c768a2a31fb00150ffde5"), 
+    "jobs" : [
+        ObjectId("614c76902a31fb00150ffde6")
+    ], 
+    "jobNames" : [
+        "job"
+    ], 
+    "companyName" : "test", 
+    "companyNameLowercase" : "test", 
+    "addedBy" : "m5wolfe@uwaterloo.ca", 
+    "averageSalary" : NumberInt(0), 
+    "averageRating" : NumberInt(3), 
+    "numSalaries" : NumberInt(0), 
+    "numReviews" : NumberInt(1), 
+    "__v" : NumberInt(1)
+}
