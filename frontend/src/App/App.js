@@ -23,6 +23,10 @@ import ForgotPasswordPage from "pages/forgotPassword";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
+// Modal:
+import { ModalText, ModalWrapper, Background } from "components/Modals/styles";
+import { BiError } from "react-icons/bi";
+
 const reducer = (state, action) => {
   if (action.type === "LOGIN") {
     localStorage.setItem("username", action.userInfo.username);
@@ -72,6 +76,12 @@ const App = () => {
         <div>
           <div style={{ minHeight: height - 80 }}>
             <Header />
+            <Background>
+              <ModalWrapper>
+                <BiError style={{ margin: "auto", marginBottom: -10, marginTop: 12 }} size={48} />
+                <ModalText style={{ textAlign: "center", fontSize: 18 }}><b>UWVision</b> is currently under maintenance. Please check back later!</ModalText>
+              </ModalWrapper>
+            </Background>
             <Switch>
               {/* Landing page (a.k.a. home) */}
               <Route exact path="/" component={LandingPage} />
