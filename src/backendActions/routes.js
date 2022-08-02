@@ -1,7 +1,7 @@
 const server =
   process.env.NODE_ENV !== "production"
     ? "http://127.0.0.1:8000"
-    : "UWVision-test.us-east-1.elasticbeanstalk.com";
+    : "http://UWVision-test.us-east-1.elasticbeanstalk.com";
 
 // TODO: Remove this route
 const userRoutes = `http://localhost:8001/auth`;
