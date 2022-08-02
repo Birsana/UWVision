@@ -1,9 +1,9 @@
 const server =
   process.env.NODE_ENV !== "production"
     ? "http://127.0.0.1:8000"
-    : "http://UWVision-test.us-east-1.elasticbeanstalk.com";
+    : "https://uwvision-backend.com";
 
-// TODO: Remove this route
+// TODO: Remove this old backend route
 const userRoutes = `http://localhost:8001/auth`;
 
 const API = `${server}/api`;
@@ -12,9 +12,9 @@ const routes = {
   logInRoute: () => {
     return `${API}/post/user/login`;
   },
-  // TODO: User sign-up route
-  // TODO: User email confirmation route
-  // TODO: User password reset route
+  // TODO: User sign-up route (in new backend)
+  // TODO: User email confirmation route (in new backend)
+  // TODO: User password reset route (in new backend)
 
   // Company Routes:
   getAllCompaniesRoute: () => {

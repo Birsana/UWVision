@@ -76,12 +76,12 @@ const App = () => {
         <div>
           <div style={{ minHeight: height - 80 }}>
             <Header />
-            {/* <Background>
+            <Background>
               <ModalWrapper>
                 <BiError style={{ margin: "auto", marginBottom: -10, marginTop: 12 }} size={48} />
                 <ModalText style={{ textAlign: "center", fontSize: 18 }}><b>UWVision</b> is currently under maintenance. Please check back later!</ModalText>
               </ModalWrapper>
-            </Background> */}
+            </Background>
             <Switch>
               {/* Landing page (a.k.a. home) */}
               <Route exact path="/" component={LandingPage} />
