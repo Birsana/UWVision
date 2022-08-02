@@ -10,7 +10,7 @@ import {
 } from "./styles";
 
 // Backend Imports:
-import { getListOfCompanies } from "backendActions";
+import { getAllCompanies } from "backendActions";
 
 // ==============================================================================================================
 
@@ -24,8 +24,10 @@ const SearchBar = (props) => {
 
   // Populate search bar options when component mounts
   useEffect(() => {
-    getListOfCompanies().then((response) => {
-      setCompanyData(response.data);
+    getAllCompanies().then((response) => {
+      setCompanyData(
+        response.data.map(({name, id, job_count}) => ({value: job_count, label: name}))
+      )
     });
   }, []);
 

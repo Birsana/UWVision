@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createMuiTheme } from "@material-ui/core";
-import { postReview } from "backendActions";
+import { addReview } from "backendActions";
 import {
   ModalTitle,
   FormTextarea,
@@ -22,7 +22,7 @@ function isNumeric(value) {
 }
 
 const ReviewModal = (props) => {
-  const { company, job, token, onSubmit, onClose } = props;
+  const { company, job, jobId, token, onSubmit, onClose } = props;
   const currentYear = new Date().getFullYear();
 
   const [overall, setOverall] = useState(3);
@@ -56,8 +56,8 @@ const ReviewModal = (props) => {
       error = "Year must be a positive integer";
     }
     const yearAsInt = parseInt(year);
-    if (yearAsInt > 2021 || yearAsInt < 2000) {
-      error = "Year must be between 2000 and 2021";
+    if (yearAsInt > 2023 || yearAsInt < 2000) {
+      error = "Year must be between 2000 and 2023";
     }
     return error;
   };
@@ -118,15 +118,16 @@ const ReviewModal = (props) => {
             culture: culture,
             interestingWork: interesting,
             year: values.year,
-            term:
-              term === "Fall"
-                ? "fall"
-                : term === "Spring"
-                ? "spring"
-                : "winter", // For some reason toLowerCase didn't work
+            term: term
+              // term === "Fall"
+              //   ? "fall"
+              //   : term === "Spring"
+              //   ? "spring"
+              //   : "winter", // For some reason toLowerCase didn't work
           };
-          postReview(company, job, token, review)
+          addReview(jobId, review, token)
             .then((res) => {
+              // TODO: Add logic for this in the backend
               if (res.data === "already posted") {
                 actions.setErrors({
                   review: "Cannot review job more than once",
@@ -139,6 +140,7 @@ const ReviewModal = (props) => {
               }
             })
             .catch((err) => {
+              console.log(err.response.data)
               actions.setErrors({ review: "An error occured" });
               actions.setSubmitting(false);
             });
@@ -257,9 +259,9 @@ const ReviewModal = (props) => {
                   value={term}
                   onChange={(e) => setTerm(e.target.value)}
                 >
-                  <option value="volvo">Spring</option>
-                  <option value="saab">Fall</option>
-                  <option value="opel">Winter</option>
+                  <option value="Spring">Spring</option>
+                  <option value="Fall">Fall</option>
+                  <option value="Winter">Winter</option>
                 </FormSelect>
               </FormSelectWrapper>
               <Field

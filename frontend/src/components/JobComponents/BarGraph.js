@@ -35,10 +35,10 @@ function BarGraph(props) {
     ];
 
     props.salaries.forEach((salary) => {
-      if (salary.wage > 100) {
+      if (salary.hourly_wage > 100) {
         graphValues[20] += 1;
       } else {
-        graphValues[Math.floor((salary.wage - 1) / 5)] += 1;
+        graphValues[Math.floor((salary.hourly_wage - 1) / 5)] += 1;
       }
     });
 

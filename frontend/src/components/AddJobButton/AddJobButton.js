@@ -59,7 +59,7 @@ const AddJobButton = (props) => {
   const [showAddJobModal, setShowAddJobModal] = useState(false);
   const styles = useStyles();
   const isMobile = useMediaQuery("(max-width: 520px)");
-
+  
   return (
     <>
       <Button
@@ -88,6 +88,7 @@ const AddJobButton = (props) => {
       {props.isLoggedIn && showAddJobModal && (
         <Modal
           initialModal={"Add Job"}
+          companyId={props.companyId}
           onClose={() => setShowAddJobModal(false)}
         />
       )}

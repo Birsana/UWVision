@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { RiBookmarkLine, RiBookmarkFill } from "react-icons/ri";
 import { connect } from "react-redux";
 import Modal from "components/Modals/Modal";
-import { saveJobToUser } from "backendActions";
+import { saveJob } from "backendActions";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,7 @@ const SaveJobButton = (props) => {
 
     if (props.isLoggedIn) {
       setIsSaved(!isSaved);
-      saveJobToUser(props.companyName, props.jobName, props.token); // Backend call
+      saveJob(props.jobId, props.token); // Backend call
       //! May need to set a rate limit for this
     } else {
       setShowLogInModal(true);

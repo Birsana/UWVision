@@ -63,8 +63,9 @@ const JobMetrics = styled.div`
 const Job = (props) => {
   const isMobile = useMediaQuery("(max-width: 520px)");
 
-  const companyName = props.jobData.company;
-  const jobName = props.jobData.jobName;
+  const companyName = props.company;
+  const jobName = props.job.name;
+  const jobId = props.job.id;
 
   const handleSelection = (event) => {
     props.history.push(`/company/${companyName}/job/${jobName}`);
@@ -81,37 +82,37 @@ const Job = (props) => {
         }}
       >
         <JobTitle>
-          <h2>{props.jobData.jobName}</h2>
+          <h2>{jobName}</h2>
         </JobTitle>
         {!isMobile && (
           <SaveJobButton
             companyName={companyName}
-            jobName={jobName}
-            isSaved={props.jobData.isSaved}
+            jobId={jobId}
+            isSaved={props.job.saved}
             accountPage={props.accountPage}
           />
         )}
       </div>
       <JobMetrics>
         <h3>
-          {props.jobData.averageRating ? (
+          {props.job.avg_overall_rating ? (
             <>
               <span style={{ color: "#2196f3", fontWeight: "bold" }}>
-                {props.jobData.averageRating}/5
+                {props.job.avg_overall_rating}/5
               </span>
-              <span> ({props.jobData.numOfReviews} reviews)</span>
+              <span> ({props.job.review_count} reviews)</span>
             </>
           ) : (
             <span>No reviews</span>
           )}
           <span> | </span>
-          {props.jobData.averageSalary ? (
+          {props.job.avg_hourly_wage ? (
             <>
               <span style={{ color: "#2196f3", fontWeight: "bold" }}>
                 {" "}
-                ${props.jobData.averageSalary}/hr
+                ${props.job.avg_hourly_wage}/hr
               </span>
-              <span> ({props.jobData.numOfSalaryEntries} entries)</span>
+              <span> ({props.job.salary_count} entries)</span>
             </>
           ) : (
             <span>No salaries</span>
@@ -122,8 +123,8 @@ const Job = (props) => {
         <div style={{ marginLeft: -5 }}>
           <SaveJobButton
             companyName={companyName}
-            jobName={jobName}
-            isSaved={props.jobData.isSaved}
+            jobId={jobId}
+            isSaved={props.job.saved}
             accountPage={props.accountPage}
           />
         </div>

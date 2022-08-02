@@ -19,9 +19,9 @@ function Review(props) {
 
   const upvote = async () => {
     setDisabled(true);
-    upvoteReview(props.company, props.job, props.id, props.token).then(
+    upvoteReview(props.id, props.token).then(
       (res) => {
-        if (res.data === "upvoted") {
+        if (res.data.response === "upvoted review") {
           setNum(num + 1);
           setUpvoted(true);
           setDisabled(false);

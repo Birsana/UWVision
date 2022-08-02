@@ -1,4 +1,4 @@
-import { getSavedJobs } from "backendActions";
+import { getAllSavedJobsForUser } from "backendActions";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -60,7 +60,7 @@ const SavedJobs = (props) => {
 
   useEffect(() => {
     let isMounted = true;
-    getSavedJobs(props.token).then((response) => {
+    getAllSavedJobsForUser(props.token).then((response) => {
       if (isMounted) {
         setSavedJobs(response.data);
         setShowSavedJobs(true);
@@ -105,9 +105,10 @@ const SavedJobs = (props) => {
                 <CompanyName>{companyName}</CompanyName>
               </NavLink>
               {savedJobs[companyName].map((job) => {
+                job.id = job.job_id;
                 return (
                   <Fade duration={500} key={`${companyName}-${job.id}`}>
-                    <Job jobData={job} accountPage={true} />
+                    <Job company={companyName} job={job} accountPage={true} />
                   </Fade>
                 );
               })}

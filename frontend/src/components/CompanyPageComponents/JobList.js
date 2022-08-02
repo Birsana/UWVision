@@ -3,11 +3,11 @@ import Job from "./Job";
 import Fade from "react-reveal/Fade";
 
 function JobList(props) {
-  var elements = props.data
-    ? props.data.map(function (element) {
+  var elements = props.jobs
+    ? props.jobs.map((job) => {
         return (
-          <Fade duration={500} key={element.jobName} exit={false}>
-            <Job jobData={element} />
+          <Fade duration={500} key={job.name} exit={false}>
+            <Job company={props.company} job={job} />
           </Fade>
         );
       })

@@ -35,7 +35,7 @@ const AddCompanyModal = (props) => {
         validateOnBlur={false}
         validateOnChange={false}
         initialValues={{
-          company: "",
+          company: props.company,
         }}
         onSubmit={(values, actions) => {
           addCompany(values.company, authToken)

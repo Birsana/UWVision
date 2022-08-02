@@ -11,10 +11,10 @@ import { blue } from "@material-ui/core/colors";
 import Modal from "components/Modals/Modal";
 import { connect } from "react-redux";
 import {
-  getSalaries,
-  getQuestions,
-  getReviews,
-  getRatings,
+  getJob,
+  getAllSalariesForJob,
+  getAllInterviewQuestionsForJob,
+  getAllReviewsForJob,
 } from "backendActions";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Loader from "react-loader-spinner";
@@ -73,12 +73,13 @@ const JobPage = (props) => {
   const [showQuestions, setShowQuestions] = useState(false); // Interview questions - Loading state
   const [reviews, setReviews] = useState([]);
   const [showReviews, setShowReviews] = useState(false); // User reviews - Loading state
-  const [averageArray, setAverageArray] = useState([0, 0, 0, 0, 0]); // averageRating, averageCulture, averageWorklife, averageInteresting, numReviews
+  const [averageArray, setAverageArray] = useState([0, 0, 0, 0]); // averageOverallRating, averageCulture, averageInteresting, averageWorklife
   const isSmallMobile = useMediaQuery("(max-width: 350px)");
   const { hash } = useLocation();
   const mounted = useRef();
   const company = props.match.params.id;
   const job = props.match.params.jobId;
+  const [jobIdForModals, setJobIdForModals] = useState(0);
 
   // const settings = {
   //   // dots: true,
@@ -89,19 +90,34 @@ const JobPage = (props) => {
   // };
 
   useEffect(() => {
-    getSalaries(company, job).then((response) => {
-      setSalaries(response.data);
-    });
-    getQuestions(company, job, props.token).then((response) => {
-      setQuestions(response.data);
-      setShowQuestions(true);
-    });
-    getReviews(company, job, props.token).then((response) => {
-      setReviews(response.data);
-      setShowReviews(true);
-    });
-    getRatings(company, job).then((response) => {
-      setAverageArray(response.data);
+    getJob(company.replace(/\s/g, '-'), job.replace(/\s/g, '-')).then((jobResponse) => {
+      let jobId = jobResponse.data.id;
+      setJobIdForModals(jobResponse.data.id);
+
+      // Salary Endpoint 
+      getAllSalariesForJob(jobId).then((response) => {
+        setSalaries(response.data);
+      });
+
+      // Interview Questions Endpoint
+      getAllInterviewQuestionsForJob(jobId, props.token).then((response) => {
+        setQuestions(response.data);
+        setShowQuestions(true);
+      });
+
+      // Reviews Endpoint
+      getAllReviewsForJob(jobId, props.token).then((response) => {
+        setReviews(response.data.reviews);
+        setAverageArray(
+          [
+            response.data.overall_ratings.avg_overall_rating,
+            response.data.overall_ratings.avg_culture_rating,
+            response.data.overall_ratings.avg_interesting_work_rating,
+            response.data.overall_ratings.avg_work_life_balance_rating
+          ]
+        )
+        setShowReviews(true);
+      });
     });
   }, [company, job, props.token]);
 
@@ -146,8 +162,15 @@ const JobPage = (props) => {
 
   const addReview = (review) => {
     setReviews((reviews) => [...reviews, review]);
-    getRatings(company, job).then((response) => {
-      setAverageArray(response.data);
+    getAllReviewsForJob(jobIdForModals, props.token).then((response) => {
+      setAverageArray(
+        [
+          response.data.overall_ratings.avg_overall_rating,
+          response.data.overall_ratings.avg_culture_rating,
+          response.data.overall_ratings.avg_interesting_work_rating,
+          response.data.overall_ratings.avg_work_life_balance_rating
+        ]
+      )
     });
   };
 
@@ -197,11 +220,11 @@ const JobPage = (props) => {
       return <LoadingSpinner />;
     } else {
       return reviews.length !== 0 ? (
-        reviews.map((review, index) => {
+        reviews.map((review) => {
           return (
             <Fade
               duration={500}
-              key={index}
+              key={review.id}
               disabled={
                 showInterviewModal !== 0 ||
                 showReviewModal !== 0 ||
@@ -211,17 +234,17 @@ const JobPage = (props) => {
               <Review
                 job={job}
                 company={company}
-                overall={review.overallRating}
-                year={review.year}
-                term={review.term}
+                overall={review.overall_rating}
+                year={review.year_worked}
+                term={review.term_worked}
                 body={review.body}
-                author={review.author}
-                workLifeBalance={review.workLifeBalance}
+                author={review.added_by_id}
+                workLifeBalance={review.work_life_balance}
                 culture={review.culture}
-                interestingWork={review.interestingWork}
-                numUpvotes={review.numUpvotes}
+                interestingWork={review.interesting_work}
+                numUpvotes={review.num_upvotes}
                 upvoted={review.upvoted}
-                id={review.id || review._id}
+                id={review.id}
                 loggedIn={props.token !== null}
               />
             </Fade>
@@ -246,11 +269,11 @@ const JobPage = (props) => {
       return <LoadingSpinner />;
     } else {
       return questions.length !== 0 ? (
-        questions.map((question, index) => {
+        questions.map((question) => {
           return (
             <Fade
               duration={500}
-              key={index}
+              key={question.id}
               disabled={
                 showInterviewModal !== 0 ||
                 showReviewModal !== 0 ||
@@ -261,11 +284,11 @@ const JobPage = (props) => {
                 <InterviewQuestion
                   job={job}
                   company={company}
-                  numUpvotes={question.numUpvotes}
+                  numUpvotes={question.num_upvotes}
                   upvoted={question.upvoted}
                   body={question.body}
-                  author={question.author}
-                  id={question.id || question._id}
+                  author={question.added_by_id}
+                  id={question.id}
                   loggedIn={props.token !== null}
                 />
               </div>
@@ -414,11 +437,11 @@ const JobPage = (props) => {
                     Culture
                   </div>
                   <div className="average">
-                    <span className="average-rating">{averageArray[3]}/5</span>
+                    <span className="average-rating">{averageArray[2]}/5</span>
                     Interesting Work
                   </div>
                   <div className="average">
-                    <span className="average-rating">{averageArray[2]}/5</span>
+                    <span className="average-rating">{averageArray[3]}/5</span>
                     Work-life Balance
                   </div>
                 </div>
@@ -473,6 +496,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Salary" : "Log In"}
           job={job}
           company={company}
+          jobId={jobIdForModals}
           onClose={(changed) =>
             onModalClose(props.token ? "Add Salary" : "Salary Login", changed)
           }
@@ -486,6 +510,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Interview" : "Log In"}
           job={job}
           company={company}
+          jobId={jobIdForModals}
           onClose={(changed) =>
             onModalClose(
               props.token ? "Add Interview" : "Interview Login",
@@ -502,6 +527,7 @@ const JobPage = (props) => {
           initialModal={props.token ? "Add Review" : "Log In"}
           job={job}
           company={company}
+          jobId={jobIdForModals}
           onClose={(changed) =>
             onModalClose(props.token ? "Add Review" : "Review Login", changed)
           }

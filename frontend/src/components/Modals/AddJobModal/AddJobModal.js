@@ -12,6 +12,7 @@ import { addJob } from "backendActions";
 
 const AddJobModal = (props) => {
   const company = props.match.params.id;
+  const companyId = props.companyId;
   const [authToken] = useState(props.token);
 
   const validateJob = (job) => {
@@ -39,7 +40,8 @@ const AddJobModal = (props) => {
           job: "",
         }}
         onSubmit={(values, actions) => {
-          addJob(company, values.job, authToken)
+          console.log(companyId);
+          addJob(companyId, values.job, authToken)
             .then((res) => {
               props.history.push(`/company/${company}/job/${values.job}`);
             })

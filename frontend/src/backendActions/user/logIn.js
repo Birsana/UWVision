@@ -1,19 +1,13 @@
 import axios from "axios";
 import routes from "backendActions/routes";
 
-export const logIn = (email, password) => {
+export const logIn = (username, password) => {
   return axios({
     method: "post",
-    url: routes.LOGIN(),
+    url: routes.logInRoute(),
     data: {
-      user: {
-        email: email,
-        password: password,
-      },
-    },
-    headers: {
-      "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
-    },
+      username: username,
+      password: password,
+    }
   });
 };

@@ -5,7 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import "./styles.css";
 import { RiThumbUpLine, RiThumbUpFill } from "react-icons/ri";
-import { upvoteQuestion } from "backendActions";
+import { upvoteInterviewQuestion } from "backendActions";
 import { FaUserAlt } from "react-icons/fa";
 
 function InterviewQuestion(props) {
@@ -17,9 +17,9 @@ function InterviewQuestion(props) {
 
   const upvote = async () => {
     setDisabled(true);
-    upvoteQuestion(props.company, props.job, props.id, props.token).then(
+    upvoteInterviewQuestion(props.id, props.token).then(
       (res) => {
-        if (res.data === "upvoted") {
+        if (res.data.response === "upvoted interview question") {
           setNum(num + 1);
           setUpvoted(true);
           setDisabled(false);

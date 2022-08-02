@@ -13,13 +13,11 @@ import { connect } from "react-redux";
 
 const LogInModal = (props) => {
   const validate = (values) => {
-    const { email, password } = values;
+    const { username, password } = values;
     const errors = {};
-    if (!email.includes("@uwaterloo.ca")) {
-      errors.email = "Please enter a @uwaterloo.ca email";
-    }
-    if (!email || email.trim().length === 0) {
-      errors.email = "Email cannot be blank";
+
+    if (!username || username.trim().length === 0) {
+      errors.username = "Username cannot be blank";
     }
     if (!password) {
       errors.password = "Password cannot be blank";
@@ -35,26 +33,16 @@ const LogInModal = (props) => {
         validateOnChange={false}
         validate={validate}
         initialValues={{
-          email: "",
+          username: "",
           password: "",
         }}
         onSubmit={(values, actions) => {
-          logIn(values.email, values.password)
+          logIn(values.username, values.password)
             .then((response) => {
-              props.dispatch({ type: "LOGIN", userInfo: response.data.user });
+              props.dispatch({ type: "LOGIN", userInfo: response.data });
             })
             .catch((error) => {
-              let errorMessage = error.response.data.errors;
-              if ("email" in errorMessage) {
-                let message = errorMessage.email;
-                if (message.includes("invalid email")) {
-                  actions.setErrors({ email: "Invalid email" });
-                } else {
-                  actions.setErrors({ email: "Please confirm your email" });
-                }
-              } else if ("password" in errorMessage) {
-                actions.setErrors({ password: "Invalid password" });
-              }
+              actions.setErrors({ password: "Invalid user credentials" });
               actions.setSubmitting(false);
             });
         }}
@@ -72,16 +60,16 @@ const LogInModal = (props) => {
             }}
           >
             <Field
-              type="email"
-              name="email"
+              type="username"
+              name="username"
               maxLength={64}
-              placeholder="Email (@uwaterloo.ca)"
+              placeholder="Username"
               autoFocus={true}
               as={FormInput}
             />
-            {props.errors.email && (
+            {props.errors.username && (
               <FormErrorMessage>
-                <p>{props.errors.email}</p>
+                <p>{props.errors.username}</p>
               </FormErrorMessage>
             )}
             <Field

@@ -1,19 +1,16 @@
 import axios from "axios";
 import routes from "backendActions/routes";
 
-export const addJob = (company, job, token) => {
+export const addJob = (company_id, jobName, token) => {
   return axios({
     method: "post",
-    url: routes.ADDJOBTOCOMPANY(company),
+    url: routes.addJobRoute(),
     data: {
-      job: {
-        jobName: job,
-      },
+      company: company_id,
+      name: jobName 
     },
     headers: {
-      Authorization: `Token ${token}`,
-      "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
+      Authorization: `Token ${token}`
     },
   });
 };

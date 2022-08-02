@@ -17,7 +17,7 @@ import ForgotPasswordModal from "./ForgotPasswordModal/ForgotPasswordModal";
 // ==============================================================================================================
 
 // Generic Modal Handler:
-const Modal = ({ job, company, initialModal, onClose, onSubmit }) => {
+const Modal = ({ job, company, companyId, jobId, initialModal, onClose, onSubmit }) => {
   const [modalType, setModalType] = useState(initialModal);
 
   // Determines which modal to render depending on state
@@ -33,6 +33,7 @@ const Modal = ({ job, company, initialModal, onClose, onSubmit }) => {
         <ReviewModal
           job={job}
           company={company}
+          jobId={jobId}
           onSubmit={onSubmit}
           onClose={onClose}
         />
@@ -42,6 +43,7 @@ const Modal = ({ job, company, initialModal, onClose, onSubmit }) => {
         <InterviewModal
           job={job}
           company={company}
+          jobId={jobId}
           onSubmit={onSubmit}
           onClose={onClose}
         />
@@ -51,12 +53,13 @@ const Modal = ({ job, company, initialModal, onClose, onSubmit }) => {
         <SalaryModal
           job={job}
           company={company}
+          jobId={jobId}
           onSubmit={onSubmit}
           onClose={onClose}
         />
       );
     } else if (modalType === "Add Job") {
-      return <AddJobModal />;
+      return <AddJobModal companyId={companyId} />;
     } else if (modalType === "Forgot Password") {
       return <ForgotPasswordModal onClose={onClose} />;
     }

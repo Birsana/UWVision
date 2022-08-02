@@ -7,7 +7,7 @@ import {
   ModalText,
 } from "../styles";
 import { connect } from "react-redux";
-import { postSalary } from "backendActions";
+import { addSalary } from "backendActions";
 import { Formik, Form, Field } from "formik";
 
 function isNumeric(value) {
@@ -15,7 +15,7 @@ function isNumeric(value) {
 }
 
 const SalaryModal = (props) => {
-  const { company, job, token, onSubmit, onClose } = props;
+  const { company, job, jobId, token, onSubmit, onClose } = props;
 
   const validateSalary = (salary) => {
     let error = "";
@@ -45,7 +45,7 @@ const SalaryModal = (props) => {
           salary: "",
         }}
         onSubmit={(values, actions) => {
-          postSalary(company, job, token, values.salary)
+          addSalary(jobId, parseInt(values.salary), token)
             .then((res) => {
               if (res.data === "already posted") {
                 actions.setErrors({
@@ -58,6 +58,7 @@ const SalaryModal = (props) => {
               }
             })
             .catch((err) => {
+              console.log(err.response)
               actions.setErrors({ salary: "An error occured" });
               actions.setSubmitting(false);
             });

@@ -6,12 +6,12 @@ import {
   FormErrorMessage,
   ModalText,
 } from "../styles";
-import { postQuestion } from "backendActions";
+import { addInterviewQuestion } from "backendActions";
 import { connect } from "react-redux";
 import { Formik, Form, Field } from "formik";
 
 const InterviewModal = (props) => {
-  const { company, job, token, onSubmit, onClose } = props;
+  const { company, job, jobId, token, onSubmit, onClose } = props;
 
   const validateQuestion = (question) => {
     let error = "";
@@ -31,7 +31,7 @@ const InterviewModal = (props) => {
           question: "",
         }}
         onSubmit={(values, actions) => {
-          postQuestion(company, job, token, values.question)
+          addInterviewQuestion(jobId, values.question, token)
             .then((res) => {
               res.data.upvoted = false;
               onSubmit(res.data);

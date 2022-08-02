@@ -1,17 +1,15 @@
 import axios from "axios";
 import routes from "backendActions/routes";
 
-export const addCompany = (companyToAdd, token) => {
+export const addCompany = (companyName, token) => {
   return axios({
     method: "post",
-    url: routes.ADDCOMPANY(),
+    url: routes.addCompanyRoute(),
     data: {
-      companyName: companyToAdd,
+      name: companyName,
     },
     headers: {
-      Authorization: `Token ${token}`,
-      "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
+      Authorization: `Token ${token}`
     },
   });
 };

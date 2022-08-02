@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { HiOutlineEmojiSad } from "react-icons/hi";
-
-import { getCompanyJobData } from "backendActions";
 import JobList from "./JobList";
 
 import Loader from "react-loader-spinner";
@@ -27,20 +25,11 @@ const NoJobDataDiv = styled.div`
 
 const JobBox = (props) => {
   const company = props.company;
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    getCompanyJobData(
-      company,
-      props.isLoggedIn ? `Token ${props.token}` : ""
-    ).then((response) => {
-      setData(response.data);
-    });
-  }, [company, props.isLoggedIn, props.token]);
+  const jobs = props.jobs;
 
   const BoxToRender = () => {
     // Loading Animation
-    if (!data) {
+    if (!jobs) {
       return (
         <NoJobDataDiv>
           <Loader type="Oval" color="#2196f3" height={80} width={80} />
@@ -48,7 +37,7 @@ const JobBox = (props) => {
       );
     }
 
-    if (data && data.length === 0) {
+    if (jobs && jobs.length === 0) {
       return (
         <NoJobDataDiv>
           {company} has no jobs yet!
@@ -63,7 +52,7 @@ const JobBox = (props) => {
 
     return (
       <JobScrollableDiv>
-        <JobList data={data} />
+        <JobList company={company} jobs={jobs} />
       </JobScrollableDiv>
     );
   };
