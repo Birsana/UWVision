@@ -1,15 +1,14 @@
 const server =
   process.env.NODE_ENV !== "production"
     ? "http://127.0.0.1:8000"
-    : "https://uwvision.herokuapp.com"; //TODO: Change prod backend URL
+    : "UWVision-test.us-east-1.elasticbeanstalk.com";
+
+
+
+// TODO: Remove this route
+const userRoutes = `http://localhost:8001/auth`;
 
 const API = `${server}/api`;
-
-// TODO: Remove these
-const companyRoutes = `http://localhost:8001/data`;
-const userRoutes = `http://localhost:8001/auth`;
-const jobRoutes = `http://localhost:8001/job`;
-
 const routes = {
   // User Routes:
   logInRoute: () => {
@@ -79,25 +78,7 @@ const routes = {
 
 
   // === OLD ===
-
-  // Company Routes:
-  ADDCOMPANY: () => {
-    return `${companyRoutes}/addcompany`;
-  },
-  GETCOMPANY: (company) => {
-    return `${companyRoutes}/company/${company}`;
-  },
-  GETCOMPANYJOBLIST: (company) => {
-    return `${companyRoutes}/getcompanydata/${company}`;
-  },
-  ADDJOBTOCOMPANY: (company) => {
-    return `${companyRoutes}/${company}/addjob`;
-  },
-
   // User Routes:
-  LOGIN: () => {
-    return `${userRoutes}/users/login`;
-  },
   SIGNUP: () => {
     return `${userRoutes}/users`;
   },
@@ -109,41 +90,6 @@ const routes = {
   },
   RESETPASSWORD: (resetToken) => {
     return `${userRoutes}/forgotpassword/${resetToken}`;
-  },
-  SAVEJOBTOUSER: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/save`;
-  },
-  GETSAVEDJOBS: () => {
-    return `${jobRoutes}/savedjobs`;
-  },
-
-  // Job Routes:
-  GETSALARIES: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/salaries`;
-  },
-  GETQUESTIONS: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/questions`;
-  },
-  GETREVIEWS: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/reviews`;
-  },
-  GETRATINGS: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/rating`;
-  },
-  POSTSALARY: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/salary`;
-  },
-  POSTQUESTION: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/question`;
-  },
-  UPVOTEQUESTION: (company, job, id) => {
-    return `${jobRoutes}/${company}/${job}/question/${id}`;
-  },
-  POSTREVIEW: (company, job) => {
-    return `${jobRoutes}/${company}/${job}/review`;
-  },
-  UPVOTEREVIEW: (company, job, id) => {
-    return `${jobRoutes}/${company}/${job}/review/${id}`;
   },
 };
 
