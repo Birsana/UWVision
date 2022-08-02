@@ -1,7 +1,0 @@
-Backend:
-Terminal 1) sudo mongod --dbpath /System/Volumes/Data/data/db
-Terminal 2) mongo 
-Terminal 3) node app.js
-
-Frontend:
-1) npm start
