@@ -102,6 +102,13 @@ const Header = (props) => {
 
           {loggedIn ? (
             <div>
+              <Button
+              className={styles.allCompaniesButton}
+              color="inheret"
+               onClick={() => {props.history.push("/companies")}}
+              >
+                Companies
+              </Button>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
@@ -169,16 +176,27 @@ const Header = (props) => {
           ) : (
             <>
               <Button
+              className={styles.allCompaniesButton}
+              color="inheret"
+               onClick={() => {props.history.push("/companies")}}
+              >
+                Companies
+              </Button>
+              <Button
                 className={styles.logInButton}
                 color="inherit"
-                onClick={() => setShowLogInModal(true)}
+                onClick={() => {
+                  props.history.push("/")
+                  setShowLogInModal(true)}}
               >
                 Login
               </Button>
               <Button
                 className={styles.signUpButton}
                 color="inherit"
-                onClick={() => setShowSignUpModal(true)}
+                onClick={() => {
+                  props.history.push("/")
+                  setShowLogInModal(true)}}
               >
                 Sign Up
               </Button>

@@ -1,3 +1,48 @@
+
+.rectangle {
+  display: inline-block;
+  width: 30%;
+  height: 100px;
+  margin: 1% 1.5%;
+  padding: 2px;
+  background-color: rgba(219, 227, 230);
+  border-radius: 10px;
+  box-shadow: 2px 2px 7px lightgray;
+}
+
+h55 {
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+h56 {
+  font-size: 15px;
+}
+
+m {
+  position: relative;
+  left: 8%;
+}
+
+a {
+  display: block;
+  position: relative;
+  padding-left: 5%;
+  top: 25%;
+}
+
+.page_margins {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.background_color {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
 .company-container {
   margin: 0 auto;
   padding: 0 60px;

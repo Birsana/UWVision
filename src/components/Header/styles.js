@@ -70,6 +70,20 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
   },
 
+  allCompaniesButton: {
+    fontSize: "16px",
+    fontWeight: 600,
+    textTransform: "none",
+    marginRight: 8,
+    marginLeft: -6,
+    padding: "5px 16px",
+    borderRadius: 4,
+    zIndex: 1,
+    [theme.breakpoints.down(620)]: {
+      display: "none",
+    },
+  },
+
   logInButton: {
     fontSize: "16px",
     fontWeight: 600,
