@@ -1,17 +1,5 @@
-
-.rectangle {
-  display: inline-block;
-  width: 30%;
-  height: 100px;
-  margin: 1% 1.5%;
-  padding: 2px;
-  background-color: rgba(219, 227, 230);
-  border-radius: 10px;
-  box-shadow: 2px 2px 7px lightgray;
-}
-
 h55 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
 
 }
@@ -22,10 +10,10 @@ h56 {
 
 m {
   position: relative;
-  left: 8%;
+  left: 8%;  
 }
 
-a {
+companiesPageLogo {
   display: block;
   position: relative;
   padding-left: 5%;

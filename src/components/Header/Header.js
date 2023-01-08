@@ -11,6 +11,7 @@ import { useStyles } from "./styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
+import { Box } from "@material-ui/core";
 
 // Component Imports:
 import SearchBar from "components/SearchBar/SearchBar";
@@ -93,6 +94,15 @@ const Header = (props) => {
             </Typography>
           )}
 
+            <Button
+            className={styles.allCompaniesButton}
+            color="inheret"
+            onClick={() => {props.history.push("/companies")}}
+            >
+              Companies
+            </Button>
+
+
           {/* Render the search bar if not on the home page */}
           {location.pathname !== "/" && (
             <div className={styles.searchBar}>
@@ -102,13 +112,6 @@ const Header = (props) => {
 
           {loggedIn ? (
             <div>
-              <Button
-              className={styles.allCompaniesButton}
-              color="inheret"
-               onClick={() => {props.history.push("/companies")}}
-              >
-                Companies
-              </Button>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
@@ -175,13 +178,6 @@ const Header = (props) => {
             </div>
           ) : (
             <>
-              <Button
-              className={styles.allCompaniesButton}
-              color="inheret"
-               onClick={() => {props.history.push("/companies")}}
-              >
-                Companies
-              </Button>
               <Button
                 className={styles.logInButton}
                 color="inherit"

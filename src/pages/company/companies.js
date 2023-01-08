@@ -8,12 +8,12 @@ import styled from "styled-components";
 const holder= Array(getAllCompanies.length).fill(<div className="rectangle"></div>)
 
 const CompanyElement = styled.div`
-  text-align: center;
   background-color: #f5f5f5;
-  display: inline-block;
-  width: 25%;
-  height: 100px;
+  text-align: center;
   margin: 1.5%;
+  display: inline-block;
+  width: 30%;
+  height:100px;
   padding-right: 10px;
   box-shadow: 2px 2px 7px lightgray;
   @media (hover: hover) and (pointer: fine),
@@ -39,28 +39,34 @@ const Companies = (props) => {
     }, [])
 
     return (
-        <m>
+        <div className="page_margins">
+        {/* <div style={{display: 'flex', paddingLeft: 50, paddingRight: 50}}> */}
         {companyArr.map((company) => {
             return (
                 <CompanyElement 
                 onClick={() => {props.history.push(`/company/${company.name}`)}}>
 
-                    <a>
+                    <companiesPageLogo>
                         {company.logo !== "" ? <img align="left" src={company.logo} style={{ width: '50px'}}/> : <img align="left" src='https://tapnetwork2030.org/wp-content/themes/airi-child/assets/images/NoImageAvailable.png'  style={{ width: '50px'}} />}
-                    </a>
+                    </companiesPageLogo>
 
-                    <h55>
-                        {company.name} 
-                    </h55>
-                    <br />
-                    <h56>
-                      <b> Job count:</b>  {company.job_count}
-                    </h56>
+                    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', transform: 'translateY(25%)'}}>
+                        <h55>
+                            {company.name} 
+                        </h55>
+
+
+                        <h56>
+                        <b> Job count:</b>  {company.job_count}
+                        </h56>
+                    </div>
+
     
                 </CompanyElement>
             )
         })}
-        </m>
+        </div>
+        
     )
   }
   
