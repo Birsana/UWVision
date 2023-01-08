@@ -61,11 +61,6 @@ const Companies = (props) => {
             )
         })}
         </m>
-
-        // 
-        //<div className="page_margins">
-        //</div>
-        //array_of_companies
     )
   }
   
