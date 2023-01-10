@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { BiAlignLeft } from "react-icons/bi";
 
 export const useStyles = makeStyles((theme) => ({
   landingHeader: {

@@ -65,6 +65,7 @@ const Header = (props) => {
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();
   const displayTypography = useMediaQuery("(min-width: 520px)");
+  const displayCompanyButton = useMediaQuery("(min-width: 726px");
 
   // Used to determine whether searchbar should be in header or not:
   const location = useLocation();
@@ -91,17 +92,21 @@ const Header = (props) => {
               >
                 UW<b>Vision</b>
               </NavLink>
-            </Typography>
-          )}
 
+            {(displayCompanyButton || location.pathname === "/") && (
             <Button
             className={styles.allCompaniesButton}
+            style={{left: 15}}
             color="inheret"
             onClick={() => {props.history.push("/companies")}}
             >
               Companies
             </Button>
+            )}
+            </Typography>
+          )}
 
+           
 
           {/* Render the search bar if not on the home page */}
           {location.pathname !== "/" && (

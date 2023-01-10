@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import "./styles.css";
 import { getAllCompanies } from "backendActions";
 import styled from "styled-components";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 // autofilled, use arries (rename arries)
 const holder= Array(getAllCompanies.length).fill(<div className="rectangle"></div>)
@@ -27,6 +28,15 @@ const CompanyElement = styled.div`
 `;
 
 const Companies = (props) => {
+
+    const reduceTextOne = useMediaQuery("(min-width: 924px)");
+
+    const reduceTextTwo = useMediaQuery("(min-width: 705px)");
+    const maxTwo = useMediaQuery("(max-width: 923px)");
+
+    const reduceTextThree = useMediaQuery("(min-width: 600px")
+    const maxThree = useMediaQuery("(max-width: 704px)");
+
     const [companyArr, setCompanyArr] = useState([]) // stores array of company info
     // const holder= Array(companyArr.length).fill(<div className="rectangle"></div>)
 
@@ -51,14 +61,37 @@ const Companies = (props) => {
                     </companiesPageLogo>
 
                     <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', transform: 'translateY(25%)'}}>
-                        <h55>
+
+
+                    {reduceTextOne && (
+                        <h55 style={{fontSize: 30}}>
                             {company.name} 
+                            <div style={{fontSize: 15}}>
+                                <b> Job count:</b>  {company.job_count}
+                            </div>
                         </h55>
 
+                    )}
+                    {(reduceTextTwo && maxTwo) && (
+                        <div style={{transform: 'translateY(25%)'}}>
+                            <h55 style={{fontSize: 20}}>
+                                {company.name} 
+                                <div style={{fontSize: 15}}>
+                                    <b> Job count:</b>  {company.job_count}
+                                </div>
+                            </h55>
+                        </div>
+                    )}
+                    {(reduceTextThree && maxThree) && (
+                        <h55 style={{fontSize: 15}}>
+                            <div style={{transform: 'translateY(125%)'}}>
+                                {company.name} 
+                            </div>
+                            
+                        </h55>
+                    )}
 
-                        <h56>
-                        <b> Job count:</b>  {company.job_count}
-                        </h56>
+
                     </div>
 
     
