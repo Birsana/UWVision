@@ -11,6 +11,7 @@ import { useStyles } from "./styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
+import { Box } from "@material-ui/core";
 
 // Component Imports:
 import SearchBar from "components/SearchBar/SearchBar";
@@ -64,6 +65,7 @@ const Header = (props) => {
   // Material-UI Specific Styling Stuff:
   const styles = useStyles();
   const displayTypography = useMediaQuery("(min-width: 520px)");
+  const displayCompanyButton = useMediaQuery("(min-width: 726px");
 
   // Used to determine whether searchbar should be in header or not:
   const location = useLocation();
@@ -90,8 +92,21 @@ const Header = (props) => {
               >
                 UW<b>Vision</b>
               </NavLink>
+
+            {(displayCompanyButton || location.pathname === "/") && (
+            <Button
+            className={styles.allCompaniesButton}
+            style={{left: 15}}
+            color="inheret"
+            onClick={() => {props.history.push("/companies")}}
+            >
+              Companies
+            </Button>
+            )}
             </Typography>
           )}
+
+           
 
           {/* Render the search bar if not on the home page */}
           {location.pathname !== "/" && (
@@ -171,14 +186,18 @@ const Header = (props) => {
               <Button
                 className={styles.logInButton}
                 color="inherit"
-                onClick={() => setShowLogInModal(true)}
+                onClick={() => {
+                  props.history.push("/")
+                  setShowLogInModal(true)}}
               >
                 Login
               </Button>
               <Button
                 className={styles.signUpButton}
                 color="inherit"
-                onClick={() => setShowSignUpModal(true)}
+                onClick={() => {
+                  props.history.push("/")
+                  setShowLogInModal(true)}}
               >
                 Sign Up
               </Button>

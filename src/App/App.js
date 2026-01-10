@@ -18,6 +18,7 @@ import InvalidPage from "pages/invalid/invalid";
 import PrivacyPolicyPage from "pages/privacyPolicy/privacyPolicy";
 import AccountPage from "pages/account/accountPage";
 import ForgotPasswordPage from "pages/forgotPassword";
+import AllCompaniesPage from "pages/company/companies";
 
 // Handling Redux:
 import { createStore } from "redux";
@@ -85,6 +86,9 @@ const App = () => {
             <Switch>
               {/* Landing page (a.k.a. home) */}
               <Route exact path="/" component={LandingPage} />
+
+              {/* All companies page with the logos */}
+              <Route exact path="/companies" component={AllCompaniesPage} />
 
               {/* Generic company page template - will populate data based on company */}
               <Route exact path="/company/:id" component={CompanyPage} />

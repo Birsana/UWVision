@@ -120,17 +120,25 @@ export const SearchBarStylesNotHome = {
     borderRadius: 4,
     border: isFocused ? "1px solid #2196f3" : "none",
     width: 400,
+    "@media only screen and (max-width: 905px)": {
+      ...base["@media only screen and (max-width: 905px)"],
+      width: 300,
+    },
     "@media only screen and (max-width: 820px)": {
       ...base["@media only screen and (max-width: 820px)"],
-      width: 280,
+      width: 250,
     },
-    "@media only screen and (max-width: 700px)": {
-      ...base["@media only screen and (max-width: 700px)"],
-      width: 236,
+    "@media only screen and (max-width: 757px)": {
+      ...base["@media only screen and (max-width: 757px)"],
+      width: 220,
+    },
+    "@media only screen and (max-width: 725px)": {
+      ...base["@media only screen and (max-width: 725px)"],
+      width: 320,
     },
     "@media only screen and (max-width: 600px)": {
       ...base["@media only screen and (max-width: 600px)"],
-      width: 220,
+      width: 320,
     },
     "@media only screen and (max-width: 520px)": {
       ...base["@media only screen and (max-width: 520px)"],

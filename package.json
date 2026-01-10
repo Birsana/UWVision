@@ -19,7 +19,6 @@
     "immer": "^8.0.1",
     "mongoose": "^5.12.3",
     "nodejs": "0.0.0",
-    "pre-push": "^0.1.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.1",
     "react-chartjs-2": "^3.0.3",
